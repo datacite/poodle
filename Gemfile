@@ -1,38 +1,43 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.4'
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-
-# Reduces boot times through caching; required in config/boot.rb
+gem 'rails', '~> 5.2'
+gem 'dotenv'
+gem 'multi_json'
+gem 'json', '~> 1.8', '>= 1.8.5'
+gem 'equivalent-xml', '~> 0.6.0'
+gem 'nokogiri', '~> 1.8.1'
+gem 'iso8601', '~> 0.9.0'
+gem 'cirneco', '~> 0.9', '>= 0.9.17'
+gem 'bolognese', '~> 0.10', '>= 0.10.10'
+gem "dalli", "~> 2.7.6"
+gem 'lograge', '~> 0.10.0'
+gem 'logstash-event', '~> 1.2', '>= 1.2.02'
+gem 'logstash-logger', '~> 0.26.1'
+gem 'bugsnag', '~> 6.6', '>= 6.6.2'
+gem 'jwt', '~> 1.5', '>= 1.5.4'
+gem 'cancancan', '~> 1.9.2'
+gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.3'
 gem 'bootsnap', '>= 1.1.0', require: false
-
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors', '~> 1.0', '>= 1.0.2', :require => 'rack/cors'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'byebug', platform: :mri
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'httplog', '~> 1.0'
 end
 
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :test do
+  gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+  gem 'capybara'
+  gem 'webmock', '~> 1.20.0'
+  gem 'vcr', '~> 3.0.3'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'simplecov'
+end

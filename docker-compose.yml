@@ -1,16 +1,15 @@
 version: '2'
 
 services:
-  poodle:
+  web:
     env_file: .env
     image: datacite/poodle
     build: .
     ports:
-      - "8075:80"
+      - "8035:80"
     volumes:
       - ./app:/home/app/webapp/app
       - ./config:/home/app/webapp/config
-      - ./lib:/home/app/webapp/lib
       - ./spec:/home/app/webapp/spec
   memcached:
     image: memcached:1.4.31
