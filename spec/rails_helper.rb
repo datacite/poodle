@@ -33,7 +33,7 @@ VCR.configure do |c|
 end
 
 RSpec.configure do |config|
-  # config.include WebMock::API
+  config.include WebMock::API
   config.include Rack::Test::Methods, :type => :api
   config.include Rack::Test::Methods, :type => :request
   config.include Rack::Test::Methods, :type => :controller

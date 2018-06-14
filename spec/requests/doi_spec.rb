@@ -5,7 +5,7 @@ describe "dois", type: :request, vcr: true do
   let(:headers) { {'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
   describe '/doi', type: :request do
-    it "get dois" do
+    it "get all dois" do
       get '/doi', nil, headers
 
       expect(last_response.status).to eq(200)
@@ -15,9 +15,19 @@ describe "dois", type: :request, vcr: true do
     end
   end
 
-  describe '/doi', type: :request do
+  describe '/doi/10.14454/05MB-Q396', type: :request do
     let(:doi) { "10.14454/05MB-Q396" }
-    it "get doi" do
+    let(:data) { "doi=10.14454/05MB-Q396\nurl=https://www.datacite.org/" }
+
+    # it "register url for doi" do
+    #   headers = { 'HTTP_AUTHORIZATION' => 'Basic ' + credentials, 'CONTENT_TYPE' => "text/plain;charset=UTF-8" }
+    #   put "/doi/#{doi}", data, headers
+
+    #   expect(last_response.status).to eq(200)
+    #   expect(last_response.body).to eq("https://blog.datacite.org/")
+    # end
+
+    it "get url for doi" do
       get "/doi/#{doi}", nil, headers
 
       expect(last_response.status).to eq(200)

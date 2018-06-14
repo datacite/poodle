@@ -1,102 +1,53 @@
 module Doiable
   extend ActiveSupport::Concern
 
-  require "bolognese"
-  require "cirneco"
-
-  included do
-    include Bolognese::Utils
-    include Bolognese::DoiUtils
-    include Cirneco::Utils
-
-    def register_url(options={})
-      unless options[:username].present? && options[:password].present?
-        Rails.logger.error "[Handle] Error updating DOI " + doi + ": Username or password missing."
-        return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing." }] })
-      end
-
-      unless options[:role_id] == "client_admin"
-        Rails.logger.error "[Handle] Error updating DOI " + doi + ": User does not have permission to register handle."
-        return OpenStruct.new(body: { "errors" => [{ "title" => "User does not have permission to register handle." }] })
-      end
-
-      unless is_registered_or_findable?
-        Rails.logger.error "[Handle] Error updating DOI " + doi + ": DOI is not registered or findable."
-        return OpenStruct.new(body: { "errors" => [{ "title" => "DOI is not registered or findable." }] })
-      end
-
-      payload = "doi=#{doi}\nurl=#{options[:url]}"
-      mds_url = Rails.env.production? ? 'https://mds.datacite.org' : 'https://mds.test.datacite.org' 
-      url = "#{mds_url}/doi/#{doi}"
-
-      response = Maremma.put(url, content_type: 'text/plain;charset=UTF-8', data: payload, username: options[:username], password: options[:password])
-
-      if response.status == 201
-        Rails.logger.info "[Handle] Updated " + doi + " with " + options[:url] + "."
-        response
-      else
-        Rails.logger.error "[Handle] Error updating DOI " + doi + ": " + (response.body.dig("errors", 0, "title") || "unknown")
-        response
-      end
-    end
-
-    def get_url(options={})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
-
-      mds_url = Rails.env.production? ? 'https://mds.datacite.org' : 'https://mds.test.datacite.org' 
-      url = "#{mds_url}/doi/#{doi}"
-
-      response = Maremma.get(url, content_type: 'text/plain;charset=UTF-8', username: options[:username], password: options[:password])
-
-      if response.status == 200
-        response
-      else
-        text = "Error " + response.body.dig("errors", 0, "status").to_s + " " + (response.body.dig("errors", 0, "title") || "unknown") + " for URL " + options[:url] + "."
-        
-        Rails.logger.error "[Handle] " + text
-        User.send_notification_to_slack(text, title: title, level: "danger") unless Rails.env.test?
-        response
-      end
-    end
-
-    def generate_random_doi(str, options={})
-      prefix = validate_prefix(str)
-      fail IdentifierError, "No valid prefix found" unless prefix.present?
-
-      shoulder = str.split("/", 2)[1].to_s.downcase
-      encode_doi(prefix, shoulder: shoulder, number: options[:number])
-    end
-
-    def epoch_to_utc(epoch)
-      Time.at(epoch).to_datetime.utc.iso8601
-    end
-  end
-
   module ClassMethods
     def put_doi(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
+      return OpenStruct.new(body: { "errors" => [{ "title" => "Not a valid HTTP(S) URL" }] }) unless /\Ahttps?:\/\/[\S]+/.match(options[:url])
+      
+      data = {
+        "data" => {
+          "type" => "dois",
+          "attributes"=> {
+            "url" => options[:url]
+          }
+        }
+      }
 
-      payload = "doi=#{doi}\nurl=#{options[:url]}"
-      url = "#{mds_url}/doi/#{doi}"
-      Maremma.put(url, content_type: 'text/plain;charset=UTF-8', data: payload, username: options[:username], password: options[:password])
+      url = "#{api_url}/dois/#{doi}"
+      Maremma.put(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password])
     end
 
     def get_doi(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
-      url = "#{mds_url}/doi/#{doi}"
+      url = "#{api_url}/dois/#{doi}/get-url"
       Maremma.get(url, username: options[:username], password: options[:password])
     end
 
     def get_dois(options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
-      url = "#{mds_url}/doi"
+      url = "#{api_url}/dois/get-dois"
       Maremma.get(url, username: options[:username], password: options[:password])
     end
 
-    def mds_url
-      Rails.env.production? ? 'https://mds.datacite.org' : 'https://mds.test.datacite.org' 
+    def api_url
+      Rails.env.production? ? 'https://app.datacite.org' : 'https://app.test.datacite.org' 
+    end
+
+    def extract_url(doi: nil, data: nil)
+      doi_line, url_line = data.split("\n")
+
+      key, value = doi_line.split("=", 2)
+      fail IdentifierError, "doi key missing" if key != "doi"
+      fail IdentifierError, "DOI in parameters does not match" if value != doi
+        
+      key, value = url_line.split("=", 2)
+      fail IdentifierError, "url key missing" if key != "url"
+
+      value
     end
   end
 end

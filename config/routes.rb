@@ -6,23 +6,19 @@ Rails.application.routes.draw do
 
   resources :index, path: '/', only: [:index]
 
-  resources :dois, path: '/doi', only: [:show, :index, :update], constraints: { :id => /.+/ }
-  resources :metadata, only: [:show, :create, :delete], constraints: { :id => /.+/ }
-
   # custom routes, as the MDS routes don't follow standard rails pattern
   # we need to add constraints, as the id may contain slashes
 
-  # # create identifier
-  # put 'id/:id', :to => 'works#create', constraints: { :id => /.+/ }
+  # create media
+  post 'media/:doi_id', :to => 'media#create', constraints: { :doi_id => /.+/ }
 
-  # # mint identifier
-  # post 'shoulder/:id', :to => 'works#mint', constraints: { :id => /.+/ }
+  # get media
+  get 'media/:doi_id', :to => 'media#index', constraints: { :doi_id => /.+/ }
 
-  # # update identifier
-  # post 'id/:id', :to => 'works#update', constraints: { :id => /.+/ }
-
-  # # delete identifier
-  # delete 'id/:id', :to => 'works#delete', constraints: { :id => /.+/ }
+  resources :dois, path: '/doi', constraints: { :id => /.+/ } do
+    resources :metadata
+    resources :media
+  end
 
   root :to => 'index#index'
 
