@@ -13,7 +13,7 @@ class MetadataController < ApplicationController
   end
 
   def create
-    response = MetadataController.create_metadata(doi, username: username, password: password)
+    response = MetadataController.create_metadata(safe_params[:data], username: username, password: password)
 
     render xml: response.body["data"], status: :ok
   end
@@ -30,6 +30,6 @@ class MetadataController < ApplicationController
   private
 
   def safe_params
-    params.permit(:id).merge(request.raw_post)
+    params.permit(:id).merge(data: request.raw_post)
   end
 end
