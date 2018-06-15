@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   # get media
   get 'media/:doi_id', :to => 'media#index', constraints: { :doi_id => /.+/ }
 
+  # create metadata
+  post 'metadata', :to => 'metadata#create'
+
+  # get metadata
+  get 'metadata/:doi_id', :to => 'metadata#index', constraints: { :doi_id => /.+/ }
+
   resources :dois, path: '/doi', constraints: { :id => /.+/ } do
     resources :metadata
     resources :media

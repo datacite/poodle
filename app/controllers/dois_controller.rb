@@ -22,7 +22,7 @@ class DoisController < ApplicationController
     if response.body["data"].present?
       render plain: response.body.dig("data", "url"), status: :ok
     else
-      render plain: "No URL found", status: :not_found
+      render plain: "DOI not found", status: :not_found
     end
   end
 

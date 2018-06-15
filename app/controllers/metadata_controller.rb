@@ -2,34 +2,51 @@ class MetadataController < ApplicationController
   include Metadatable
 
   prepend_before_action :authenticate_user_with_basic_auth!
+  before_action :set_doi, except: [:create]
+  before_action :set_metadata, only: [:show, :destroy]
 
-  def show
-    doi = validate_doi(params[:id])
-    fail AbstractController::ActionNotFound unless doi.present?
+  def index
+    response = MetadataController.get_metadata(@doi, username: username, password: password)
 
-    response = MetadataController.get_metadata(doi, username: username, password: password)
-
-    render xml: response.body["data"], status: :ok
+    if response.body["data"].present?
+      render xml: response.body["data"], status: :ok
+    else
+      render plain: "DOI is unknown to MDS", status: :not_found
+    end
   end
 
   def create
-    response = MetadataController.create_metadata(safe_params[:data], username: username, password: password)
+    @doi = validate_doi(params[:doi_id])
+    response = MetadataController.create_metadata(@doi, data: safe_params[:data], username: username, password: password)
+
+    if response.status == 201
+      render plain: response.body.dig("data").inspect, status: :created
+    else
+      render plain: "DOI is unknown to MDS", status: :not_found
+    end
+  end
+
+  def destroy
+    response = MetadataController.delete_metadata(@doi, username: username, password: password)
 
     render xml: response.body["data"], status: :ok
   end
 
-  def destroy
-    doi = validate_doi(params[:id])
-    fail AbstractController::ActionNotFound unless doi.present?
+  protected
 
-    response = MetadataController.delete_metadata(doi, username: username, password: password)
+  def set_doi
+    @doi = validate_doi(params[:doi_id])
+    fail AbstractController::ActionNotFound unless @doi.present?
+  end
 
-    render xml: response.body["data"], status: :ok
+  def set_metadata
+    @id = params[:id]
+    fail ActiveRecord::RecordNotFound unless @id.present?
   end
 
   private
 
   def safe_params
-    params.permit(:id).merge(data: request.raw_post)
+    params.permit(:id, :doi_id).merge(data: request.raw_post)
   end
 end

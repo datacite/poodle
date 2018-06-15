@@ -38,6 +38,8 @@ module Mediable
 
       url = "#{api_url}/dois/#{doi}/media/#{id}"
       response = Maremma.get(url, content_type: 'application/vnd.api+json', username: options[:username], password: options[:password])
+      return response unless response.body["data"].present?
+
       media_type = response.body.dig("data, attributes", "media-type")
       url = response.body.dig("data, attributes", "url")
       response.body["data"] = "#{media_type.to_s}=#{url.to_s}"

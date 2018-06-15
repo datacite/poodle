@@ -74,4 +74,17 @@ describe "media", type: :request, vcr: true, order: :defined do
       expect(last_response.body).to eq("OK")  
     end
   end
+
+  describe '/media/10.5072/xxxxxx', type: :request do
+    let(:doi_id) { "10.5072/xxxxxx" }
+    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+
+    it "doi not found" do
+      get "/media/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(404)
+
+      expect(last_response.body).to eq("DOI is unknown to MDS")  
+    end
+  end
 end

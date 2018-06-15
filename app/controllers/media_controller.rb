@@ -8,7 +8,9 @@ class MediaController < ApplicationController
   def index
     response = MediaController.list_media(@doi, username: username, password: password)
 
-    if response.body["data"].present?
+    if response.body["errors"].present?
+      render plain: "DOI is unknown to MDS", status: :not_found
+    elsif response.body["data"].present?
       render plain: response.body["data"], status: :ok
     else
       render plain: "No media for the DOI", status: :not_found

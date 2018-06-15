@@ -8,16 +8,17 @@ module Metadatable
       url = "#{api_url}/#{doi}"
       Maremma.get(url, accept: "application/vnd.datacite.datacite+xml", username: options[:username], password: options[:password], raw: true)
     end
-
     
-    def create_metadata(data, options={})
+    def create_metadata(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
-      doc = Nokogiri::XML(data, nil, 'UTF-8', &:noblanks)
-      doi = doc.at_css("identifier").content
+      unless doi.present?
+        doc = Nokogiri::XML(options[:data], nil, 'UTF-8', &:noblanks)
+        doi = doc.at_css("identifier").content
+      end
       
       attributes = {
-        "xml" => ::Base64.strict_encode64(data) }
+        "xml" => ::Base64.strict_encode64(options[:data]) }
 
       data = {
         "data" => {

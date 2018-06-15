@@ -34,4 +34,26 @@ describe "dois", type: :request, vcr: true do
       expect(last_response.body).to eq("https://blog.datacite.org/")
     end
   end
+
+  describe '/doi/10.5438/0012', type: :request do
+    let(:doi) { "10.5438/0012" }
+
+    it "get url for doi not found" do
+      get "/doi/#{doi}", nil, headers
+
+      expect(last_response.status).to eq(404)
+      expect(last_response.body).to eq("DOI not found")
+    end
+  end
+
+  describe '/doi/10.1371/journal.pbio.2001414', type: :request do
+    let(:doi) { "10.1371/journal.pbio.2001414" }
+
+    it "get url for doi not from DataCite" do
+      get "/doi/#{doi}", nil, headers
+
+      expect(last_response.status).to eq(404)
+      expect(last_response.body).to eq("DOI not found")
+    end
+  end
 end
