@@ -28,7 +28,7 @@ class MediaController < ApplicationController
   end
 
   def create
-    response = MediaController.post_media(@doi, data: safe_params[:data], username: username, password: password)
+    response = MediaController.create_media(@doi, data: safe_params[:data], username: username, password: password)
 
     if response.body["data"].present?
       render plain: "OK", status: :ok

@@ -2,7 +2,7 @@ module Mediable
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def post_media(doi, options={})
+    def create_media(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
       return OpenStruct.new(body: { "errors" => [{ "title" => "Media type and URL missing" }] }) unless options[:data].present?
       
