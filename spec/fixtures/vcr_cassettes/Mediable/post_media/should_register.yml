@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://app.test.datacite.org/dois/10.14454/05MB-Q396/media
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"media","attributes":{"media-type":"application/pdf","url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf"}}}'
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.6; +https://github.com/datacite/maremma)
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 201
+      message: ''
+    headers:
+      Date:
+      - Sat, 16 Jun 2018 14:08:11 GMT
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.datacite
+      X-Request-Id:
+      - 6054105a-4b37-48ef-a2c9-01b2bd5334d2
+      Etag:
+      - W/"041d16db7374349d10d20452436d4702"
+      X-Runtime:
+      - '0.028704'
+      X-Powered-By:
+      - Phusion Passenger 5.3.2
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"0000-0000-0000-mzxc","type":"media","attributes":{"version":0,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","media-type":"application/pdf","created":"2018-06-16T14:08:11.000Z","updated":"2018-06-16T14:08:11.000Z"},"relationships":{"doi":{"meta":{}}}}}'
+    http_version: 
+  recorded_at: Sat, 16 Jun 2018 14:08:11 GMT
+recorded_with: VCR 3.0.3

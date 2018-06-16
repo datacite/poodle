@@ -19,7 +19,7 @@ module Mediable
       }
 
       url = "#{api_url}/dois/#{doi}/media"
-      Maremma.post(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password], raw: true)
+      Maremma.post(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password])
     end
 
     def list_media(doi, options={})
@@ -27,6 +27,8 @@ module Mediable
 
       url = "#{api_url}/dois/#{doi}/media"
       response = Maremma.get(url, content_type: 'application/vnd.api+json', username: options[:username], password: options[:password])
+      return response unless response.body["data"].present?
+      
       response.body["data"] = Array.wrap(response.body["data"]).map do |m|
         "#{m.dig("attributes", "media-type").to_s}=#{m.dig("attributes", "url").to_s}"
       end.join("\n")
@@ -40,9 +42,8 @@ module Mediable
       response = Maremma.get(url, content_type: 'application/vnd.api+json', username: options[:username], password: options[:password])
       return response unless response.body["data"].present?
 
-      media_type = response.body.dig("data, attributes", "media-type")
-      url = response.body.dig("data, attributes", "url")
-      response.body["data"] = "#{media_type.to_s}=#{url.to_s}"
+      m = response.body["data"]
+      response.body["data"] = "#{m.dig("attributes", "media-type").to_s}=#{m.dig("attributes", "url").to_s}"
       response
     end
 
