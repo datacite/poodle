@@ -18,7 +18,8 @@ module Metadatable
       end
       
       attributes = {
-        "xml" => ::Base64.strict_encode64(options[:data]) }
+        "xml" => ::Base64.strict_encode64(options[:data]),
+        "event" => "start" }
 
       data = {
         "data" => {
@@ -36,14 +37,14 @@ module Metadatable
       }
 
       url = "#{api_url}/dois/#{doi}"
-      Maremma.put(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password], raw: true)
+      Maremma.put(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password])
     end
 
     def delete_metadata(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
       attributes = {
-        "is-active" => false }
+        "event" => "hide" }
 
       data = {
         "data" => {
@@ -61,7 +62,7 @@ module Metadatable
       }
 
       url = "#{api_url}/dois/#{doi}"
-      Maremma.patch(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password], raw: true)
+      Maremma.patch(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password])
     end
 
     def api_url
