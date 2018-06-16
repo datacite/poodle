@@ -50,6 +50,35 @@ describe Doiable, vcr: true, order: :defined do
     end
   end
 
+  context "delete_doi" do
+    let(:doi) { "10.5072/rgby-wt03" }
+    let(:data) { file_fixture('datacite.xml').read }
+
+    it 'should delete' do
+      options = { username: username, password: password }
+      MetadataController.create_metadata(doi, options.merge(data: data))
+
+      response = subject.delete_doi(doi, options)
+      expect(response.status).to eq(204)
+      expect(response.body["data"]).to be_blank
+    end
+
+    it 'should not delete findable doi' do
+      doi = "10.14454/05mb-q396"
+      options = { username: username, password: password }
+
+      response = subject.delete_doi(doi, options)
+      puts response.inspect
+      expect(response.status).to eq(405)
+      expect(response.body.dig("errors", 0, "title")).to eq("Method not allowed")
+    end
+
+    it 'no password' do
+      options = { username: username, password: nil }
+      expect(subject.delete_doi(doi, options).body.dig("errors")).to eq([{"title"=>"Username or password missing"}])
+    end
+  end
+
   context "extract_url" do
     it 'should get url' do
       doi = "10.5072/0000-03VC"

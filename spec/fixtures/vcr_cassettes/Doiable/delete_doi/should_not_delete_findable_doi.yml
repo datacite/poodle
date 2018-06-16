@@ -1,46 +1,50 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://app.test.datacite.org/dois/10.5438/0012/get-url
+    method: delete
+    uri: https://app.test.datacite.org/dois/10.14454/05mb-q396
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.8; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.6; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 204
+      code: 405
       message: ''
     headers:
       Date:
-      - Sat, 16 Jun 2018 20:06:24 GMT
+      - Sat, 16 Jun 2018 17:53:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 204 No Content
+      - 405 Method Not Allowed
       Cache-Control:
       - no-cache
       Vary:
-      - Origin
+      - Accept-Encoding, Origin
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 59e2da1a-b177-4fe0-bdf5-5359aa3ca1ca
+      - d69463da-2f05-4d4c-bd60-671054b526e5
       X-Runtime:
-      - '0.145849'
+      - '0.008949'
+      Allow:
+      - HEAD, GET, POST, PATCH, PUT, OPTIONS
       X-Powered-By:
       - Phusion Passenger 5.3.2
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.2
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: '{"errors":[{"status":"405","title":"Method not allowed"}]}'
     http_version: 
-  recorded_at: Sat, 16 Jun 2018 20:06:35 GMT
+  recorded_at: Sat, 16 Jun 2018 17:53:30 GMT
 recorded_with: VCR 3.0.3

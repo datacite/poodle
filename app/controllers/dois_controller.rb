@@ -2,7 +2,7 @@ class DoisController < ApplicationController
   include Doiable
 
   prepend_before_action :authenticate_user_with_basic_auth!
-  before_action :set_doi, only: [:show, :update]
+  before_action :set_doi, only: [:show, :update, :destroy]
 
   def index
     response = DoisController.get_dois(username: username, password: password)
@@ -36,6 +36,16 @@ class DoisController < ApplicationController
       render plain: response.body.dig("data", "attributes", "url"), status: :ok
     else
       render plain: "DOI not found", status: :not_found
+    end
+  end
+
+  def destroy
+    response = DoisController.delete_doi(@doi, username: username, password: password)
+
+    if response.status == 204
+      render plain: "OK", status: :ok
+    else
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 

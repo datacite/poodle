@@ -34,6 +34,13 @@ module Doiable
       Maremma.get(url, username: options[:username], password: options[:password])
     end
 
+    def delete_doi(doi, options={})
+      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
+
+      url = "#{api_url}/dois/#{doi}"
+      Maremma.delete(url, username: options[:username], password: options[:password])
+    end
+
     def get_dois(options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 

@@ -100,4 +100,30 @@ describe "dois", type: :request, vcr: true do
       expect(last_response.body).to eq("DOI not found")
     end
   end
+
+  describe '/doi/10.5072/rgby-wt03 delete', type: :request do
+    let(:doi) { "10.5072/rgby-wt03" }
+    let(:username) { ENV['MDS_USERNAME'] }
+    let(:password) { ENV['MDS_PASSWORD'] }
+    let(:data) { file_fixture('datacite.xml').read }
+    let(:options) { { data: data, username: username, password: password } }
+    
+
+    it "delete doi" do
+      MetadataController.create_metadata(doi, options)
+
+      delete "/doi/#{doi}", nil, headers
+
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq("OK")
+    end
+
+    it "not delete findable doi" do
+      doi = "10.14454/05MB-Q396"
+      delete "/doi/#{doi}", nil, headers
+
+      expect(last_response.status).to eq(405)
+      expect(last_response.body).to eq("Method not allowed")
+    end
+  end
 end
