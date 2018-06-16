@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://app.test.datacite.org/dois/10.14454/05mb-q396
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"dois","attributes":{"url":"https://www.datacite.org/roadmap.html"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.6; +https://github.com/datacite/maremma)
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 16 Jun 2018 11:56:34 GMT
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.datacite
+      X-Request-Id:
+      - a8e734ed-3702-4990-bfed-9a38d7cc7618
+      Etag:
+      - W/"b4ed6fcc98608178092973ebd157b5c3"
+      X-Runtime:
+      - '0.109840'
+      X-Powered-By:
+      - Phusion Passenger 5.3.2
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","prefix":"10.14454","suffix":"05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","url":"https://www.datacite.org/roadmap.html","author":[{"type":"Person","name":"Sankar,
+        Martial","given-name":"Martial","family-name":"Sankar"},{"type":"Person","name":"Nieminen,
+        Kaisa","given-name":"Kaisa","family-name":"Nieminen"},{"type":"Person","name":"Ragni,
+        Laura","given-name":"Laura","family-name":"Ragni"},{"type":"Person","name":"Xenarios,
+        Ioannis","given-name":"Ioannis","family-name":"Xenarios"},{"type":"Person","name":"Hardtke,
+        Christian S","given-name":"Christian S","family-name":"Hardtke"}],"title":"Automated
+        quantitative histology reveals vascular morphodynamics during Arabidopsis
+        hypocotyl secondary growth","publisher":"{eLife} Sciences Organisation, Ltd.","resource-type-subtype":"JournalArticle","description":"Among
+        various advantages, their small size makes model organisms preferred subjects
+        of investigation. Yet, even in model systems detailed analysis of numerous
+        developmental processes at cellular level is severely hampered by their scale.","version":null,"metadata-version":1,"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","is-active":true,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMTQ0NTQvMDVNQi1RMzk2PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+U2Fua2FyLCBNYXJ0aWFsPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5NYXJ0aWFsPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPlNhbmthcjwvZmFtaWx5TmFtZT4KICAgIDwvY3JlYXRvcj4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+TmllbWluZW4sIEthaXNhPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5LYWlzYTwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5OaWVtaW5lbjwvZmFtaWx5TmFtZT4KICAgIDwvY3JlYXRvcj4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+UmFnbmksIExhdXJhPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5MYXVyYTwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5SYWduaTwvZmFtaWx5TmFtZT4KICAgIDwvY3JlYXRvcj4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+WGVuYXJpb3MsIElvYW5uaXM8L2NyZWF0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPklvYW5uaXM8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+WGVuYXJpb3M8L2ZhbWlseU5hbWU+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkhhcmR0a2UsIENocmlzdGlhbiBTPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5DaHJpc3RpYW4gUzwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5IYXJkdGtlPC9mYW1pbHlOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5BdXRvbWF0ZWQgcXVhbnRpdGF0aXZlIGhpc3RvbG9neSByZXZlYWxzIHZhc2N1bGFyIG1vcnBob2R5bmFtaWNzIGR1cmluZyBBcmFiaWRvcHNpcyBoeXBvY290eWwgc2Vjb25kYXJ5IGdyb3d0aDwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj57ZUxpZmV9IFNjaWVuY2VzIE9yZ2FuaXNhdGlvbiwgTHRkLjwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNDwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Sm91cm5hbEFydGljbGU8L3Jlc291cmNlVHlwZT4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDE0PC9kYXRlPgogIDwvZGF0ZXM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IklTU04iIHJlbGF0aW9uVHlwZT0iSXNQYXJ0T2YiPjIwNTAtMDg0WDwvcmVsYXRlZElkZW50aWZpZXI+CiAgPC9yZWxhdGVkSWRlbnRpZmllcnM+CiAgPHZlcnNpb24vPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LzMuMC8iLz4KICA8L3JpZ2h0c0xpc3Q+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij5BbW9uZyB2YXJpb3VzIGFkdmFudGFnZXMsIHRoZWlyIHNtYWxsIHNpemUgbWFrZXMgbW9kZWwgb3JnYW5pc21zIHByZWZlcnJlZCBzdWJqZWN0cyBvZiBpbnZlc3RpZ2F0aW9uLiBZZXQsIGV2ZW4gaW4gbW9kZWwgc3lzdGVtcyBkZXRhaWxlZCBhbmFseXNpcyBvZiBudW1lcm91cyBkZXZlbG9wbWVudGFsIHByb2Nlc3NlcyBhdCBjZWxsdWxhciBsZXZlbCBpcyBzZXZlcmVseSBoYW1wZXJlZCBieSB0aGVpciBzY2FsZS48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==","published":"2014","registered":"2018-06-08T05:20:10.000Z","updated":"2018-06-16T11:56:34.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"provider":{"data":{"id":"datacite","type":"providers"}},"resource-type":{"data":{"id":"text","type":"resource-types"}},"media":{"meta":{}}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contact-name":"Martin
+        Fenner","contact-email":"support@datacite.org","domains":"datacite.org","url":null,"is-active":true,"has-password":true,"created":"2011-12-07T13:43:39Z","updated":"2018-06-16T01:30:26Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"datacite","type":"providers","attributes":{"name":"DataCite","symbol":"DATACITE","website":null,"contact-name":"DataCite
+        Support","contact-email":"support@datacite.org","phone":null,"description":null,"country":null,"logo-url":null,"institution-type":null,"is-active":true,"has-password":true,"joined":null,"created":"2011-12-07T13:41:07.000Z","updated":"2018-06-16T01:25:40.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}},{"id":"text","type":"resource-types","attributes":{"title":"Text","updated":"2016-09-21T00:00:00Z"}}]}'
+    http_version: 
+  recorded_at: Sat, 16 Jun 2018 11:56:34 GMT
+recorded_with: VCR 3.0.3

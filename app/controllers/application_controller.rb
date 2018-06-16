@@ -34,6 +34,7 @@ class ApplicationController < ActionController::API
                when "CanCan::AccessDenied", "JWT::DecodeError" then 401
                when "AbstractController::ActionNotFound", "ActionController::RoutingError" then 404
                when "ActiveModel::ForbiddenAttributesError", "ActionController::UnpermittedParameters", "NoMethodError" then 422
+               when "IdentifierError" then 400
                else 400
                end
 
@@ -41,14 +42,14 @@ class ApplicationController < ActionController::API
         message = "bad request - no such identifier"
         status = 400
       elsif status == 401
-        message = "unauthorized"
+        message = "Bad credentials"
       else
         message = exception.message
       end
 
       Rails.logger.debug "[#{status}]: " + message
 
-      render plain: "error: " + message, status: status
+      render plain: message, status: status
     end
   end
 end

@@ -2,6 +2,7 @@ class DoisController < ApplicationController
   include Doiable
 
   prepend_before_action :authenticate_user_with_basic_auth!
+  before_action :set_doi, only: [:show, :update]
 
   def index
     response = DoisController.get_dois(username: username, password: password)
@@ -14,10 +15,7 @@ class DoisController < ApplicationController
   end
 
   def show
-    doi = validate_doi(params[:id])
-    fail AbstractController::ActionNotFound unless doi.present?
-
-    response = DoisController.get_doi(doi, username: username, password: password)
+    response = DoisController.get_doi(@doi, username: username, password: password)
 
     if response.body["data"].present?
       render plain: response.body.dig("data", "url"), status: :ok
@@ -27,15 +25,25 @@ class DoisController < ApplicationController
   end
 
   def update
-    doi = validate_doi(params[:id])
-    fail AbstractController::ActionNotFound unless doi.present?
-    fail IdentifierError, "No parameters provided" unless safe_params[:data].present?
-    Rails.logger.info safe_params.inspect
-    url = extract_url(doi: doi, data: safe_params[:data])
+    # Rails.logger.info safe_params.inspect
+    return head :bad_request unless safe_params[:data].present?
 
-    response = DoisController.put_doi(doi, url: url, username: username, password: password)
+    url = DoisController.extract_url(doi: @doi, data: safe_params[:data])
 
-    render plain: response.body["data"], status: :ok
+    response = DoisController.put_doi(@doi, url: url, username: username, password: password)
+
+    if response.body["data"].present?
+      render plain: response.body.dig("data", "attributes", "url"), status: :ok
+    else
+      render plain: "DOI not found", status: :not_found
+    end
+  end
+
+  protected
+
+  def set_doi
+    @doi = validate_doi(params[:id])
+    fail AbstractController::ActionNotFound unless @doi.present?
   end
 
   private

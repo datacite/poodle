@@ -17,15 +17,49 @@ describe "dois", type: :request, vcr: true do
 
   describe '/doi/10.14454/05MB-Q396', type: :request do
     let(:doi) { "10.14454/05MB-Q396" }
-    let(:data) { "doi=10.14454/05MB-Q396\nurl=https://www.datacite.org/" }
+    let(:data) { "doi=10.14454/05MB-Q396\nurl=https://www.datacite.org/roadmap.html" }
+    let(:headers) { { 'HTTP_AUTHORIZATION' => 'Basic ' + credentials, 'CONTENT_TYPE' => "text/plain;charset=UTF-8" } }
 
-    # it "register url for doi" do
-    #   headers = { 'HTTP_AUTHORIZATION' => 'Basic ' + credentials, 'CONTENT_TYPE' => "text/plain;charset=UTF-8" }
-    #   put "/doi/#{doi}", data, headers
+    it "register url for doi" do
+      put "/doi/#{doi}", data, headers
 
-    #   expect(last_response.status).to eq(200)
-    #   expect(last_response.body).to eq("https://blog.datacite.org/")
-    # end
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq("https://www.datacite.org/roadmap.html")
+    end
+
+    it "register url no data" do
+      put "/doi/#{doi}", nil, headers
+
+      expect(last_response.status).to eq(400)
+      expect(last_response.body).to be_blank
+    end
+
+    it "register url no doi" do
+      data = "url=https://www.datacite.org/"
+
+      put "/doi/#{doi}", data, headers
+
+      expect(last_response.status).to eq(400)
+      expect(last_response.body).to eq("doi parameter does not match doi of resource")
+    end
+
+    it "register url doi mismatch" do
+      data = "doi=10.14454/05MB-QQQQ\nurl=https://www.datacite.org/"
+
+      put "/doi/#{doi}", data, headers
+
+      expect(last_response.status).to eq(400)
+      expect(last_response.body).to eq("doi parameter does not match doi of resource")
+    end
+
+    it "register url no url" do
+      data = "doi=10.14454/05MB-Q396"
+
+      put "/doi/#{doi}", data, headers
+
+      expect(last_response.status).to eq(400)
+      expect(last_response.body).to eq("param 'url' required")
+    end
 
     it "get url for doi" do
       get "/doi/#{doi}", nil, headers
@@ -37,8 +71,18 @@ describe "dois", type: :request, vcr: true do
 
   describe '/doi/10.5438/0012', type: :request do
     let(:doi) { "10.5438/0012" }
+    let(:data) { "doi=10.5438/0012\nurl=https://www.datacite.org/roadmap.html" }
+    let(:headers) { { 'HTTP_AUTHORIZATION' => 'Basic ' + credentials, 'CONTENT_TYPE' => "text/plain;charset=UTF-8" } }
+
+    # it "register url for doi not found" do
+    #   put "/doi/#{doi}", data, headers
+
+    #   expect(last_response.status).to eq(412)
+    #   expect(last_response.body).to eq("You have to register metadata first!")
+    # end
 
     it "get url for doi not found" do
+      headers = {'HTTP_AUTHORIZATION' => 'Basic ' + credentials }
       get "/doi/#{doi}", nil, headers
 
       expect(last_response.status).to eq(404)

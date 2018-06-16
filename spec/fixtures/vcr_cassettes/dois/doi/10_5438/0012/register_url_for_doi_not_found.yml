@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://app.test.datacite.org/dois/10.5438/0012
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"dois","attributes":{"url":"https://www.datacite.org/roadmap.html"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.6; +https://github.com/datacite/maremma)
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 201
+      message: ''
+    headers:
+      Date:
+      - Sat, 16 Jun 2018 11:57:26 GMT
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.datacite
+      X-Request-Id:
+      - b7fd2a06-fd3c-4429-8c01-8bf565c83e28
+      Location:
+      - https://app.test.datacite.org/dois/2221479
+      Etag:
+      - W/"6302daae05cc900d5cc10ab02c082d79"
+      X-Runtime:
+      - '0.098767'
+      X-Powered-By:
+      - Phusion Passenger 5.3.2
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.5438/0012","type":"dois","attributes":{"doi":"10.5438/0012","prefix":"10.5438","suffix":"0012","identifier":"https://handle.test.datacite.org/10.5438/0012","url":"https://www.datacite.org/roadmap.html","author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"draft","is-active":false,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"registered":null,"updated":"2018-06-16T11:57:26.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+    http_version: 
+  recorded_at: Sat, 16 Jun 2018 11:57:25 GMT
+recorded_with: VCR 3.0.3

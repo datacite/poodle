@@ -11,6 +11,14 @@ module Doiable
           "type" => "dois",
           "attributes"=> {
             "url" => options[:url]
+          },
+          "relationships"=> {
+            "client"=>  {
+              "data"=> {
+                "type"=> "clients",
+                "id"=> options[:username]
+              }
+            }
           }
         }
       }
@@ -40,12 +48,11 @@ module Doiable
     def extract_url(doi: nil, data: nil)
       doi_line, url_line = data.split("\n")
 
-      key, value = doi_line.split("=", 2)
-      fail IdentifierError, "doi key missing" if key != "doi"
-      fail IdentifierError, "DOI in parameters does not match" if value != doi
+      key, value = doi_line.to_s.split("=", 2)
+      fail IdentifierError, "doi parameter does not match doi of resource" if key != "doi" || value.casecmp(doi) != 0
         
-      key, value = url_line.split("=", 2)
-      fail IdentifierError, "url key missing" if key != "url"
+      key, value = url_line.to_s.split("=", 2)
+      fail IdentifierError, "param 'url' required" if key != "url" || value.blank?
 
       value
     end

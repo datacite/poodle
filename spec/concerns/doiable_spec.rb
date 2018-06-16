@@ -60,19 +60,25 @@ describe Doiable, vcr: true, order: :defined do
     it 'doi does not match' do
       doi = "10.5072/0000-03VC"
       data = "doi=10.5072/AAAA-03VC\nurl=http://example.org/"
-      expect { subject.extract_url(doi: doi, data: data) }.to raise_error(IdentifierError, "DOI in parameters does not match")
+      expect { subject.extract_url(doi: doi, data: data) }.to raise_error(IdentifierError, "doi parameter does not match doi of resource")
     end
 
     it 'no doi key' do
       doi = "10.5072/0000-03VC"
       data = "10.5072/0000-03VC\nurl=http://example.org/"
-      expect { subject.extract_url(doi: doi, data: data) }.to raise_error(IdentifierError, "doi key missing")
+      expect { subject.extract_url(doi: doi, data: data) }.to raise_error(IdentifierError, "doi parameter does not match doi of resource")
     end
 
     it 'no url key' do
       doi = "10.5072/0000-03VC"
       data = "doi=10.5072/0000-03VC\nhttp://example.org/"
-      expect { subject.extract_url(doi: doi, data: data) }.to raise_error(IdentifierError, "url key missing")
+      expect { subject.extract_url(doi: doi, data: data) }.to raise_error(IdentifierError, "param 'url' required")
+    end
+
+    it 'no url' do
+      doi = "10.5072/0000-03VC"
+      data = "doi=10.5072/0000-03VC"
+      expect { subject.extract_url(doi: doi, data: data) }.to raise_error(IdentifierError, "param 'url' required")
     end
   end
 end
