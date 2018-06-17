@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.test.datacite.org/10.5438/08a0-3f64
+    uri: https://app.test.datacite.org/10.5072/003r-j076
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 17 Jun 2018 10:20:19 GMT
+      - Sun, 17 Jun 2018 20:17:03 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Connection:
@@ -33,15 +33,15 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 4c0a1b23-c523-4440-abcc-53b3e2b0ef82
+      - 76ad2fce-2000-4e48-b517-28850ea6117e
       Content-Disposition:
-      - attachment; filename=_10.5438_08a0-3f64.xml
+      - attachment; filename=_10.5072_003r-j076.xml
       Content-Transfer-Encoding:
       - binary
       Etag:
-      - W/"6e86b6704bc799a8183dd2b5642e623b"
+      - W/"7c368ecb007dca946daa7b98837be416"
       X-Runtime:
-      - '0.007461'
+      - '0.007458'
       X-Powered-By:
       - Phusion Passenger 5.3.2
       Server:
@@ -51,7 +51,7 @@ http_interactions:
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
         <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
-          <identifier identifierType="DOI">10.5438/08A0-3F64</identifier>
+          <identifier identifierType="DOI">10.5072/003R-J076</identifier>
           <creators>
             <creator>
               <creatorName>Fenner, Martin</creatorName>
@@ -90,5 +90,5 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Sun, 17 Jun 2018 10:20:23 GMT
+  recorded_at: Sun, 17 Jun 2018 20:17:03 GMT
 recorded_with: VCR 3.0.3

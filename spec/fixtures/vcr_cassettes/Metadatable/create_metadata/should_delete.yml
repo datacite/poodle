@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://app.test.datacite.org/dois/10.5438/08a0-3f64
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.9; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 204
+      message: ''
+    headers:
+      Date:
+      - Sun, 17 Jun 2018 20:23:31 GMT
+      Connection:
+      - keep-alive
+      Status:
+      - 204 No Content
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Origin
+      X-Credential-Username:
+      - datacite.datacite
+      X-Request-Id:
+      - 84dc883d-c34c-4535-bc8a-59695c81f862
+      X-Runtime:
+      - '0.017800'
+      X-Powered-By:
+      - Phusion Passenger 5.3.2
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.2
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Sun, 17 Jun 2018 20:23:32 GMT
+recorded_with: VCR 3.0.3

@@ -56,7 +56,7 @@ class MediaController < ApplicationController
 
   def set_media
     @id = params[:id]
-    fail ActiveRecord::RecordNotFound unless @id.present?
+    fail AbstractController::ActionNotFound unless @id.present?
   end
 
   private

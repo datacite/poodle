@@ -9,6 +9,7 @@ gem 'nokogiri', '~> 1.8.1'
 gem 'iso8601', '~> 0.9.0'
 gem 'bolognese', '~> 0.10', '>= 0.10.10'
 gem 'maremma', '~> 4.0'
+gem 'base32-url', '~> 0.5'
 gem "dalli", "~> 2.7.6"
 gem 'lograge', '~> 0.10.0'
 gem 'logstash-event', '~> 1.2', '>= 1.2.02'

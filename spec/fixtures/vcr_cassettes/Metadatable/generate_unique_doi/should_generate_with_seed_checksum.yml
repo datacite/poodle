@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://app.test.datacite.org/10.5072/015n-mj18
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.9; +https://github.com/datacite/maremma)
+      Accept:
+      - application/vnd.datacite.datacite+xml
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      Date:
+      - Sun, 17 Jun 2018 12:51:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 404 Not Found
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 2b703c40-b9e1-4710-a777-19577ee7b14c
+      X-Runtime:
+      - '0.003358'
+      X-Powered-By:
+      - Phusion Passenger 5.3.2
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"status":"404","title":"The resource you are looking for
+        doesn''t exist."}]}'
+    http_version: 
+  recorded_at: Sun, 17 Jun 2018 12:51:25 GMT
+- request:
+    method: get
+    uri: https://app.test.datacite.org/10.5072/015n-mj18
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.9; +https://github.com/datacite/maremma)
+      Accept:
+      - application/vnd.datacite.datacite+xml
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      Date:
+      - Sun, 17 Jun 2018 12:51:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 404 Not Found
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 25801718-bcb4-4691-a0e7-39d7ca39047b
+      X-Runtime:
+      - '0.003429'
+      X-Powered-By:
+      - Phusion Passenger 5.3.2
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"status":"404","title":"The resource you are looking for
+        doesn''t exist."}]}'
+    http_version: 
+  recorded_at: Sun, 17 Jun 2018 12:51:26 GMT
+recorded_with: VCR 3.0.3

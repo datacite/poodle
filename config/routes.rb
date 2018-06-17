@@ -17,12 +17,15 @@ Rails.application.routes.draw do
 
   # create metadata
   post 'metadata', :to => 'metadata#create'
+  post 'metadata/:doi_id', :to => 'metadata#create', constraints: { :doi_id => /.+/ }
 
   # get metadata
   get 'metadata/:doi_id', :to => 'metadata#index', constraints: { :doi_id => /.+/ }
 
+  # delete metadata
+  delete 'metadata/:doi_id', :to => 'metadata#destroy', constraints: { :doi_id => /.+/ }
+
   resources :dois, path: '/doi', constraints: { :id => /.+/ } do
-    resources :metadata
     resources :media
   end
 

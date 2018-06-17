@@ -2,46 +2,51 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.test.datacite.org/10.5072/ey2x-5w17
+    uri: https://app.test.datacite.org/10.5072/236y-qx15
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.6; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.9; +https://github.com/datacite/maremma)
       Accept:
       - application/vnd.datacite.datacite+xml
       Authorization:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 404
+      code: 200
       message: ''
     headers:
       Date:
-      - Fri, 15 Jun 2018 04:55:12 GMT
+      - Sun, 17 Jun 2018 18:15:08 GMT
       Content-Type:
-      - application/json; charset=utf-8
+      - application/vnd.datacite.datacite+xml
       Connection:
       - keep-alive
       Status:
-      - 404 Not Found
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
       Cache-Control:
-      - no-cache
+      - private
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - d4641b3b-308c-4517-a281-c391682ab0a1
+      - b8ac41ef-f762-46f2-a413-9bed094eedee
+      Content-Disposition:
+      - attachment; filename=_10.5072_236y-qx15.xml
+      Content-Transfer-Encoding:
+      - binary
       X-Runtime:
-      - '0.003288'
+      - '0.005541'
       X-Powered-By:
       - Phusion Passenger 5.3.2
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.2
     body:
       encoding: ASCII-8BIT
-      string: '{"errors":[{"status":"404","title":"The resource you are looking for
-        doesn''t exist."}]}'
+      string: ''
     http_version: 
-  recorded_at: Fri, 15 Jun 2018 04:55:13 GMT
+  recorded_at: Sun, 17 Jun 2018 18:15:10 GMT
 recorded_with: VCR 3.0.3

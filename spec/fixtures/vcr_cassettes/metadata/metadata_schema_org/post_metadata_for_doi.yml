@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://app.test.datacite.org/dois/10.5072/x86n-nm18
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"dois","attributes":{"doi":"10.5072/x86n-nm18","xml":"ewogICAgIkBjb250ZXh0IjogImh0dHA6Ly9zY2hlbWEub3JnIiwKICAgICJAdHlwZSI6ICJCbG9nUG9zdGluZyIsCiAgICAiQGlkIjogImh0dHBzOi8vZG9pLm9yZy8xMC41MDcyL2JjMTEtY3F3NyIsCiAgICAibmFtZSI6ICJFYXRpbmcgeW91ciBvd24gRG9nIEZvb2QiLAogICAgImFsdGVybmF0ZU5hbWUiOiAiTVMtNDktMzYzMi01MDgzIiwKICAgICJ1cmwiOiAiaHR0cHM6Ly9ibG9nLmRhdGFjaXRlLm9yZy9lYXRpbmcteW91ci1vd24tZG9nLWZvb2QiLAogICAgImF1dGhvciI6IHsKICAgICAgICAiQHR5cGUiOiAiUGVyc29uIiwKICAgICAgICAiQGlkIjogImh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMy0xNDE5LTI0MDUiLAogICAgICAgICJnaXZlbk5hbWUiOiAiTWFydGluIiwKICAgICAgICAiZmFtaWx5TmFtZSI6ICJGZW5uZXIiLAogICAgICAgICJuYW1lIjogIkZlbm5lciwgTWFydGluIgogICAgfSwKICAgICJwdWJsaXNoZXIiOiB7CiAgICAgICAgIkB0eXBlIjogIk9yZ2FuaXphdGlvbiIsCiAgICAgICAgIm5hbWUiOiAiRGF0YUNpdGUiCiAgICB9LAogICAgImRhdGVDcmVhdGVkIjogIjIwMTYtMTItMjAiLAogICAgImRhdGVQdWJsaXNoZWQiOiAiMjAxNi0xMi0yMCIsCiAgICAiZGF0ZU1vZGlmaWVkIjogIjIwMTYtMTItMjAiLAogICAgImtleXdvcmRzIjogImRhdGFjaXRlLCBkb2ksIG1ldGFkYXRhLCBmZWF0dXJlZCIsCiAgICAidmVyc2lvbiI6ICIxLjAiLAogICAgImRlc2NyaXB0aW9uIjogIkVhdGluZyB5b3VyIG93biBkb2cgZm9vZCBpcyBhIHNsYW5nIHRlcm0gdG8gZGVzY3JpYmUgdGhhdCBhbiBvcmdhbml6YXRpb24gc2hvdWxkIGl0c2VsZiB1c2UgdGhlIHByb2R1Y3RzIGFuZCBzZXJ2aWNlcyBpdCBwcm92aWRlcy4gRm9yIERhdGFDaXRlIHRoaXMgbWVhbnMgdGhhdCB3ZSBzaG91bGQgdXNlIERPSXMgd2l0aCBhcHByb3ByaWF0ZSBtZXRhZGF0YSBhbmQgc3RyYXRlZ2llcyBmb3IgbG9uZy10ZXJtIHByZXNlcnZhdGlvbiBmb3IuLi4iLAogICAgImxpY2Vuc2UiOiAiaHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LzQuMC8iLAogICAgImltYWdlIjogImh0dHBzOi8vYmxvZy5kYXRhY2l0ZS5vcmcvaW1hZ2VzLzIwMTYvMTIvMjMwNzg1LmpwZyIsCiAgICAiZW5jb2RpbmciOiB7CiAgICAgICAgIkB0eXBlIjogIk1lZGlhT2JqZWN0IiwKICAgICAgICAiQGlkIjogImh0dHBzOi8vYmxvZy5kYXRhY2l0ZS5vcmcvZWF0aW5nLXlvdXItb3duLWRvZy1mb29kL2VhdGluZy15b3VyLW93bi1kb2ctZm9vZC54bWwiLAogICAgICAgICJmaWxlRm9ybWF0IjogImFwcGxpY2F0aW9uL3htbCIKICAgIH0sCiAgICAiaXNQYXJ0T2YiOiB7CiAgICAgICAgIkB0eXBlIjogIkJsb2ciLAogICAgICAgICJAaWQiOiAiaHR0cHM6Ly9kb2kub3JnLzEwLjU0MzgvMDAwMC0wMFNTIiwKICAgICAgICAibmFtZSI6ICJEYXRhQ2l0ZSBCbG9nIgogICAgfSwKICAgICJjaXRhdGlvbiI6IFt7CiAgICAgICAgIkB0eXBlIjogIkNyZWF0aXZlV29yayIsCiAgICAgICAgIkBpZCI6ICJodHRwczovL2RvaS5vcmcvMTAuNTQzOC8wMDEyIgogICAgfSwgewogICAgICAgICJAdHlwZSI6ICJDcmVhdGl2ZVdvcmsiLAogICAgICAgICJAaWQiOiAiaHR0cHM6Ly9kb2kub3JnLzEwLjU0MzgvNTVFNS1UNUMwIgogICAgfV0KfQo="},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.9; +https://github.com/datacite/maremma)
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 201
+      message: ''
+    headers:
+      Date:
+      - Sun, 17 Jun 2018 20:17:56 GMT
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.datacite
+      X-Request-Id:
+      - 9a7503e7-2541-4e57-aab5-b0a6b64a7482
+      Etag:
+      - W/"da4553e8f11d6a7294700da393e9f667"
+      X-Runtime:
+      - '0.189758'
+      X-Powered-By:
+      - Phusion Passenger 5.3.2
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.5072/x86n-nm18","type":"dois","attributes":{"doi":"10.5072/x86n-nm18","prefix":"10.5072","suffix":"x86n-nm18","identifier":"https://handle.test.datacite.org/10.5072/x86n-nm18","url":null,"author":[{"type":"Person","id":"https://orcid.org/0000-0003-1419-2405","name":"Fenner,
+        Martin","given-name":"Martin","family-name":"Fenner"}],"title":"Eating your
+        own Dog Food","publisher":"DataCite","resource-type-subtype":null,"description":"Eating
+        your own dog food is a slang term to describe that an organization should
+        itself use the products and services it provides. For DataCite this means
+        that we should use DOIs with appropriate metadata and strategies for long-term
+        preservation for...","version":"1.0","metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"draft","is-active":true,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTA3Mi9YODZOLU5NMTg8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5GZW5uZXIsIE1hcnRpbjwvY3JlYXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+TWFydGluPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkZlbm5lcjwvZmFtaWx5TmFtZT4KICAgICAgPG5hbWVJZGVudGlmaWVyIHNjaGVtZVVSST0iaHR0cDovL29yY2lkLm9yZy8iIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCI+aHR0cHM6Ly9vcmNpZC5vcmcvMDAwMC0wMDAzLTE0MTktMjQwNTwvbmFtZUlkZW50aWZpZXI+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkVhdGluZyB5b3VyIG93biBEb2cgRm9vZDwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5EYXRhQ2l0ZTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iIi8+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5kYXRhY2l0ZTwvc3ViamVjdD4KICAgIDxzdWJqZWN0PmRvaTwvc3ViamVjdD4KICAgIDxzdWJqZWN0Pm1ldGFkYXRhPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+ZmVhdHVyZWQ8L3N1YmplY3Q+CiAgPC9zdWJqZWN0cz4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MjAxNi0xMi0yMDwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTYtMTItMjA8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iVXBkYXRlZCI+MjAxNi0xMi0yMDwvZGF0ZT4KICA8L2RhdGVzPgogIDxyZWxhdGVkSWRlbnRpZmllcnM+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iSXNQYXJ0T2YiPjEwLjU0MzgvMDAwMC0wMHNzPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj4xMC41NDM4LzAwMTI8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IlJlZmVyZW5jZXMiPjEwLjU0MzgvNTVlNS10NWMwPC9yZWxhdGVkSWRlbnRpZmllcj4KICA8L3JlbGF0ZWRJZGVudGlmaWVycz4KICA8dmVyc2lvbj4xLjA8L3ZlcnNpb24+CiAgPHJpZ2h0c0xpc3Q+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LzQuMC8iPmh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS80LjAvPC9yaWdodHM+CiAgPC9yaWdodHNMaXN0PgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+RWF0aW5nIHlvdXIgb3duIGRvZyBmb29kIGlzIGEgc2xhbmcgdGVybSB0byBkZXNjcmliZSB0aGF0IGFuIG9yZ2FuaXphdGlvbiBzaG91bGQgaXRzZWxmIHVzZSB0aGUgcHJvZHVjdHMgYW5kIHNlcnZpY2VzIGl0IHByb3ZpZGVzLiBGb3IgRGF0YUNpdGUgdGhpcyBtZWFucyB0aGF0IHdlIHNob3VsZCB1c2UgRE9JcyB3aXRoIGFwcHJvcHJpYXRlIG1ldGFkYXRhIGFuZCBzdHJhdGVnaWVzIGZvciBsb25nLXRlcm0gcHJlc2VydmF0aW9uIGZvci4uLjwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+Cg==","published":"2016-12-20","registered":null,"updated":"2018-06-17T20:17:56.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+    http_version: 
+  recorded_at: Sun, 17 Jun 2018 20:17:56 GMT
+recorded_with: VCR 3.0.3

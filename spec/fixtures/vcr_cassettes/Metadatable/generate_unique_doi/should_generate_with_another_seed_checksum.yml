@@ -1,0 +1,101 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://app.test.datacite.org/10.5072/015n-mk15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.9; +https://github.com/datacite/maremma)
+      Accept:
+      - application/vnd.datacite.datacite+xml
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sun, 17 Jun 2018 12:51:25 GMT
+      Content-Type:
+      - application/vnd.datacite.datacite+xml
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - private
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 64aa29d0-2a82-47e9-ad10-0ef981174c13
+      Content-Disposition:
+      - attachment; filename=_10.5072_015n-mk15.xml
+      Content-Transfer-Encoding:
+      - binary
+      X-Runtime:
+      - '0.005028'
+      X-Powered-By:
+      - Phusion Passenger 5.3.2
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.2
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Sun, 17 Jun 2018 12:51:28 GMT
+- request:
+    method: get
+    uri: https://app.test.datacite.org/10.5072/015n-mk15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.9; +https://github.com/datacite/maremma)
+      Accept:
+      - application/vnd.datacite.datacite+xml
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sun, 17 Jun 2018 12:51:35 GMT
+      Content-Type:
+      - application/vnd.datacite.datacite+xml
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - private
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 523444de-1d0f-4f89-a2cc-8e667286157a
+      Content-Disposition:
+      - attachment; filename=_10.5072_015n-mk15.xml
+      Content-Transfer-Encoding:
+      - binary
+      X-Runtime:
+      - '0.005056'
+      X-Powered-By:
+      - Phusion Passenger 5.3.2
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.2
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Sun, 17 Jun 2018 12:51:38 GMT
+recorded_with: VCR 3.0.3
