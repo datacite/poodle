@@ -16,7 +16,7 @@ RUN bash -lc 'rvm --default use ruby-2.4.4'
 
 # Update installed APT packages
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
-    apt-get install ntp wget tzdata -y && \
+    apt-get install ntp wget tzdata pandoc -y && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install dockerize
@@ -36,25 +36,26 @@ COPY vendor/docker/00_app_env.conf /etc/nginx/conf.d/00_app_env.conf
 # Use Amazon NTP servers
 COPY vendor/docker/ntp.conf /etc/ntp.conf
 
-# Install Ruby gems
-COPY Gemfile* /home/app/webapp/
-WORKDIR /home/app/webapp
-RUN mkdir -p vendor/bundle && \
-    chown -R app:app . && \
-    chmod -R 755 . && \
-    gem update --system && \
-    gem install bundler && \
-    /sbin/setuser app bundle install --path vendor/bundle
-
 # Copy webapp folder
 COPY . /home/app/webapp/
-RUN mkdir -p tmp/pids && \
-    mkdir -p tmp/storage && \
+RUN mkdir -p /home/app/webapp/vendor/bundle && \
     chown -R app:app /home/app/webapp && \
     chmod -R 755 /home/app/webapp
 
+# Install Ruby gems
+WORKDIR /home/app/webapp
+RUN gem update --system && \
+    gem install bundler && \
+    /sbin/setuser app bundle install --path vendor/bundle
+
+# Install Ruby gems for middleman
+WORKDIR /home/app/webapp/vendor/middleman
+RUN /sbin/setuser app bundle install
+
 # Run additional scripts during container startup (i.e. not at build time)
+WORKDIR /home/app/webapp
 RUN mkdir -p /etc/my_init.d
+COPY vendor/docker/70_index_page.sh /etc/my_init.d/70_index_page.sh
 
 # Expose web
 EXPOSE 80
