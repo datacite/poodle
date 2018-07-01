@@ -9,6 +9,8 @@ class DoisController < ApplicationController
 
     if response.body["data"].present?
       render plain: response.body.dig("data", "dois").join("\n"), status: :ok
+    elsif response.status == 204
+      head :no_content
     else
       render plain: "No DOIs found", status: :not_found
     end

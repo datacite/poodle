@@ -13,6 +13,15 @@ describe "dois", type: :request, vcr: true do
       expect(dois.length).to eq(24)
       expect(dois.last).to eq("10.5438/MCNV-GA6N")
     end
+
+    it "no dois" do
+      url = "https://app.test.datacite.org/dois/get-dois"
+      stub = stub_request(:get, url).to_return(status: 204, headers: { "Content-Type" => "text/plain" }, body: nil)
+      get '/doi', nil, headers
+
+      expect(last_response.status).to eq(204)
+      expect(last_response.body).to be_blank
+    end
   end
 
   describe '/doi/10.14454/05MB-Q396', type: :request do
