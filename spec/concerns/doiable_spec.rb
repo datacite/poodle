@@ -40,7 +40,7 @@ describe Doiable, vcr: true, order: :defined do
   context "get_dois" do
     it 'should fetch' do
       response = subject.get_dois(options).body
-      expect(response.dig("data", "dois").length).to eq(24)
+      expect(response.dig("data", "dois").length).to eq(31)
       expect(response.dig("data", "dois").first).to eq("10.14454/05MB-Q396")
     end
 
