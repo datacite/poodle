@@ -12,7 +12,7 @@ class DoisController < ApplicationController
     elsif response.status == 204
       head :no_content
     else
-      render plain: "No DOIs found", status: :not_found
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 
