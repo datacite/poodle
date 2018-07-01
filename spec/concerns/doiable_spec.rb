@@ -44,6 +44,14 @@ describe Doiable, vcr: true, order: :defined do
       expect(response.dig("data", "dois").first).to eq("10.14454/05MB-Q396")
     end
 
+    it 'no dois' do
+      url = "https://app.test.datacite.org/dois/get-dois"
+      stub = stub_request(:get, url).to_return(status: 204, headers: { "Content-Type" => "text/plain" }, body: nil)
+      response = subject.get_dois(options)
+      expect(response.status).to eq(204)
+      expect(response.body["data"]).to be_nil
+    end
+
     it 'no password' do
       options = { username: username, password: nil }
       expect(subject.get_dois(options).body.dig("errors")).to eq([{"title"=>"Username or password missing"}])
