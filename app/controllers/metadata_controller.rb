@@ -4,6 +4,8 @@ class MetadataController < ApplicationController
   prepend_before_action :authenticate_user_with_basic_auth!
   before_action :set_doi, except: [:create]
 
+  before_bugsnag_notify :add_metadata_to_bugsnag
+
   def index
     response = MetadataController.get_metadata(@doi, username: username, password: password)
 
@@ -51,5 +53,13 @@ class MetadataController < ApplicationController
 
   def safe_params
     params.permit(:id, :doi_id, :number).merge(data: request.raw_post)
+  end
+
+  def add_metadata_to_bugsnag(report)
+    return nil unless params.fetch(:data, nil).present?
+
+    report.add_tab(:metadata, {
+      metadata: params.fetch(:data)
+    })
   end
 end

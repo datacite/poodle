@@ -6,6 +6,8 @@ class ApplicationController < ActionController::API
 
   attr_accessor :username, :password
 
+  before_bugsnag_notify :add_user_info_to_bugsnag
+
   after_action :set_consumer_header
 
   # check that username and password exist
@@ -51,5 +53,18 @@ class ApplicationController < ActionController::API
 
       render plain: message, status: status
     end
+  end
+
+  def append_info_to_payload(payload)
+    super
+    payload[:uid] = username if username.present?
+  end
+
+  def add_user_info_to_bugsnag(report)
+    return nil unless username.present?
+    
+    report.user = {
+      id: username
+    }
   end
 end
