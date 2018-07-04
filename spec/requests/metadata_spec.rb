@@ -185,6 +185,66 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     end
   end
 
+  context 'metadata schema_org as url', type: :request do
+    let(:doi_id) { "10.7910/DVN/HSCUNB" }
+    let(:data) { "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HSCUNB" }
+    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+
+    it "post metadata for doi" do
+      post "/metadata/#{doi_id}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+    end
+
+    it "get metadata for doi" do
+      get "/metadata/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(200)
+      
+      metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
+      expect(metadata.dig("titles", "title")).to eq("Replication Data for: Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding.")
+      expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
+    end
+
+    it "delete doi" do
+      delete "/doi/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq("OK")
+    end
+  end
+
+  context 'metadata schema_org as url no doi', type: :request do
+    let(:doi_id) { "10.5072/x86n-nm18" }
+    let(:data) { "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HSCUNB" }
+    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+
+    it "post metadata for doi" do
+      post "/metadata/", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+    end
+
+    # it "get metadata for doi" do
+    #   get "/metadata/#{doi_id}", nil, headers
+
+    #   expect(last_response.status).to eq(200)
+      
+    #   metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
+    #   expect(metadata.dig("titles", "title")).to eq("Replication Data for: Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding.")
+    #   expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
+    # end
+
+    # it "delete doi" do
+    #   delete "/doi/#{doi_id}", nil, headers
+
+    #   expect(last_response.status).to eq(200)
+    #   expect(last_response.body).to eq("OK")
+    # end
+  end
+
   context 'metadata citeproc', type: :request do
     let(:doi_id) { "10.5072/ey8x-9f93" }
     let(:data) { file_fixture('citeproc.json').read }

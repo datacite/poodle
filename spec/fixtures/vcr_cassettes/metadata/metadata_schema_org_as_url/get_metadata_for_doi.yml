@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://app.test.datacite.org/10.7910/dvn/hscunb
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.11; +https://github.com/datacite/maremma)
+      Accept:
+      - application/vnd.datacite.datacite+xml
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Wed, 04 Jul 2018 07:31:59 GMT
+      Content-Type:
+      - application/vnd.datacite.datacite+xml
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - private
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 1d6ed293-d539-49cb-b62a-925dd8a7fa40
+      Content-Disposition:
+      - attachment; filename=_10.7910_dvn_hscunb.xml
+      Content-Transfer-Encoding:
+      - binary
+      Etag:
+      - W/"f62e565a5a42bb244e6f1b785fe7a551"
+      X-Runtime:
+      - '0.007327'
+      X-Powered-By:
+      - Phusion Passenger 5.3.3
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.3
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+          <identifier identifierType="DOI">10.7910/DVN/HSCUNB</identifier>
+          <creators>
+            <creator>
+              <creatorName>Stevens, Vidar</creatorName>
+              <givenName>Vidar</givenName>
+              <familyName>Stevens</familyName>
+            </creator>
+          </creators>
+          <titles>
+            <title>Replication Data for: Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding.</title>
+          </titles>
+          <publisher>Harvard Dataverse</publisher>
+          <publicationYear>2018</publicationYear>
+          <resourceType resourceTypeGeneral="Dataset">Dataset</resourceType>
+          <subjects>
+            <subject>["Social Sciences"</subject>
+            <subject>"ERGM"</subject>
+            <subject>"Place branding"</subject>
+            <subject>"Learning"</subject>
+            <subject>"Interaction"]</subject>
+          </subjects>
+          <dates>
+            <date dateType="Issued">2018-07-04</date>
+            <date dateType="Updated">2018-07-04</date>
+          </dates>
+          <version>1</version>
+          <rightsList>
+            <rights/>
+          </rightsList>
+          <descriptions>
+            <description descriptionType="Abstract">These are the data sets to replicate the analyses of the paper "Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding." The paper was first presented at the 2018 EGPA conference in Lausanne from the 4th - 6th of September</description>
+          </descriptions>
+        </resource>
+    http_version: 
+  recorded_at: Wed, 04 Jul 2018 07:32:00 GMT
+recorded_with: VCR 3.0.3
