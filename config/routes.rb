@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # custom routes, as the MDS routes don't follow standard rails pattern
   # we need to add constraints, as the id may contain slashes
 
+  # update doi
+  post 'doi', :to => 'dois#update'
+
   # create media
   post 'media/:doi_id', :to => 'media#create', constraints: { :doi_id => /.+/ }
 

@@ -2,7 +2,7 @@ class DoisController < ApplicationController
   include Doiable
 
   prepend_before_action :authenticate_user_with_basic_auth!
-  before_action :set_doi, only: [:show, :update, :destroy]
+  before_action :set_doi, only: [:show, :destroy]
 
   def index
     response = DoisController.get_dois(username: username, password: password)
@@ -26,18 +26,13 @@ class DoisController < ApplicationController
     end
   end
 
-  def create
-    response.headers["Allow"] = "HEAD, GET, PATCH, PUT, DELETE, OPTIONS"
-    render plain: "Method not allowed", status: :method_not_allowed
-  end
-
   def update
     # Rails.logger.info safe_params.inspect
     return head :bad_request unless safe_params[:data].present?
 
-    url = DoisController.extract_url(doi: @doi, data: safe_params[:data])
+    doi, url = DoisController.extract_url(doi: validate_doi(params[:id]), data: safe_params[:data])
 
-    response = DoisController.put_doi(@doi, url: url, username: username, password: password)
+    response = DoisController.put_doi(doi, url: url, username: username, password: password)
 
     if [200, 201].include?(response.status)
       render plain: response.body.dig("data", "attributes", "url"), status: :created
@@ -70,6 +65,6 @@ class DoisController < ApplicationController
   private
 
   def safe_params
-    params.permit(:id).merge(data: request.raw_post)
+    params.permit(:id, :doi).merge(data: request.raw_post)
   end
 end

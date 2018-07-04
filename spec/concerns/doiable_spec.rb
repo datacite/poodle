@@ -91,7 +91,7 @@ describe Doiable, vcr: true, order: :defined do
     it 'should get url' do
       doi = "10.5072/0000-03VC"
       data = "doi=10.5072/0000-03VC\nurl=http://example.org/"
-      expect(subject.extract_url(doi: doi, data: data)).to eq("http://example.org/")
+      expect(subject.extract_url(doi: doi, data: data)).to eq(["10.5072/0000-03VC", "http://example.org/"])
     end
 
     it 'doi does not match' do

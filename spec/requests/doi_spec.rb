@@ -25,11 +25,13 @@ describe "dois", type: :request, vcr: true do
   end
 
   describe '/doi', type: :request do
-    it "post dois" do
-      post '/doi', nil, headers
+    let(:data) { "doi=10.14454/05MB-Q396\nurl=https://www.datacite.org/roadmap.html" }
 
-      expect(last_response.status).to eq(405)
-      expect(last_response.body).to eq("Method not allowed")
+    it "post dois" do
+      post '/doi', data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("https://www.datacite.org/roadmap.html")
     end
   end
 

@@ -60,12 +60,15 @@ module Doiable
       doi_line, url_line = data.split("\n")
 
       key, value = doi_line.to_s.split("=", 2)
-      fail IdentifierError, "doi parameter does not match doi of resource" if key != "doi" || URI.unescape(value).casecmp(doi) != 0
-        
+      fail IdentifierError, "doi parameter does not match doi of resource" if key != "doi" || (doi.present? && URI.unescape(value).casecmp(doi) != 0)
+      
+      doi = URI.unescape(value) unless doi.present?
+      fail AbstractController::ActionNotFound unless doi.present?
+      
       key, value = url_line.to_s.split("=", 2)
       fail IdentifierError, "param 'url' required" if key != "url" || value.blank?
 
-      URI.unescape(value)
+      [doi, URI.unescape(value)]
     end
   end
 end
