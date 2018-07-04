@@ -46,6 +46,8 @@ class ApplicationController < ActionController::API
       elsif status == 401
         message = "Bad credentials"
       else
+        Bugsnag.notify(exception)
+        
         message = exception.message
       end
 
