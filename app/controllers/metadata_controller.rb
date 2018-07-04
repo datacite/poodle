@@ -23,12 +23,10 @@ class MetadataController < ApplicationController
 
     response = MetadataController.create_metadata(@doi, data: safe_params[:data], username: username, password: password)
 
-    if response.status == 201
+    if [200, 201].include?(response.status)
       render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created
-    elsif response.status == 200
-      render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :ok
     else
-      render plain: "DOI is unknown to MDS", status: :not_found
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 

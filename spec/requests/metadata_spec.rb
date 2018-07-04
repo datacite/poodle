@@ -26,7 +26,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     it "post metadata for doi" do
       post "/metadata/#{doi_id}", data, headers
 
-      expect(last_response.status).to eq(200)
+      expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
     end
 
@@ -63,7 +63,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     it "post metadata for doi" do
       post "/metadata", data, headers
 
-      expect(last_response.status).to eq(200)
+      expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
     end
 
