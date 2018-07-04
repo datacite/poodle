@@ -10,7 +10,8 @@ module Doiable
         "data" => {
           "type" => "dois",
           "attributes"=> {
-            "url" => options[:url]
+            "url" => options[:url],
+            "event" => "publish"
           },
           "relationships"=> {
             "client"=>  {

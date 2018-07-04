@@ -39,10 +39,12 @@ class DoisController < ApplicationController
 
     response = DoisController.put_doi(@doi, url: url, username: username, password: password)
 
-    if response.body["data"].present?
-      render plain: response.body.dig("data", "attributes", "url"), status: :ok
-    else
+    if [200, 201].include?(response.status)
+      render plain: response.body.dig("data", "attributes", "url"), status: :created
+    elsif response.status == 404
       render plain: "DOI not found", status: :not_found
+    else
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 
@@ -51,6 +53,8 @@ class DoisController < ApplicationController
 
     if response.status == 204
       render plain: "OK", status: :ok
+    elsif response.status == 404
+      render plain: "DOI not found", status: :not_found
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
