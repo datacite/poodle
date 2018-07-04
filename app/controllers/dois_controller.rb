@@ -26,6 +26,11 @@ class DoisController < ApplicationController
     end
   end
 
+  def create
+    response.headers["Allow"] = "HEAD, GET, PATCH, PUT, DELETE, OPTIONS"
+    render plain: "Method not allowed", status: :method_not_allowed
+  end
+
   def update
     # Rails.logger.info safe_params.inspect
     return head :bad_request unless safe_params[:data].present?
