@@ -29,6 +29,15 @@ describe "dois", type: :request, vcr: true do
       expect(last_response.status).to eq(200)
       expect(last_response.body).to be_blank
     end
+
+    it "no dois HEAD" do
+      url = "https://app.test.datacite.org/dois/get-dois"
+      stub = stub_request(:get, url).to_return(status: 204, headers: { "Content-Type" => "text/plain" }, body: nil)
+      head '/doi', nil, headers
+
+      expect(last_response.status).to eq(204)
+      expect(last_response.body).to be_blank
+    end
   end
 
   describe '/doi', type: :request do

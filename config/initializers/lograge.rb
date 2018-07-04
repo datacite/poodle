@@ -11,6 +11,7 @@ Rails.application.configure do
     exceptions = %w(controller action format id)
     {
       params: event.payload[:params].except(*exceptions),
+      data: event.payload[:data],
       uid: event.payload[:uid]
     }
   end

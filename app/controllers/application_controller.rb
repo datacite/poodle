@@ -58,6 +58,7 @@ class ApplicationController < ActionController::API
   def append_info_to_payload(payload)
     super
     payload[:uid] = username.downcase if username.present?
+    payload[:data] = request.raw_post if request.raw_post.present?
   end
 
   def add_user_info_to_bugsnag(report)
