@@ -41,7 +41,7 @@ describe "dois", type: :request, vcr: true do
     it "register url for doi" do
       put "/doi/#{doi}", data, headers
 
-      expect(last_response.status).to eq(200)
+      expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("https://www.datacite.org/roadmap.html")
     end
 
