@@ -45,6 +45,14 @@ describe "dois", type: :request, vcr: true do
       expect(last_response.body).to eq("https://www.datacite.org/roadmap.html")
     end
 
+    it "register url for doi escaped" do
+      data = "doi=10.14454%2F05MB-Q396\nurl=https%3A%2F%2Fwww.datacite.org%2Froadmap.html"
+      put "/doi/#{doi}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("https://www.datacite.org/roadmap.html")
+    end
+
     it "register url no data" do
       put "/doi/#{doi}", nil, headers
 

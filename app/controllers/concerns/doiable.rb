@@ -2,6 +2,9 @@ module Doiable
   extend ActiveSupport::Concern
 
   module ClassMethods
+
+    require "uri"
+
     def put_doi(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
       return OpenStruct.new(body: { "errors" => [{ "title" => "Not a valid HTTP(S) URL" }] }) unless /\Ahttps?:\/\/[\S]+/.match(options[:url])
@@ -57,12 +60,12 @@ module Doiable
       doi_line, url_line = data.split("\n")
 
       key, value = doi_line.to_s.split("=", 2)
-      fail IdentifierError, "doi parameter does not match doi of resource" if key != "doi" || value.casecmp(doi) != 0
+      fail IdentifierError, "doi parameter does not match doi of resource" if key != "doi" || URI.unescape(value).casecmp(doi) != 0
         
       key, value = url_line.to_s.split("=", 2)
       fail IdentifierError, "param 'url' required" if key != "url" || value.blank?
 
-      value
+      URI.unescape(value)
     end
   end
 end
