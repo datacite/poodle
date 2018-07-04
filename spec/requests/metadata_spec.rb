@@ -213,7 +213,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       expect(last_response.status).to eq(200)
       expect(last_response.body).to eq("OK")
     end
-  ends
+  end
 
   context 'metadata citeproc', type: :request do
     let(:doi_id) { "10.5072/ey8x-9f93" }

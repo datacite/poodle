@@ -22,6 +22,13 @@ describe "dois", type: :request, vcr: true do
       expect(last_response.status).to eq(204)
       expect(last_response.body).to be_blank
     end
+
+    it "get all dois HEAD" do
+      head '/doi', nil, headers
+
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to be_blank
+    end
   end
 
   describe '/doi', type: :request do
