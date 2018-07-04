@@ -7,7 +7,7 @@ class DoisController < ApplicationController
   def index
     response = DoisController.get_dois(username: username, password: password)
 
-    if response.body["data"].present?
+    if response.status == 200
       render plain: response.body.dig("data", "dois").join("\n"), status: :ok
     elsif response.status == 204
       head :no_content
@@ -19,10 +19,12 @@ class DoisController < ApplicationController
   def show
     response = DoisController.get_doi(@doi, username: username, password: password)
 
-    if response.body["data"].present?
+    if response.status == 200
       render plain: response.body.dig("data", "url"), status: :ok
-    else
+    elsif [204, 404].include?(response.status)
       render plain: "DOI not found", status: :not_found
+    else
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 
