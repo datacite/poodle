@@ -84,7 +84,7 @@ describe "dois", type: :request, vcr: true do
       put "/doi/#{doi}", data, headers
 
       expect(last_response.status).to eq(400)
-      expect(last_response.body).to eq("doi parameter does not match doi of resource")
+      expect(last_response.body).to eq("param 'doi' required")
     end
 
     it "register url doi mismatch" do
@@ -103,6 +103,21 @@ describe "dois", type: :request, vcr: true do
 
       expect(last_response.status).to eq(400)
       expect(last_response.body).to eq("param 'url' required")
+    end
+
+    it "register url spaces" do
+      doi = "10.5072/FBFTV0VREUQV"
+      data = "doi= 10.5072/FBFTV0VREUQV\nurl= https://identifiers.globus.org/doi:10.5072/FBFTV0VREUQV/landingpage"
+
+      put "/doi/#{doi}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("https://identifiers.globus.org/doi:10.5072/FBFTV0VREUQV/landingpage")
+
+      delete "/doi/#{doi}", nil, headers
+
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq("OK")
     end
 
     it "get url for doi" do
