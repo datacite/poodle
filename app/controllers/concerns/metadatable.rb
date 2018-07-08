@@ -21,7 +21,7 @@ module Metadatable
     def create_metadata(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
-      xml = options[:data].present? ? ::Base64.strict_encode64(options[:data]) : nil
+      xml = options[:data].present? ? ::Base64.strict_encode64(options[:data].force_encoding("UTF-8")) : nil
       
       attributes = {
         "doi" => doi,

@@ -1,0 +1,61 @@
+	
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.5072/AA01-PXXRKQ</identifier>
+  <titles>
+    <title xml:lang="en-us">���Title : time : 08-07-2018 05:07:00</title>
+  </titles>
+  <descriptions>
+    <description descriptionType="Abstract">���Description : time : 08-07-2018 05:07:02</description>
+  </descriptions>
+  <publisher>Utrecht University</publisher>
+  <publicationYear>2018</publicationYear>
+  <subjects>
+    <subject subjectScheme="OECD FOS 2007">Natural Sciences - Mathematics (1.1)</subject>
+    <subject subjectScheme="Keyword">���Tag[] : time : 08-07-2018 05:07:01</subject>
+  </subjects>
+  <creators>
+    <creator>
+      <creatorName>���Creator[0][Name] : time : 08-07-2018 05:07:01</creatorName>
+      <nameIdentifier nameIdentifierScheme="ORCID">���Creator[0][Properties][Person_Identifier][0][Name_Identifier] : time : 08-07-2018 05:07:02</nameIdentifier>
+      <affiliation>Utrecht University</affiliation>
+    </creator>
+  </creators>
+  <contributors>
+    <contributor contributorType="ContactPerson">
+      <contributorName>���Contributor[0][Name] : time : 08-07-2018 05:07:02</contributorName>
+      <nameIdentifier nameIdentifierScheme="ORCID">���Contributor[0][Properties][Person_Identifier][0][Name_Identifier] : time : 08-07-2018 05:07:02</nameIdentifier>
+      <affiliation>Utrecht University</affiliation>
+    </contributor>
+  </contributors>
+  <dates>
+    <date dateType="Updated">2018-07-08T05:31:21+0200</date>
+    <date dateType="Available">
+    1999-01-01
+  </date>
+  </dates>
+  <version>���Version : time : 08-07-2018 05:07:00</version>
+  <rightsList>
+    <rights rightsURI="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International Public License</rights>
+  </rightsList>
+  <resourceType resourceTypeGeneral="Dataset">Dataset</resourceType>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="ARK" relationType="IsSupplementTo">���Related_Datapackage[0][Properties][Persistent_Identifier][Identifier] : time : 08-07-2018 05:07:01</relatedIdentifier>
+  </relatedIdentifiers>
+  <geoLocations>
+    <geoLocation>
+      <geoLocationBox>
+        <westBoundLongitude>38.40820312500001</westBoundLongitude>
+        <eastBoundLongitude>13.271484375000002</eastBoundLongitude>
+        <southBoundLatitude>38.20365531807151</southBoundLatitude>
+        <northBoundLatitude>48.748945343432936</northBoundLatitude>
+      </geoLocationBox>
+    </geoLocation>
+  </geoLocations>
+  <fundingReferences>
+    <fundingReference>
+      <funderName>���Funding_Reference[0][Funder_Name] : time : 08-07-2018 05:07:01</funderName>
+      <awardNumber>���Funding_Reference[0][Properties][Award_Number] : time : 08-07-2018 05:07:01</awardNumber>
+    </fundingReference>
+  </fundingReferences>
+</resource>

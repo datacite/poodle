@@ -25,6 +25,25 @@ describe Metadatable, vcr: true, order: :defined do
     end
   end
 
+  # context "create_metadata invalid utf-8" do
+  #   let(:doi) { "10.5072/aa01-pxxrkq" }
+
+  #   it 'should register' do
+  #     data = file_fixture('delft.xml').read
+  #     options = { data: data, username: username, password: password }
+  #     response = subject.create_metadata(doi, options)
+  #     expect(response.status).to eq(201)
+  #     expect(::Base64.decode64(response.body.dig("data", "attributes", "xml"))).to eq(data.strip)
+  #   end
+
+  #   it 'should delete' do
+  #     options = { username: username, password: password }
+  #     response = DoisController.delete_doi(doi, options)
+  #     expect(response.status).to eq(204)
+  #     expect(response.body["data"]).to be_blank
+  #   end
+  # end
+
   context "create_metadata invalid" do
     let(:doi) { "10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357" }
 
