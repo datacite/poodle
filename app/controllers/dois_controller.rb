@@ -67,6 +67,6 @@ class DoisController < ApplicationController
   private
 
   def safe_params
-    params.permit(:id, :doi).merge(data: request.raw_post)
+    params.permit(:id, :doi, "testMode").merge(data: request.raw_post)
   end
 end

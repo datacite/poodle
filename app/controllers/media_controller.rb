@@ -62,6 +62,6 @@ class MediaController < ApplicationController
   private
 
   def safe_params
-    params.permit(:id, :doi_id).merge(data: request.raw_post)
+    params.permit(:id, :doi_id, "testMode").merge(data: request.raw_post)
   end
 end

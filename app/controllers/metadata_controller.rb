@@ -50,7 +50,7 @@ class MetadataController < ApplicationController
   private
 
   def safe_params
-    params.permit(:id, :doi_id, :number).merge(data: request.raw_post)
+    params.permit(:id, :doi_id, :number, "testMode").merge(data: request.raw_post)
   end
 
   def add_metadata_to_bugsnag(report)
