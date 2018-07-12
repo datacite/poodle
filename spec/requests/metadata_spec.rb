@@ -92,6 +92,19 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     end
   end
 
+  describe '/metadata doi from xml no creator', type: :request do
+    let(:doi_id) { "10.5438/s0m8-q346" }
+    let(:data) { file_fixture('no_creator.xml').read }
+    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+
+    it "post metadata for doi" do
+      post "/metadata", data, headers
+
+      expect(last_response.status).to eq(400)
+      expect(last_response.body).to eq("Missing child element(s). expected is ( {http://datacite.org/schema/kernel-3}creator ). at line 4, column 0")
+    end
+  end
+
   describe '/metadata random doi', type: :request do
     let(:doi_id) { "10.5072/003r-j076" }
     let(:data) { file_fixture('datacite_tba.xml').read }

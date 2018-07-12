@@ -25,6 +25,8 @@ class MetadataController < ApplicationController
 
     if [200, 201].include?(response.status)
       render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created
+    elsif response.status == 422
+      render plain: response.body.dig("errors", 0, "title"), status: :bad_request
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
