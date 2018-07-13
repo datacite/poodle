@@ -5,23 +5,35 @@ describe Metadatable, vcr: true, order: :defined do
   let(:password) { ENV['MDS_PASSWORD'] }
   let(:options) { { username: username, password: password } }
   let(:doi) { "10.5438/08a0-3f64" }
+  let(:url) { "https://blog.datacite.org/" }
   let(:data) { file_fixture('datacite.xml').read }
 
   subject { MetadataController }
 
   context "create_metadata" do
-    it 'should register' do
+    it 'should register metadata' do
       options = { data: data, username: username, password: password }
       response = subject.create_metadata(doi, options)
       expect(response.status).to eq(201)
       expect(::Base64.decode64(response.body.dig("data", "attributes", "xml"))).to eq(data.strip)
+      expect(response.body.dig("data", "attributes", "state")).to eq("draft")
+      expect(response.body.dig("data", "attributes", "is-active")).to eq(false)
     end
 
-    it 'should delete' do
+    it 'should register doi' do
+      options = { url: url, username: username, password: password }
+      response = DoisController.put_doi(doi, options)
+      expect(response.body.dig("data", "attributes", "url")).to eq(url)
+      expect(response.body.dig("data", "attributes", "state")).to eq("findable")
+      expect(response.body.dig("data", "attributes", "is-active")).to eq(true)
+    end
+
+    it 'should delete metadata' do
       options = { username: username, password: password }
-      response = DoisController.delete_doi(doi, options)
-      expect(response.status).to eq(204)
-      expect(response.body["data"]).to be_blank
+      response = subject.delete_metadata(doi, options)
+      expect(response.status).to eq(200)
+      expect(response.body.dig("data", "attributes", "state")).to eq("registered")
+      expect(response.body.dig("data", "attributes", "is-active")).to eq(false)
     end
   end
 
@@ -111,11 +123,14 @@ describe Metadatable, vcr: true, order: :defined do
   end
 
   context "delete_metadata draft doi" do
+    let(:doi) { "10.5438/m21h-3007" }
+
     it 'should delete' do
       options = { username: username, password: password }
       response = subject.delete_metadata(doi, options)
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(201)
       expect(response.body.dig("data", "attributes", "state")).to eq("draft")
+      expect(response.body.dig("data", "attributes", "is-active")).to eq(false)
     end
   end
 
