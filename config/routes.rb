@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   # get metadata
   get 'metadata/:doi_id', :to => 'metadata#index', constraints: { :doi_id => /.+/ }
+  get 'metadata', :to => 'metadata#index'
 
   # delete metadata
   delete 'metadata/:doi_id', :to => 'metadata#destroy', constraints: { :doi_id => /.+/ }

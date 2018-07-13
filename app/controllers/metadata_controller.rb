@@ -2,17 +2,25 @@ class MetadataController < ApplicationController
   include Metadatable
 
   prepend_before_action :authenticate_user_with_basic_auth!
-  before_action :set_doi, except: [:create]
+  before_action :set_doi, only: [:destroy]
 
   before_bugsnag_notify :add_metadata_to_bugsnag
 
   def index
+    #return head :no_content unless params[:doi_id].present?
+
+    @doi = validate_doi(params[:doi_id])
+
     response = MetadataController.get_metadata(@doi, username: username, password: password)
 
     if response.status == 200
       render xml: response.body["data"], status: :ok
-    else
+    elsif response.status == 404
       render plain: "DOI is unknown to MDS", status: :not_found
+    elsif response.status == 401
+      fail CanCan::AccessDenied
+    else
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 

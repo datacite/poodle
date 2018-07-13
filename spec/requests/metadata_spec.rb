@@ -55,6 +55,34 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     end
   end
 
+  # describe '/metadata no doi', type: :request do
+  #   let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+
+  #   it "get metadata" do
+  #     get "/metadata", nil, headers
+
+  #     expect(last_response.status).to eq(204)
+  #     expect(last_response.body).to be_blank
+  #   end
+
+  #   it "get metadata no authentication" do
+  #     get "/metadata"
+
+  #     expect(last_response.status).to eq(401)
+  #     expect(last_response.body).to eq("An Authentication object was not found in the SecurityContext")
+  #   end
+
+  #   it "get metadata wrong password" do
+  #     credentials = ::Base64.strict_encode64("#{ENV['MDS_USERNAME']}:12345")
+  #     headers = {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials }
+
+  #     get "/metadata", nil, headers
+
+  #     sexpect(last_response.status).to eq(401)
+  #     expect(last_response.body).to eq("An Authentication object was not found in the SecurityContext")
+  #   end
+  # end
+
   describe '/metadata doi from xml', type: :request do
     let(:doi_id) { "10.5438/08a0-3f64" }
     let(:data) { file_fixture('datacite.xml').read }

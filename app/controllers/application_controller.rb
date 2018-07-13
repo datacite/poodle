@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
   def authenticate_user_with_basic_auth!
     @username, @password = ActionController::HttpAuthentication::Basic::user_name_and_password(request)
 
-    request_http_basic_authentication(realm = ENV['REALM']) unless @username.present? && @password.present?
+    request_http_basic_authentication(realm = ENV['REALM'], message = "An Authentication object was not found in the SecurityContext") unless @username.present? && @password.present?
   end
 
   def set_consumer_header
@@ -44,6 +44,7 @@ class ApplicationController < ActionController::API
         message = "bad request - no such identifier"
         status = 400
       elsif status == 401
+        response.headers['WWW-Authenticate'] = ENV['REALM']
         message = "Bad credentials"
       else
         Bugsnag.notify(exception)
