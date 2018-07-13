@@ -42,12 +42,55 @@ describe "dois", type: :request, vcr: true do
 
   describe '/doi', type: :request do
     let(:data) { "doi=10.14454/05MB-Q396\nurl=https://www.datacite.org/roadmap.html" }
+    let(:headers) { { 'HTTP_AUTHORIZATION' => 'Basic ' + credentials, 'CONTENT_TYPE' => "text/plain;charset=UTF-8" } }
 
     it "post dois" do
       post '/doi', data, headers
 
       expect(last_response.status).to eq(201)
-      expect(last_response.body).to eq("https://www.datacite.org/roadmap.html")
+      expect(last_response.body).to eq("OK")
+    end
+
+    it "register url for doi escaped" do
+      data = "doi=10.14454%2F05MB-Q396\nurl=https%3A%2F%2Fwww.datacite.org%2Froadmap.html"
+      post "/doi", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK")
+    end
+
+    it "register url no data" do
+      post "/doi", nil, headers
+
+      expect(last_response.status).to eq(400)
+      expect(last_response.body).to be_blank
+    end
+
+    it "register url no doi" do
+      data = "url=https://www.datacite.org/"
+
+      post "/doi", data, headers
+
+      expect(last_response.status).to eq(400)
+      expect(last_response.body).to eq("param 'doi' required")
+    end
+
+    it "register url no url" do
+      data = "doi=10.14454/05MB-Q396"
+
+      post "/doi", data, headers
+
+      expect(last_response.status).to eq(400)
+      expect(last_response.body).to eq("param 'url' required")
+    end
+
+    it "register url spaces" do
+      doi = "10.14454/05mb-q396"
+      data = "doi= 10.14454/05MB-Q396\nurl= https://www.datacite.org/roadmap.html"
+
+      post "/doi", data, headers
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK")
     end
   end
 
@@ -60,7 +103,7 @@ describe "dois", type: :request, vcr: true do
       put "/doi/#{doi}", data, headers
 
       expect(last_response.status).to eq(201)
-      expect(last_response.body).to eq("https://www.datacite.org/roadmap.html")
+      expect(last_response.body).to eq("OK")
     end
 
     it "register url for doi escaped" do
@@ -68,7 +111,7 @@ describe "dois", type: :request, vcr: true do
       put "/doi/#{doi}", data, headers
 
       expect(last_response.status).to eq(201)
-      expect(last_response.body).to eq("https://www.datacite.org/roadmap.html")
+      expect(last_response.body).to eq("OK")
     end
 
     it "register url no data" do
@@ -112,7 +155,7 @@ describe "dois", type: :request, vcr: true do
       put "/doi/#{doi}", data, headers
 
       expect(last_response.status).to eq(201)
-      expect(last_response.body).to eq("https://identifiers.globus.org/doi:10.5072/FBFTV0VREUQV/landingpage")
+      expect(last_response.body).to eq("OK")
 
       delete "/doi/#{doi}", nil, headers
 

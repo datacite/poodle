@@ -35,9 +35,8 @@ class DoisController < ApplicationController
     doi, url = DoisController.extract_url(doi: validate_doi(params[:id]), data: safe_params[:data])
 
     response = DoisController.put_doi(doi, url: url, username: username, password: password)
-
     if [200, 201].include?(response.status)
-      render plain: response.body.dig("data", "attributes", "url"), status: :created
+      render plain: "OK", status: :created
     elsif response.status == 404
       render plain: "DOI not found", status: :not_found
     else
