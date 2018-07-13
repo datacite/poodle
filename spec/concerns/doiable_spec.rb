@@ -112,6 +112,12 @@ describe Doiable, vcr: true, order: :defined do
       expect { subject.extract_url(doi: doi, data: data) }.to raise_error(IdentifierError, "param 'url' required")
     end
 
+    it 'url spaces' do
+      doi = "10.5072/0000-03VC"
+      data = "doi= 10.5072/0000-03VC\nurl= https://identifiers.globus.org/doi:10.5072/0000-03VC/landingpage"
+      expect(subject.extract_url(doi: doi, data: data) ).to eq(["10.5072/0000-03VC", "https://identifiers.globus.org/doi:10.5072/0000-03VC/landingpage"])
+    end
+
     it 'no url' do
       doi = "10.5072/0000-03VC"
       data = "doi=10.5072/0000-03VC"
