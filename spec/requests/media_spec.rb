@@ -83,7 +83,6 @@ describe "media", type: :request, vcr: true, order: :defined do
       get "/media/#{doi_id}", nil, headers
 
       expect(last_response.status).to eq(404)
-
       expect(last_response.body).to eq("DOI is unknown to MDS")  
     end
   end

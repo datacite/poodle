@@ -12,7 +12,9 @@ class DoisController < ApplicationController
     elsif response.status == 204
       head :no_content
     elsif response.status == 401
-      fail CanCan::AccessDenied
+      render plain: "Bad credentials", status: :unauthorized
+    elsif response.status == 403
+      render plain: "Access is denied", status: :forbidden 
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
@@ -26,7 +28,9 @@ class DoisController < ApplicationController
     elsif [204, 404].include?(response.status)
       render plain: "DOI not found", status: :not_found
     elsif response.status == 401
-      fail CanCan::AccessDenied
+      render plain: "Bad credentials", status: :unauthorized
+    elsif response.status == 403
+      render plain: "Access is denied", status: :forbidden 
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
@@ -41,10 +45,12 @@ class DoisController < ApplicationController
     response = DoisController.put_doi(doi, url: url, username: username, password: password)
     if [200, 201].include?(response.status)
       render plain: "OK", status: :created
-    elsif response.status == 404
-      render plain: "DOI not found", status: :not_found
     elsif response.status == 401
-      fail CanCan::AccessDenied
+      render plain: "Bad credentials", status: :unauthorized
+    elsif response.status == 403
+      render plain: "Access is denied", status: :forbidden 
+    elsif response.status == 404
+      render plain: "DOI not found", status: :not_found 
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
@@ -55,10 +61,12 @@ class DoisController < ApplicationController
 
     if response.status == 204
       render plain: "OK", status: :ok
-    elsif response.status == 404
-      render plain: "DOI not found", status: :not_found
     elsif response.status == 401
-      fail CanCan::AccessDenied
+      render plain: "Bad credentials", status: :unauthorized
+    elsif response.status == 403
+      render plain: "Access is denied", status: :forbidden 
+    elsif response.status == 404
+      render plain: "DOI not found", status: :not_found 
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end

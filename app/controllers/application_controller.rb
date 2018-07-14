@@ -33,20 +33,22 @@ class ApplicationController < ActionController::API
   unless Rails.env.development?
     rescue_from *(RESCUABLE_EXCEPTIONS) do |exception|
       status = case exception.class.to_s
-               when "CanCan::AccessDenied", "JWT::DecodeError" then 401
+               when "CanCan::AuthorizationNotPerformed", "JWT::DecodeError", "JWT::VerificationError" then 401
+               when "CanCan::AccessDenied" then 403
                when "AbstractController::ActionNotFound", "ActionController::RoutingError" then 404
                when "ActiveModel::ForbiddenAttributesError", "ActionController::UnpermittedParameters", "NoMethodError" then 422
                when "IdentifierError" then 400
                else 400
                end
 
-      if status == 404
-        message = "bad request - no such identifier"
-        status = 400
-      elsif status == 401
+      if status == 401
         response.headers['WWW-Authenticate'] = Basic realm="#{ENV['REALM']}"
         response.headers.delete_if { |key| key == 'X-Credential-Username' }
         message = "Bad credentials"
+      elsif status == 403
+        message = "Access is denied"
+      elsif status == 404
+        message = exception.message
       else
         Bugsnag.notify(exception)
         

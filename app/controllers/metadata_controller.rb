@@ -15,10 +15,12 @@ class MetadataController < ApplicationController
 
     if response.status == 200
       render xml: response.body["data"], status: :ok
-    elsif response.status == 404
-      render plain: "DOI is unknown to MDS", status: :not_found
     elsif response.status == 401
-      fail CanCan::AccessDenied
+      render plain: "Bad credentials", status: :unauthorized
+    elsif response.status == 403
+      render plain: "Access is denied", status: :forbidden 
+    elsif response.status == 404
+      render plain: "DOI is unknown to MDS", status: :not_found 
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
@@ -33,10 +35,12 @@ class MetadataController < ApplicationController
 
     if [200, 201].include?(response.status)
       render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created
+    elsif response.status == 401
+      render plain: "Bad credentials", status: :unauthorized
+    elsif response.status == 403
+      render plain: "Access is denied", status: :forbidden 
     elsif response.status == 422
       render plain: response.body.dig("errors", 0, "title"), status: :bad_request
-    elsif response.status == 401
-      fail CanCan::AccessDenied
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
@@ -48,9 +52,11 @@ class MetadataController < ApplicationController
     if response.status == 200
       render plain: "OK", status: :ok
     elsif response.status == 401
-      fail CanCan::AccessDenied
+      render plain: "Bad credentials", status: :unauthorized
+    elsif response.status == 403
+      render plain: "Access is denied", status: :forbidden 
     else
-      render plain: response.body.inspect, status: :ok
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 
