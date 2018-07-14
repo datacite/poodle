@@ -16,6 +16,7 @@ class MetadataController < ApplicationController
     if response.status == 200
       render xml: response.body["data"], status: :ok
     elsif response.status == 401
+      response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
@@ -36,6 +37,7 @@ class MetadataController < ApplicationController
     if [200, 201].include?(response.status)
       render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created
     elsif response.status == 401
+      response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
@@ -52,6 +54,7 @@ class MetadataController < ApplicationController
     if response.status == 200
       render plain: "OK", status: :ok
     elsif response.status == 401
+      response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 

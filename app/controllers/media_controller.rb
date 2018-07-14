@@ -13,6 +13,7 @@ class MediaController < ApplicationController
     elsif response.status == 200
       render plain: "No media for the DOI", status: :not_found
     elsif response.status == 401
+      response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
@@ -29,6 +30,7 @@ class MediaController < ApplicationController
     if response.status == 200
       render plain: response.body["data"], status: :ok
     elsif response.status == 401
+      response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
@@ -45,6 +47,7 @@ class MediaController < ApplicationController
     if [200, 201].include?(response.status)
       render plain: "OK", status: :ok
     elsif response.status == 401
+      response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
@@ -61,6 +64,7 @@ class MediaController < ApplicationController
     if response.status == 204
       render plain: "OK", status: :ok
     elsif response.status == 401
+      response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
