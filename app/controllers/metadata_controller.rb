@@ -35,6 +35,8 @@ class MetadataController < ApplicationController
       render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created
     elsif response.status == 422
       render plain: response.body.dig("errors", 0, "title"), status: :bad_request
+    elsif response.status == 401
+      fail CanCan::AccessDenied
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
@@ -45,6 +47,8 @@ class MetadataController < ApplicationController
 
     if response.status == 200
       render plain: "OK", status: :ok
+    elsif response.status == 401
+      fail CanCan::AccessDenied
     else
       render plain: response.body.inspect, status: :ok
     end

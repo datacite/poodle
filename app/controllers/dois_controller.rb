@@ -11,6 +11,8 @@ class DoisController < ApplicationController
       render plain: response.body.dig("data", "dois").join("\n"), status: :ok
     elsif response.status == 204
       head :no_content
+    elsif response.status == 401
+      fail CanCan::AccessDenied
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
@@ -23,6 +25,8 @@ class DoisController < ApplicationController
       render plain: response.body.dig("data", "url"), status: :ok
     elsif [204, 404].include?(response.status)
       render plain: "DOI not found", status: :not_found
+    elsif response.status == 401
+      fail CanCan::AccessDenied
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
@@ -39,6 +43,8 @@ class DoisController < ApplicationController
       render plain: "OK", status: :created
     elsif response.status == 404
       render plain: "DOI not found", status: :not_found
+    elsif response.status == 401
+      fail CanCan::AccessDenied
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
@@ -51,6 +57,8 @@ class DoisController < ApplicationController
       render plain: "OK", status: :ok
     elsif response.status == 404
       render plain: "DOI not found", status: :not_found
+    elsif response.status == 401
+      fail CanCan::AccessDenied
     else
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end

@@ -8,32 +8,44 @@ class MediaController < ApplicationController
   def index
     response = MediaController.list_media(@doi, username: username, password: password)
 
-    if response.body["errors"].present?
-      render plain: "DOI is unknown to MDS", status: :not_found
-    elsif response.body["data"].present?
+    if response.status == 200 && response.body["data"].present?
       render plain: response.body["data"], status: :ok
-    else
+    elsif response.status == 200
       render plain: "No media for the DOI", status: :not_found
+    elsif response.status == 404
+      render plain: "DOI is unknown to MDS", status: :not_found
+    elsif response.status == 401
+      fail CanCan::AccessDenied
+    else
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 
   def show
     response = MediaController.get_media(@doi, @id, username: username, password: password)
 
-    if response.body["data"].present?
+    if response.status == 200
       render plain: response.body["data"], status: :ok
-    else
+    elsif response.status == 404
       render plain: "No media for the DOI", status: :not_found
+    elsif response.status == 401
+      fail CanCan::AccessDenied
+    else
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 
   def create
     response = MediaController.create_media(@doi, data: safe_params[:data], username: username, password: password)
 
-    if response.body["data"].present?
+    if [200, 201].include?(response.status)
       render plain: "OK", status: :ok
-    else
+    elsif response.status == 404
       render plain: "No media for the DOI", status: :not_found
+    elsif response.status == 401
+      fail CanCan::AccessDenied
+    else
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 
@@ -42,8 +54,10 @@ class MediaController < ApplicationController
 
     if response.status == 204
       render plain: "OK", status: :ok
+    elsif response.status == 401
+      fail CanCan::AccessDenied
     else
-
+      render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
 
