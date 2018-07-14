@@ -4,6 +4,26 @@ describe "dois", type: :request, vcr: true do
   let(:credentials) { ::Base64.strict_encode64("#{ENV['MDS_USERNAME']}:#{ENV['MDS_PASSWORD']}") }
   let(:headers) { {'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
+  describe 'authentication', type: :request do
+    let(:doi) { "10.14454/05MB-Q396" }
+
+    it "no username and password" do
+      get "/doi/#{doi}"
+
+      expect(last_response.status).to eq(401)
+      expect(last_response.body).to eq("An Authentication object was not found in the SecurityContext")
+    end
+
+    it "wrong password" do
+      headers = { 'HTTP_AUTHORIZATION' => 'Basic ' + ::Base64.strict_encode64("#{ENV['MDS_USERNAME']}:123") }
+
+      get "/doi/#{doi}", nil, headers
+
+      expect(last_response.status).to eq(401)
+      expect(last_response.body).to eq("Bad credentials")
+    end
+  end
+
   describe '/doi', type: :request do
     it "get all dois" do
       get '/doi', nil, headers

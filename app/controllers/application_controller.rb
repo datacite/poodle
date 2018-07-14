@@ -45,6 +45,8 @@ class ApplicationController < ActionController::API
         status = 400
       elsif status == 401
         response.headers['WWW-Authenticate'] = ENV['REALM']
+        response.headers['X-Anonymous-Consumer'] = true
+        response.headers.delete_if { |key| key == 'X-Credential-Username' }
         message = "Bad credentials"
       else
         Bugsnag.notify(exception)
