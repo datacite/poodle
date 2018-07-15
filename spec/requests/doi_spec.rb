@@ -79,6 +79,14 @@ describe "dois", type: :request, vcr: true do
       expect(last_response.body).to eq("OK")
     end
 
+    it "register url with params" do
+      params = { doi: "10.14454/05MB-Q396", url: "https://www.datacite.org/user-stories.html" }
+      post "/doi?#{URI.encode_www_form(params)}", nil, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK")
+    end
+
     it "register url no data" do
       post "/doi", nil, headers
 

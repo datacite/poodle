@@ -40,9 +40,14 @@ class DoisController < ApplicationController
 
   def update
     # Rails.logger.info safe_params.inspect
-    return head :bad_request unless safe_params[:data].present?
-
-    doi, url = DoisController.extract_url(doi: validate_doi(params[:id]), data: safe_params[:data])
+    if safe_params[:doi].present? && safe_params[:url].present?
+      doi = safe_params[:doi]
+      url = safe_params[:url]
+    elsif safe_params[:data].present?
+      doi, url = DoisController.extract_url(doi: validate_doi(params[:id]), data: safe_params[:data])
+    else
+      return head :bad_request
+    end
 
     response = DoisController.put_doi(doi, url: url, username: username, password: password)
     if [200, 201].include?(response.status)
@@ -86,6 +91,6 @@ class DoisController < ApplicationController
   private
 
   def safe_params
-    params.permit(:id, :doi, "testMode").merge(data: request.raw_post)
+    params.permit(:id, :doi, :url, "testMode").merge(data: request.raw_post)
   end
 end
