@@ -17,6 +17,7 @@ class DoisController < ApplicationController
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
     else
+      logger.error response.inspect
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
@@ -34,6 +35,7 @@ class DoisController < ApplicationController
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
     else
+      logger.error response.inspect
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
@@ -60,6 +62,7 @@ class DoisController < ApplicationController
     elsif response.status == 404
       render plain: "DOI not found", status: :not_found 
     else
+      logger.error response.inspect
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
@@ -77,6 +80,7 @@ class DoisController < ApplicationController
     elsif response.status == 404
       render plain: "DOI not found", status: :not_found 
     else
+      logger.error response.inspect
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
