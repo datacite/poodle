@@ -40,6 +40,15 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       expect(metadata.dig("identifier", "__content__")).to eq("10.5072/EY2X-5W17")
     end
 
+    it "post metadata doi exists" do
+      data = file_fixture('datacite_tba.xml').read
+
+      post "/metadata/#{doi_id}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+    end
+
     it "delete metadata for doi" do
       delete "/metadata/#{doi_id}", nil, headers
 
@@ -112,11 +121,22 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       expect(last_response.body).to eq("OK")  
     end
 
-    it "delete doi" do
-      delete "/doi/#{doi_id}", nil, headers
+    it "register doi" do
+      doi_data = "doi=10.5438/08a0-3f64\nurl=https://www.datacite.org/roadmap.html"
 
-      expect(last_response.status).to eq(200)
+      put "/doi/#{doi_id}", doi_data, headers
+
+      expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK")
+    end
+
+    it "post metadata doi findable" do
+      data = file_fixture('datacite_tba.xml').read
+
+      post "/metadata/#{doi_id}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
     end
   end
 

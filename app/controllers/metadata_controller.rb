@@ -23,7 +23,7 @@ class MetadataController < ApplicationController
     elsif response.status == 404
       render plain: "DOI is unknown to MDS", status: :not_found 
     else
-      logger.error response.inspect
+      Rails.logger.info response.inspect
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
@@ -43,10 +43,10 @@ class MetadataController < ApplicationController
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
     elsif response.status == 422
-      logger.error response.inspect
+      Rails.logger.info response.inspect
       render plain: response.body.dig("errors", 0, "title"), status: :bad_request
     else
-      logger.error response.inspect
+      Rails.logger.info response.inspect
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
@@ -62,7 +62,7 @@ class MetadataController < ApplicationController
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
     else
-      logger.error response.inspect
+      Rails.logger.info response.inspect
       render plain: response.body.dig("errors", 0, "title"), status: response.status
     end
   end
