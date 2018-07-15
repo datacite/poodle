@@ -4,13 +4,16 @@ class Heartbeat
   attr_reader :string, :status
 
   def initialize
-    if memcached_up?
-      @string = "OK"
-      @status = 200
-    else
-      @string = "failed"
-      @status = 500
-    end
+    @string = "OK"
+    @status = 200
+
+    # if memcached_up?
+    #   @string = "OK"
+    #   @status = 200
+    # else
+    #   @string = "failed"
+    #   @status = 500
+    # end
   end
 
   def memcached_up?
