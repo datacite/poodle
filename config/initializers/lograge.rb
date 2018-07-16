@@ -3,7 +3,7 @@ Rails.application.configure do
   config.lograge.formatter = Lograge::Formatters::Logstash.new
   config.lograge.logger = LogStashLogger.new(type: :stdout)
 
-  config.lograge.ignore_actions = ['HeartbeatController#index']
+  config.lograge.ignore_actions = ['HeartbeatController#index', 'ApplicationController#route_not_found']
   config.lograge.base_controller_class = 'ActionController::API'
   config.log_level = ENV['LOG_LEVEL'].to_sym
 
