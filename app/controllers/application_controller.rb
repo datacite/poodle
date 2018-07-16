@@ -26,8 +26,8 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def routing_error
-    fail AbstractController::ActionNotFound
+  def route_not_found
+    render plain: "Resource not found", status: :not_found
   end
 
   unless Rails.env.development?
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::API
       status = case exception.class.to_s
                when "CanCan::AuthorizationNotPerformed", "JWT::DecodeError", "JWT::VerificationError" then 401
                when "CanCan::AccessDenied" then 403
-               when "AbstractController::ActionNotFound", "ActionController::RoutingError" then 404
+               when "AbstractController::ActionNotFound" then 404
                when "ActiveModel::ForbiddenAttributesError", "ActionController::UnpermittedParameters", "NoMethodError" then 422
                when "IdentifierError" then 400
                else 400
@@ -55,7 +55,7 @@ class ApplicationController < ActionController::API
         message = exception.message
       end
 
-      Rails.logger.debug "[#{status}]: " + message
+      Rails.logger.info "[#{status}]: " + message
 
       render plain: message, status: status
     end
