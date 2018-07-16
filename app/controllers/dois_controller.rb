@@ -44,7 +44,7 @@ class DoisController < ApplicationController
     # Rails.logger.info safe_params.inspect
     if safe_params[:doi].present? && safe_params[:url].present?
       doi = safe_params[:doi]
-      url = safe_params[:url].dup.force_encoding('UTF-8')
+      url = safe_params[:url]
     elsif safe_params[:data].present?
       doi, url = DoisController.extract_url(doi: validate_doi(params[:id]), data: safe_params[:data])
     else

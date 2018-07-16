@@ -33,7 +33,7 @@ class MetadataController < ApplicationController
     @doi = MetadataController.extract_doi(params[:doi_id], data: safe_params[:data], number: safe_params[:number])
     fail AbstractController::ActionNotFound unless @doi.present?
 
-    response = MetadataController.create_metadata(@doi, data: safe_params[:data].dup.force_encoding('UTF-8'), username: username, password: password)
+    response = MetadataController.create_metadata(@doi, data: safe_params[:data], username: username, password: password)
 
     if [200, 201].include?(response.status)
       render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created

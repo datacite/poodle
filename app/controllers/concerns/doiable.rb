@@ -69,7 +69,7 @@ module Doiable
       key, value = url_line.to_s.split("=", 2)
       fail IdentifierError, "param 'url' required" if key.to_s.strip != "url" || value.to_s.strip.blank?
 
-      [doi, URI.unescape(value.to_s.strip.dup.force_encoding('UTF-8'))]
+      [doi, URI.unescape(value.to_s.strip)]
     end
   end
 end

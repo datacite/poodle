@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?> <resource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-3 http://schema.datacite.org/meta/kernel-3/metadata.xsd" xmlns="http://datacite.org/schema/kernel-3">   <identifier identifierType="DOI">10.5438/s0m8-q346</identifier>   <creators />   <titles>     <title>CCDC 926829: Experimental Crystal Structure Determination</title>   </titles>   <publisher>Cambridge Crystallographic Data Centre</publisher>   <publicationYear>2013</publicationYear>   <subjects>     <subject>Crystal Structure</subject>     <subject>Experimental 3D Coordinates</subject>     <subject>Crystal System</subject>     <subject>Space Group</subject>     <subject>Cell Parameters</subject>     <subject>Crystallography</subject>   </subjects>   <language>eng</language>   <resourceType resourceTypeGeneral="Dataset" />   <alternateIdentifiers>     <alternateIdentifier alternateIdentifierType="CCDC">926829</alternateIdentifier>   </alternateIdentifiers>   <relatedIdentifiers>     <relatedIdentifier relatedIdentifierType="DOI" relationType="IsSupplementTo">10.1002/chem.201300809</relatedIdentifier>   </relatedIdentifiers>   <formats>     <format>CIF</format>   </formats>   <descriptions>     <description descriptionType="Other">Related Article: |2013|Chin.J.Chem.Phys.|27|113|</description>     <description descriptionType="Other">Related Article: Cory M. Widdifield, Gabriella Cavallo, Glenn A. Facey, Tullio Pilati, Jingxiang Lin, Pierangelo Metrangolo, Giuseppe Resnati, David L. Bryce|2013|Chem.-Eur.J.|19|11949|doi:10.1002/chem.201300809</description>     <description descriptionType="Abstract">An entry from the Cambridge Structural Database, the world’s repository for small molecule crystal structures. The entry contains experimental data from a crystal diffraction study. The deposited dataset for this entry is freely available from the CCDC and typically includes 3D coordinates, cell parameters, space group, experimental conditions and quality measures.</description>   </descriptions> </resource>
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.5438/S0M8-Q346</identifier>
+  <creators/>
+  <titles>
+    <title>Eating your own Dog Food</title>
+  </titles>
+  <publisher>DataCite</publisher>
+  <publicationYear>2016</publicationYear>
+  <resourceType resourceTypeGeneral="Text">BlogPosting</resourceType>
+  <alternateIdentifiers>
+    <alternateIdentifier alternateIdentifierType="Local accession number">MS-49-3632-5083</alternateIdentifier>
+  </alternateIdentifiers>
+  <subjects>
+    <subject>datacite</subject>
+    <subject>doi</subject>
+    <subject>metadata</subject>
+  </subjects>
+  <dates>
+    <date dateType="Created">2016-12-20</date>
+    <date dateType="Issued">2016-12-20</date>
+    <date dateType="Updated">2016-12-20</date>
+  </dates>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.5438/0012</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.5438/55E5-T5C0</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsPartOf">10.5438/0000-00SS</relatedIdentifier>
+  </relatedIdentifiers>
+  <version>1.0</version>
+  <descriptions>
+    <description descriptionType="Abstract">Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...</description>
+  </descriptions>
+</resource>

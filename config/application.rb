@@ -59,6 +59,9 @@ module Poodle
     # raise error with unpermitted parameters
     config.action_controller.action_on_unpermitted_parameters = :raise
 
+    # make sure all input is UTF-8
+    config.middleware.insert 0, Rack::UTF8Sanitizer, additional_content_types: ['application/vnd.api+json', 'application/xml']
+
     # compress responses with deflate or gzip
     config.middleware.use Rack::Deflater
   end
