@@ -149,7 +149,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       post "/metadata", data, headers
 
       expect(last_response.status).to eq(400)
-      expect(last_response.body).to eq("Missing child element(s). expected is ( {http://datacite.org/schema/kernel-4}creator ). at line 4, column 0")
+      expect(last_response.body).to eq("Missing child element(s). expected is ( {http://datacite.org/schema/kernel-3}creator ). at line 4, column 0")
     end
   end
 

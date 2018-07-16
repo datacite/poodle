@@ -183,6 +183,7 @@ GEM
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     oj (2.18.5)
+    oj_mimic_json (1.0.1)
     postrank-uri (1.0.23)
       addressable (>= 2.3.0, < 2.6)
       nokogiri (>= 1.6.1, < 1.9)
@@ -331,6 +332,7 @@ DEPENDENCIES
   maremma (~> 4.0)
   multi_json
   nokogiri (~> 1.8.1)
+  oj_mimic_json (~> 1.0, >= 1.0.1)
   rack-cors (~> 1.0, >= 1.0.2)
   rack-utf8_sanitizer (~> 1.6)
   rails (~> 5.2)
