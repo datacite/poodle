@@ -26,7 +26,6 @@ module Metadatable
       attributes = {
         "doi" => doi,
         "xml" => xml,
-        "validate" => "true",
         "event" => "start" }.compact
 
       data = {
