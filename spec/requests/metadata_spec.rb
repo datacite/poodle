@@ -27,6 +27,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       post "/metadata/#{doi_id}", data, headers
 
       expect(last_response.status).to eq(201)
+      expect(last_response.header["Location"]).to eq("https://mds.test.datacite.org/metadata/10.5072/ey2x-5w17")
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
     end
 

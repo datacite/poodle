@@ -36,7 +36,7 @@ class MetadataController < ApplicationController
     response = MetadataController.create_metadata(@doi, data: safe_params[:data], username: username, password: password)
 
     if [200, 201].include?(response.status)
-      render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created
+      render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created, location: mds_url + "/metadata/" + @doi
     elsif response.status == 401
       response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized

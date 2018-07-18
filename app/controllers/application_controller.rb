@@ -30,6 +30,10 @@ class ApplicationController < ActionController::API
     render plain: "Resource not found", status: :not_found
   end
 
+  def mds_url
+    Rails.env.production? ? 'https://mds.datacite.org' : 'https://mds.test.datacite.org' 
+  end
+
   unless Rails.env.development?
     rescue_from *(RESCUABLE_EXCEPTIONS) do |exception|
       status = case exception.class.to_s
