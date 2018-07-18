@@ -5,7 +5,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
 
   describe '/metadata/10.0144/DUMMY.V0I1.45', type: :request do
     let(:doi_id) { "10.0144/DUMMY.V0I1.45" }
-    let(:headers) { {'ACCEPT' => 'qpplication/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'ACCEPT' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
     it "get metadata for doi" do
       get "/metadata/#{doi_id}", nil, headers
@@ -21,7 +21,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   describe '/metadata', type: :request do
     let(:doi_id) { "10.5072/ey2x-5w17" }
     let(:data) { file_fixture('datacite.xml').read }
-    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
     it "post metadata for doi" do
       post "/metadata/#{doi_id}", data, headers
@@ -96,7 +96,16 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   describe '/metadata doi from xml', type: :request do
     let(:doi_id) { "10.5438/08a0-3f64" }
     let(:data) { file_fixture('datacite.xml').read }
-    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+
+    it "post metadata for doi application/x-www-form-urlencoded" do
+      headers = {'CONTENT_TYPE' => 'application/x-www-form-urlencoded', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials }
+      post "/metadata", data, headers
+
+      expect(last_response.status).to eq(415)
+      expect(last_response.body).to eq("Unsupported content type, please use application/xml")
+    end
+
 
     it "post metadata for doi" do
       post "/metadata", data, headers
@@ -142,9 +151,9 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   end
 
   describe '/metadata doi from xml no creator', type: :request do
-    let(:doi_id) { "10.5438/s0m8-q346" }
+    let(:doi_id) { "10.5072/pure.item_3001051" }
     let(:data) { file_fixture('no_creator.xml').read }
-    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
     it "post metadata for doi" do
       post "/metadata", data, headers
@@ -154,10 +163,23 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     end
   end
 
+  describe '/metadata doi from xml mpdl', type: :request do
+    let(:doi_id) { "10.5438/s0m8-q346" }
+    let(:data) { file_fixture('mpdl.xml').read }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+
+    it "post metadata for doi" do
+      post "/metadata", data, headers
+
+      expect(last_response.status).to eq(400)
+      expect(last_response.body).to eq("xmlns namespace not found")
+    end
+  end
+
   describe '/metadata random doi', type: :request do
     let(:doi_id) { "10.5072/003r-j076" }
     let(:data) { file_fixture('datacite_tba.xml').read }
-    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
     it "post metadata for doi" do
       post "/metadata/10.5072?number=123456", data, headers
@@ -193,7 +215,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
 
   context 'no metadata', type: :request do
     let(:doi_id) { "10.5072/236y-qx15" }
-    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
     it "post metadata for doi" do
       post "/metadata/#{doi_id}", nil, headers
@@ -220,7 +242,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   context 'metadata schema_org', type: :request do
     let(:doi_id) { "10.5072/x86n-nm18" }
     let(:data) { file_fixture('schema_org.json').read }
-    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
     it "post metadata for doi" do
       post "/metadata/#{doi_id}", data, headers
@@ -250,7 +272,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   context 'metadata schema_org as url', type: :request do
     let(:doi_id) { "10.7910/DVN/HSCUNB" }
     let(:data) { "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HSCUNB" }
-    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
     it "post metadata for doi" do
       post "/metadata/#{doi_id}", data, headers
@@ -280,7 +302,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   context 'metadata citeproc', type: :request do
     let(:doi_id) { "10.5072/ey8x-9f93" }
     let(:data) { file_fixture('citeproc.json').read }
-    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
     it "post metadata for doi" do
       post "/metadata/#{doi_id}", data, headers

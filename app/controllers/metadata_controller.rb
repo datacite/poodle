@@ -29,6 +29,17 @@ class MetadataController < ApplicationController
   end
 
   def create
+    if request.content_type == "application/x-www-form-urlencoded"
+      render plain: "Unsupported content type, please use application/xml", status: :unsupported_media_type
+      return
+    end
+
+    # look for namespace
+    unless params[:doi_id].present? || Maremma.from_xml(safe_params[:data]).to_h.dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
+      render plain: "xmlns namespace not found", status: :bad_request
+      return
+    end
+
     # find or generate doi
     @doi = MetadataController.extract_doi(params[:doi_id], data: safe_params[:data], number: safe_params[:number])
     fail AbstractController::ActionNotFound unless @doi.present?
