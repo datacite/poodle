@@ -57,7 +57,11 @@ module Doiable
     end
 
     def extract_url(doi: nil, data: nil)
-      hsh = data.split("\n").map { |line| line.to_s.split("=", 2) }.to_h
+      hsh = data.split("\n").map do |line| 
+        arr = line.to_s.split("=", 2)
+        arr << "value" if arr.length < 2
+        arr
+      end.to_h
 
       fail IdentifierError, "param 'doi' required" unless hsh["doi"].present?
       fail IdentifierError, "doi parameter does not match doi of resource" if doi.present? && URI.unescape(hsh["doi"].strip).casecmp(doi) != 0
