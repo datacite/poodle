@@ -57,19 +57,17 @@ module Doiable
     end
 
     def extract_url(doi: nil, data: nil)
-      doi_line, url_line = data.split("\n")
+      hsh = data.split("\n").map { |line| line.to_s.split("=", 2) }.to_h
 
-      key, value = doi_line.to_s.split("=", 2)
-      fail IdentifierError, "param 'doi' required" if key.to_s.strip != "doi"
-      fail IdentifierError, "doi parameter does not match doi of resource" if doi.present? && URI.unescape(value.to_s.strip).casecmp(doi) != 0
+      fail IdentifierError, "param 'doi' required" unless hsh["doi"].present?
+      fail IdentifierError, "doi parameter does not match doi of resource" if doi.present? && URI.unescape(hsh["doi"].strip).casecmp(doi) != 0
       
-      doi = URI.unescape(value.strip) unless doi.present?
+      doi = URI.unescape(hsh["doi"].strip) unless doi.present?
       fail AbstractController::ActionNotFound unless doi.present?
       
-      key, value = url_line.to_s.split("=", 2)
-      fail IdentifierError, "param 'url' required" if key.to_s.strip != "url" || value.to_s.strip.blank?
+      fail IdentifierError, "param 'url' required" unless hsh["url"].present?
 
-      [doi, URI.unescape(value.to_s.strip)]
+      [doi, URI.unescape(hsh["url"].strip)]
     end
   end
 end
