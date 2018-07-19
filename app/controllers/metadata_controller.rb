@@ -41,7 +41,7 @@ class MetadataController < ApplicationController
     end
 
     # find or generate doi
-    @doi = MetadataController.extract_doi(params[:doi_id], data: safe_params[:data], number: safe_params[:number])
+    @doi = extract_doi(params[:doi_id], data: safe_params[:data], number: safe_params[:number])
     fail AbstractController::ActionNotFound unless @doi.present?
 
     response = MetadataController.create_metadata(@doi, data: safe_params[:data], username: username, password: password)

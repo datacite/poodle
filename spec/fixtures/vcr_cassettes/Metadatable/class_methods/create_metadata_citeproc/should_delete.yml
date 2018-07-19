@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://app.test.datacite.org/dois/10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357
+    uri: https://app.test.datacite.org/dois/10.5438/08a0-3f64
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.11; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 04 Jul 2018 16:52:22 GMT
+      - Thu, 19 Jul 2018 07:28:51 GMT
       Connection:
       - keep-alive
       Status:
@@ -28,12 +28,12 @@ http_interactions:
       - no-cache
       Vary:
       - Origin
-      X-Runtime:
-      - '0.016078'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 5b4ec403-86ef-4099-bedf-d858922d3a47
+      - 34174b9d-427f-495d-a09c-14fcc08fcced
+      X-Runtime:
+      - '0.024440'
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
@@ -42,5 +42,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Wed, 04 Jul 2018 16:52:31 GMT
+  recorded_at: Thu, 19 Jul 2018 07:28:53 GMT
 recorded_with: VCR 3.0.3

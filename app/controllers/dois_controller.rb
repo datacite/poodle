@@ -48,7 +48,7 @@ class DoisController < ApplicationController
       doi = safe_params[:doi]
       url = safe_params[:url]
     elsif safe_params[:data].present?
-      doi, url = DoisController.extract_url(doi: validate_doi(params[:id]), data: safe_params[:data])
+      doi, url = extract_url(doi: validate_doi(params[:id]), data: safe_params[:data])
     else
       return head :bad_request
     end

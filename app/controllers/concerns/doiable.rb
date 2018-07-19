@@ -1,6 +1,26 @@
 module Doiable
   extend ActiveSupport::Concern
 
+  included do
+    def extract_url(doi: nil, data: nil)
+      hsh = data.split("\n").map do |line| 
+        arr = line.to_s.split("=", 2)
+        arr << "value" if arr.length < 2
+        arr
+      end.to_h
+
+      fail IdentifierError, "param 'doi' required" unless hsh["doi"].present?
+      fail IdentifierError, "doi parameter does not match doi of resource" if doi.present? && URI.unescape(hsh["doi"].strip).casecmp(doi) != 0
+      
+      doi = URI.unescape(hsh["doi"].strip) unless doi.present?
+      fail AbstractController::ActionNotFound unless doi.present?
+      
+      fail IdentifierError, "param 'url' required" unless hsh["url"].present?
+
+      [doi, URI.unescape(hsh["url"].strip)]
+    end
+  end
+
   module ClassMethods
 
     require "uri"
@@ -54,24 +74,6 @@ module Doiable
 
     def api_url
       Rails.env.production? ? 'https://app.datacite.org' : 'https://app.test.datacite.org' 
-    end
-
-    def extract_url(doi: nil, data: nil)
-      hsh = data.split("\n").map do |line| 
-        arr = line.to_s.split("=", 2)
-        arr << "value" if arr.length < 2
-        arr
-      end.to_h
-
-      fail IdentifierError, "param 'doi' required" unless hsh["doi"].present?
-      fail IdentifierError, "doi parameter does not match doi of resource" if doi.present? && URI.unescape(hsh["doi"].strip).casecmp(doi) != 0
-      
-      doi = URI.unescape(hsh["doi"].strip) unless doi.present?
-      fail AbstractController::ActionNotFound unless doi.present?
-      
-      fail IdentifierError, "param 'url' required" unless hsh["url"].present?
-
-      [doi, URI.unescape(hsh["url"].strip)]
     end
   end
 end

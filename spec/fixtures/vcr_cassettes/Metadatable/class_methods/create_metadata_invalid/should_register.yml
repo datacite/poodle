@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://app.test.datacite.org/dois/10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"dois","attributes":{"doi":"10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTA3Mi9UVVBSSU5UUy1ERVYuVUxCLlRVLURBUk1TVEFEVC5ERS4xMDAwNzM1NzwvaWRlbnRpZmllcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiPkJvb2s8L3Jlc291cmNlVHlwZT4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkZyZW56LCBKb2hhbm5hPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5Kb2hhbm5hPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkZyZW56PC9mYW1pbHlOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZSB4bWw6bGFuZz0iZW4tdXMiPkRlciBmaW5hbGUgRG9pIFRlc3Q8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaWNhdGlvblllYXI+MjAxODwvcHVibGljYXRpb25ZZWFyPgo8L3Jlc291cmNlPg==","event":"start"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 201
+      message: ''
+    headers:
+      Date:
+      - Thu, 19 Jul 2018 07:24:34 GMT
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.datacite
+      X-Request-Id:
+      - d343b9f0-bfa8-4ce7-8587-7235a0569af2
+      Etag:
+      - W/"a8c8ae148556a3776ce3d960a9a41103"
+      X-Runtime:
+      - '0.082885'
+      X-Powered-By:
+      - Phusion Passenger 5.3.3
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.3
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357","type":"dois","attributes":{"doi":"10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357","prefix":"10.5072","suffix":"tuprints-dev.ulb.tu-darmstadt.de.10007357","identifier":"https://handle.test.datacite.org/10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357","url":null,"author":[{"type":"Person","name":"Frenz,
+        Johanna","given-name":"Johanna","family-name":"Frenz"}],"title":"Der finale
+        Doi Test","publisher":null,"resource-type-subtype":"Book","description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"draft","is-active":false,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTA3Mi9UVVBSSU5UUy1ERVYuVUxCLlRVLURBUk1TVEFEVC5ERS4xMDAwNzM1NzwvaWRlbnRpZmllcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiPkJvb2s8L3Jlc291cmNlVHlwZT4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkZyZW56LCBKb2hhbm5hPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5Kb2hhbm5hPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkZyZW56PC9mYW1pbHlOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZSB4bWw6bGFuZz0iZW4tdXMiPkRlciBmaW5hbGUgRG9pIFRlc3Q8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaWNhdGlvblllYXI+MjAxODwvcHVibGljYXRpb25ZZWFyPgo8L3Jlc291cmNlPg==","published":"2018","created":"2018-07-19T07:24:34.000Z","registered":null,"updated":"2018-07-19T07:24:34.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+    http_version: 
+  recorded_at: Thu, 19 Jul 2018 07:24:36 GMT
+recorded_with: VCR 3.0.3

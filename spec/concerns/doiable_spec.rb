@@ -88,6 +88,8 @@ describe Doiable, vcr: true, order: :defined do
   end
 
   context "extract_url" do
+    subject = DoisController.new
+    
     it 'should get url' do
       doi = "10.5072/0000-03VC"
       data = "doi=10.5072/0000-03VC\nurl=http://example.org/"
