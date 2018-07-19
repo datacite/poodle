@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: put
-    uri: https://app.test.datacite.org/dois/10.5072/fbftv0vreuqv
+    uri: https://api.test.datacite.org/dois/10.5072/fbftv0vreuqv
     body:
       encoding: UTF-8
       string: '{"data":{"type":"dois","attributes":{"url":"https://identifiers.globus.org/doi:10.5072/FBFTV0VREUQV/landingpage","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.11; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -17,17 +17,17 @@ http_interactions:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 200
+      code: 201
       message: ''
     headers:
       Date:
-      - Thu, 05 Jul 2018 21:40:06 GMT
+      - Thu, 19 Jul 2018 19:20:29 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 200 OK
+      - 201 Created
       Cache-Control:
       - max-age=0, private, must-revalidate
       Vary:
@@ -35,62 +35,65 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - b35ab486-3be9-4456-9f38-e312a61162f4
+      - eab9ea51-b690-4526-9806-6a94a3d890d5
       Etag:
-      - W/"4b19de6e03497d3f2741c977fa57c6b7"
+      - W/"42612d7802dc6ac3ab7ef3a90dad687f"
       X-Runtime:
-      - '0.080311'
+      - '0.066572'
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.3
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5072/fbftv0vreuqv","type":"dois","attributes":{"doi":"10.5072/fbftv0vreuqv","prefix":"10.5072","suffix":"fbftv0vreuqv","identifier":"https://handle.test.datacite.org/10.5072/fbftv0vreuqv","url":"https://identifiers.globus.org/doi:10.5072/FBFTV0VREUQV/landingpage","author":[{"type":"Person","name":"John
-        Smith","given-name":"John","family-name":"Smith"}],"title":"Interesting Pub","publisher":"Me","resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"draft","is-active":true,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTA3Mi9GQkZUVjBWUkVVUVY8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5TbWl0aCwgSm9objwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkludGVyZXN0aW5nIFB1YjwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5NZTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxODwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgo8L3Jlc291cmNlPg==","published":"2018","registered":null,"updated":"2018-07-05T21:40:06.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+      string: '{"data":{"id":"10.5072/fbftv0vreuqv","type":"dois","attributes":{"doi":"10.5072/fbftv0vreuqv","prefix":"10.5072","suffix":"fbftv0vreuqv","identifier":"https://handle.test.datacite.org/10.5072/fbftv0vreuqv","url":"https://identifiers.globus.org/doi:10.5072/FBFTV0VREUQV/landingpage","author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","is-active":true,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"created":"2018-07-19T19:20:29.000Z","registered":null,"updated":"2018-07-19T19:20:29.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
     http_version: 
-  recorded_at: Thu, 05 Jul 2018 21:40:12 GMT
+  recorded_at: Thu, 19 Jul 2018 19:20:51 GMT
 - request:
     method: delete
-    uri: https://app.test.datacite.org/dois/10.5072/fbftv0vreuqv
+    uri: https://api.test.datacite.org/dois/10.5072/fbftv0vreuqv
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.11; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 204
+      code: 405
       message: ''
     headers:
       Date:
-      - Thu, 05 Jul 2018 21:40:07 GMT
+      - Thu, 19 Jul 2018 19:20:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 204 No Content
+      - 405 Method Not Allowed
       Cache-Control:
       - no-cache
       Vary:
-      - Origin
+      - Accept-Encoding, Origin
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 14da9981-efbc-44fa-92a9-330731da0689
+      - 8e276faa-bef2-456a-bd5d-de6b73b22b4d
       X-Runtime:
-      - '0.020910'
+      - '0.008266'
+      Allow:
+      - HEAD, GET, POST, PATCH, PUT, OPTIONS
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.3
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: '{"errors":[{"status":"405","title":"Method not allowed"}]}'
     http_version: 
-  recorded_at: Thu, 05 Jul 2018 21:40:12 GMT
+  recorded_at: Thu, 19 Jul 2018 19:20:51 GMT
 recorded_with: VCR 3.0.3

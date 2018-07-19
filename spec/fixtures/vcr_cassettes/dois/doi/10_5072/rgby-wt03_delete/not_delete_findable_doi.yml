@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://app.test.datacite.org/dois/10.14454/05mb-q396
+    uri: https://api.test.datacite.org/dois/10.14454/05mb-q396
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.6; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 16 Jun 2018 17:51:11 GMT
+      - Thu, 19 Jul 2018 19:20:30 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -33,18 +33,18 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 50cd21a9-5ab0-4751-bbfa-c008543ef3e3
+      - d28a8f82-5d79-4e40-8de6-b2e279f51e6d
       X-Runtime:
-      - '0.009035'
+      - '0.008018'
       Allow:
       - HEAD, GET, POST, PATCH, PUT, OPTIONS
       X-Powered-By:
-      - Phusion Passenger 5.3.2
+      - Phusion Passenger 5.3.3
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.2
+      - nginx/1.14.0 + Phusion Passenger 5.3.3
     body:
       encoding: ASCII-8BIT
       string: '{"errors":[{"status":"405","title":"Method not allowed"}]}'
     http_version: 
-  recorded_at: Sat, 16 Jun 2018 17:51:14 GMT
+  recorded_at: Thu, 19 Jul 2018 19:20:52 GMT
 recorded_with: VCR 3.0.3

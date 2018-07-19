@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: patch
-    uri: https://app.test.datacite.org/dois/10.5438/m21h-3007
+    uri: https://api.test.datacite.org/dois/10.5438/m21h-3007
     body:
       encoding: UTF-8
       string: '{"data":{"type":"dois","attributes":{"event":"hide"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 07:24:36 GMT
+      - Thu, 19 Jul 2018 19:20:26 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -35,18 +35,18 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - f0835989-6349-4755-8572-ba43492d15cb
+      - 65fe6004-069f-4cca-9000-170eb016c2d6
       Etag:
-      - W/"d13940d9513098018b56ee9abc0cd2a3"
+      - W/"bd611b373b86351f352a107f6b2e6772"
       X-Runtime:
-      - '0.070316'
+      - '0.068171'
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.3
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5438/m21h-3007","type":"dois","attributes":{"doi":"10.5438/m21h-3007","prefix":"10.5438","suffix":"m21h-3007","identifier":"https://handle.test.datacite.org/10.5438/m21h-3007","url":null,"author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"draft","is-active":false,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"created":"2018-07-13T21:53:59.000Z","registered":null,"updated":"2018-07-19T07:24:36.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+      string: '{"data":{"id":"10.5438/m21h-3007","type":"dois","attributes":{"doi":"10.5438/m21h-3007","prefix":"10.5438","suffix":"m21h-3007","identifier":"https://handle.test.datacite.org/10.5438/m21h-3007","url":null,"author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"draft","is-active":false,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"created":"2018-07-13T21:53:59.000Z","registered":null,"updated":"2018-07-19T19:20:26.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 07:24:38 GMT
+  recorded_at: Thu, 19 Jul 2018 19:20:48 GMT
 recorded_with: VCR 3.0.3

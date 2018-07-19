@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.test.datacite.org/dois/get-dois
+    uri: https://api.test.datacite.org/dois/get-dois
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.11; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 04 Jul 2018 07:58:54 GMT
+      - Thu, 19 Jul 2018 19:20:27 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,21 +30,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"06f597aaf277b4161b2d52115289ade2"
-      X-Runtime:
-      - '0.051838'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 6c966842-3726-4c2d-b916-cba54293b8b4
+      - a7e6f86d-ffd5-456d-bf29-2da8864250ae
+      Etag:
+      - W/"1dd7e67eb45b2f6b1780d85ab5901d44"
+      X-Runtime:
+      - '0.046800'
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.3
     body:
       encoding: ASCII-8BIT
-      string: '{"dois":["10.14454/05MB-Q396","10.14454/2KB7-5P40","10.14454/3CXN-TM67","10.14454/3YGG-WN44","10.14454/4VCB-8X72","10.14454/6SQ9-VA47","10.14454/7BMH-VJ84","10.14454/D1WY-WY46","10.14454/DYW6-0X89","10.14454/EZSB-6V87","10.14454/HQ27-DX44","10.14454/HW4H-XW13","10.14454/M3QH-KQ57","10.14454/MT56-CK70","10.14454/QAVS-SP42","10.14454/QZQM-M028","10.14454/RM4S-D620","10.14454/RSMQ-4Y67","10.14454/TERRA+AQUA/CERES/CLDTYPHIST_L3.004","10.14454/TSW5-P334","10.14454/V6E2-YC93","10.14454/W7ZM-3420","10.14454/XGE8-4515","10.14454/Z3C2-FV03","10.14454/ZE91-PM27","10.23725/ABX7-XA03","10.23725/BC11-CQW8","10.5072/015N-MK15","10.5072/079J-XH42","10.5072/1.0362599","10.5072/3MG5-TM67","10.5072/FK2/YISB0C","10.5438/0012","10.5438/MCNV-GA6N","10.7910/DVN/YM0ZFM"]}'
+      string: '{"dois":["10.14454/05MB-Q396","10.14454/2KB7-5P40","10.14454/3CXN-TM67","10.14454/3YGG-WN44","10.14454/4VCB-8X72","10.14454/6SQ9-VA47","10.14454/7BMH-VJ84","10.14454/D1WY-WY46","10.14454/DYW6-0X89","10.14454/EZSB-6V87","10.14454/HQ27-DX44","10.14454/HW4H-XW13","10.14454/M3QH-KQ57","10.14454/MT56-CK70","10.14454/QAVS-SP42","10.14454/QZQM-M028","10.14454/RM4S-D620","10.14454/RSMQ-4Y67","10.14454/TERRA+AQUA/CERES/CLDTYPHIST_L3.004","10.14454/TSW5-P334","10.14454/V6E2-YC93","10.14454/W7ZM-3420","10.14454/XGE8-4515","10.14454/Z3C2-FV03","10.14454/ZE91-PM27","10.23725/ABX7-XA03","10.23725/BC11-CQW8","10.5072/079J-XH42","10.5072/1.0362599","10.5072/3MG5-TM67","10.5072/EY2X-5W17","10.5072/FK2/YISB0C","10.5438/0012","10.5438/08A0-3F64","10.5438/M21H-3007","10.5438/MCNV-GA6N","10.5438/S0M8-Q346","10.7910/DVN/YM0ZFM"]}'
     http_version: 
-  recorded_at: Wed, 04 Jul 2018 07:58:57 GMT
+  recorded_at: Thu, 19 Jul 2018 19:20:49 GMT
 recorded_with: VCR 3.0.3

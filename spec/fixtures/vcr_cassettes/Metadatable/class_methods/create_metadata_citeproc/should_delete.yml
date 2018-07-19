@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://app.test.datacite.org/dois/10.5438/08a0-3f64
+    uri: https://api.test.datacite.org/dois/10.5438/08a0-3f64
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 07:28:51 GMT
+      - Thu, 19 Jul 2018 20:05:46 GMT
       Connection:
       - keep-alive
       Status:
@@ -31,9 +31,9 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 34174b9d-427f-495d-a09c-14fcc08fcced
+      - 70b50daf-e945-46b1-9dda-4e3a99069337
       X-Runtime:
-      - '0.024440'
+      - '0.055609'
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
@@ -42,5 +42,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 07:28:53 GMT
+  recorded_at: Thu, 19 Jul 2018 20:05:46 GMT
 recorded_with: VCR 3.0.3

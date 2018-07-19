@@ -88,7 +88,7 @@ module Metadatable
       attributes = {
         "doi" => doi,
         "xml" => xml,
-        "event" => "start" }.compact
+        "event" => "publish" }.compact
 
       data = {
         "data" => {
@@ -135,7 +135,7 @@ module Metadatable
     end
 
     def api_url
-      Rails.env.production? ? 'https://app.datacite.org' : 'https://app.test.datacite.org' 
+      Rails.env.production? ? 'https://api.datacite.org' : 'https://api.test.datacite.org' 
     end
   end
 end

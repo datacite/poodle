@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.test.datacite.org/10.5438/08a0-3f64
+    uri: https://api.test.datacite.org/10.5438/08a0-3f64
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 07:33:17 GMT
+      - Thu, 19 Jul 2018 19:20:23 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Connection:
@@ -33,7 +33,7 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 63897223-2e19-4f01-909c-e273cb90bc06
+      - 8a29bdaa-e070-40fe-8d63-85cf67b52038
       Content-Disposition:
       - attachment; filename=_10.5438_08a0-3f64.xml
       Content-Transfer-Encoding:
@@ -41,7 +41,7 @@ http_interactions:
       Etag:
       - W/"6e86b6704bc799a8183dd2b5642e623b"
       X-Runtime:
-      - '0.011711'
+      - '0.011680'
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
@@ -90,5 +90,5 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 07:33:19 GMT
+  recorded_at: Thu, 19 Jul 2018 19:20:45 GMT
 recorded_with: VCR 3.0.3

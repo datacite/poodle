@@ -15,6 +15,10 @@ describe Doiable, vcr: true, order: :defined do
       expect(subject.put_doi(doi, options).body.dig("data", "attributes", "url")).to eq(url)
     end
 
+    # it 'should fetch' do
+    #   expect(subject.get_doi(doi, options).body.dig("data", "url")).to eq(url)
+    # end
+
     it 'URL not valid' do
       options = { url: "mailto:support@datacite.org", username: username, password: password }
       expect(subject.put_doi(doi, options).body.dig("errors")).to eq([{"title"=>"Not a valid HTTP(S) URL"}])
@@ -26,26 +30,15 @@ describe Doiable, vcr: true, order: :defined do
     end
   end
 
-  context "get_doi" do
-    it 'should fetch' do
-      expect(subject.get_doi(doi, options).body.dig("data", "url")).to eq(url)
-    end
-
-    it 'no password' do
-      options = { username: username, password: nil }
-      expect(subject.get_doi(doi, options).body.dig("errors")).to eq([{"title"=>"Username or password missing"}])
-    end
-  end
-
   context "get_dois" do
     it 'should fetch' do
       response = subject.get_dois(options).body
-      expect(response.dig("data", "dois").length).to eq(31)
+      expect(response.dig("data", "dois").length).to eq(38)
       expect(response.dig("data", "dois").first).to eq("10.14454/05MB-Q396")
     end
 
     it 'no dois' do
-      url = "https://app.test.datacite.org/dois/get-dois"
+      url = "https://api.test.datacite.org/dois/get-dois"
       stub = stub_request(:get, url).to_return(status: 204, headers: { "Content-Type" => "text/plain" }, body: nil)
       response = subject.get_dois(options)
       expect(response.status).to eq(204)
@@ -89,7 +82,7 @@ describe Doiable, vcr: true, order: :defined do
 
   context "extract_url" do
     subject = DoisController.new
-    
+
     it 'should get url' do
       doi = "10.5072/0000-03VC"
       data = "doi=10.5072/0000-03VC\nurl=http://example.org/"

@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: put
-    uri: https://app.test.datacite.org/dois/10.14454/05MB-Q396
+    uri: https://api.test.datacite.org/dois/10.14454/05MB-Q396
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"dois","attributes":{"url":"https://www.datacite.org/roadmap.html","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.TEST"}}}}}'
+      string: '{"data":{"type":"dois","attributes":{"url":"https://www.datacite.org/roadmap.html","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.11; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 13 Jul 2018 15:05:55 GMT
+      - Thu, 19 Jul 2018 19:20:28 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -33,13 +33,13 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Credential-Username:
-      - datacite.test
+      - datacite.datacite
       X-Request-Id:
-      - a4d3c07f-a52d-4d76-a2aa-cabe8e857181
+      - 2eb30ad7-39d9-4581-957c-a179ce558c4e
       Etag:
-      - W/"f5ad4b403e61ddbe2b1cf1288dd65f3c"
+      - W/"2d6fa5937071680c9ac6d089295d9fe1"
       X-Runtime:
-      - '0.138624'
+      - '0.084307'
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
@@ -52,54 +52,7 @@ http_interactions:
         your own dog food is a slang term to describe that an organization should
         itself use the products and services it provides. For DataCite this means
         that we should use DOIs with appropriate metadata and strategies for long-term
-        preservation for...","version":"1.0","metadata-version":2,"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","is-active":true,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMTQ0NTQvMDVNQi1RMzk2PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+RmVubmVyLCBNYXJ0aW48L2NyZWF0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPk1hcnRpbjwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5GZW5uZXI8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmcvIiBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMy0xNDE5LTI0MDU8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5FYXRpbmcgeW91ciBvd24gRG9nIEZvb2Q8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RGF0YUNpdGU8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTY8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiPkJsb2dQb3N0aW5nPC9yZXNvdXJjZVR5cGU+CiAgPGFsdGVybmF0ZUlkZW50aWZpZXJzPgogICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9IkxvY2FsIGFjY2Vzc2lvbiBudW1iZXIiPk1TLTQ5LTM2MzItNTA4MzwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PmRhdGFjaXRlPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+ZG9pPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+bWV0YWRhdGE8L3N1YmplY3Q+CiAgPC9zdWJqZWN0cz4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MjAxNi0xMi0yMDwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTYtMTItMjA8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iVXBkYXRlZCI+MjAxNi0xMi0yMDwvZGF0ZT4KICA8L2RhdGVzPgogIDxyZWxhdGVkSWRlbnRpZmllcnM+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iUmVmZXJlbmNlcyI+MTAuNTQzOC8wMDEyPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj4xMC41NDM4LzU1RTUtVDVDMDwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iSXNQYXJ0T2YiPjEwLjU0MzgvMDAwMC0wMFNTPC9yZWxhdGVkSWRlbnRpZmllcj4KICA8L3JlbGF0ZWRJZGVudGlmaWVycz4KICA8dmVyc2lvbj4xLjA8L3ZlcnNpb24+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij5FYXRpbmcgeW91ciBvd24gZG9nIGZvb2QgaXMgYSBzbGFuZyB0ZXJtIHRvIGRlc2NyaWJlIHRoYXQgYW4gb3JnYW5pemF0aW9uIHNob3VsZCBpdHNlbGYgdXNlIHRoZSBwcm9kdWN0cyBhbmQgc2VydmljZXMgaXQgcHJvdmlkZXMuIEZvciBEYXRhQ2l0ZSB0aGlzIG1lYW5zIHRoYXQgd2Ugc2hvdWxkIHVzZSBET0lzIHdpdGggYXBwcm9wcmlhdGUgbWV0YWRhdGEgYW5kIHN0cmF0ZWdpZXMgZm9yIGxvbmctdGVybSBwcmVzZXJ2YXRpb24gZm9yLi4uPC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KPC9yZXNvdXJjZT4=","published":"2016-12-20","created":"2018-06-08T05:19:18.000Z","registered":"2018-06-08T05:20:10.000Z","updated":"2018-07-13T15:05:55.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+        preservation for...","version":"1.0","metadata-version":2,"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","is-active":true,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMTQ0NTQvMDVNQi1RMzk2PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+RmVubmVyLCBNYXJ0aW48L2NyZWF0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPk1hcnRpbjwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5GZW5uZXI8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmcvIiBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMy0xNDE5LTI0MDU8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5FYXRpbmcgeW91ciBvd24gRG9nIEZvb2Q8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RGF0YUNpdGU8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTY8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiPkJsb2dQb3N0aW5nPC9yZXNvdXJjZVR5cGU+CiAgPGFsdGVybmF0ZUlkZW50aWZpZXJzPgogICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9IkxvY2FsIGFjY2Vzc2lvbiBudW1iZXIiPk1TLTQ5LTM2MzItNTA4MzwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PmRhdGFjaXRlPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+ZG9pPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+bWV0YWRhdGE8L3N1YmplY3Q+CiAgPC9zdWJqZWN0cz4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MjAxNi0xMi0yMDwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTYtMTItMjA8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iVXBkYXRlZCI+MjAxNi0xMi0yMDwvZGF0ZT4KICA8L2RhdGVzPgogIDxyZWxhdGVkSWRlbnRpZmllcnM+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iUmVmZXJlbmNlcyI+MTAuNTQzOC8wMDEyPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj4xMC41NDM4LzU1RTUtVDVDMDwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iSXNQYXJ0T2YiPjEwLjU0MzgvMDAwMC0wMFNTPC9yZWxhdGVkSWRlbnRpZmllcj4KICA8L3JlbGF0ZWRJZGVudGlmaWVycz4KICA8dmVyc2lvbj4xLjA8L3ZlcnNpb24+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij5FYXRpbmcgeW91ciBvd24gZG9nIGZvb2QgaXMgYSBzbGFuZyB0ZXJtIHRvIGRlc2NyaWJlIHRoYXQgYW4gb3JnYW5pemF0aW9uIHNob3VsZCBpdHNlbGYgdXNlIHRoZSBwcm9kdWN0cyBhbmQgc2VydmljZXMgaXQgcHJvdmlkZXMuIEZvciBEYXRhQ2l0ZSB0aGlzIG1lYW5zIHRoYXQgd2Ugc2hvdWxkIHVzZSBET0lzIHdpdGggYXBwcm9wcmlhdGUgbWV0YWRhdGEgYW5kIHN0cmF0ZWdpZXMgZm9yIGxvbmctdGVybSBwcmVzZXJ2YXRpb24gZm9yLi4uPC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KPC9yZXNvdXJjZT4=","published":"2016-12-20","created":"2018-06-08T05:19:18.000Z","registered":"2018-06-08T05:20:10.000Z","updated":"2018-07-19T19:20:28.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
     http_version: 
-  recorded_at: Fri, 13 Jul 2018 15:06:21 GMT
-- request:
-    method: delete
-    uri: https://app.test.datacite.org/dois/10.14454/05mb-q396
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.11; +https://github.com/datacite/maremma)
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-      Authorization:
-      - Basic <MDS_TOKEN>
-  response:
-    status:
-      code: 405
-      message: ''
-    headers:
-      Date:
-      - Fri, 13 Jul 2018 15:05:55 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Connection:
-      - keep-alive
-      Status:
-      - 405 Method Not Allowed
-      Cache-Control:
-      - no-cache
-      Vary:
-      - Accept-Encoding, Origin
-      X-Credential-Username:
-      - datacite.test
-      X-Request-Id:
-      - 7d5eff85-7eca-439b-a0a7-85c18803484d
-      X-Runtime:
-      - '0.008733'
-      Allow:
-      - HEAD, GET, POST, PATCH, PUT, OPTIONS
-      X-Powered-By:
-      - Phusion Passenger 5.3.3
-      Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
-    body:
-      encoding: ASCII-8BIT
-      string: '{"errors":[{"status":"405","title":"Method not allowed"}]}'
-    http_version: 
-  recorded_at: Fri, 13 Jul 2018 15:06:21 GMT
+  recorded_at: Thu, 19 Jul 2018 19:20:50 GMT
 recorded_with: VCR 3.0.3

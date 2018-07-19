@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.test.datacite.org/10.5072/x86n-nm18
+    uri: https://api.test.datacite.org/10.5072/x86n-nm18
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.9; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
       Accept:
       - application/vnd.datacite.datacite+xml
       Authorization:
@@ -19,21 +19,21 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 17 Jun 2018 20:17:57 GMT
+      - Thu, 19 Jul 2018 19:20:38 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Connection:
       - keep-alive
       Status:
       - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
       Cache-Control:
       - private
       Vary:
       - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.datacite
       X-Request-Id:
-      - 399c8cdb-1e22-4a6f-a3ec-9c8824cc1ffa
+      - 0eeb0c0d-c499-40c4-a2bd-ee1e54c4fcba
       Content-Disposition:
       - attachment; filename=_10.5072_x86n-nm18.xml
       Content-Transfer-Encoding:
@@ -41,11 +41,11 @@ http_interactions:
       Etag:
       - W/"74b067c6e2fcf3bfe63d40bb77de471d"
       X-Runtime:
-      - '0.007685'
+      - '0.011602'
       X-Powered-By:
-      - Phusion Passenger 5.3.2
+      - Phusion Passenger 5.3.3
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.2
+      - nginx/1.14.0 + Phusion Passenger 5.3.3
     body:
       encoding: ASCII-8BIT
       string: |
@@ -94,5 +94,5 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Sun, 17 Jun 2018 20:17:57 GMT
+  recorded_at: Thu, 19 Jul 2018 19:21:01 GMT
 recorded_with: VCR 3.0.3

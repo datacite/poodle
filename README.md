@@ -18,11 +18,11 @@ docker run -p 8035:80 datacite/poodle
 You can now point your browser to `http://localhost:8035` and use the application.
 
 By default the application connects to the DataCite test infrastructure.
-Set the `APP_URL` environment variable to connect to the DataCite production
+Set the `API_URL` environment variable to connect to the DataCite production
 infrastructure:
 
 ```
-APP_URL=https://app.datacite.org
+API_URL=https://api.datacite.org
 ```
 
 ## Development

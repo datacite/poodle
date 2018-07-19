@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.test.datacite.org/10.7910/dvn/hscunb
+    uri: https://api.test.datacite.org/10.7910/dvn/hscunb
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.11; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
       Accept:
       - application/vnd.datacite.datacite+xml
       Authorization:
@@ -19,29 +19,29 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 04 Jul 2018 07:31:59 GMT
+      - Thu, 19 Jul 2018 19:20:41 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Connection:
       - keep-alive
       Status:
       - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
       Cache-Control:
       - private
       Vary:
       - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.datacite
       X-Request-Id:
-      - 1d6ed293-d539-49cb-b62a-925dd8a7fa40
+      - 7a29f1ad-3459-43a1-8fbf-1d80c989b261
       Content-Disposition:
       - attachment; filename=_10.7910_dvn_hscunb.xml
       Content-Transfer-Encoding:
       - binary
       Etag:
-      - W/"f62e565a5a42bb244e6f1b785fe7a551"
+      - W/"1d0112c44fe6fbbb244767498f7b9d4f"
       X-Runtime:
-      - '0.007327'
+      - '0.010381'
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
@@ -76,14 +76,14 @@ http_interactions:
             <date dateType="Issued">2018-07-04</date>
             <date dateType="Updated">2018-07-04</date>
           </dates>
-          <version>1</version>
+          <version>2</version>
           <rightsList>
             <rights/>
           </rightsList>
           <descriptions>
-            <description descriptionType="Abstract">These are the data sets to replicate the analyses of the paper "Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding." The paper was first presented at the 2018 EGPA conference in Lausanne from the 4th - 6th of September</description>
+            <description descriptionType="Abstract">This is the R-script to replicate the analyses of the paper "Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding." The paper was first presented at the 2018 EGPA conference in Lausanne from the 4th - 6th of September. If you are interested to replicate the data - just send an email to vidarstevens@live.nl</description>
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Wed, 04 Jul 2018 07:32:00 GMT
+  recorded_at: Thu, 19 Jul 2018 19:21:03 GMT
 recorded_with: VCR 3.0.3

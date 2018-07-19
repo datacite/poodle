@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.test.datacite.org/dois/10.5072/xxxxxx/media
+    uri: https://api.test.datacite.org/dois/10.5072/xxxxxx/media
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.6; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 15 Jun 2018 05:00:51 GMT
+      - Thu, 19 Jul 2018 20:21:23 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -33,17 +33,17 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 3a5f6ae8-33b0-4795-93f0-344f7f690674
+      - d42a3061-d897-4166-8e4e-0343917d4d29
       X-Runtime:
-      - '0.003881'
+      - '0.003287'
       X-Powered-By:
-      - Phusion Passenger 5.3.2
+      - Phusion Passenger 5.3.3
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.2
+      - nginx/1.14.0 + Phusion Passenger 5.3.3
     body:
       encoding: ASCII-8BIT
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version: 
-  recorded_at: Fri, 15 Jun 2018 05:00:53 GMT
+  recorded_at: Thu, 19 Jul 2018 20:21:24 GMT
 recorded_with: VCR 3.0.3

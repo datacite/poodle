@@ -55,7 +55,7 @@ module Mediable
     end
 
     def api_url
-      Rails.env.production? ? 'https://app.datacite.org' : 'https://app.test.datacite.org' 
+      Rails.env.production? ? 'https://api.datacite.org' : 'https://api.test.datacite.org' 
     end
   end
 end

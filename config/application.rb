@@ -28,7 +28,7 @@ end
 # default values for some ENV variables
 ENV['APPLICATION'] ||= "mds"
 ENV['HOSTNAME'] ||= "mds.local"
-ENV['APP_URL'] ||= "https://app.test.datacite.org"
+ENV['API_URL'] ||= "https://api.test.datacite.org"
 ENV['REALM'] ||= "mds.test.datacite.org"
 ENV['MEMCACHE_SERVERS'] ||= "memcached:11211"
 ENV['SITE_TITLE'] ||= "MDS API"

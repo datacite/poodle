@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.test.datacite.org/dois/10.14454/05mb-q396/get-url
+    uri: https://api.test.datacite.org/dois/10.14454/05mb-q396/get-url
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Maremma - http://be44f9065c36
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 14 Jun 2018 11:42:19 GMT
+      - Thu, 19 Jul 2018 19:20:29 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,21 +30,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"0b958b4fcd8b8cfc1a714d4dc20842d2"
-      X-Runtime:
-      - '0.067288'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 608baa09-c060-4368-8f2d-af5692a922de
+      - 269985b2-2558-4041-b5e7-7d5175ee9890
+      Etag:
+      - W/"96427c178873dce5e55f6d1492cfd14b"
+      X-Runtime:
+      - '0.055102'
       X-Powered-By:
-      - Phusion Passenger 5.3.2
+      - Phusion Passenger 5.3.3
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.2
+      - nginx/1.14.0 + Phusion Passenger 5.3.3
     body:
-      encoding: UTF-8
-      string: '{"url":"https://blog.datacite.org/"}'
+      encoding: ASCII-8BIT
+      string: '{"url":"https://www.datacite.org/user-stories.html"}'
     http_version: 
-  recorded_at: Thu, 14 Jun 2018 11:42:26 GMT
+  recorded_at: Thu, 19 Jul 2018 19:20:51 GMT
 recorded_with: VCR 3.0.3
