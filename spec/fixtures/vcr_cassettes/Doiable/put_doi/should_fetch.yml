@@ -15,32 +15,36 @@ http_interactions:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 204
+      code: 200
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 20:08:59 GMT
+      - Fri, 20 Jul 2018 11:34:47 GMT
+      Content-Type:
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 204 No Content
+      - 200 OK
       Cache-Control:
-      - no-cache
+      - max-age=0, private, must-revalidate
       Vary:
-      - Origin
+      - Accept-Encoding, Origin
+      Etag:
+      - W/"0b958b4fcd8b8cfc1a714d4dc20842d2"
+      X-Runtime:
+      - '0.007705'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - aeecd120-e327-42c5-a8df-a9228d692819
-      X-Runtime:
-      - '0.054070'
+      - a7bf1774-b008-4067-8b5d-d155b2cc011f
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.3
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: '{"url":"https://blog.datacite.org/"}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 20:08:59 GMT
+  recorded_at: Fri, 20 Jul 2018 11:35:02 GMT
 recorded_with: VCR 3.0.3

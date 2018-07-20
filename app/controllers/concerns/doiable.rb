@@ -34,6 +34,7 @@ module Doiable
           "type" => "dois",
           "attributes"=> {
             "url" => options[:url],
+            "validate" => "true",
             "event" => "publish"
           },
           "relationships"=> {

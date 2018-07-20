@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 20 Jul 2018 10:10:27 GMT
+      - Fri, 20 Jul 2018 11:26:45 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Connection:
@@ -37,11 +37,11 @@ http_interactions:
       Etag:
       - W/"6e86b6704bc799a8183dd2b5642e623b"
       X-Runtime:
-      - '0.016074'
+      - '0.013371'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 1fc3e1b4-acd7-47ea-8da2-947c92d533b1
+      - 1aa07b81-f2b9-4c6e-abf6-a7675589374f
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
@@ -90,5 +90,5 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Fri, 20 Jul 2018 10:10:36 GMT
+  recorded_at: Fri, 20 Jul 2018 11:26:59 GMT
 recorded_with: VCR 3.0.3

@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.test.datacite.org/dois/10.14454/05MB-Q396
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"dois","attributes":{"url":"https://blog.datacite.org/","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+      string: '{"data":{"type":"dois","attributes":{"url":"https://blog.datacite.org/","validate":"true","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
     headers:
       User-Agent:
       - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 20:08:41 GMT
+      - Fri, 20 Jul 2018 11:33:25 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -32,21 +32,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Etag:
+      - W/"d5856a38cd4a8ad4af2042f6a4572f98"
+      X-Runtime:
+      - '0.206236'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 4b648bb1-abbf-41ec-96f5-ef84a1ce0273
-      Etag:
-      - W/"40428f4e7ee3e8669d6dbf28574bfcb3"
-      X-Runtime:
-      - '0.167350'
+      - 96de6c99-8891-4cd1-ac95-0cc415b8c61b
       X-Powered-By:
       - Phusion Passenger 5.3.3
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.3
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","prefix":"10.14454","suffix":"05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","url":"https://blog.datacite.org/","author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","is-active":true,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"created":"2018-07-19T19:25:28.000Z","registered":null,"updated":"2018-07-19T20:08:41.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+      string: '{"data":{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","prefix":"10.14454","suffix":"05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","url":"https://blog.datacite.org/","author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","is-active":true,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"created":"2018-07-19T19:25:28.000Z","registered":null,"updated":"2018-07-20T11:33:25.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 20:08:41 GMT
+  recorded_at: Fri, 20 Jul 2018 11:33:39 GMT
 recorded_with: VCR 3.0.3

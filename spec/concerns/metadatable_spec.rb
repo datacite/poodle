@@ -41,6 +41,14 @@ describe Metadatable, vcr: true, order: :defined do
         expect(response.body.dig("data", "attributes", "state")).to eq("registered")
         expect(response.body.dig("data", "attributes", "is-active")).to eq(false)
       end
+
+      it 'should re-register doi' do
+        options = { url: url, username: username, password: password }
+        response = DoisController.put_doi(doi, options)
+        expect(response.body.dig("data", "attributes", "url")).to eq(url)
+        expect(response.body.dig("data", "attributes", "state")).to eq("findable")
+        expect(response.body.dig("data", "attributes", "is-active")).to eq(true)
+      end
     end
 
     # context "create_metadata invalid utf-8" do
