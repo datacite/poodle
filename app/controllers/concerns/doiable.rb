@@ -27,7 +27,7 @@ module Doiable
 
     def put_doi(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Not a valid HTTP(S) URL" }] }) unless /\Ahttps?:\/\/[\S]+/.match(options[:url])
+      return OpenStruct.new(body: { "errors" => [{ "title" => "Not a valid HTTP(S) or FTP URL" }] }) unless /\A(http|https|ftp):\/\/[\S]+/.match(options[:url])
       
       data = {
         "data" => {

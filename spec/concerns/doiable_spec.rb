@@ -21,7 +21,7 @@ describe Doiable, vcr: true, order: :defined do
 
     it 'URL not valid' do
       options = { url: "mailto:support@datacite.org", username: username, password: password }
-      expect(subject.put_doi(doi, options).body.dig("errors")).to eq([{"title"=>"Not a valid HTTP(S) URL"}])
+      expect(subject.put_doi(doi, options).body.dig("errors")).to eq([{"title"=>"Not a valid HTTP(S) or FTP URL"}])
     end
 
     it 'no password' do
