@@ -65,6 +65,37 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     end
   end
 
+  describe '/metadata large file', type: :request do
+    let(:doi_id) { "10.5072/ab3v-t139" }
+    let(:data) { file_fixture('large_file.xml').read }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+
+    it "post metadata for doi" do
+      post "/metadata/#{doi_id}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.header["Location"]).to eq("https://mds.test.datacite.org/metadata/10.5072/ab3v-t139")
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+    end
+
+    it "get metadata for doi" do
+      get "/metadata/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(200)
+
+      metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
+      expect(metadata.dig("titles", "title")).to eq("A dataset with a large file for testing purpose. Will be a but over 2.5 MB")
+      expect(metadata.dig("identifier", "__content__")).to eq("10.5072/AB3V-T139")
+    end
+
+    it "delete doi" do
+      delete "/doi/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq("OK")
+    end
+  end
+
   # describe '/metadata no doi', type: :request do
   #   let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
