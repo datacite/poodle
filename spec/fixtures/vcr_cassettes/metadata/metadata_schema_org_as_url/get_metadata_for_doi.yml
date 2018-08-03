@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.test.datacite.org/10.7910/dvn/hscunb
+    uri: https://api.test.datacite.org/10.5072/dvn/hscunb
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 19:20:41 GMT
+      - Fri, 03 Aug 2018 17:42:06 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Connection:
@@ -33,25 +33,25 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 7a29f1ad-3459-43a1-8fbf-1d80c989b261
+      - 547def00-7972-4104-82bb-1f596eefa0ae
       Content-Disposition:
-      - attachment; filename=_10.7910_dvn_hscunb.xml
+      - attachment; filename=_10.5072_dvn_hscunb.xml
       Content-Transfer-Encoding:
       - binary
       Etag:
-      - W/"1d0112c44fe6fbbb244767498f7b9d4f"
+      - W/"dfbeba3997af9205a66bd670e6e18959"
       X-Runtime:
-      - '0.010381'
+      - '0.016505'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.4
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.4
     body:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0" encoding="UTF-8"?>
         <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
-          <identifier identifierType="DOI">10.7910/DVN/HSCUNB</identifier>
+          <identifier identifierType="DOI">10.5072/DVN/HSCUNB</identifier>
           <creators>
             <creator>
               <creatorName>Stevens, Vidar</creatorName>
@@ -85,5 +85,5 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 19:21:03 GMT
+  recorded_at: Fri, 03 Aug 2018 17:42:06 GMT
 recorded_with: VCR 3.0.3

@@ -13,18 +13,16 @@ module Metadatable
       doi = validate_doi(str)
       return doi if doi.present?
 
-      doi = doi_from_xml(str, options)
-      return doi if doi.present?
+      if options[:from] == "datacite"
+        doi = doi_from_xml(str, options)
+        return doi if doi.present?
+      end
 
       doi = generate_unique_doi(str, options)
-      return doi if doi.present?
-
-      fail AbstractController::ActionNotFound
+      return doi
     end
 
     def doi_from_xml(str, options={})
-      return nil unless Maremma.from_xml(options[:data]).to_h.dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
-      
       doc = Nokogiri::XML(options[:data], nil, 'UTF-8', &:noblanks)
       validate_doi(doc.at_css("identifier").content)
     end
@@ -79,7 +77,7 @@ module Metadatable
       url = "#{api_url}/#{doi}"
       Maremma.get(url, accept: "application/vnd.datacite.datacite+xml", username: options[:username], password: options[:password], raw: true)
     end
-    
+
     def create_metadata(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 

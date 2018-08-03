@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api.test.datacite.org/dois/10.5072/236y-qx15
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"dois","attributes":{"doi":"10.5072/236y-qx15","validate":"true","source":"mds","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 201
+      message: ''
+    headers:
+      Date:
+      - Fri, 03 Aug 2018 15:46:27 GMT
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.datacite
+      X-Request-Id:
+      - 711cb1a0-00bb-4ab7-99d5-b5b48b4e9c7c
+      Etag:
+      - W/"3c28819885ef12cbec1a3faa95890ffa"
+      X-Runtime:
+      - '0.047724'
+      X-Powered-By:
+      - Phusion Passenger 5.3.4
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.4
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.5072/236y-qx15","type":"dois","attributes":{"doi":"10.5072/236y-qx15","prefix":"10.5072","suffix":"236y-qx15","identifier":"https://handle.test.datacite.org/10.5072/236y-qx15","url":null,"author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"draft","is-active":false,"reason":null,"source":"mds","landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"created":"2018-08-03T15:46:27.000Z","registered":null,"updated":"2018-08-03T15:46:27.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+    http_version: 
+  recorded_at: Fri, 03 Aug 2018 15:46:27 GMT
+recorded_with: VCR 3.0.3

@@ -240,7 +240,7 @@ describe Metadatable, vcr: true, order: :defined do
       end
 
       it 'from xml' do
-        expect(subject.extract_doi(nil, data: data)).to eq(doi)
+        expect(subject.extract_doi(nil, from: "datacite", data: data)).to eq(doi)
       end
 
       it 'random' do

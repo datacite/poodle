@@ -23,8 +23,8 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     let(:data) { file_fixture('datacite.xml').read }
     let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-    it "post metadata for doi" do
-      post "/metadata/#{doi_id}", data, headers
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", data, headers
 
       expect(last_response.status).to eq(201)
       expect(last_response.header["Location"]).to eq("https://mds.test.datacite.org/metadata/10.5072/ey2x-5w17")
@@ -41,10 +41,10 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       expect(metadata.dig("identifier", "__content__")).to eq("10.5072/EY2X-5W17")
     end
 
-    it "post metadata doi exists" do
+    it "put metadata doi exists" do
       data = file_fixture('datacite_tba.xml').read
 
-      post "/metadata/#{doi_id}", data, headers
+      put "/metadata/#{doi_id}", data, headers
 
       expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
@@ -70,8 +70,8 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     let(:data) { file_fixture('large_file.xml').read }
     let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-    it "post metadata for doi" do
-      post "/metadata/#{doi_id}", data, headers
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", data, headers
 
       expect(last_response.status).to eq(201)
       expect(last_response.header["Location"]).to eq("https://mds.test.datacite.org/metadata/10.5072/ab3v-t139")
@@ -134,7 +134,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       post "/metadata", data, headers
 
       expect(last_response.status).to eq(415)
-      expect(last_response.body).to eq("Unsupported content type, please use application/xml")
+      expect(last_response.body).to eq("Content type application/x-www-form-urlencoded is not supported")
     end
 
 
@@ -171,10 +171,10 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       expect(last_response.body).to eq("OK")
     end
 
-    it "post metadata doi findable" do
+    it "put metadata doi findable" do
       data = file_fixture('datacite_tba.xml').read
 
-      post "/metadata/#{doi_id}", data, headers
+      put "/metadata/#{doi_id}", data, headers
 
       expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
@@ -195,15 +195,14 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   end
 
   describe '/metadata doi from xml mpdl', type: :request do
-    let(:doi_id) { "10.5438/s0m8-q346" }
     let(:data) { file_fixture('mpdl.xml').read }
     let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
     it "post metadata for doi" do
       post "/metadata", data, headers
 
-      expect(last_response.status).to eq(400)
-      expect(last_response.body).to eq("xmlns namespace not found")
+      expect(last_response.status).to eq(415)
+      expect(last_response.body).to eq("Metadata format not recognized")
     end
   end
 
@@ -212,8 +211,8 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     let(:data) { file_fixture('datacite_tba.xml').read }
     let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-    it "post metadata for doi" do
-      post "/metadata/10.5072?number=123456", data, headers
+    it "put metadata for doi" do
+      put "/metadata/10.5072?number=123456", data, headers
 
       expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
@@ -248,8 +247,8 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     let(:doi_id) { "10.5072/236y-qx15" }
     let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-    it "post metadata for doi" do
-      post "/metadata/#{doi_id}", nil, headers
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", nil, headers
 
       expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
@@ -273,10 +272,10 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   context 'metadata schema_org', type: :request do
     let(:doi_id) { "10.5072/x86n-nm18" }
     let(:data) { file_fixture('schema_org.json').read }
-    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'application/vnd.schemaorg.ld+json', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-    it "post metadata for doi" do
-      post "/metadata/#{doi_id}", data, headers
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", data, headers
 
       expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
@@ -301,14 +300,14 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   end
 
   context 'metadata schema_org as url', type: :request do
-    let(:doi_id) { "10.7910/DVN/HSCUNB" }
+    let(:doi_id) { "10.5072/DVN/HSCUNB" }
     let(:data) { "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HSCUNB" }
-    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-    it "post metadata for doi" do
-      post "/metadata/#{doi_id}", data, headers
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", data, headers
 
-      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
     end
 
@@ -333,10 +332,10 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   context 'metadata citeproc', type: :request do
     let(:doi_id) { "10.5072/ey8x-9f93" }
     let(:data) { file_fixture('citeproc.json').read }
-    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+    let(:headers) { {'CONTENT_TYPE' => 'application/vnd.citationstyles.csl+json', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-    it "post metadata for doi" do
-      post "/metadata/#{doi_id}", data, headers
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", data, headers
 
       expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
