@@ -58,9 +58,6 @@ class MetadataController < ApplicationController
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
-    elsif response.status == 422
-      Rails.logger.info response.inspect
-      render plain: response.body.dig("errors", 0, "title"), status: :bad_request
     else
       Rails.logger.info response.inspect
       render plain: response.body.dig("errors", 0, "title"), status: response.status
