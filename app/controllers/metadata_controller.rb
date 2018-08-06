@@ -35,7 +35,6 @@ class MetadataController < ApplicationController
     end
 
     from = safe_params[:data].blank? ? "datacite" : find_from_format_by_string(safe_params[:data])
-    from = (validate_url(safe_params[:data]) == "URL" ? "schema_org" : nil) if from.blank?
 
     unless from.present?
       render plain: "Metadata format not recognized", status: :unsupported_media_type

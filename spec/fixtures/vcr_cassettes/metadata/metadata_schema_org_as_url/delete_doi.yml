@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.test.datacite.org/dois/10.5072/dvn/hscunb
+    uri: https://api.test.datacite.org/dois/10.5072/dvn/hscunzz
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 03 Aug 2018 17:42:07 GMT
+      - Mon, 06 Aug 2018 16:40:41 GMT
       Connection:
       - keep-alive
       Status:
@@ -31,9 +31,9 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 2797dcb2-2dec-4ab8-a468-993f43d4aaa5
+      - 33b1e569-d1da-49ee-be31-fa4628ff74e6
       X-Runtime:
-      - '0.030359'
+      - '0.059722'
       X-Powered-By:
       - Phusion Passenger 5.3.4
       Server:
@@ -42,5 +42,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Fri, 03 Aug 2018 17:42:07 GMT
+  recorded_at: Mon, 06 Aug 2018 16:40:41 GMT
 recorded_with: VCR 3.0.3
