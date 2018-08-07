@@ -27,8 +27,8 @@ class DoisController < ApplicationController
 
     if response.status == 200
       render plain: response.body.dig("data", "url"), status: :ok
-    elsif [204, 404].include?(response.status)
-      render plain: "DOI not found", status: :not_found
+    elsif response.status == 204
+      head :no_content
     elsif response.status == 401
       response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized

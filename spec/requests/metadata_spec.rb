@@ -31,6 +31,13 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
     end
 
+    it "get doi for doi" do
+      get "/doi/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(204)
+      expect(last_response.body).to be_blank
+    end
+
     it "get metadata for doi" do
       get "/metadata/#{doi_id}", nil, headers
 
