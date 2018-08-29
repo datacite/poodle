@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ns0:resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:ns0="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
-  <ns0:identifier identifierType="DOI">10.5438/08A0-3F64</ns0:identifier>
+  <ns0:identifier identifierType="DOI">10.23725/at5e-0s42</ns0:identifier>
   <ns0:creators>
     <ns0:creator>
       <ns0:creatorName>Fenner, Martin</ns0:creatorName>

@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api.test.datacite.org/dois/10.23725/at5e-0s42
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"dois","attributes":{"doi":"10.23725/at5e-0s42","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPG5zMDpyZXNvdXJjZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhtbG5zOm5zMD0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtNC9tZXRhZGF0YS54c2QiPgogIDxuczA6aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4yMzcyNS9hdDVlLTBzNDI8L25zMDppZGVudGlmaWVyPgogIDxuczA6Y3JlYXRvcnM+CiAgICA8bnMwOmNyZWF0b3I+CiAgICAgIDxuczA6Y3JlYXRvck5hbWU+RmVubmVyLCBNYXJ0aW48L25zMDpjcmVhdG9yTmFtZT4KICAgICAgPG5zMDpnaXZlbk5hbWU+TWFydGluPC9uczA6Z2l2ZW5OYW1lPgogICAgICA8bnMwOmZhbWlseU5hbWU+RmVubmVyPC9uczA6ZmFtaWx5TmFtZT4KICAgICAgPG5zMDpuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmcvIiBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMy0xNDE5LTI0MDU8L25zMDpuYW1lSWRlbnRpZmllcj4KICAgIDwvY3JlYXRvcj4KICA8L25zMDpjcmVhdG9ycz4KICA8bnMwOnRpdGxlcz4KICAgIDxuczA6dGl0bGU+RWF0aW5nIHlvdXIgb3duIERvZyBGb29kPC9uczA6dGl0bGU+CiAgPC9uczA6dGl0bGVzPgogIDxuczA6cHVibGlzaGVyPkRhdGFDaXRlPC9uczA6cHVibGlzaGVyPgogIDxuczA6cHVibGljYXRpb25ZZWFyPjIwMTY8L25zMDpwdWJsaWNhdGlvblllYXI+CiAgPG5zMDpyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L25zMDpyZXNvdXJjZVR5cGU+CiAgPG5zMDphbHRlcm5hdGVJZGVudGlmaWVycz4KICAgIDxuczA6YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iTG9jYWwgYWNjZXNzaW9uIG51bWJlciI+TVMtNDktMzYzMi01MDgzPC9uczA6YWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L25zMDphbHRlcm5hdGVJZGVudGlmaWVycz4KICA8bnMwOnN1YmplY3RzPgogICAgPG5zMDpzdWJqZWN0PmRhdGFjaXRlPC9uczA6c3ViamVjdD4KICAgIDxuczA6c3ViamVjdD5kb2k8L25zMDpzdWJqZWN0PgogICAgPG5zMDpzdWJqZWN0Pm1ldGFkYXRhPC9uczA6c3ViamVjdD4KICA8L25zMDpzdWJqZWN0cz4KICA8bnMwOmRhdGVzPgogICAgPG5zMDpkYXRlIGRhdGVUeXBlPSJDcmVhdGVkIj4yMDE2LTEyLTIwPC9uczA6ZGF0ZT4KICAgIDxuczA6ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDE2LTEyLTIwPC9uczA6ZGF0ZT4KICAgIDxuczA6ZGF0ZSBkYXRlVHlwZT0iVXBkYXRlZCI+MjAxNi0xMi0yMDwvbnMwOmRhdGU+CiAgPC9uczA6ZGF0ZXM+CiAgPG5zMDpyZWxhdGVkSWRlbnRpZmllcnM+CiAgICA8bnMwOnJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IlJlZmVyZW5jZXMiPjEwLjU0MzgvMDAxMjwvbnMwOnJlbGF0ZWRJZGVudGlmaWVyPgogICAgPG5zMDpyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj4xMC41NDM4LzU1RTUtVDVDMDwvbnMwOnJlbGF0ZWRJZGVudGlmaWVyPgogICAgPG5zMDpyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc1BhcnRPZiI+MTAuNTQzOC8wMDAwLTAwU1M8L25zMDpyZWxhdGVkSWRlbnRpZmllcj4KICA8L25zMDpyZWxhdGVkSWRlbnRpZmllcnM+CiAgPG5zMDp2ZXJzaW9uPjEuMDwvbnMwOnZlcnNpb24+CiAgPG5zMDpkZXNjcmlwdGlvbnM+CiAgICA8bnMwOmRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkVhdGluZyB5b3VyIG93biBkb2cgZm9vZCBpcyBhIHNsYW5nIHRlcm0gdG8gZGVzY3JpYmUgdGhhdCBhbiBvcmdhbml6YXRpb24gc2hvdWxkIGl0c2VsZiB1c2UgdGhlIHByb2R1Y3RzIGFuZCBzZXJ2aWNlcyBpdCBwcm92aWRlcy4gRm9yIERhdGFDaXRlIHRoaXMgbWVhbnMgdGhhdCB3ZSBzaG91bGQgdXNlIERPSXMgd2l0aCBhcHByb3ByaWF0ZSBtZXRhZGF0YSBhbmQgc3RyYXRlZ2llcyBmb3IgbG9uZy10ZXJtIHByZXNlcnZhdGlvbiBmb3IuLi48L25zMDpkZXNjcmlwdGlvbj4KICA8L25zMDpkZXNjcmlwdGlvbnM+CjwvbnMwOnJlc291cmNlPgo=","validate":"true","source":"mds","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.TEST"}}}}}'
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1; +https://github.com/datacite/maremma)
+      Content-Type:
+      - application/vnd.api+json
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Wed, 29 Aug 2018 14:06:51 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.test
+      X-Request-Id:
+      - 59586140-0aea-4367-860b-3bae597b2166
+      Etag:
+      - W/"f958d04661a50aa78497e0181070626b"
+      X-Runtime:
+      - '0.144682'
+      X-Powered-By:
+      - Phusion Passenger 5.3.4
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.4
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.23725/at5e-0s42","type":"dois","attributes":{"doi":"10.23725/at5e-0s42","identifier":"https://handle.test.datacite.org/10.23725/at5e-0s42","url":"http://example.com","prefix":"10.23725","suffix":"at5e-0s42","author":[{"type":"Person","id":"https://orcid.org/0000-0003-1419-2405","name":"Fenner,
+        Martin","givenName":"Martin","familyName":"Fenner"}],"title":"Eating your
+        own Dog Food","publisher":"DataCite","resource-type-subtype":"BlogPosting","description":"Eating
+        your own dog food is a slang term to describe that an organization should
+        itself use the products and services it provides. For DataCite this means
+        that we should use DOIs with appropriate metadata and strategies for long-term
+        preservation for...","version":"1.0","metadata-version":1,"schema-version":"http://datacite.org/schema/kernel-4","reason":null,"source":"mds","state":"findable","is-active":true,"landing-page":{"status":null,"content-type":null,"checked":null},"published":"2016-12-20","created":"2018-08-29T13:45:34.000Z","registered":null,"updated":"2018-08-29T14:06:51.000Z","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPG5zMDpyZXNvdXJjZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4bWxuczpuczA9Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC00IiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC00IGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8bnMwOmlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjM3MjUvYXQ1ZS0wczQyPC9uczA6aWRlbnRpZmllcj4KICA8bnMwOmNyZWF0b3JzPgogICAgPG5zMDpjcmVhdG9yPgogICAgICA8bnMwOmNyZWF0b3JOYW1lPkZlbm5lciwgTWFydGluPC9uczA6Y3JlYXRvck5hbWU+CiAgICAgIDxuczA6Z2l2ZW5OYW1lPk1hcnRpbjwvbnMwOmdpdmVuTmFtZT4KICAgICAgPG5zMDpmYW1pbHlOYW1lPkZlbm5lcjwvbnMwOmZhbWlseU5hbWU+CiAgICAgIDxuczA6bmFtZUlkZW50aWZpZXIgc2NoZW1lVVJJPSJodHRwOi8vb3JjaWQub3JnLyIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIj4wMDAwLTAwMDMtMTQxOS0yNDA1PC9uczA6bmFtZUlkZW50aWZpZXI+CiAgICA8L25zMDpjcmVhdG9yPgogIDwvbnMwOmNyZWF0b3JzPgogIDxuczA6dGl0bGVzPgogICAgPG5zMDp0aXRsZT5FYXRpbmcgeW91ciBvd24gRG9nIEZvb2Q8L25zMDp0aXRsZT4KICA8L25zMDp0aXRsZXM+CiAgPG5zMDpwdWJsaXNoZXI+RGF0YUNpdGU8L25zMDpwdWJsaXNoZXI+CiAgPG5zMDpwdWJsaWNhdGlvblllYXI+MjAxNjwvbnMwOnB1YmxpY2F0aW9uWWVhcj4KICA8bnMwOnJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJUZXh0Ij5CbG9nUG9zdGluZzwvbnMwOnJlc291cmNlVHlwZT4KICA8bnMwOmFsdGVybmF0ZUlkZW50aWZpZXJzPgogICAgPG5zMDphbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJMb2NhbCBhY2Nlc3Npb24gbnVtYmVyIj5NUy00OS0zNjMyLTUwODM8L25zMDphbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvbnMwOmFsdGVybmF0ZUlkZW50aWZpZXJzPgogIDxuczA6c3ViamVjdHM+CiAgICA8bnMwOnN1YmplY3Q+ZGF0YWNpdGU8L25zMDpzdWJqZWN0PgogICAgPG5zMDpzdWJqZWN0PmRvaTwvbnMwOnN1YmplY3Q+CiAgICA8bnMwOnN1YmplY3Q+bWV0YWRhdGE8L25zMDpzdWJqZWN0PgogIDwvbnMwOnN1YmplY3RzPgogIDxuczA6ZGF0ZXM+CiAgICA8bnMwOmRhdGUgZGF0ZVR5cGU9IkNyZWF0ZWQiPjIwMTYtMTItMjA8L25zMDpkYXRlPgogICAgPG5zMDpkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTYtMTItMjA8L25zMDpkYXRlPgogICAgPG5zMDpkYXRlIGRhdGVUeXBlPSJVcGRhdGVkIj4yMDE2LTEyLTIwPC9uczA6ZGF0ZT4KICA8L25zMDpkYXRlcz4KICA8bnMwOnJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxuczA6cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iUmVmZXJlbmNlcyI+MTAuNTQzOC8wMDEyPC9uczA6cmVsYXRlZElkZW50aWZpZXI+CiAgICA8bnMwOnJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IlJlZmVyZW5jZXMiPjEwLjU0MzgvNTVFNS1UNUMwPC9uczA6cmVsYXRlZElkZW50aWZpZXI+CiAgICA8bnMwOnJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzUGFydE9mIj4xMC41NDM4LzAwMDAtMDBTUzwvbnMwOnJlbGF0ZWRJZGVudGlmaWVyPgogIDwvbnMwOnJlbGF0ZWRJZGVudGlmaWVycz4KICA8bnMwOnZlcnNpb24+MS4wPC9uczA6dmVyc2lvbj4KICA8bnMwOmRlc2NyaXB0aW9ucz4KICAgIDxuczA6ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+RWF0aW5nIHlvdXIgb3duIGRvZyBmb29kIGlzIGEgc2xhbmcgdGVybSB0byBkZXNjcmliZSB0aGF0IGFuIG9yZ2FuaXphdGlvbiBzaG91bGQgaXRzZWxmIHVzZSB0aGUgcHJvZHVjdHMgYW5kIHNlcnZpY2VzIGl0IHByb3ZpZGVzLiBGb3IgRGF0YUNpdGUgdGhpcyBtZWFucyB0aGF0IHdlIHNob3VsZCB1c2UgRE9JcyB3aXRoIGFwcHJvcHJpYXRlIG1ldGFkYXRhIGFuZCBzdHJhdGVnaWVzIGZvciBsb25nLXRlcm0gcHJlc2VydmF0aW9uIGZvci4uLjwvbnMwOmRlc2NyaXB0aW9uPgogIDwvbnMwOmRlc2NyaXB0aW9ucz4KPC9uczA6cmVzb3VyY2U+"},"relationships":{"client":{"data":{"id":"datacite.test","type":"clients"}},"resource-type":{"data":{"id":"text","type":"resource_types"}},"media":{"data":[]}}},"included":[{"id":"datacite.test","type":"clients","attributes":{"name":"DataCite
+        Test Ra Ra Ra","symbol":"DATACITE.TEST","year":2017,"contact-name":"Martin
+        Fenner","contact-email":"support@datacite.org","domains":"*","url":null,"created":"2017-07-13T15:15:33.000Z","updated":"2018-08-26T01:31:06.000Z","is-active":true,"has-password":true},"relationships":{"provider":{"data":{"id":"datacite","type":"providers"}},"prefixes":{"data":[{"id":"10.5072","type":"prefixes"},{"id":"10.23725","type":"prefixes"}]}}},{"id":"text","type":"resource-types","attributes":{"title":"Text","updated":"2016-09-21T00:00:00Z"},"relationships":{}}]}'
+    http_version: 
+  recorded_at: Wed, 29 Aug 2018 14:06:51 GMT
+recorded_with: VCR 3.0.3
