@@ -11,7 +11,7 @@ module Metadatable
     def find_from_format_by_string(string)
       if Maremma.from_xml(string).to_h.dig("doi_records", "doi_record", "crossref").present?
         "crossref"
-      elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }  
+      elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }
         "datacite"
       elsif Maremma.from_json(string).to_h.dig("ris_type").present?
         "crosscite"
@@ -46,6 +46,7 @@ module Metadatable
 
     def doi_from_xml(str, options={})
       doc = Nokogiri::XML(options[:data], nil, 'UTF-8', &:noblanks)
+      doc.remove_namespaces!
       validate_doi(doc.at_css("identifier").content)
     end
 
@@ -54,7 +55,7 @@ module Metadatable
     def generate_unique_doi(str, options={})
       if options[:number].present?
         doi = generate_random_doi(str, number: options[:number])
-        fail IdentifierError, "doi:#{doi} has already been registered" if 
+        fail IdentifierError, "doi:#{doi} has already been registered" if
           !MetadataController.get_metadata(doi, options).body.dig("errors")
       else
         duplicate = true
@@ -86,7 +87,7 @@ module Metadatable
       length = 8
       split = 4
       prefix.to_s + "/" + shoulder + Base32::URL.encode(number, split: split, length: length, checksum: true)
-    end  
+    end
   end
 
   module ClassMethods
@@ -104,7 +105,7 @@ module Metadatable
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
       xml = options[:data].present? ? ::Base64.strict_encode64(options[:data]) : nil
-      
+
       attributes = {
         "doi" => doi,
         "xml" => xml,
@@ -157,7 +158,7 @@ module Metadatable
     end
 
     def api_url
-      Rails.env.production? ? 'https://api.datacite.org' : 'https://api.test.datacite.org' 
+      Rails.env.production? ? 'https://api.datacite.org' : 'https://api.test.datacite.org'
     end
   end
 end
