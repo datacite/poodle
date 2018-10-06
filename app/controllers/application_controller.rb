@@ -31,7 +31,7 @@ class ApplicationController < ActionController::API
   end
 
   def mds_url
-    Rails.env.production? ? 'https://mds.datacite.org' : 'https://mds.test.datacite.org' 
+    Rails.env.production? ? 'https://mds.datacite.org' : 'https://mds.test.datacite.org'
   end
 
   unless Rails.env.development?
@@ -55,7 +55,7 @@ class ApplicationController < ActionController::API
         message = exception.message
       else
         Bugsnag.notify(exception)
-        
+
         message = exception.message
       end
 
@@ -68,12 +68,12 @@ class ApplicationController < ActionController::API
   def append_info_to_payload(payload)
     super
     payload[:uid] = username.downcase if username.present?
-    payload[:data] = request.raw_post if request.raw_post.present?
+    payload[:data] = Base64.strict_encode64(request.raw_post) if request.raw_post.present?
   end
 
   def add_user_info_to_bugsnag(report)
     return nil unless username.present?
-    
+
     report.user = {
       id: username.downcase
     }

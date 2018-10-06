@@ -61,7 +61,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       delete "/metadata/#{doi_id}", nil, headers
 
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq("OK")  
+      expect(last_response.body).to eq("OK")
     end
 
     it "delete doi" do
@@ -166,7 +166,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       delete "/metadata/#{doi_id}", nil, headers
 
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq("OK")  
+      expect(last_response.body).to eq("OK")
     end
 
     it "register doi" do
@@ -182,6 +182,19 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       data = file_fixture('datacite_tba.xml').read
 
       put "/metadata/#{doi_id}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+    end
+  end
+
+  describe '/metadata doi from xml namespaced', type: :request do
+    let(:doi_id) { "10.23725/at5e-0s42" }
+    let(:data) { file_fixture('datacitens.xml').read }
+    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+
+    it "post metadata for doi" do
+      post "/metadata", data, headers
 
       expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
@@ -239,7 +252,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       delete "/metadata/#{doi_id}", nil, headers
 
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq("OK")  
+      expect(last_response.body).to eq("OK")
     end
 
     it "delete doi" do
@@ -292,7 +305,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       get "/metadata/#{doi_id}", nil, headers
 
       expect(last_response.status).to eq(200)
-      
+
       metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
       expect(metadata.dig("titles", "title")).to eq("Eating your own Dog Food")
       expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
@@ -322,7 +335,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       get "/metadata/#{doi_id}", nil, headers
 
       expect(last_response.status).to eq(200)
-      
+
       metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
       expect(metadata.dig("titles", "title")).to eq("Replication Data for: Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding.")
       expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
@@ -352,7 +365,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       get "/metadata/#{doi_id}", nil, headers
 
       expect(last_response.status).to eq(200)
-      
+
       metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
       expect(metadata.dig("titles", "title")).to eq("Eating your own Dog Food")
       expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
