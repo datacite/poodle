@@ -110,8 +110,7 @@ module Metadatable
         "doi" => doi,
         "xml" => xml,
         "validate" => "true",
-        "source" => "mds",
-        "event" => "publish" }.compact
+        "source" => "mds"}.compact
 
       data = {
         "data" => {
