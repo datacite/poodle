@@ -28,6 +28,8 @@ module Metadatable
       elsif BibTeX.parse(string).first
         "bibtex"
       end
+    rescue
+      nil
     end
 
     # find or generate DOI in params, xml, or generate random string

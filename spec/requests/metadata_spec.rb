@@ -189,7 +189,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   end
 
   describe '/metadata doi from xml namespaced', type: :request do
-    let(:doi_id) { "10.23725/at5e-0s42" }
+    let(:doi_id) { "10.14454/at5e-0s42" }
     let(:data) { file_fixture('datacitens.xml').read }
     let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
@@ -201,18 +201,18 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     end
   end
 
-  describe '/metadata doi from xml no creator', type: :request do
-    let(:doi_id) { "10.5072/pure.item_3001051" }
-    let(:data) { file_fixture('no_creator.xml').read }
-    let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+  # describe '/metadata doi from xml no creator', type: :request do
+  #   let(:doi_id) { "10.5072/pure.item_3001051" }
+  #   let(:data) { file_fixture('no_creator.xml').read }
+  #   let(:headers) { {'CONTENT_TYPE' => 'application/xml;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-    it "post metadata for doi" do
-      post "/metadata", data, headers
+  #   it "post metadata for doi" do
+  #     post "/metadata", data, headers
 
-      expect(last_response.status).to eq(422)
-      expect(last_response.body).to eq("Missing child element(s). expected is ( {http://datacite.org/schema/kernel-3}creator ). at line 4, column 0")
-    end
-  end
+  #     expect(last_response.status).to eq(422)
+  #     expect(last_response.body).to eq("Missing child element(s). expected is ( {http://datacite.org/schema/kernel-3}creator ). at line 4, column 0")
+  #   end
+  # end
 
   describe '/metadata doi from xml mpdl', type: :request do
     let(:data) { file_fixture('mpdl.xml').read }
@@ -319,63 +319,63 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     end
   end
 
-  context 'metadata schema_org as url', type: :request do
-    let(:doi_id) { "10.5072/DVN/HSCUNZZ" }
-    let(:data) { "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HSCUNB" }
-    let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+  # context 'metadata schema_org as url', type: :request do
+  #   let(:doi_id) { "10.5072/DVN/HSCUNZZ" }
+  #   let(:data) { "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HSCUNB" }
+  #   let(:headers) { {'CONTENT_TYPE' => 'text/plain;charset=UTF-8', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-    it "put metadata for doi" do
-      put "/metadata/#{doi_id}", data, headers
+  #   it "put metadata for doi" do
+  #     put "/metadata/#{doi_id}", data, headers
 
-      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
-      expect(last_response.status).to eq(201)
-    end
+  #     expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+  #     expect(last_response.status).to eq(201)
+  #   end
 
-    it "get metadata for doi" do
-      get "/metadata/#{doi_id}", nil, headers
+  #   it "get metadata for doi" do
+  #     get "/metadata/#{doi_id}", nil, headers
 
-      expect(last_response.status).to eq(200)
+  #     expect(last_response.status).to eq(200)
 
-      metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
-      expect(metadata.dig("titles", "title")).to eq("Replication Data for: Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding.")
-      expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
-    end
+  #     metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
+  #     expect(metadata.dig("titles", "title")).to eq("Replication Data for: Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding.")
+  #     expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
+  #   end
 
-    it "delete doi" do
-      delete "/doi/#{doi_id}", nil, headers
+  #   it "delete doi" do
+  #     delete "/doi/#{doi_id}", nil, headers
 
-      expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq("OK")
-    end
-  end
+  #     expect(last_response.status).to eq(200)
+  #     expect(last_response.body).to eq("OK")
+  #   end
+  # end
 
-  context 'metadata citeproc', type: :request do
-    let(:doi_id) { "10.5072/ey8x-9f93" }
-    let(:data) { file_fixture('citeproc.json').read }
-    let(:headers) { {'CONTENT_TYPE' => 'application/vnd.citationstyles.csl+json', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+  # context 'metadata citeproc', type: :request do
+  #   let(:doi_id) { "10.5072/ey8x-9f93" }
+  #   let(:data) { file_fixture('citeproc.json').read }
+  #   let(:headers) { {'CONTENT_TYPE' => 'application/vnd.citationstyles.csl+json', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-    it "put metadata for doi" do
-      put "/metadata/#{doi_id}", data, headers
+  #   it "put metadata for doi" do
+  #     put "/metadata/#{doi_id}", data, headers
 
-      expect(last_response.status).to eq(201)
-      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
-    end
+  #     expect(last_response.status).to eq(201)
+  #     expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+  #   end
 
-    it "get metadata for doi" do
-      get "/metadata/#{doi_id}", nil, headers
+  #   it "get metadata for doi" do
+  #     get "/metadata/#{doi_id}", nil, headers
 
-      expect(last_response.status).to eq(200)
+  #     expect(last_response.status).to eq(200)
 
-      metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
-      expect(metadata.dig("titles", "title")).to eq("Eating your own Dog Food")
-      expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
-    end
+  #     metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
+  #     expect(metadata.dig("titles", "title")).to eq("Eating your own Dog Food")
+  #     expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
+  #   end
 
-    it "delete doi" do
-      delete "/doi/#{doi_id}", nil, headers
+  #   it "delete doi" do
+  #     delete "/doi/#{doi_id}", nil, headers
 
-      expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq("OK")
-    end
-  end
+  #     expect(last_response.status).to eq(200)
+  #     expect(last_response.body).to eq("OK")
+  #   end
+  # end
 end
