@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 22:39:43 GMT
+      - Tue, 20 Nov 2018 23:01:38 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -35,18 +35,18 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 017dea5f-0347-425f-97bb-6bc1d63d31a5
+      - 128eaaf0-da42-4e66-971f-3fe8dd5968dc
       Etag:
-      - W/"1634bdb860afd45f83d00402f50b4902"
+      - W/"28750172fb649ad8210f3840d62c4095"
       X-Runtime:
-      - '0.018596'
+      - '0.016945'
       X-Powered-By:
       - Phusion Passenger 5.3.7
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"id":"0000-0000-0000-n06v","type":"media","attributes":{"version":1,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","mediaType":"application/pdf","created":"2018-11-20T22:15:35.000Z","updated":"2018-11-20T22:15:35.000Z"},"relationships":{"doi":{"data":{"id":"10.14454/05MB-Q396","type":"dois"}}}}],"included":[{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","creator":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributor":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"url":"https://www.datacite.org/roadmap.html","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"created":"2018-11-19T08:22:09.000Z","registered":null,"updated":"2018-11-20T22:15:32.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[{"id":"0000-0000-0000-n06v","type":"media"}]}}}],"meta":{"total":1,"total-pages":1,"page":1},"links":{"self":"https://api.test.datacite.org/dois/10.14454/05mb-q396/media","next":"https://api.test.datacite.org/media?page%5Bnumber%5D=1"}}'
+      string: '{"data":[],"included":[],"meta":{"total":1,"total-pages":1,"page":1},"links":{"self":"https://api.test.datacite.org/dois/10.14454/05mb-q396/media"}}'
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 22:39:43 GMT
+  recorded_at: Tue, 20 Nov 2018 23:01:38 GMT
 recorded_with: VCR 3.0.3

@@ -52,7 +52,7 @@ describe "media", type: :request, vcr: true, order: :defined do
     end
 
     it "delete media for doi" do
-      id = "0000-0000-0000-n06v"
+      id = "0000-0000-0000-n070"
       delete "/doi/#{doi_id}/media/#{id}", nil, headers
 
       expect(last_response.status).to eq(200)
