@@ -8,7 +8,7 @@ http_interactions:
       string: '{"data":{"type":"dois","attributes":{"event":"hide"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -17,36 +17,33 @@ http_interactions:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 200
+      code: 403
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 19:20:26 GMT
+      - Tue, 20 Nov 2018 22:36:40 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 200 OK
+      - 403 Forbidden
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       Vary:
       - Accept-Encoding, Origin
-      X-Credential-Username:
-      - datacite.datacite
       X-Request-Id:
-      - 65fe6004-069f-4cca-9000-170eb016c2d6
-      Etag:
-      - W/"bd611b373b86351f352a107f6b2e6772"
+      - 04e423aa-e28f-417f-9650-7dbcb60b6e5f
       X-Runtime:
-      - '0.068171'
+      - '0.015106'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5438/m21h-3007","type":"dois","attributes":{"doi":"10.5438/m21h-3007","prefix":"10.5438","suffix":"m21h-3007","identifier":"https://handle.test.datacite.org/10.5438/m21h-3007","url":null,"author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"draft","is-active":false,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"created":"2018-07-13T21:53:59.000Z","registered":null,"updated":"2018-07-19T19:20:26.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+      string: '{"errors":[{"status":"403","title":"You are not authorized to access
+        this resource."}]}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 19:20:48 GMT
+  recorded_at: Tue, 20 Nov 2018 22:36:40 GMT
 recorded_with: VCR 3.0.3

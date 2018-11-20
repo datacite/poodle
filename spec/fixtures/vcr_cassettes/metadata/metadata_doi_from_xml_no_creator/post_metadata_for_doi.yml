@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.test.datacite.org/dois/10.5438/s0m8-q346
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"dois","attributes":{"doi":"10.5438/s0m8-q346","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHJlc291cmNlIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMy9tZXRhZGF0YS54c2QiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyI+ICAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC9zMG04LXEzNDY8L2lkZW50aWZpZXI+ICAgPGNyZWF0b3JzIC8+ICAgPHRpdGxlcz4gICAgIDx0aXRsZT5DQ0RDIDkyNjgyOTogRXhwZXJpbWVudGFsIENyeXN0YWwgU3RydWN0dXJlIERldGVybWluYXRpb248L3RpdGxlPiAgIDwvdGl0bGVzPiAgIDxwdWJsaXNoZXI+Q2FtYnJpZGdlIENyeXN0YWxsb2dyYXBoaWMgRGF0YSBDZW50cmU8L3B1Ymxpc2hlcj4gICA8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4gICA8c3ViamVjdHM+ICAgICA8c3ViamVjdD5DcnlzdGFsIFN0cnVjdHVyZTwvc3ViamVjdD4gICAgIDxzdWJqZWN0PkV4cGVyaW1lbnRhbCAzRCBDb29yZGluYXRlczwvc3ViamVjdD4gICAgIDxzdWJqZWN0PkNyeXN0YWwgU3lzdGVtPC9zdWJqZWN0PiAgICAgPHN1YmplY3Q+U3BhY2UgR3JvdXA8L3N1YmplY3Q+ICAgICA8c3ViamVjdD5DZWxsIFBhcmFtZXRlcnM8L3N1YmplY3Q+ICAgICA8c3ViamVjdD5DcnlzdGFsbG9ncmFwaHk8L3N1YmplY3Q+ICAgPC9zdWJqZWN0cz4gICA8bGFuZ3VhZ2U+ZW5nPC9sYW5ndWFnZT4gICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiIC8+ICAgPGFsdGVybmF0ZUlkZW50aWZpZXJzPiAgICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9IkNDREMiPjkyNjgyOTwvYWx0ZXJuYXRlSWRlbnRpZmllcj4gICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPiAgIDxyZWxhdGVkSWRlbnRpZmllcnM+ICAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iSXNTdXBwbGVtZW50VG8iPjEwLjEwMDIvY2hlbS4yMDEzMDA4MDk8L3JlbGF0ZWRJZGVudGlmaWVyPiAgIDwvcmVsYXRlZElkZW50aWZpZXJzPiAgIDxmb3JtYXRzPiAgICAgPGZvcm1hdD5DSUY8L2Zvcm1hdD4gICA8L2Zvcm1hdHM+ICAgPGRlc2NyaXB0aW9ucz4gICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj5SZWxhdGVkIEFydGljbGU6IHwyMDEzfENoaW4uSi5DaGVtLlBoeXMufDI3fDExM3w8L2Rlc2NyaXB0aW9uPiAgICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iT3RoZXIiPlJlbGF0ZWQgQXJ0aWNsZTogQ29yeSBNLiBXaWRkaWZpZWxkLCBHYWJyaWVsbGEgQ2F2YWxsbywgR2xlbm4gQS4gRmFjZXksIFR1bGxpbyBQaWxhdGksIEppbmd4aWFuZyBMaW4sIFBpZXJhbmdlbG8gTWV0cmFuZ29sbywgR2l1c2VwcGUgUmVzbmF0aSwgRGF2aWQgTC4gQnJ5Y2V8MjAxM3xDaGVtLi1FdXIuSi58MTl8MTE5NDl8ZG9pOjEwLjEwMDIvY2hlbS4yMDEzMDA4MDk8L2Rlc2NyaXB0aW9uPiAgICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkFuIGVudHJ5IGZyb20gdGhlIENhbWJyaWRnZSBTdHJ1Y3R1cmFsIERhdGFiYXNlLCB0aGUgd29ybGTigJlzIHJlcG9zaXRvcnkgZm9yIHNtYWxsIG1vbGVjdWxlIGNyeXN0YWwgc3RydWN0dXJlcy4gVGhlIGVudHJ5IGNvbnRhaW5zIGV4cGVyaW1lbnRhbCBkYXRhIGZyb20gYSBjcnlzdGFsIGRpZmZyYWN0aW9uIHN0dWR5LiBUaGUgZGVwb3NpdGVkIGRhdGFzZXQgZm9yIHRoaXMgZW50cnkgaXMgZnJlZWx5IGF2YWlsYWJsZSBmcm9tIHRoZSBDQ0RDIGFuZCB0eXBpY2FsbHkgaW5jbHVkZXMgM0QgY29vcmRpbmF0ZXMsIGNlbGwgcGFyYW1ldGVycywgc3BhY2UgZ3JvdXAsIGV4cGVyaW1lbnRhbCBjb25kaXRpb25zIGFuZCBxdWFsaXR5IG1lYXN1cmVzLjwvZGVzY3JpcHRpb24+ICAgPC9kZXNjcmlwdGlvbnM+IDwvcmVzb3VyY2U+","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+      string: '{"data":{"type":"dois","attributes":{"doi":"10.5438/s0m8-q346","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHJlc291cmNlIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMy9tZXRhZGF0YS54c2QiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyI+ICAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC9zMG04LXEzNDY8L2lkZW50aWZpZXI+ICAgPGNyZWF0b3JzIC8+ICAgPHRpdGxlcz4gICAgIDx0aXRsZT5DQ0RDIDkyNjgyOTogRXhwZXJpbWVudGFsIENyeXN0YWwgU3RydWN0dXJlIERldGVybWluYXRpb248L3RpdGxlPiAgIDwvdGl0bGVzPiAgIDxwdWJsaXNoZXI+Q2FtYnJpZGdlIENyeXN0YWxsb2dyYXBoaWMgRGF0YSBDZW50cmU8L3B1Ymxpc2hlcj4gICA8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4gICA8c3ViamVjdHM+ICAgICA8c3ViamVjdD5DcnlzdGFsIFN0cnVjdHVyZTwvc3ViamVjdD4gICAgIDxzdWJqZWN0PkV4cGVyaW1lbnRhbCAzRCBDb29yZGluYXRlczwvc3ViamVjdD4gICAgIDxzdWJqZWN0PkNyeXN0YWwgU3lzdGVtPC9zdWJqZWN0PiAgICAgPHN1YmplY3Q+U3BhY2UgR3JvdXA8L3N1YmplY3Q+ICAgICA8c3ViamVjdD5DZWxsIFBhcmFtZXRlcnM8L3N1YmplY3Q+ICAgICA8c3ViamVjdD5DcnlzdGFsbG9ncmFwaHk8L3N1YmplY3Q+ICAgPC9zdWJqZWN0cz4gICA8bGFuZ3VhZ2U+ZW5nPC9sYW5ndWFnZT4gICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiIC8+ICAgPGFsdGVybmF0ZUlkZW50aWZpZXJzPiAgICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9IkNDREMiPjkyNjgyOTwvYWx0ZXJuYXRlSWRlbnRpZmllcj4gICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPiAgIDxyZWxhdGVkSWRlbnRpZmllcnM+ICAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iSXNTdXBwbGVtZW50VG8iPjEwLjEwMDIvY2hlbS4yMDEzMDA4MDk8L3JlbGF0ZWRJZGVudGlmaWVyPiAgIDwvcmVsYXRlZElkZW50aWZpZXJzPiAgIDxmb3JtYXRzPiAgICAgPGZvcm1hdD5DSUY8L2Zvcm1hdD4gICA8L2Zvcm1hdHM+ICAgPGRlc2NyaXB0aW9ucz4gICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj5SZWxhdGVkIEFydGljbGU6IHwyMDEzfENoaW4uSi5DaGVtLlBoeXMufDI3fDExM3w8L2Rlc2NyaXB0aW9uPiAgICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iT3RoZXIiPlJlbGF0ZWQgQXJ0aWNsZTogQ29yeSBNLiBXaWRkaWZpZWxkLCBHYWJyaWVsbGEgQ2F2YWxsbywgR2xlbm4gQS4gRmFjZXksIFR1bGxpbyBQaWxhdGksIEppbmd4aWFuZyBMaW4sIFBpZXJhbmdlbG8gTWV0cmFuZ29sbywgR2l1c2VwcGUgUmVzbmF0aSwgRGF2aWQgTC4gQnJ5Y2V8MjAxM3xDaGVtLi1FdXIuSi58MTl8MTE5NDl8ZG9pOjEwLjEwMDIvY2hlbS4yMDEzMDA4MDk8L2Rlc2NyaXB0aW9uPiAgICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkFuIGVudHJ5IGZyb20gdGhlIENhbWJyaWRnZSBTdHJ1Y3R1cmFsIERhdGFiYXNlLCB0aGUgd29ybGTigJlzIHJlcG9zaXRvcnkgZm9yIHNtYWxsIG1vbGVjdWxlIGNyeXN0YWwgc3RydWN0dXJlcy4gVGhlIGVudHJ5IGNvbnRhaW5zIGV4cGVyaW1lbnRhbCBkYXRhIGZyb20gYSBjcnlzdGFsIGRpZmZyYWN0aW9uIHN0dWR5LiBUaGUgZGVwb3NpdGVkIGRhdGFzZXQgZm9yIHRoaXMgZW50cnkgaXMgZnJlZWx5IGF2YWlsYWJsZSBmcm9tIHRoZSBDQ0RDIGFuZCB0eXBpY2FsbHkgaW5jbHVkZXMgM0QgY29vcmRpbmF0ZXMsIGNlbGwgcGFyYW1ldGVycywgc3BhY2UgZ3JvdXAsIGV4cGVyaW1lbnRhbCBjb25kaXRpb25zIGFuZCBxdWFsaXR5IG1lYXN1cmVzLjwvZGVzY3JpcHRpb24+ICAgPC9kZXNjcmlwdGlvbnM+IDwvcmVzb3VyY2U+","validate":"true","source":"mds","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -21,9 +21,9 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 19:20:37 GMT
+      - Tue, 20 Nov 2018 22:16:19 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
@@ -35,18 +35,17 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 5f214911-7e83-4227-bb4f-03546de960b2
+      - d29ecf7a-c095-4684-838d-0f0f7ba794a8
       X-Runtime:
-      - '0.656158'
+      - '0.045619'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: '{"errors":[{"source":"creators","title":"Missing child element(s).
-        expected is ( {http://datacite.org/schema/kernel-3}creator ). at line 4, column
-        0"}]}'
+      string: '{"errors":[{"source":"resource","title":"No matching global declaration
+        available for the validation root. at line 2, column 0"}]}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 19:20:59 GMT
+  recorded_at: Tue, 20 Nov 2018 22:16:19 GMT
 recorded_with: VCR 3.0.3

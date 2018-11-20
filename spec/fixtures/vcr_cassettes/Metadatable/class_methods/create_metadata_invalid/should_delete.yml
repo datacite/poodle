@@ -8,39 +8,40 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 204
+      code: 404
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 19:20:24 GMT
+      - Tue, 20 Nov 2018 22:25:01 GMT
+      Content-Type:
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 204 No Content
+      - 404 Not Found
       Cache-Control:
       - no-cache
       Vary:
-      - Origin
-      X-Credential-Username:
-      - datacite.datacite
+      - Accept-Encoding, Origin
       X-Request-Id:
-      - f04f0141-5e40-473a-9800-0a9192beac0e
+      - 97392331-a7a3-40e5-b799-c628290c9739
       X-Runtime:
-      - '0.027741'
+      - '0.007499'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: '{"errors":[{"status":"404","title":"The resource you are looking for
+        doesn''t exist."}]}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 19:20:46 GMT
+  recorded_at: Tue, 20 Nov 2018 22:25:01 GMT
 recorded_with: VCR 3.0.3

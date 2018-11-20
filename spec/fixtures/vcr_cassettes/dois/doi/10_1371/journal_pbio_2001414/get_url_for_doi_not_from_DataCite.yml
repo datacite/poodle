@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 19:20:30 GMT
+      - Tue, 20 Nov 2018 22:15:33 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,17 +31,17 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 0e1debf3-61c3-4783-986b-af77f2fcb6ed
+      - d92ec3c0-e494-42c8-9ab4-def5ebfbe576
       X-Runtime:
-      - '0.006220'
+      - '0.007446'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 19:20:52 GMT
+  recorded_at: Tue, 20 Nov 2018 22:15:33 GMT
 recorded_with: VCR 3.0.3

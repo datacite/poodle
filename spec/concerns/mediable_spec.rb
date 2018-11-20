@@ -6,14 +6,17 @@ describe Mediable, vcr: true, order: :defined do
   let(:options) { { username: username, password: password } }
   let(:doi) { "10.14454/05MB-Q396" }
   let(:data) { "application/pdf=https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf"}
-  let(:id) { "0000-0000-0000-mzzy" }
+  let(:id) { "0000-0000-0000-n06z" }
 
   subject { MediaController }
 
   context "create_media" do
     it 'should register' do
       options = { data: data, username: username, password: password }
-      expect(subject.create_media(doi, options).body.dig("data", "id")).to eq(id)
+      response = subject.create_media(doi, options)
+      expect(response.body.dig("data", "id")).to eq(id)
+      expect(response.body.dig("data", "attributes", "mediaType")).to eq("application/pdf")
+      expect(response.body.dig("data", "attributes", "url")).to eq("https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf")
     end
   end
 

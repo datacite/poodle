@@ -11,18 +11,18 @@ module Metadatable
     def find_from_format_by_string(string)
       if Maremma.from_xml(string).to_h.dig("doi_records", "doi_record", "crossref").present?
         "crossref"
-      elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }
+      elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }  
         "datacite"
-      elsif Maremma.from_json(string).to_h.dig("ris_type").present?
-        "crosscite"
-      elsif Maremma.from_json(string).to_h.dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
-        "datacite_json"
-      elsif Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
-        "citeproc"
-      elsif Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org") || /\A(http|https):\/(\/)(.+)\z/.match(string)
+      elsif Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org")
         "schema_org"
       elsif Maremma.from_json(string).to_h.dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
         "codemeta"
+      elsif Maremma.from_json(string).to_h.dig("schema-version").to_s.start_with?("http://datacite.org/schema/kernel")
+        "datacite_json"
+      elsif Maremma.from_json(string).to_h.dig("types").present?
+        "crosscite"
+      elsif Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
+        "citeproc"
       elsif string.start_with?("TY  - ")
         "ris"
       elsif BibTeX.parse(string).first

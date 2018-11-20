@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.test.datacite.org/dois/10.14454/05MB-Q396
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"dois","attributes":{"url":"https://www.datacite.org/roadmap.html","validate":"true","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+      string: '{"data":{"type":"dois","attributes":{"url":"https://www.datacite.org/roadmap.html","validate":"true","source":"mds","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -17,17 +17,17 @@ http_interactions:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 201
+      code: 200
       message: ''
     headers:
       Date:
-      - Fri, 20 Jul 2018 11:51:03 GMT
+      - Tue, 20 Nov 2018 22:15:32 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 201 Created
+      - 200 OK
       Cache-Control:
       - max-age=0, private, must-revalidate
       Vary:
@@ -35,18 +35,19 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 35eddc56-dd62-4991-bd70-401bea130929
+      - 4be9a82f-dc20-4879-9212-136708e390c5
       Etag:
-      - W/"209363a354313519652c1dfcc24a7d4c"
+      - W/"467c9b35f316745cca97800624c8a12a"
       X-Runtime:
-      - '0.148194'
+      - '0.050273'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","prefix":"10.14454","suffix":"05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","url":"https://www.datacite.org/roadmap.html","author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"draft","is-active":false,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"created":"2018-07-20T11:51:03.000Z","registered":null,"updated":"2018-07-20T11:51:03.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+      string: '{"data":{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","prefix":"10.14454","suffix":"05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","creator":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributor":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"xml":null,"url":"https://www.datacite.org/roadmap.html","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"landingPage":{"status":null,"contentType":null,"checked":null,"result":null},"created":"2018-11-19T08:22:09.000Z","registered":null,"updated":"2018-11-20T22:15:32.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[{"id":"0000-0000-0000-n06t","type":"media"}]}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contactName":"Martin
+        Fenner","contactEmail":"support@datacite.org","domains":"datacite.org","url":null,"created":"2011-12-07T13:43:39.000Z","updated":"2018-08-26T01:30:27.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"datacite","type":"providers"}},"prefixes":{"data":[{"id":"10.5438","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.14454","type":"prefixes"},{"id":"10.23725","type":"prefixes"},{"id":"10.70002","type":"prefixes"}]}}}]}'
     http_version: 
-  recorded_at: Fri, 20 Jul 2018 11:51:19 GMT
+  recorded_at: Tue, 20 Nov 2018 22:15:32 GMT
 recorded_with: VCR 3.0.3

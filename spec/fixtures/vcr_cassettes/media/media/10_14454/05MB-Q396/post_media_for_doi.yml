@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.test.datacite.org/dois/10.14454/05mb-q396/media
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"media","attributes":{"media-type":"application/pdf","url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf"}}}'
+      string: '{"data":{"type":"media","attributes":{"mediaType":"application/pdf","url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf"}}}'
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -21,9 +21,9 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 20:23:51 GMT
+      - Tue, 20 Nov 2018 22:15:35 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
@@ -35,18 +35,18 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 4c009926-ca3f-4737-b64a-d1f5177ec7c5
+      - dcf868f9-e80e-4439-b335-a45a76582a7e
       Etag:
-      - W/"7929fe5213f9e0a408c239febbec1140"
+      - W/"dee799bfc47b320974004450dcfc4bc3"
       X-Runtime:
-      - '0.016503'
+      - '0.028442'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"0000-0000-0000-n001","type":"media","attributes":{"version":2,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","media-type":"application/pdf","created":"2018-07-19T20:23:51.000Z","updated":"2018-07-19T20:23:51.000Z"},"relationships":{"doi":{"meta":{}}}}}'
+      string: '{"data":{"id":"0000-0000-0000-n06v","type":"media","attributes":{"version":1,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","mediaType":"application/pdf","created":"2018-11-20T22:15:35.000Z","updated":"2018-11-20T22:15:35.000Z"},"relationships":{"doi":{"data":{"id":"10.14454/05MB-Q396","type":"dois"}}}},"included":[{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","creator":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributor":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"url":"https://www.datacite.org/roadmap.html","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"created":"2018-11-19T08:22:09.000Z","registered":null,"updated":"2018-11-20T22:15:32.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[{"id":"0000-0000-0000-n06v","type":"media"},{"id":"0000-0000-0000-n06t","type":"media"}]}}}]}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 20:23:52 GMT
+  recorded_at: Tue, 20 Nov 2018 22:15:35 GMT
 recorded_with: VCR 3.0.3

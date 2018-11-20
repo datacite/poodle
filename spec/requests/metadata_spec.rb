@@ -327,8 +327,8 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     it "put metadata for doi" do
       put "/metadata/#{doi_id}", data, headers
 
-      expect(last_response.status).to eq(201)
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+      expect(last_response.status).to eq(201)
     end
 
     it "get metadata for doi" do

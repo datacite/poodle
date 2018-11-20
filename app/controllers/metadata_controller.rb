@@ -49,6 +49,7 @@ class MetadataController < ApplicationController
     end
 
     response = MetadataController.create_metadata(@doi, data: safe_params[:data], username: username, password: password)
+    puts response
 
     if [200, 201].include?(response.status)
       render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created, location: mds_url + "/metadata/" + @doi

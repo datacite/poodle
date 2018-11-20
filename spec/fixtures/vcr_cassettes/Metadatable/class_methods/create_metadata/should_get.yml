@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - application/vnd.datacite.datacite+xml
       Authorization:
@@ -19,33 +19,33 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 20 Jul 2018 11:26:45 GMT
+      - Tue, 20 Nov 2018 22:24:01 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Connection:
       - keep-alive
       Status:
       - 200 OK
-      Content-Disposition:
-      - attachment; filename=_10.5438_08a0-3f64.xml
       Cache-Control:
       - private
       Vary:
       - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.datacite
+      X-Request-Id:
+      - c0268a56-b037-4656-9ccb-e81ed6ec64ec
+      Content-Disposition:
+      - attachment; filename=_10.5438_08a0-3f64.xml
       Content-Transfer-Encoding:
       - binary
       Etag:
       - W/"6e86b6704bc799a8183dd2b5642e623b"
       X-Runtime:
-      - '0.013371'
-      X-Credential-Username:
-      - datacite.datacite
-      X-Request-Id:
-      - 1aa07b81-f2b9-4c6e-abf6-a7675589374f
+      - '0.013253'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -90,5 +90,5 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Fri, 20 Jul 2018 11:26:59 GMT
+  recorded_at: Tue, 20 Nov 2018 22:24:01 GMT
 recorded_with: VCR 3.0.3

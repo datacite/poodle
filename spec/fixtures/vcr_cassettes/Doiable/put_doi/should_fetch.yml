@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 20 Jul 2018 11:34:47 GMT
+      - Tue, 20 Nov 2018 22:15:24 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,21 +30,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"0b958b4fcd8b8cfc1a714d4dc20842d2"
-      X-Runtime:
-      - '0.007705'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - a7bf1774-b008-4067-8b5d-d155b2cc011f
+      - 7eac85b8-696f-498d-8f6b-b2a66b78fb8e
+      Etag:
+      - W/"0b958b4fcd8b8cfc1a714d4dc20842d2"
+      X-Runtime:
+      - '0.013375'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
       string: '{"url":"https://blog.datacite.org/"}'
     http_version: 
-  recorded_at: Fri, 20 Jul 2018 11:35:02 GMT
+  recorded_at: Tue, 20 Nov 2018 22:15:25 GMT
 recorded_with: VCR 3.0.3

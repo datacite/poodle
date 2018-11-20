@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -21,9 +21,9 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 19:28:34 GMT
+      - Tue, 20 Nov 2018 22:52:03 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
@@ -35,18 +35,18 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 79030ce1-f22e-4436-a135-e11180f90234
+      - 7bd99687-0631-447a-bce9-7a2a9913b1eb
       Etag:
-      - W/"cb9451d1f8c55a8c0e161cab31cd4721"
+      - W/"72bcd0dbef599e98b55e970b35f3b8b4"
       X-Runtime:
-      - '0.033084'
+      - '0.018373'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"id":"0000-0000-0000-mzzx","type":"media","attributes":{"version":0,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","media-type":"application/pdf","created":"2018-07-19T19:27:53.000Z","updated":"2018-07-19T19:27:53.000Z"},"relationships":{"doi":{"data":{"id":"10.14454/05mb-q396","type":"dois"}}}}],"included":[{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","prefix":"10.14454","suffix":"05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","url":"https://blog.datacite.org/","author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","is-active":true,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"created":"2018-07-19T19:25:28.000Z","registered":null,"updated":"2018-07-19T19:26:16.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}],"meta":{"total":1,"total-pages":1,"page":1}}'
+      string: '{"data":[{"id":"0000-0000-0000-n06v","type":"media","attributes":{"version":1,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","mediaType":"application/pdf","created":"2018-11-20T22:15:35.000Z","updated":"2018-11-20T22:15:35.000Z"},"relationships":{"doi":{"data":{"id":"10.14454/05MB-Q396","type":"dois"}}}}],"included":[{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","creator":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributor":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"url":"https://www.datacite.org/roadmap.html","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"created":"2018-11-19T08:22:09.000Z","registered":null,"updated":"2018-11-20T22:15:32.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[{"id":"0000-0000-0000-n06v","type":"media"}]}}}],"meta":{"total":1,"total-pages":1,"page":1},"links":{"self":"https://api.test.datacite.org/dois/10.14454/05MB-Q396/media","next":"https://api.test.datacite.org/media?page%5Bnumber%5D=1"}}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 19:28:57 GMT
+  recorded_at: Tue, 20 Nov 2018 22:52:03 GMT
 recorded_with: VCR 3.0.3

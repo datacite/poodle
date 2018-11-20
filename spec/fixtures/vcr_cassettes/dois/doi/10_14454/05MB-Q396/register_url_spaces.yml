@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.test.datacite.org/dois/10.5072/fbftv0vreuqv
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"dois","attributes":{"url":"https://identifiers.globus.org/doi:10.5072/FBFTV0VREUQV/landingpage","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+      string: '{"data":{"type":"dois","attributes":{"url":"https://identifiers.globus.org/doi:10.5072/FBFTV0VREUQV/landingpage","validate":"true","source":"mds","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -17,17 +17,17 @@ http_interactions:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 201
+      code: 200
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 19:20:29 GMT
+      - Tue, 20 Nov 2018 22:15:33 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 201 Created
+      - 200 OK
       Cache-Control:
       - max-age=0, private, must-revalidate
       Vary:
@@ -35,65 +35,19 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - eab9ea51-b690-4526-9806-6a94a3d890d5
+      - 7e821935-f7a2-4763-9fd0-cd889a7565dd
       Etag:
-      - W/"42612d7802dc6ac3ab7ef3a90dad687f"
+      - W/"4383dd0cd4995943667d898be6638388"
       X-Runtime:
-      - '0.066572'
+      - '0.047043'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5072/fbftv0vreuqv","type":"dois","attributes":{"doi":"10.5072/fbftv0vreuqv","prefix":"10.5072","suffix":"fbftv0vreuqv","identifier":"https://handle.test.datacite.org/10.5072/fbftv0vreuqv","url":"https://identifiers.globus.org/doi:10.5072/FBFTV0VREUQV/landingpage","author":[],"title":null,"publisher":null,"resource-type-subtype":null,"description":null,"version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","is-active":true,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":null,"published":null,"created":"2018-07-19T19:20:29.000Z","registered":null,"updated":"2018-07-19T19:20:29.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+      string: '{"data":{"id":"10.5072/fbftv0vreuqv","type":"dois","attributes":{"doi":"10.5072/fbftv0vreuqv","prefix":"10.5072","suffix":"fbftv0vreuqv","identifier":"https://handle.test.datacite.org/10.5072/fbftv0vreuqv","creator":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributor":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"xml":null,"url":"https://identifiers.globus.org/doi:10.5072/FBFTV0VREUQV/landingpage","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"landingPage":{"status":null,"contentType":null,"checked":null,"result":null},"created":"2018-11-18T17:54:41.000Z","registered":null,"updated":"2018-11-20T22:15:33.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contactName":"Martin
+        Fenner","contactEmail":"support@datacite.org","domains":"datacite.org","url":null,"created":"2011-12-07T13:43:39.000Z","updated":"2018-08-26T01:30:27.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"datacite","type":"providers"}},"prefixes":{"data":[{"id":"10.5438","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.14454","type":"prefixes"},{"id":"10.23725","type":"prefixes"},{"id":"10.70002","type":"prefixes"}]}}}]}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 19:20:51 GMT
-- request:
-    method: delete
-    uri: https://api.test.datacite.org/dois/10.5072/fbftv0vreuqv
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-      Authorization:
-      - Basic <MDS_TOKEN>
-  response:
-    status:
-      code: 405
-      message: ''
-    headers:
-      Date:
-      - Thu, 19 Jul 2018 19:20:29 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Connection:
-      - keep-alive
-      Status:
-      - 405 Method Not Allowed
-      Cache-Control:
-      - no-cache
-      Vary:
-      - Accept-Encoding, Origin
-      X-Credential-Username:
-      - datacite.datacite
-      X-Request-Id:
-      - 8e276faa-bef2-456a-bd5d-de6b73b22b4d
-      X-Runtime:
-      - '0.008266'
-      Allow:
-      - HEAD, GET, POST, PATCH, PUT, OPTIONS
-      X-Powered-By:
-      - Phusion Passenger 5.3.3
-      Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
-    body:
-      encoding: ASCII-8BIT
-      string: '{"errors":[{"status":"405","title":"Method not allowed"}]}'
-    http_version: 
-  recorded_at: Thu, 19 Jul 2018 19:20:51 GMT
+  recorded_at: Tue, 20 Nov 2018 22:15:33 GMT
 recorded_with: VCR 3.0.3

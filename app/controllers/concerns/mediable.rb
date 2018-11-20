@@ -12,7 +12,7 @@ module Mediable
         "data" => {
           "type" => "media",
           "attributes"=> {
-        	  "media-type" => media_type,
+        	  "mediaType" => media_type,
             "url" => url
           }
         }
@@ -30,7 +30,7 @@ module Mediable
       return response unless response.body["data"].present?
       
       response.body["data"] = Array.wrap(response.body["data"]).map do |m|
-        "#{m.dig("attributes", "media-type").to_s}=#{m.dig("attributes", "url").to_s}"
+        "#{m.dig("attributes", "mediaType").to_s}=#{m.dig("attributes", "url").to_s}"
       end.join("\n")
       response
     end
@@ -43,7 +43,7 @@ module Mediable
       return response unless response.body["data"].present?
 
       m = response.body["data"]
-      response.body["data"] = "#{m.dig("attributes", "media-type").to_s}=#{m.dig("attributes", "url").to_s}"
+      response.body["data"] = "#{m.dig("attributes", "mediaType").to_s}=#{m.dig("attributes", "url").to_s}"
       response
     end
 

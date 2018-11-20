@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.test.datacite.org/dois/10.14454/05mb-q396/media/0000-0000-0000-mzxa
+    uri: https://api.test.datacite.org/dois/10.14454/05mb-q396/media/0000-0000-0000-n06t
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 20:25:37 GMT
+      - Tue, 20 Nov 2018 22:41:06 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -33,17 +33,17 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - a6ed4d90-0d38-4cff-8de2-7f8fe0ed34ea
+      - 79abb5c8-1e0b-4115-82c0-0db7ffcebf4b
       X-Runtime:
-      - '0.004691'
+      - '0.010319'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 20:25:39 GMT
+  recorded_at: Tue, 20 Nov 2018 22:41:06 GMT
 recorded_with: VCR 3.0.3

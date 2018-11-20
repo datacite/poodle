@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 19:20:39 GMT
+      - Tue, 20 Nov 2018 22:16:22 GMT
       Connection:
       - keep-alive
       Status:
@@ -31,16 +31,16 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - e79e2e12-4776-45a9-8f1e-423d872e64e4
+      - 658a3aa1-3cc3-40cc-a08a-92a91bc83599
       X-Runtime:
-      - '0.024251'
+      - '0.039256'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 19:21:01 GMT
+  recorded_at: Tue, 20 Nov 2018 22:16:22 GMT
 recorded_with: VCR 3.0.3

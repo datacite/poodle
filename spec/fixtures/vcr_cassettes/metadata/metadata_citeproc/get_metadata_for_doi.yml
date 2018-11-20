@@ -8,71 +8,40 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - application/vnd.datacite.datacite+xml
       Authorization:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 200
+      code: 404
       message: ''
     headers:
       Date:
-      - Fri, 03 Aug 2018 19:02:33 GMT
+      - Tue, 20 Nov 2018 22:16:24 GMT
       Content-Type:
-      - application/vnd.datacite.datacite+xml
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 200 OK
+      - 404 Not Found
       Cache-Control:
-      - private
+      - no-cache
       Vary:
       - Accept-Encoding, Origin
-      X-Credential-Username:
-      - datacite.datacite
       X-Request-Id:
-      - 2015b464-e370-4679-af51-1e350ca2f918
-      Content-Disposition:
-      - attachment; filename=_10.5072_ey8x-9f93.xml
-      Content-Transfer-Encoding:
-      - binary
-      Etag:
-      - W/"5c9ccfce00086a4f6db262b4615f9044"
+      - 73d6fc67-c713-4c18-868c-b5a35dba0779
       X-Runtime:
-      - '0.013790'
+      - '0.007576'
       X-Powered-By:
-      - Phusion Passenger 5.3.4
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
-          <identifier identifierType="DOI">10.5072/EY8X-9F93</identifier>
-          <creators>
-            <creator>
-              <creatorName>Fenner, Martin</creatorName>
-              <givenName>Martin</givenName>
-              <familyName>Fenner</familyName>
-            </creator>
-          </creators>
-          <titles>
-            <title>Eating your own Dog Food</title>
-          </titles>
-          <publisher>DataCite</publisher>
-          <publicationYear>2016</publicationYear>
-          <resourceType resourceTypeGeneral="Text">BlogPosting</resourceType>
-          <dates>
-            <date dateType="Issued">2016-12-20</date>
-          </dates>
-          <version/>
-          <descriptions>
-            <description descriptionType="Abstract">Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...</description>
-          </descriptions>
-        </resource>
+      string: '{"errors":[{"status":"404","title":"The resource you are looking for
+        doesn''t exist."}]}'
     http_version: 
-  recorded_at: Fri, 03 Aug 2018 19:02:33 GMT
+  recorded_at: Tue, 20 Nov 2018 22:16:24 GMT
 recorded_with: VCR 3.0.3

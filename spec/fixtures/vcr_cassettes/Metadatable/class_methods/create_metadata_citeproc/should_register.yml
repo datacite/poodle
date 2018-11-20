@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.test.datacite.org/dois/10.5438/08a0-3f64
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"dois","attributes":{"doi":"10.5438/08a0-3f64","xml":"ewogICAgInR5cGUiOiAicG9zdC13ZWJsb2ciLAogICAgImlkIjogImh0dHBzOi8vZG9pLm9yZy8xMC41MDcyLzRrM20tbnl2ZyIsCiAgICAiRE9JIjogIjEwLjUwNzIvNGszbS1ueXZnIiwKICAgICJVUkwiOiAiaHR0cHM6Ly9ibG9nLmRhdGFjaXRlLm9yZy9lYXRpbmcteW91ci1vd24tZG9nLWZvb2QiLAogICAgInRpdGxlIjogIkVhdGluZyB5b3VyIG93biBEb2cgRm9vZCIsCiAgICAiY29udGFpbmVyLXRpdGxlIjogIkRhdGFDaXRlIEJsb2ciLAogICAgInB1Ymxpc2hlciI6ICJEYXRhQ2l0ZSIsCiAgICAiYWJzdHJhY3QiOiAiRWF0aW5nIHlvdXIgb3duIGRvZyBmb29kIGlzIGEgc2xhbmcgdGVybSB0byBkZXNjcmliZSB0aGF0IGFuIG9yZ2FuaXphdGlvbiBzaG91bGQgaXRzZWxmIHVzZSB0aGUgcHJvZHVjdHMgYW5kIHNlcnZpY2VzIGl0IHByb3ZpZGVzLiBGb3IgRGF0YUNpdGUgdGhpcyBtZWFucyB0aGF0IHdlIHNob3VsZCB1c2UgRE9JcyB3aXRoIGFwcHJvcHJpYXRlIG1ldGFkYXRhIGFuZCBzdHJhdGVnaWVzIGZvciBsb25nLXRlcm0gcHJlc2VydmF0aW9uIGZvci4uLiIsCiAgICAiaXNzdWVkIjogewogICAgICAgICJkYXRlLXBhcnRzIjogWwogICAgICAgICAgICBbCiAgICAgICAgICAgICAgICAyMDE2LCAxMiwgMjAKICAgICAgICAgICAgXQogICAgICAgIF0KICAgIH0sCiAgICAiYXV0aG9yIjogW3sKICAgICAgICAiZmFtaWx5IjogIkZlbm5lciIsCiAgICAgICAgImdpdmVuIjogIk1hcnRpbiIKICAgIH1dCn0=","validate":"true","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+      string: '{"data":{"type":"dois","attributes":{"doi":"10.5438/08a0-3f64","xml":"ewogICAgInR5cGUiOiAicG9zdC13ZWJsb2ciLAogICAgImlkIjogImh0dHBzOi8vZG9pLm9yZy8xMC41MDcyLzRrM20tbnl2ZyIsCiAgICAiRE9JIjogIjEwLjUwNzIvNGszbS1ueXZnIiwKICAgICJVUkwiOiAiaHR0cHM6Ly9ibG9nLmRhdGFjaXRlLm9yZy9lYXRpbmcteW91ci1vd24tZG9nLWZvb2QiLAogICAgInRpdGxlIjogIkVhdGluZyB5b3VyIG93biBEb2cgRm9vZCIsCiAgICAiY29udGFpbmVyLXRpdGxlIjogIkRhdGFDaXRlIEJsb2ciLAogICAgInB1Ymxpc2hlciI6ICJEYXRhQ2l0ZSIsCiAgICAiYWJzdHJhY3QiOiAiRWF0aW5nIHlvdXIgb3duIGRvZyBmb29kIGlzIGEgc2xhbmcgdGVybSB0byBkZXNjcmliZSB0aGF0IGFuIG9yZ2FuaXphdGlvbiBzaG91bGQgaXRzZWxmIHVzZSB0aGUgcHJvZHVjdHMgYW5kIHNlcnZpY2VzIGl0IHByb3ZpZGVzLiBGb3IgRGF0YUNpdGUgdGhpcyBtZWFucyB0aGF0IHdlIHNob3VsZCB1c2UgRE9JcyB3aXRoIGFwcHJvcHJpYXRlIG1ldGFkYXRhIGFuZCBzdHJhdGVnaWVzIGZvciBsb25nLXRlcm0gcHJlc2VydmF0aW9uIGZvci4uLiIsCiAgICAiaXNzdWVkIjogewogICAgICAgICJkYXRlLXBhcnRzIjogWwogICAgICAgICAgICBbCiAgICAgICAgICAgICAgICAyMDE2LCAxMiwgMjAKICAgICAgICAgICAgXQogICAgICAgIF0KICAgIH0sCiAgICAiYXV0aG9yIjogW3sKICAgICAgICAiZmFtaWx5IjogIkZlbm5lciIsCiAgICAgICAgImdpdmVuIjogIk1hcnRpbiIKICAgIH1dCn0=","validate":"true","source":"mds","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Content-Type:
       - application/vnd.api+json
       Accept:
@@ -17,42 +17,32 @@ http_interactions:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 201
+      code: 500
       message: ''
     headers:
       Date:
-      - Fri, 20 Jul 2018 10:16:19 GMT
+      - Tue, 20 Nov 2018 22:24:03 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '46'
       Connection:
       - keep-alive
       Status:
-      - 201 Created
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      - 500 Internal Server Error
       Vary:
-      - Accept-Encoding, Origin
-      Etag:
-      - W/"ca6885c2aae9dd4e7e37ebace42a6cf5"
-      X-Runtime:
-      - '0.479717'
-      X-Credential-Username:
-      - datacite.datacite
+      - Origin
       X-Request-Id:
-      - f1105a3c-5c00-4324-aa5c-ed742a9831db
+      - 92b95f58-7ea2-42f9-b299-c13130a84740
+      X-Runtime:
+      - '0.048142'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5438/08a0-3f64","type":"dois","attributes":{"doi":"10.5438/08a0-3f64","prefix":"10.5438","suffix":"08a0-3f64","identifier":"https://handle.test.datacite.org/10.5438/08a0-3f64","url":null,"author":[{"type":"Person","name":"Martin
-        Fenner","given-name":"Martin","family-name":"Fenner"}],"title":"Eating your
-        own Dog Food","publisher":"DataCite","resource-type-subtype":null,"description":"Eating
-        your own dog food is a slang term to describe that an organization should
-        itself use the products and services it provides. For DataCite this means
-        that we should use DOIs with appropriate metadata and strategies for long-term
-        preservation for...","version":null,"metadata-version":0,"schema-version":"http://datacite.org/schema/kernel-4","state":"draft","is-active":false,"reason":null,"landing-page":{"status":null,"content-type":null,"checked":null},"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC8wOEEwLTNGNjQ8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5GZW5uZXIsIE1hcnRpbjwvY3JlYXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+TWFydGluPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkZlbm5lcjwvZmFtaWx5TmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+RWF0aW5nIHlvdXIgb3duIERvZyBGb29kPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPkRhdGFDaXRlPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE2PC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJUZXh0Ij5CbG9nUG9zdGluZzwvcmVzb3VyY2VUeXBlPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTYtMTItMjA8L2RhdGU+CiAgPC9kYXRlcz4KICA8dmVyc2lvbi8+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij5FYXRpbmcgeW91ciBvd24gZG9nIGZvb2QgaXMgYSBzbGFuZyB0ZXJtIHRvIGRlc2NyaWJlIHRoYXQgYW4gb3JnYW5pemF0aW9uIHNob3VsZCBpdHNlbGYgdXNlIHRoZSBwcm9kdWN0cyBhbmQgc2VydmljZXMgaXQgcHJvdmlkZXMuIEZvciBEYXRhQ2l0ZSB0aGlzIG1lYW5zIHRoYXQgd2Ugc2hvdWxkIHVzZSBET0lzIHdpdGggYXBwcm9wcmlhdGUgbWV0YWRhdGEgYW5kIHN0cmF0ZWdpZXMgZm9yIGxvbmctdGVybSBwcmVzZXJ2YXRpb24gZm9yLi4uPC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KPC9yZXNvdXJjZT4K","published":"2016-12-20","created":"2018-07-20T10:16:18.000Z","registered":null,"updated":"2018-07-20T10:16:18.000Z"},"relationships":{"client":{"meta":{}},"provider":{"meta":{}},"resource-type":{"meta":{}},"media":{"meta":{}}}}}'
+      string: '{"status":500,"error":"Internal Server Error"}'
     http_version: 
-  recorded_at: Fri, 20 Jul 2018 10:16:28 GMT
+  recorded_at: Tue, 20 Nov 2018 22:24:03 GMT
 recorded_with: VCR 3.0.3

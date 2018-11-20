@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - application/vnd.datacite.datacite+xml
       Authorization:
@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 19 Jul 2018 19:20:32 GMT
+      - Tue, 20 Nov 2018 22:15:36 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Connection:
@@ -33,7 +33,7 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 36cffeb8-31e0-43b8-a322-e68a0ae9fe44
+      - 83248c41-76e2-4e7e-96aa-f7af76d2fa28
       Content-Disposition:
       - attachment; filename=_10.0144_dummy.v0i1.45.xml
       Content-Transfer-Encoding:
@@ -41,15 +41,15 @@ http_interactions:
       Etag:
       - W/"83d63adc84f5061042ae51819e619b04"
       X-Runtime:
-      - '0.008673'
+      - '0.013563'
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMDE0NC9kdW1teS52MGkxLjQ1PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+QXV0b3IsIEFybWluIEsuPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+Q29udHJpYnV0b3IsIENhcnN0ZW48L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5XZXIgZ2Vow7ZydCB6dSB1bnM/IEVpbndhbmRlcnVuZ3MtIHVuZCBTdGFhdHNhbmdlaMO2cmlna2VpdHNwb2xpdGlrZW4gaW4gVmVuZXp1ZWxhIHVuZCBpbiBkZXIgRG9taW5pa2FuaXNjaGVuIFJlcHVibGlrPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPkR1bW15PC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE4PC9wdWJsaWNhdGlvblllYXI+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9IlN1Ym1pdHRlZCI+MjAxOC0wMi0xNjwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJBY2NlcHRlZCI+MjAxOC0wMi0xNjwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJVcGRhdGVkIj4yMDE4LTAyLTE2PC9kYXRlPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOC0wMi0xNjwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJUZXh0Ij5BcnRpY2xlPC9yZXNvdXJjZVR5cGU+CiAgPGFsdGVybmF0ZUlkZW50aWZpZXJzPgogICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9InB1Ymxpc2hlcklkIj4yLTUtNDU8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4KICA8cmVsYXRlZElkZW50aWZpZXJzPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzUGFydE9mIj4xMC4wMTQ0L2R1bW15LnYwaTE8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDxzaXplcz4KICAgIDxzaXplPjYgU2VpdGVuPC9zaXplPgogIDwvc2l6ZXM+CiAgPHJpZ2h0c0xpc3Q+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wIj5EaWVzZXMgV2VyayBzdGVodCB1bnRlciBkZXIgTGl6ZW56IENyZWF0aXZlIENvbW1vbnMgTmFtZW5zbmVubnVuZyA0LjAgSW50ZXJuYXRpb25hbC48L3JpZ2h0cz4KICA8L3JpZ2h0c0xpc3Q+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij5BdXNoYW5kbHVuZ2VuIGZvcm1hbGVyIE1pdGdsaWVkc2NoYWZ0IHLDvGNrdGVuIGluIHZpZWxlbiBOYXRpb25hbHN0YWF0ZW4gaW0gTGF1ZmUgZGVyIHZlcmdhbmdlbmVuIERla2FkZW4gaW5zIFplbnRydW0gZGVzIMO2ZmZlbnRsaWNoZW4gSW50ZXJlc3Nlcy4gU2VpdCAxOTkwIGthbSBlcyBpbiB6YWhscmVpY2hlbiBldXJvcMOkaXNjaGVuIEzDpG5kZXJuIHp1IGdydW5kbGVnZW5kZW4gw4RuZGVydW5nZW4gZGVzIFN0YWF0c2FuZ2Vow7ZyaWdrZWl0c3JlY2h0cy4KPC9kZXNjcmlwdGlvbj4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IlNlcmllc0luZm9ybWF0aW9uIj5EdW1teSwgTnIuIDE6IFRlc3Q8L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=
     http_version: 
-  recorded_at: Thu, 19 Jul 2018 19:20:54 GMT
+  recorded_at: Tue, 20 Nov 2018 22:15:36 GMT
 recorded_with: VCR 3.0.3

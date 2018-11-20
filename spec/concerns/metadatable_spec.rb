@@ -18,7 +18,7 @@ describe Metadatable, vcr: true, order: :defined do
         expect(response.status).to eq(201)
         expect(::Base64.decode64(response.body.dig("data", "attributes", "xml"))).to eq(data.strip)
         expect(response.body.dig("data", "attributes", "state")).to eq("draft")
-        expect(response.body.dig("data", "attributes", "is-active")).to eq(false)
+        expect(response.body.dig("data", "attributes", "isActive")).to eq(false)
       end
 
       it 'should get' do
@@ -31,7 +31,7 @@ describe Metadatable, vcr: true, order: :defined do
         response = DoisController.put_doi(doi, options)
         expect(response.body.dig("data", "attributes", "url")).to eq(url)
         expect(response.body.dig("data", "attributes", "state")).to eq("findable")
-        expect(response.body.dig("data", "attributes", "is-active")).to eq(true)
+        expect(response.body.dig("data", "attributes", "isActive")).to eq(true)
       end
 
       it 'should delete metadata' do
@@ -39,7 +39,7 @@ describe Metadatable, vcr: true, order: :defined do
         response = subject.delete_metadata(doi, options)
         expect(response.status).to eq(200)
         expect(response.body.dig("data", "attributes", "state")).to eq("registered")
-        expect(response.body.dig("data", "attributes", "is-active")).to eq(false)
+        expect(response.body.dig("data", "attributes", "isActive")).to eq(false)
       end
 
       it 'should re-register doi' do
@@ -47,7 +47,7 @@ describe Metadatable, vcr: true, order: :defined do
         response = DoisController.put_doi(doi, options)
         expect(response.body.dig("data", "attributes", "url")).to eq(url)
         expect(response.body.dig("data", "attributes", "state")).to eq("findable")
-        expect(response.body.dig("data", "attributes", "is-active")).to eq(true)
+        expect(response.body.dig("data", "attributes", "isActive")).to eq(true)
       end
     end
 
@@ -73,19 +73,12 @@ describe Metadatable, vcr: true, order: :defined do
     context "create_metadata invalid" do
       let(:doi) { "10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357" }
 
-      it 'should register' do
+      it 'should not register' do
         data = file_fixture('tu-darmstadt.xml').read
         options = { data: data, username: username, password: password }
         response = subject.create_metadata(doi, options)
-        expect(response.status).to eq(201)
-        expect(::Base64.decode64(response.body.dig("data", "attributes", "xml"))).to eq(data.strip)
-      end
-
-      it 'should delete' do
-        options = { username: username, password: password }
-        response = DoisController.delete_doi(doi, options)
-        expect(response.status).to eq(204)
-        expect(response.body["data"]).to be_blank
+        expect(response.status).to eq(422)
+        expect(response.body.dig("errors")).to eq([{"status"=>422, "title"=>"Missing child element(s). expected is one of ( {http://datacite.org/schema/kernel-4}publisher, {http://datacite.org/schema/kernel-4}subjects, {http://datacite.org/schema/kernel-4}contributors, {http://datacite.org/schema/kernel-4}dates, {http://datacite.org/schema/kernel-4}language, {http://datacite.org/schema/kernel-4}alternateidentifiers, {http://datacite.org/schema/kernel-4}relatedidentifiers, {http://datacite.org/schema/kernel-4}sizes, {http://datacite.org/schema/kernel-4}formats, {http://datacite.org/schema/kernel-4}version ). at line 2, column 0"}])
       end
     end
 
@@ -109,37 +102,25 @@ describe Metadatable, vcr: true, order: :defined do
       end
     end
 
-    context "create_metadata citeproc" do
-      it 'should register' do
-        data = file_fixture('citeproc.json').read
-        options = { data: data, username: username, password: password }
-        response = subject.create_metadata(doi, options)
-        expect(response.status).to eq(201)
+    # context "create_metadata citeproc" do
+    #   it 'should register' do
+    #     data = file_fixture('citeproc.json').read
+    #     options = { data: data, username: username, password: password }
+    #     response = subject.create_metadata(doi, options)
+    #     expect(response.status).to eq(201)
 
-        metadata = Maremma.from_xml(::Base64.decode64(response.body.dig("data", "attributes", "xml"))).fetch("resource", {})
-        expect(metadata.dig("titles", "title")).to eq("Eating your own Dog Food")
-        expect(metadata.dig("identifier", "__content__")).to eq(doi.upcase)
-      end
+    #     metadata = Maremma.from_xml(::Base64.decode64(response.body.dig("data", "attributes", "xml"))).fetch("resource", {})
+    #     expect(metadata.dig("titles", "title")).to eq("Eating your own Dog Food")
+    #     expect(metadata.dig("identifier", "__content__")).to eq(doi.upcase)
+    #   end
 
-      it 'should delete' do
-        options = { username: username, password: password }
-        response = DoisController.delete_doi(doi, options)
-        expect(response.status).to eq(204)
-        expect(response.body["data"]).to be_blank
-      end
-    end
-
-    context "delete_metadata draft doi" do
-      let(:doi) { "10.5438/m21h-3007" }
-
-      it 'should delete' do
-        options = { username: username, password: password }
-        response = subject.delete_metadata(doi, options)
-        expect(response.status).to eq(200)
-        expect(response.body.dig("data", "attributes", "state")).to eq("draft")
-        expect(response.body.dig("data", "attributes", "is-active")).to eq(false)
-      end
-    end
+    #   it 'should delete' do
+    #     options = { username: username, password: password }
+    #     response = DoisController.delete_doi(doi, options)
+    #     expect(response.status).to eq(204)
+    #     expect(response.body["data"]).to be_blank
+    #   end
+    # end
   end
 
   context "instance methods" do

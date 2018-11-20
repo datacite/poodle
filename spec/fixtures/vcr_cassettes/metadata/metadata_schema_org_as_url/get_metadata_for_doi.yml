@@ -8,82 +8,40 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - application/vnd.datacite.datacite+xml
       Authorization:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 200
+      code: 404
       message: ''
     headers:
       Date:
-      - Mon, 06 Aug 2018 16:40:40 GMT
+      - Tue, 20 Nov 2018 22:16:23 GMT
       Content-Type:
-      - application/vnd.datacite.datacite+xml
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 200 OK
+      - 404 Not Found
       Cache-Control:
-      - private
+      - no-cache
       Vary:
       - Accept-Encoding, Origin
-      X-Credential-Username:
-      - datacite.datacite
       X-Request-Id:
-      - 37507a51-f60a-44a7-a9b2-8321e0ea2d9e
-      Content-Disposition:
-      - attachment; filename=_10.5072_dvn_hscunzz.xml
-      Content-Transfer-Encoding:
-      - binary
-      Etag:
-      - W/"a8eb65c72c2ddd52e7e010ae2f6c1f41"
+      - db5d8e28-6263-46ac-b6d3-d10c62e24419
       X-Runtime:
-      - '0.026704'
+      - '0.008937'
       X-Powered-By:
-      - Phusion Passenger 5.3.4
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
-          <identifier identifierType="DOI">10.5072/DVN/HSCUNZZ</identifier>
-          <creators>
-            <creator>
-              <creatorName>Stevens, Vidar</creatorName>
-              <givenName>Vidar</givenName>
-              <familyName>Stevens</familyName>
-            </creator>
-          </creators>
-          <titles>
-            <title>Replication Data for: Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding.</title>
-          </titles>
-          <publisher>Harvard Dataverse</publisher>
-          <publicationYear>2018</publicationYear>
-          <resourceType resourceTypeGeneral="Dataset">Dataset</resourceType>
-          <subjects>
-            <subject>["Social Sciences"</subject>
-            <subject>"ERGM"</subject>
-            <subject>"Place branding"</subject>
-            <subject>"Learning"</subject>
-            <subject>"Interaction"]</subject>
-          </subjects>
-          <dates>
-            <date dateType="Issued">2018-07-04</date>
-            <date dateType="Updated">2018-07-04</date>
-          </dates>
-          <version>2</version>
-          <rightsList>
-            <rights/>
-          </rightsList>
-          <descriptions>
-            <description descriptionType="Abstract">This is the R-script to replicate the analyses of the paper "Exponential Random Graph Modelling to analyze interactions in participatory practices of place branding." The paper was first presented at the 2018 EGPA conference in Lausanne from the 4th - 6th of September. If you are interested to replicate the data - just send an email to vidarstevens@live.nl</description>
-          </descriptions>
-        </resource>
+      string: '{"errors":[{"status":"404","title":"The resource you are looking for
+        doesn''t exist."}]}'
     http_version: 
-  recorded_at: Mon, 06 Aug 2018 16:40:40 GMT
+  recorded_at: Tue, 20 Nov 2018 22:16:23 GMT
 recorded_with: VCR 3.0.3

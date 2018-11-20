@@ -8,39 +8,43 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.0.12; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
       Authorization:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 204
+      code: 405
       message: ''
     headers:
       Date:
-      - Fri, 20 Jul 2018 10:16:19 GMT
+      - Tue, 20 Nov 2018 22:24:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 204 No Content
+      - 405 Method Not Allowed
       Cache-Control:
       - no-cache
       Vary:
-      - Origin
-      X-Runtime:
-      - '0.030589'
+      - Accept-Encoding, Origin
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 33b01989-aa89-4d54-baeb-2f5a3d6302ae
+      - a94185b9-c831-4c78-a478-5974721aa8bc
+      X-Runtime:
+      - '0.012485'
+      Allow:
+      - HEAD, GET, POST, PATCH, PUT, OPTIONS
       X-Powered-By:
-      - Phusion Passenger 5.3.3
+      - Phusion Passenger 5.3.7
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.3
+      - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: '{"errors":[{"status":"405","title":"Method not allowed"}]}'
     http_version: 
-  recorded_at: Fri, 20 Jul 2018 10:16:28 GMT
+  recorded_at: Tue, 20 Nov 2018 22:24:03 GMT
 recorded_with: VCR 3.0.3

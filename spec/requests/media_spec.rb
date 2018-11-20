@@ -51,13 +51,13 @@ describe "media", type: :request, vcr: true, order: :defined do
       expect(last_response.body).to eq("application/pdf=https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf")  
     end
 
-    # it "delete media for doi" do
-    #   id = "0000-0000-0000-mzxa"
-    #   delete "/doi/#{doi_id}/media/#{id}", nil, headers
+    it "delete media for doi" do
+      id = "0000-0000-0000-n06v"
+      delete "/doi/#{doi_id}/media/#{id}", nil, headers
 
-    #   expect(last_response.status).to eq(200)
-    #   expect(last_response.body).to eq("OK")  
-    # end
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq("OK")  
+    end
 
     it "post media for doi restful" do
       post "/doi/#{doi_id}/media", data, headers
