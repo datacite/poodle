@@ -15,33 +15,65 @@ http_interactions:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 404
+      code: 200
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 22:16:24 GMT
+      - Wed, 21 Nov 2018 00:55:33 GMT
       Content-Type:
-      - application/json; charset=utf-8
+      - application/vnd.datacite.datacite+xml
       Connection:
       - keep-alive
       Status:
-      - 404 Not Found
+      - 200 OK
       Cache-Control:
-      - no-cache
+      - private
       Vary:
       - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.datacite
       X-Request-Id:
-      - 73d6fc67-c713-4c18-868c-b5a35dba0779
+      - a757e5f6-2f8d-4080-9ee2-b5d482b96f28
+      Content-Disposition:
+      - attachment; filename=_10.5072_ey8x-9f93.xml
+      Content-Transfer-Encoding:
+      - binary
+      Etag:
+      - W/"f10bcf9a4034576c44e8469562f41123"
       X-Runtime:
-      - '0.007576'
+      - '0.014757'
       X-Powered-By:
       - Phusion Passenger 5.3.7
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.7
     body:
       encoding: ASCII-8BIT
-      string: '{"errors":[{"status":"404","title":"The resource you are looking for
-        doesn''t exist."}]}'
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+          <identifier identifierType="DOI">10.5072/EY8X-9F93</identifier>
+          <creators>
+            <creator>
+              <creatorName nameType="Personal">Fenner, Martin</creatorName>
+              <givenName>Martin</givenName>
+              <familyName>Fenner</familyName>
+            </creator>
+          </creators>
+          <titles>
+            <title>Eating your own Dog Food</title>
+          </titles>
+          <publisher>DataCite</publisher>
+          <publicationYear>2016</publicationYear>
+          <resourceType resourceTypeGeneral="Text">BlogPosting</resourceType>
+          <dates>
+            <date dateType="Issued">2016-12-20</date>
+          </dates>
+          <version/>
+          <descriptions>
+            <description descriptionType="SeriesInformation">DataCite Blog</description>
+            <description descriptionType="Abstract">Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...</description>
+          </descriptions>
+        </resource>
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 22:16:24 GMT
+  recorded_at: Wed, 21 Nov 2018 00:55:33 GMT
 recorded_with: VCR 3.0.3

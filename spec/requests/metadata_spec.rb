@@ -349,33 +349,33 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   #   end
   # end
 
-  # context 'metadata citeproc', type: :request do
-  #   let(:doi_id) { "10.5072/ey8x-9f93" }
-  #   let(:data) { file_fixture('citeproc.json').read }
-  #   let(:headers) { {'CONTENT_TYPE' => 'application/vnd.citationstyles.csl+json', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+  context 'metadata citeproc', type: :request do
+    let(:doi_id) { "10.5072/ey8x-9f93" }
+    let(:data) { file_fixture('citeproc.json').read }
+    let(:headers) { {'CONTENT_TYPE' => 'application/vnd.citationstyles.csl+json', 'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
 
-  #   it "put metadata for doi" do
-  #     put "/metadata/#{doi_id}", data, headers
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", data, headers
 
-  #     expect(last_response.status).to eq(201)
-  #     expect(last_response.body).to eq("OK (#{doi_id.upcase})")
-  #   end
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+    end
 
-  #   it "get metadata for doi" do
-  #     get "/metadata/#{doi_id}", nil, headers
+    it "get metadata for doi" do
+      get "/metadata/#{doi_id}", nil, headers
 
-  #     expect(last_response.status).to eq(200)
+      expect(last_response.status).to eq(200)
 
-  #     metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
-  #     expect(metadata.dig("titles", "title")).to eq("Eating your own Dog Food")
-  #     expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
-  #   end
+      metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
+      expect(metadata.dig("titles", "title")).to eq("Eating your own Dog Food")
+      expect(metadata.dig("identifier", "__content__")).to eq(doi_id.upcase)
+    end
 
-  #   it "delete doi" do
-  #     delete "/doi/#{doi_id}", nil, headers
+    it "delete doi" do
+      delete "/doi/#{doi_id}", nil, headers
 
-  #     expect(last_response.status).to eq(200)
-  #     expect(last_response.body).to eq("OK")
-  #   end
-  # end
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq("OK")
+    end
+  end
 end
