@@ -111,7 +111,7 @@ module Metadatable
       attributes = {
         "doi" => doi,
         "xml" => xml,
-        "validate" => "true",
+        "should_validate" => "true",
         "source" => "mds",
         "event" => "publish" }.compact
 
