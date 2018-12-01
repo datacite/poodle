@@ -39,6 +39,7 @@ after_success:
       docker build -f Dockerfile -t $REPO:$TRAVIS_BRANCH .;
       docker push $REPO:$TRAVIS_BRANCH;
       echo "Pushed to" $REPO:$TRAVIS_BRANCH;
+      AUTO_DEPLOY=true;
     fi
 
   - if [ "$AUTO_DEPLOY" == "true" ]; then
@@ -61,12 +62,13 @@ after_success:
       
       if [ "${TRAVIS_TAG?}" ]; then
         git add prod-eu-west/services/mds/_poodle.auto.tfvars;
+        git commit -m "Adding poodle git variables for commit tagged ${TRAVIS_TAG?}";
+        git push "https://${TRAVIS_SECURE_TOKEN}@github.com/datacite/mastino.git" master;
       else
         git add stage/services/mds/_poodle.auto.tfvars;
+        git commit -m "Adding poodle git variables for latest commit";
+        git push "https://${TRAVIS_SECURE_TOKEN}@github.com/datacite/mastino.git" master;
       fi
-
-      git commit -m "Adding poodle git variables for latest commit";
-      git push "https://${TRAVIS_SECURE_TOKEN}@github.com/datacite/mastino.git" master;
     fi
 
 notifications:
