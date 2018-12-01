@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 21 Nov 2018 00:55:33 GMT
+      - Sat, 01 Dec 2018 19:02:11 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Connection:
@@ -33,7 +33,7 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - a757e5f6-2f8d-4080-9ee2-b5d482b96f28
+      - 4c5a1cc8-cbd7-4fdc-9540-f03ce041796d
       Content-Disposition:
       - attachment; filename=_10.5072_ey8x-9f93.xml
       Content-Transfer-Encoding:
@@ -41,11 +41,11 @@ http_interactions:
       Etag:
       - W/"f10bcf9a4034576c44e8469562f41123"
       X-Runtime:
-      - '0.014757'
+      - '0.021204'
       X-Powered-By:
-      - Phusion Passenger 5.3.7
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.7
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
       string: |
@@ -75,5 +75,5 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Wed, 21 Nov 2018 00:55:33 GMT
+  recorded_at: Sat, 01 Dec 2018 19:02:11 GMT
 recorded_with: VCR 3.0.3

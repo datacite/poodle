@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.test.datacite.org/dois/10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"dois","attributes":{"doi":"10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTA3Mi9UVVBSSU5UUy1ERVYuVUxCLlRVLURBUk1TVEFEVC5ERS4xMDAwNzM1NzwvaWRlbnRpZmllcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiPkJvb2s8L3Jlc291cmNlVHlwZT4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkZyZW56LCBKb2hhbm5hPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5Kb2hhbm5hPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkZyZW56PC9mYW1pbHlOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZSB4bWw6bGFuZz0iZW4tdXMiPkRlciBmaW5hbGUgRG9pIFRlc3Q8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaWNhdGlvblllYXI+MjAxODwvcHVibGljYXRpb25ZZWFyPgo8L3Jlc291cmNlPg==","validate":"true","source":"mds","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+      string: '{"data":{"type":"dois","attributes":{"doi":"10.5072/tuprints-dev.ulb.tu-darmstadt.de.10007357","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTA3Mi9UVVBSSU5UUy1ERVYuVUxCLlRVLURBUk1TVEFEVC5ERS4xMDAwNzM1NzwvaWRlbnRpZmllcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiPkJvb2s8L3Jlc291cmNlVHlwZT4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkZyZW56LCBKb2hhbm5hPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5Kb2hhbm5hPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkZyZW56PC9mYW1pbHlOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZSB4bWw6bGFuZz0iZW4tdXMiPkRlciBmaW5hbGUgRG9pIFRlc3Q8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaWNhdGlvblllYXI+MjAxODwvcHVibGljYXRpb25ZZWFyPgo8L3Jlc291cmNlPg==","should_validate":"true","source":"mds","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
     headers:
       User-Agent:
       - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 22:27:22 GMT
+      - Sat, 01 Dec 2018 20:29:01 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -32,25 +32,25 @@ http_interactions:
       - no-cache
       Vary:
       - Accept-Encoding, Origin
+      X-Runtime:
+      - '0.034704'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 8b4e91cd-a4d7-45f5-b2e6-95ea3cee4d26
-      X-Runtime:
-      - '0.039369'
+      - a5b5122f-4f64-40d7-b9ba-ddc1a74d4685
       X-Powered-By:
-      - Phusion Passenger 5.3.7
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.7
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: '{"errors":[{"source":"resource","title":"Missing child element(s).
-        expected is one of ( {http://datacite.org/schema/kernel-4}publisher, {http://datacite.org/schema/kernel-4}subjects,
+      string: '{"errors":[{"source":"xml","title":"Missing child element(s). expected
+        is one of ( {http://datacite.org/schema/kernel-4}publisher, {http://datacite.org/schema/kernel-4}subjects,
         {http://datacite.org/schema/kernel-4}contributors, {http://datacite.org/schema/kernel-4}dates,
         {http://datacite.org/schema/kernel-4}language, {http://datacite.org/schema/kernel-4}alternateidentifiers,
         {http://datacite.org/schema/kernel-4}relatedidentifiers, {http://datacite.org/schema/kernel-4}sizes,
         {http://datacite.org/schema/kernel-4}formats, {http://datacite.org/schema/kernel-4}version
         ). at line 2, column 0"}]}'
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 22:27:22 GMT
+  recorded_at: Sat, 01 Dec 2018 20:29:01 GMT
 recorded_with: VCR 3.0.3

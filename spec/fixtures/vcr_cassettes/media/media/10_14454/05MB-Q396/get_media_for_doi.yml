@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 22:39:19 GMT
+      - Sat, 01 Dec 2018 21:40:20 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -32,21 +32,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Etag:
+      - W/"06dc6fb89278dd831ab5388e1eb904b7"
+      X-Runtime:
+      - '0.037155'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 94236903-25e4-4ab1-a816-0c11fd29fb6c
-      Etag:
-      - W/"1634bdb860afd45f83d00402f50b4902"
-      X-Runtime:
-      - '0.018492'
+      - 7a66ad27-958c-4021-9738-b851331c53f6
       X-Powered-By:
-      - Phusion Passenger 5.3.7
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.7
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"id":"0000-0000-0000-n06v","type":"media","attributes":{"version":1,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","mediaType":"application/pdf","created":"2018-11-20T22:15:35.000Z","updated":"2018-11-20T22:15:35.000Z"},"relationships":{"doi":{"data":{"id":"10.14454/05MB-Q396","type":"dois"}}}}],"included":[{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","creator":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributor":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"url":"https://www.datacite.org/roadmap.html","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"created":"2018-11-19T08:22:09.000Z","registered":null,"updated":"2018-11-20T22:15:32.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[{"id":"0000-0000-0000-n06v","type":"media"}]}}}],"meta":{"total":1,"total-pages":1,"page":1},"links":{"self":"https://api.test.datacite.org/dois/10.14454/05mb-q396/media","next":"https://api.test.datacite.org/media?page%5Bnumber%5D=1"}}'
+      string: '{"data":[{"id":"0000-0000-0000-n07c","type":"media","attributes":{"version":1,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","mediaType":"application/pdf","created":"2018-12-01T19:01:31.000Z","updated":"2018-12-01T19:01:31.000Z"},"relationships":{"doi":{"data":{"id":"10.14454/05MB-Q396","type":"dois"}}}}],"included":[{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","creators":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributors":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"url":"https://www.datacite.org/roadmap.html","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"created":"2018-11-19T08:22:09.000Z","registered":null,"updated":"2018-11-20T22:15:32.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[{"id":"0000-0000-0000-n07c","type":"media"}]}}}],"meta":{"total":1,"total-pages":1,"page":1},"links":{"self":"https://api.test.datacite.org/dois/10.14454/05mb-q396/media","next":"https://api.test.datacite.org/media?page%5Bnumber%5D=1"}}'
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 22:39:19 GMT
+  recorded_at: Sat, 01 Dec 2018 21:40:20 GMT
 recorded_with: VCR 3.0.3

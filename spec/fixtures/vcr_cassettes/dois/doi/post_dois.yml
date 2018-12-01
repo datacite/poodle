@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.test.datacite.org/dois/10.14454/05MB-Q396
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"dois","attributes":{"url":"https://www.datacite.org/roadmap.html","validate":"true","source":"mds","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
+      string: '{"data":{"type":"dois","attributes":{"url":"https://www.datacite.org/roadmap.html","should_validate":"true","source":"mds","event":"publish"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
     headers:
       User-Agent:
       - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
@@ -17,37 +17,35 @@ http_interactions:
       - Basic <MDS_TOKEN>
   response:
     status:
-      code: 200
+      code: 422
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 22:15:31 GMT
+      - Sat, 01 Dec 2018 23:21:02 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 200 OK
+      - 422 Unprocessable Entity
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       Vary:
       - Accept-Encoding, Origin
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 6bda8a69-7507-41b8-bce1-32f92c12e7f4
-      Etag:
-      - W/"701ef591fbf7469d654bdf2ab777e0c0"
+      - 1b1b54b7-bb08-4a04-8fd7-7b422ee2b312
       X-Runtime:
-      - '0.067630'
+      - '0.159622'
       X-Powered-By:
-      - Phusion Passenger 5.3.7
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.7
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","prefix":"10.14454","suffix":"05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","creator":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributor":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"xml":null,"url":"https://www.datacite.org/roadmap.html","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"landingPage":{"status":null,"contentType":null,"checked":null,"result":null},"created":"2018-11-19T08:22:09.000Z","registered":null,"updated":"2018-11-20T22:15:31.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[{"id":"0000-0000-0000-n06t","type":"media"}]}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contactName":"Martin
-        Fenner","contactEmail":"support@datacite.org","domains":"datacite.org","url":null,"created":"2011-12-07T13:43:39.000Z","updated":"2018-08-26T01:30:27.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"datacite","type":"providers"}},"prefixes":{"data":[{"id":"10.5438","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.14454","type":"prefixes"},{"id":"10.23725","type":"prefixes"},{"id":"10.70002","type":"prefixes"}]}}}]}'
+      string: '{"errors":[{"source":"metadata","title":"Is invalid"},{"source":"metadata","title":"Is
+        invalid"}]}'
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 22:15:31 GMT
+  recorded_at: Sat, 01 Dec 2018 23:21:02 GMT
 recorded_with: VCR 3.0.3

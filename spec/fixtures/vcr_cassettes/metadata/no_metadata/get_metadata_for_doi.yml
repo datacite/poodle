@@ -19,34 +19,45 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 22:16:21 GMT
+      - Sat, 01 Dec 2018 21:51:50 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Connection:
       - keep-alive
       Status:
       - 200 OK
+      Content-Disposition:
+      - attachment; filename=_10.5072_236y-qx15.xml
       Cache-Control:
       - private
       Vary:
       - Accept-Encoding, Origin
+      Content-Transfer-Encoding:
+      - binary
+      Etag:
+      - W/"d2e7e3e09645df86065455bab9db3803"
+      X-Runtime:
+      - '0.018549'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 9272d925-0c0e-4a89-afdf-8ba39cf3702b
-      Content-Disposition:
-      - attachment; filename=_10.5072_236y-qx15.xml
-      Content-Transfer-Encoding:
-      - binary
-      X-Runtime:
-      - '0.013387'
+      - 8e5e670f-1c12-46a1-b6d0-c6ebba625ed1
       X-Powered-By:
-      - Phusion Passenger 5.3.7
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.7
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+          <identifier identifierType="DOI">10.5072/236Y-QX15</identifier>
+          <creators/>
+          <titles/>
+          <publisher/>
+          <publicationYear/>
+          <version/>
+        </resource>
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 22:16:21 GMT
+  recorded_at: Sat, 01 Dec 2018 21:51:50 GMT
 recorded_with: VCR 3.0.3

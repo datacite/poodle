@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 22:15:24 GMT
+      - Sat, 01 Dec 2018 19:01:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,21 +30,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Etag:
+      - W/"0645e451dac4d0adcdbf2fff83fa1d72"
+      X-Runtime:
+      - '0.017517'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 7eac85b8-696f-498d-8f6b-b2a66b78fb8e
-      Etag:
-      - W/"0b958b4fcd8b8cfc1a714d4dc20842d2"
-      X-Runtime:
-      - '0.013375'
+      - e4f07b4b-6221-4473-969d-7812d9c92c09
       X-Powered-By:
-      - Phusion Passenger 5.3.7
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.7
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: '{"url":"https://blog.datacite.org/"}'
+      string: '{"url":"https://www.datacite.org/roadmap.html"}'
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 22:15:25 GMT
+  recorded_at: Sat, 01 Dec 2018 19:01:21 GMT
 recorded_with: VCR 3.0.3

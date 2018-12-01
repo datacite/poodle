@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.test.datacite.org/dois/10.14454/05mb-q396/media/0000-0000-0000-n070
+    uri: https://api.test.datacite.org/dois/10.14454/05mb-q396/media/0000-0000-0000-n07c
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 23:09:40 GMT
+      - Sat, 01 Dec 2018 21:44:16 GMT
       Connection:
       - keep-alive
       Status:
@@ -30,19 +30,19 @@ http_interactions:
       - no-cache
       Vary:
       - Origin
+      X-Runtime:
+      - '0.039518'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 3625f515-b5e5-4e82-84bd-39bc9a0eeade
-      X-Runtime:
-      - '0.018902'
+      - 56d2d1f5-fd2b-45f1-ab7a-7c9edb26d480
       X-Powered-By:
-      - Phusion Passenger 5.3.7
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.7
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 23:09:40 GMT
+  recorded_at: Sat, 01 Dec 2018 21:44:16 GMT
 recorded_with: VCR 3.0.3

@@ -10,14 +10,14 @@ describe Doiable, vcr: true, order: :defined do
   subject { DoisController }
   
   context "put_doi" do
-    it 'should register' do
-      options = { url: url, username: username, password: password }
-      expect(subject.put_doi(doi, options).body.dig("data", "attributes", "url")).to eq(url)
-    end
+    # it 'should register' do
+    #   options = { url: url, username: username, password: password }
+    #   expect(subject.put_doi(doi, options).body.dig("data", "attributes", "url")).to eq(url)
+    # end
 
-    it 'should fetch' do
-      expect(subject.get_doi(doi, options).body.dig("data", "url")).to eq(url)
-    end
+    # it 'should fetch' do
+    #   expect(subject.get_doi(doi, options).body.dig("data", "url")).to eq(url)
+    # end
 
     it 'URL not valid' do
       options = { url: "mailto:support@datacite.org", username: username, password: password }

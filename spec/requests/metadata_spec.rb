@@ -278,7 +278,13 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       get "/metadata/#{doi_id}", nil, headers
 
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to be_blank
+
+      doc = Nokogiri::XML(last_response.body, nil, 'UTF-8', &:noblanks)
+      expect(doc.at_css("identifier").content).to eq("10.5072/236Y-QX15")
+      expect(doc.at_css("titles").content).to be_blank
+      expect(doc.at_css("creators").content).to be_blank
+      expect(doc.at_css("publisher").content).to be_blank
+      expect(doc.at_css("publicationYear").content).to be_blank
     end
 
     it "delete doi" do

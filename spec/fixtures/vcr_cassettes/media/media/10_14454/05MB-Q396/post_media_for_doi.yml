@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 23:06:02 GMT
+      - Sat, 01 Dec 2018 19:01:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -35,18 +35,18 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 8ced6652-ee44-4fdc-9c3b-74456704d628
+      - 9e825084-dfd5-4392-90aa-f8de3c529fd2
       Etag:
-      - W/"5c505e15b4d0f2803b22cc845b2ae6c8"
+      - W/"9efcbd8a9a82fce0975c14c6e684ba53"
       X-Runtime:
-      - '0.031112'
+      - '0.029451'
       X-Powered-By:
-      - Phusion Passenger 5.3.7
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.7
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"0000-0000-0000-n070","type":"media","attributes":{"version":0,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","mediaType":"application/pdf","created":"2018-11-20T23:06:02.000Z","updated":"2018-11-20T23:06:02.000Z"},"relationships":{"doi":{"data":{"id":"10.14454/05MB-Q396","type":"dois"}}}},"included":[{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","creator":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributor":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"url":"https://www.datacite.org/roadmap.html","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"created":"2018-11-19T08:22:09.000Z","registered":null,"updated":"2018-11-20T22:15:32.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[{"id":"0000-0000-0000-n070","type":"media"}]}}}]}'
+      string: '{"data":{"id":"0000-0000-0000-n07c","type":"media","attributes":{"version":1,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","mediaType":"application/pdf","created":"2018-12-01T14:01:31.000-05:00","updated":"2018-12-01T14:01:31.000-05:00"},"relationships":{"doi":{"data":{"id":"10.14454/05MB-Q396","type":"dois"}}}},"included":[{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","creators":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributors":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"url":"https://www.datacite.org/roadmap.html","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"created":"2018-11-19T03:22:09.000-05:00","registered":null,"updated":"2018-11-20T17:15:32.000-05:00"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[{"id":"0000-0000-0000-n07c","type":"media"},{"id":"0000-0000-0000-n07b","type":"media"}]}}}]}'
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 23:06:02 GMT
+  recorded_at: Sat, 01 Dec 2018 19:01:31 GMT
 recorded_with: VCR 3.0.3

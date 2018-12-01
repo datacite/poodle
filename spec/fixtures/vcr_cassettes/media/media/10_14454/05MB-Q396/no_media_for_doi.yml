@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 23:01:38 GMT
+      - Sat, 01 Dec 2018 21:45:34 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -32,21 +32,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Credential-Username:
-      - datacite.datacite
-      X-Request-Id:
-      - 128eaaf0-da42-4e66-971f-3fe8dd5968dc
       Etag:
       - W/"28750172fb649ad8210f3840d62c4095"
       X-Runtime:
-      - '0.016945'
+      - '0.016193'
+      X-Credential-Username:
+      - datacite.datacite
+      X-Request-Id:
+      - 2c116b7d-a1b5-4681-bd72-180100db682e
       X-Powered-By:
-      - Phusion Passenger 5.3.7
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.7
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
       string: '{"data":[],"included":[],"meta":{"total":1,"total-pages":1,"page":1},"links":{"self":"https://api.test.datacite.org/dois/10.14454/05mb-q396/media"}}'
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 23:01:38 GMT
+  recorded_at: Sat, 01 Dec 2018 21:45:34 GMT
 recorded_with: VCR 3.0.3

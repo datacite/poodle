@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 20 Nov 2018 22:15:36 GMT
+      - Sat, 01 Dec 2018 19:01:32 GMT
       Connection:
       - keep-alive
       Status:
@@ -31,16 +31,16 @@ http_interactions:
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - aab694f1-814a-4986-8cf9-1473e1731abd
+      - ca88b5ea-579a-4cee-96fa-9a009e7c1966
       X-Runtime:
-      - '0.014122'
+      - '0.013205'
       X-Powered-By:
-      - Phusion Passenger 5.3.7
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.7
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Tue, 20 Nov 2018 22:15:36 GMT
+  recorded_at: Sat, 01 Dec 2018 19:01:32 GMT
 recorded_with: VCR 3.0.3
