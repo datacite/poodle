@@ -2,8 +2,7 @@
 
 [![Build Status](https://travis-ci.org/datacite/poodle.svg?branch=master)](https://travis-ci.org/datacite/poodle) [![Maintainability](https://api.codeclimate.com/v1/badges/ddb43ea782a1f201edfc/maintainability)](https://codeclimate.com/github/datacite/poodle/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ddb43ea782a1f201edfc/test_coverage)](https://codeclimate.com/github/datacite/poodle/test_coverage)
 
-Rails web application for providing a compatibility API layer for the DataCite MDS API,
-enabling DOI and metadata registration. The application does not store any data internally.
+DataCite MDS API, enabling DOI and metadata registration. The application does not store any data internally, but uses the DataCite REST API as backend service.
 
 For documentation, and for testing the API, please go to [DataCite Support](https://support.datacite.org/docs/mds-api-guide).
 
@@ -44,4 +43,4 @@ Follow along via [Github Issues](https://github.com/datacite/poddle/issues).
 * Commit, push and make a pull request. Bonus points for topical branches.
 
 ## License
-**Poddle** is released under the [MIT License](https://github.com/datacite/poodle/blob/master/LICENSE).
+**Poodle** is released under the [MIT License](https://github.com/datacite/poodle/blob/master/LICENSE).
