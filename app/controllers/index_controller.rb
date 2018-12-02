@@ -4,6 +4,8 @@ class IndexController < ApplicationController
   end
 
   def login
-    fail NotImplementedError, "one-time login and session cookies not supported by this service" 
+    redirect_to :action => "index"
+
+    # fail NotImplementedError, "one-time login and session cookies not supported by this service" 
   end
 end
