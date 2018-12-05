@@ -384,4 +384,17 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       expect(last_response.body).to eq("OK")
     end
   end
+
+  describe '/doi/10.14454/aabbcc11', type: :request do
+    let(:doi_id) { "10.14454/aabbcc11" }
+    let(:data) { file_fixture('testdoi.xml').read }
+    let(:headers) { { 'HTTP_AUTHORIZATION' => 'Basic ' + credentials, 'CONTENT_TYPE' => "text/plain;charset=UTF-8" } }
+
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+    end
+  end
 end
