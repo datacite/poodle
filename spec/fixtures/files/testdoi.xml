@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.70048/aabbcc11</identifier>
+  <creators>
+    <creator>
+      <creatorName nameType="Personal">Hallett, Richard</creatorName>
+      <givenName>Richard</givenName>
+      <familyName>Hallett</familyName>
+      <nameIdentifier schemeURI="http://orcid.org/" nameIdentifierScheme="ORCID">0000-0002-7352-517X</nameIdentifier>
+      <affiliation>DataCite</affiliation>
+    </creator>
+    <creator>
+      <creatorName nameType="Personal">Smith, John</creatorName>
+      <givenName>John</givenName>
+      <familyName>Smith</familyName>
+      <affiliation>DataCite</affiliation>
+    </creator>
+  </creators>
+  <titles>
+    <title xml:lang="en-US">DataCite DOI Test Example</title>
+    <title xml:lang="en-US" titleType="Subtitle">Testy Test of DataCite Properties.</title>
+  </titles>
+  <publisher>DataCite</publisher>
+  <publicationYear>2017</publicationYear>
+  <subjects>
+    <subject xml:lang="en-US" schemeURI="http://dewey.info/" subjectScheme="dewey">000 computer science</subject>
+  </subjects>
+  <contributors>
+    <contributor contributorType="ProjectLeader">
+      <contributorName>Starr, Joan</contributorName>
+      <givenName>Joan</givenName>
+      <familyName>Starr</familyName>
+      <nameIdentifier schemeURI="http://orcid.org/" nameIdentifierScheme="ORCID">0000-0002-7285-027X</nameIdentifier>
+      <affiliation>California Digital Library</affiliation>
+    </contributor>
+  </contributors>
+  <dates>
+    <date dateType="Updated" dateInformation="Updated with 4.1 properties">2017-09-13</date>
+  </dates>
+  <language>en-US</language>
+  <resourceType resourceTypeGeneral="Software">XML</resourceType>
+  <sizes>
+    <size>4 kB</size>
+  </sizes>
+  <formats>
+    <format>application/xml</format>
+  </formats>
+  <version>4.1</version>
+  <rightsList>
+    <rights xml:lang="en-US" rightsURI="http://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</rights>
+  </rightsList>
+  <descriptions>
+    <description xml:lang="en-US" descriptionType="Abstract">
+    3 Test of DOI registrationenv
+	</description>
+  </descriptions>
+  <fundingReferences>
+    <fundingReference>
+      <funderName>National Science Foundation</funderName>
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">https://doi.org/10.13039/100000001</funderIdentifier>
+      <awardNumber>CBET-106</awardNumber>
+      <awardTitle>Full DataCite XML Example</awardTitle>
+    </fundingReference>
+  </fundingReferences>
+</resource>

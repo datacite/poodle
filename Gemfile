@@ -7,7 +7,7 @@ gem 'json', '~> 1.8', '>= 1.8.5'
 gem 'equivalent-xml', '~> 0.6.0'
 gem 'nokogiri', '~> 1.8.1'
 gem 'iso8601', '~> 0.9.0'
-gem 'bolognese', '~> 0.10', '>= 0.10.10'
+gem 'bolognese', '~> 1.0'
 gem 'maremma', '~> 4.1'
 gem 'base32-url', '~> 0.5'
 gem "dalli", "~> 2.7.6"
