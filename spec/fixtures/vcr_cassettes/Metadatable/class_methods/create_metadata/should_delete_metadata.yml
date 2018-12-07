@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 01 Dec 2018 20:31:57 GMT
+      - Fri, 07 Dec 2018 18:04:52 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -32,22 +32,29 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"1132dc2cd0a8eaffe990b6a248ed2780"
-      X-Runtime:
-      - '0.062200'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 6c368928-1b77-4710-826b-37a13d641a4f
+      - 36008004-fd8f-4257-8289-eed49a2394e7
+      Etag:
+      - W/"80bb37aed39c628cdc01511ce8b8d90d"
+      X-Runtime:
+      - '0.095713'
       X-Powered-By:
       - Phusion Passenger 6.0.0
       Server:
       - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5438/08a0-3f64","type":"dois","attributes":{"doi":"10.5438/08a0-3f64","prefix":"10.5438","suffix":"08a0-3f64","identifier":"https://handle.test.datacite.org/10.5438/08a0-3f64","creators":null,"titles":null,"publisher":null,"periodical":null,"publicationYear":null,"subjects":null,"contributors":null,"dates":null,"language":null,"types":null,"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":null,"formats":null,"version":null,"rightsList":null,"descriptions":null,"geoLocations":null,"fundingReferences":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC8wOEEwLTNGNjQ8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzLz4KICA8dGl0bGVzLz4KICA8cHVibGlzaGVyLz4KICA8cHVibGljYXRpb25ZZWFyLz4KICA8dmVyc2lvbi8+CjwvcmVzb3VyY2U+Cg==","url":null,"contentUrl":null,"metadataVersion":1,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"landingPage":null,"created":"2018-12-01T20:31:56.000Z","registered":null,"updated":"2018-12-01T20:31:57.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contactName":"Martin
+      string: '{"data":{"id":"10.5438/08a0-3f64","type":"dois","attributes":{"doi":"10.5438/08a0-3f64","prefix":"10.5438","suffix":"08a0-3f64","identifier":"https://handle.test.datacite.org/10.5438/08a0-3f64","creators":[{"id":"https://orcid.org/0000-0003-1419-2405","name":"Fenner,
+        Martin","type":"Person","givenName":"Martin","familyName":"Fenner"}],"titles":[{"title":"Eating
+        your own Dog Food"}],"publisher":"DataCite","periodical":{"id":"https://doi.org/10.5438/0000-00ss","type":"Periodical"},"publicationYear":2016,"subjects":[{"subject":"datacite"},{"subject":"doi"},{"subject":"metadata"}],"contributors":null,"dates":[{"date":"2016-12-20","dateType":"Created"},{"date":"2016-12-20","dateType":"Issued"},{"date":"2016-12-20","dateType":"Updated"}],"language":null,"types":{"ris":"RPRT","bibtex":"article","citeproc":"article-journal","schemaOrg":"ScholarlyArticle","resourceType":"BlogPosting","resourceTypeGeneral":"Text"},"alternateIdentifiers":[{"alternateIdentifier":"MS-49-3632-5083","alternateIdentifierType":"Local
+        accession number"}],"relatedIdentifiers":[{"relationType":"References","relatedIdentifier":"10.5438/0012","relatedIdentifierType":"DOI"},{"relationType":"References","relatedIdentifier":"10.5438/55e5-t5c0","relatedIdentifierType":"DOI"},{"relationType":"IsPartOf","relatedIdentifier":"10.5438/0000-00ss","relatedIdentifierType":"DOI"}],"sizes":null,"formats":null,"version":"1.0","rightsList":null,"descriptions":[{"description":"Eating
+        your own dog food is a slang term to describe that an organization should
+        itself use the products and services it provides. For DataCite this means
+        that we should use DOIs with appropriate metadata and strategies for long-term
+        preservation for...","descriptionType":"Abstract"}],"geoLocations":null,"fundingReferences":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC8wOEEwLTNGNjQ8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5GZW5uZXIsIE1hcnRpbjwvY3JlYXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+TWFydGluPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkZlbm5lcjwvZmFtaWx5TmFtZT4KICAgICAgPG5hbWVJZGVudGlmaWVyIHNjaGVtZVVSST0iaHR0cDovL29yY2lkLm9yZy8iIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCI+MDAwMC0wMDAzLTE0MTktMjQwNTwvbmFtZUlkZW50aWZpZXI+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkVhdGluZyB5b3VyIG93biBEb2cgRm9vZDwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5EYXRhQ2l0ZTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iTG9jYWwgYWNjZXNzaW9uIG51bWJlciI+TVMtNDktMzYzMi01MDgzPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHN1YmplY3RzPgogICAgPHN1YmplY3Q+ZGF0YWNpdGU8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5kb2k8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5tZXRhZGF0YTwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJDcmVhdGVkIj4yMDE2LTEyLTIwPC9kYXRlPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNi0xMi0yMDwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJVcGRhdGVkIj4yMDE2LTEyLTIwPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj4xMC41NDM4LzAwMTI8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IlJlZmVyZW5jZXMiPjEwLjU0MzgvNTVFNS1UNUMwPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc1BhcnRPZiI+MTAuNTQzOC8wMDAwLTAwU1M8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkVhdGluZyB5b3VyIG93biBkb2cgZm9vZCBpcyBhIHNsYW5nIHRlcm0gdG8gZGVzY3JpYmUgdGhhdCBhbiBvcmdhbml6YXRpb24gc2hvdWxkIGl0c2VsZiB1c2UgdGhlIHByb2R1Y3RzIGFuZCBzZXJ2aWNlcyBpdCBwcm92aWRlcy4gRm9yIERhdGFDaXRlIHRoaXMgbWVhbnMgdGhhdCB3ZSBzaG91bGQgdXNlIERPSXMgd2l0aCBhcHByb3ByaWF0ZSBtZXRhZGF0YSBhbmQgc3RyYXRlZ2llcyBmb3IgbG9uZy10ZXJtIHByZXNlcnZhdGlvbiBmb3IuLi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==","url":"https://blog.datacite.org/","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":false,"state":"registered","reason":null,"landingPage":null,"created":"2018-12-07T18:04:51.000Z","registered":null,"updated":"2018-12-07T18:04:51.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contactName":"Martin
         Fenner","contactEmail":"support@datacite.org","domains":"datacite.org","url":null,"created":"2011-12-07T13:43:39.000Z","updated":"2018-08-26T01:30:27.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"datacite","type":"providers"}},"prefixes":{"data":[{"id":"10.5438","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.14454","type":"prefixes"},{"id":"10.23725","type":"prefixes"},{"id":"10.70002","type":"prefixes"}]}}}]}'
     http_version: 
-  recorded_at: Sat, 01 Dec 2018 20:31:57 GMT
+  recorded_at: Fri, 07 Dec 2018 18:04:52 GMT
 recorded_with: VCR 3.0.3

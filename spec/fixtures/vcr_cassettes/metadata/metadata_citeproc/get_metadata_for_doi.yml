@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.test.datacite.org/10.5072/ey8x-9f93
+    uri: https://api.test.datacite.org/dois/10.5072/ey8x-9f93
     body:
       encoding: US-ASCII
       string: ''
@@ -19,29 +19,25 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 01 Dec 2018 19:02:11 GMT
+      - Fri, 07 Dec 2018 18:10:09 GMT
       Content-Type:
-      - application/vnd.datacite.datacite+xml
+      - application/vnd.datacite.datacite+xml; charset=utf-8
       Connection:
       - keep-alive
       Status:
       - 200 OK
       Cache-Control:
-      - private
+      - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 4c5a1cc8-cbd7-4fdc-9540-f03ce041796d
-      Content-Disposition:
-      - attachment; filename=_10.5072_ey8x-9f93.xml
-      Content-Transfer-Encoding:
-      - binary
+      - c6991912-bc7b-4fdc-b48a-c945621771aa
       Etag:
       - W/"f10bcf9a4034576c44e8469562f41123"
       X-Runtime:
-      - '0.021204'
+      - '0.014165'
       X-Powered-By:
       - Phusion Passenger 6.0.0
       Server:
@@ -75,5 +71,5 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Sat, 01 Dec 2018 19:02:11 GMT
+  recorded_at: Fri, 07 Dec 2018 18:10:09 GMT
 recorded_with: VCR 3.0.3

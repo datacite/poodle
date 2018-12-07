@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 01 Dec 2018 20:31:19 GMT
+      - Fri, 07 Dec 2018 18:07:48 GMT
       Connection:
       - keep-alive
       Status:
@@ -28,12 +28,12 @@ http_interactions:
       - no-cache
       Vary:
       - Origin
-      X-Runtime:
-      - '0.048111'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 1a24d89d-baa2-4823-982f-7b0562a5df5f
+      - f7a1aba7-98b5-4fac-ae5c-d4bd6cdebd49
+      X-Runtime:
+      - '0.030944'
       X-Powered-By:
       - Phusion Passenger 6.0.0
       Server:
@@ -42,5 +42,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Sat, 01 Dec 2018 20:31:19 GMT
+  recorded_at: Fri, 07 Dec 2018 18:07:48 GMT
 recorded_with: VCR 3.0.3

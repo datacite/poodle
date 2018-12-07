@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.test.datacite.org/10.5072/ey2x-5w17
+    uri: https://api.test.datacite.org/dois/10.5072/ey2x-5w17
     body:
       encoding: US-ASCII
       string: ''
@@ -19,29 +19,25 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 01 Dec 2018 19:01:33 GMT
+      - Fri, 07 Dec 2018 18:18:32 GMT
       Content-Type:
-      - application/vnd.datacite.datacite+xml
+      - application/vnd.datacite.datacite+xml; charset=utf-8
       Connection:
       - keep-alive
       Status:
       - 200 OK
-      Content-Disposition:
-      - attachment; filename=_10.5072_ey2x-5w17.xml
       Cache-Control:
-      - private
+      - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Content-Transfer-Encoding:
-      - binary
-      Etag:
-      - W/"b06b2128cd5000fe6868a22b3222e344"
-      X-Runtime:
-      - '0.014750'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - 7b9ceed0-52b6-498e-9911-6e1ef1096a02
+      - 01733b9a-ec27-4053-b222-13d813cfcce5
+      Etag:
+      - W/"b06b2128cd5000fe6868a22b3222e344"
+      X-Runtime:
+      - '0.013745'
       X-Powered-By:
       - Phusion Passenger 6.0.0
       Server:
@@ -90,5 +86,5 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Sat, 01 Dec 2018 19:01:33 GMT
+  recorded_at: Fri, 07 Dec 2018 18:18:32 GMT
 recorded_with: VCR 3.0.3

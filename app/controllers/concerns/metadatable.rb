@@ -99,7 +99,7 @@ module Metadatable
     def get_metadata(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
-      url = "#{api_url}/#{doi}"
+      url = "#{api_url}/dois/#{doi}"
       Maremma.get(url, accept: "application/vnd.datacite.datacite+xml", username: options[:username], password: options[:password], raw: true)
     end
 

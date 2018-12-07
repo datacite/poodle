@@ -38,7 +38,7 @@ describe Metadatable, vcr: true, order: :defined do
         options = { username: username, password: password }
         response = subject.delete_metadata(doi, options)
         expect(response.status).to eq(200)
-        expect(response.body.dig("data", "attributes", "state")).to eq("draft")
+        expect(response.body.dig("data", "attributes", "state")).to eq("registered")
         expect(response.body.dig("data", "attributes", "isActive")).to eq(false)
       end
 

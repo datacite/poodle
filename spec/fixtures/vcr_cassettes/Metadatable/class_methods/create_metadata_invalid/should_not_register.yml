@@ -21,7 +21,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 01 Dec 2018 20:29:01 GMT
+      - Fri, 07 Dec 2018 18:04:52 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -33,11 +33,11 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Runtime:
-      - '0.034704'
+      - '0.032754'
       X-Credential-Username:
       - datacite.datacite
       X-Request-Id:
-      - a5b5122f-4f64-40d7-b9ba-ddc1a74d4685
+      - '0389e6fc-6849-4451-b4b5-9bded0e09d10'
       X-Powered-By:
       - Phusion Passenger 6.0.0
       Server:
@@ -52,5 +52,5 @@ http_interactions:
         {http://datacite.org/schema/kernel-4}formats, {http://datacite.org/schema/kernel-4}version
         ). at line 2, column 0"}]}'
     http_version: 
-  recorded_at: Sat, 01 Dec 2018 20:29:01 GMT
+  recorded_at: Fri, 07 Dec 2018 18:04:52 GMT
 recorded_with: VCR 3.0.3
