@@ -14,7 +14,7 @@ gem "dalli", "~> 2.7.6"
 gem 'lograge', '~> 0.10.0'
 gem 'logstash-event', '~> 1.2', '>= 1.2.02'
 gem 'logstash-logger', '~> 0.26.1'
-gem 'bugsnag', '~> 6.6', '>= 6.6.2'
+gem 'bugsnag', '~> 6.10'
 gem 'jwt', '~> 1.5', '>= 1.5.4'
 gem 'cancancan', '~> 2.0'
 gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.3'

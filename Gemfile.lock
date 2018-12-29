@@ -330,7 +330,7 @@ DEPENDENCIES
   binding_of_caller
   bolognese (~> 1.0)
   bootsnap (>= 1.1.0)
-  bugsnag (~> 6.6, >= 6.6.2)
+  bugsnag (~> 6.10)
   byebug
   cancancan (~> 2.0)
   capybara
@@ -362,4 +362,4 @@ DEPENDENCIES
   webmock (~> 1.20.0)
 
 BUNDLED WITH
-   1.17.1
+   1.17.2
