@@ -16,6 +16,20 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       expect(metadata.dig("titles", "title")).to eq("Wer gehört zu uns? Einwanderungs- und Staatsangehörigkeitspolitiken in Venezuela und in der Dominikanischen Republik")
       expect(metadata.dig("identifier", "__content__")).to eq("10.0144/dummy.v0i1.45")
     end
+
+    it "get metadata no doi" do
+      get "/metadata/", nil, headers
+
+      expect(last_response.status).to eq(404)
+      expect(last_response.body).to eq("DOI not found")
+    end
+
+    it "get metadata invalid doi" do
+      get "/metadata/xxx", nil, headers
+
+      expect(last_response.status).to eq(404)
+      expect(last_response.body).to eq("DOI not found")
+    end
   end
 
   describe '/metadata', type: :request do

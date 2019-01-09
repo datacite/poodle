@@ -7,9 +7,8 @@ class MetadataController < ApplicationController
   before_bugsnag_notify :add_metadata_to_bugsnag
 
   def index
-    #return head :no_content unless params[:doi_id].present?
-
     @doi = validate_doi(params[:doi_id])
+    fail AbstractController::ActionNotFound unless @doi.present?
 
     response = MetadataController.get_metadata(@doi, username: username, password: password)
 
