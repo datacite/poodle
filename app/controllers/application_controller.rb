@@ -35,6 +35,8 @@ class ApplicationController < ActionController::API
   end
 
   unless Rails.env.development?
+    logger = Logger.new(STDOUT)
+
     rescue_from *(RESCUABLE_EXCEPTIONS) do |exception|
       status = case exception.class.to_s
                when "CanCan::AuthorizationNotPerformed", "JWT::DecodeError", "JWT::VerificationError" then 401
@@ -59,7 +61,7 @@ class ApplicationController < ActionController::API
         message = exception.message
       end
 
-      Rails.logger.info "[#{status}]: " + message
+      logger.error "[#{status}]: " + message
 
       render plain: message, status: status
     end
