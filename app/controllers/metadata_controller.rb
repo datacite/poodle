@@ -3,8 +3,7 @@ class MetadataController < ApplicationController
 
   prepend_before_action :authenticate_user_with_basic_auth!
   before_action :set_doi, only: [:destroy]
-
-  before_bugsnag_notify :add_metadata_to_bugsnag
+  before_action :set_raven_context, only: [:update]
 
   def index
     @doi = validate_doi(params[:doi_id])
@@ -92,11 +91,9 @@ class MetadataController < ApplicationController
     params.permit(:id, :doi_id, :number, "testMode").merge(data: request.raw_post)
   end
 
-  def add_metadata_to_bugsnag(report)
+  def set_raven_context
     return nil unless params.fetch(:data, nil).present?
 
-    report.add_tab(:metadata, {
-      metadata: params.fetch(:data)
-    })
+    Raven.extra_context metadata: params.fetch(:data)
   end
 end

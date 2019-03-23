@@ -3,8 +3,7 @@ class DoisController < ApplicationController
 
   prepend_before_action :authenticate_user_with_basic_auth!
   before_action :set_doi, only: [:show, :destroy]
-
-  before_bugsnag_notify :add_data_to_bugsnag
+  before_action :set_raven_context, only: [:update]
 
   def index
     response = DoisController.get_dois(username: username, password: password)
@@ -46,8 +45,8 @@ class DoisController < ApplicationController
 
   def update
     # Rails.logger.info safe_params.inspect
-    if safe_params[:doi].present? && safe_params[:url].present?
-      doi = safe_params[:doi]
+    if (safe_params[:id].present? || safe_params[:doi].present?) && safe_params[:url].present?
+      doi = safe_params[:id] || safe_params[:doi]
       url = safe_params[:url]
     elsif safe_params[:data].present?
       doi, url = extract_url(doi: validate_doi(params[:id]), data: safe_params[:data])
@@ -102,11 +101,9 @@ class DoisController < ApplicationController
     params.permit(:id, :doi, :url, "testMode").merge(data: request.raw_post)
   end
 
-  def add_data_to_bugsnag(report)
+  def set_raven_context
     return nil unless params.fetch(:data, nil).present?
 
-    report.add_tab(:data, {
-      data: params.fetch(:data)
-    })
+    Raven.extra_context metadata: params.fetch(:data)
   end
 end

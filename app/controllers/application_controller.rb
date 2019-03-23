@@ -6,8 +6,7 @@ class ApplicationController < ActionController::API
 
   attr_accessor :username, :password
 
-  before_bugsnag_notify :add_user_info_to_bugsnag
-
+  before_action :set_raven_context
   after_action :set_consumer_header
 
   # check that username and password exist
@@ -35,9 +34,9 @@ class ApplicationController < ActionController::API
   end
 
   unless Rails.env.development?
-    logger = Logger.new(STDOUT)
-
     rescue_from *(RESCUABLE_EXCEPTIONS) do |exception|
+      logger = Logger.new(STDOUT)
+      
       status = case exception.class.to_s
                when "CanCan::AuthorizationNotPerformed", "JWT::DecodeError", "JWT::VerificationError" then 401
                when "CanCan::AccessDenied" then 403
@@ -56,7 +55,7 @@ class ApplicationController < ActionController::API
       elsif status == 404
         message = "DOI not found"
       else
-        Bugsnag.notify(exception)
+        Raven.capture_exception(exception)
 
         message = exception.message
       end
@@ -73,11 +72,17 @@ class ApplicationController < ActionController::API
     payload[:data] = Base64.strict_encode64(request.raw_post) if request.raw_post.present?
   end
 
-  def add_user_info_to_bugsnag(report)
-    return nil unless username.present?
-
-    report.user = {
-      id: username.downcase
-    }
+  def set_raven_context
+    if current_user.try(:uid)
+      Raven.user_context(
+        email: current_user.email,
+        id: current_user.uid,
+        ip_address: request.ip
+      )
+    else
+      Raven.user_context(
+        ip_address: request.ip
+      ) 
+    end
   end
 end
