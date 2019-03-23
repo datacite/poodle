@@ -73,10 +73,9 @@ class ApplicationController < ActionController::API
   end
 
   def set_raven_context
-    if current_user.try(:uid)
+    if username.present?
       Raven.user_context(
-        email: current_user.email,
-        id: current_user.uid,
+        id: username.downcase,
         ip_address: request.ip
       )
     else

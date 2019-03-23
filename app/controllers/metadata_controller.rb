@@ -94,6 +94,6 @@ class MetadataController < ApplicationController
   def set_raven_context
     return nil unless params.fetch(:data, nil).present?
 
-    Raven.extra_context metadata: params.fetch(:data)
+    Raven.extra_context metadata: Base64.decode64(params.fetch(:data))
   end
 end
