@@ -113,7 +113,7 @@ module Metadatable
         "xml" => xml,
         "should_validate" => "true",
         "source" => "mds",
-        "event" => "publish" }.compact
+        "event" => "show" }.compact
 
       data = {
         "data" => {
