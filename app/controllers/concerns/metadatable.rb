@@ -160,7 +160,13 @@ module Metadatable
     end
 
     def api_url
-      Rails.env.production? ? 'https://api.datacite.org' : 'https://api.test.datacite.org'
+      if Rails.env.production?
+        'https://api.local'
+      elsif Rails.env.stage?
+        'https://api.test.local'
+      else
+        'https://api.test.datacite.org'
+      end
     end
   end
 end
