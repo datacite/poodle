@@ -99,7 +99,7 @@ module Metadatable
     def get_metadata(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
-      url = "#{api_url}/dois/#{doi}"
+      url = "#{ENV['API_URL']}/dois/#{doi}"
       Maremma.get(url, accept: "application/vnd.datacite.datacite+xml", username: options[:username], password: options[:password], raw: true)
     end
 
@@ -130,7 +130,7 @@ module Metadatable
         }
       }
 
-      url = "#{api_url}/dois/#{doi}"
+      url = "#{ENV['API_URL']}/dois/#{doi}"
       Maremma.put(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password])
     end
 
@@ -155,12 +155,8 @@ module Metadatable
         }
       }
 
-      url = "#{api_url}/dois/#{doi}"
+      url = "#{ENV['API_URL']}/dois/#{doi}"
       Maremma.patch(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password])
-    end
-
-    def api_url
-      Rails.env.production? ? 'https://api.datacite.org' : 'https://api.test.datacite.org'
     end
   end
 end

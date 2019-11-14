@@ -18,14 +18,14 @@ module Mediable
         }
       }
 
-      url = "#{api_url}/dois/#{doi}/media"
+      url = "#{ENV['API_URL']}/dois/#{doi}/media"
       Maremma.post(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password])
     end
 
     def list_media(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
-      url = "#{api_url}/dois/#{doi}/media"
+      url = "#{ENV['API_URL']}/dois/#{doi}/media"
       response = Maremma.get(url, content_type: 'application/vnd.api+json', username: options[:username], password: options[:password])
       return response unless response.body["data"].present?
       
@@ -38,7 +38,7 @@ module Mediable
     def get_media(doi, id, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
-      url = "#{api_url}/dois/#{doi}/media/#{id}"
+      url = "#{ENV['API_URL']}/dois/#{doi}/media/#{id}"
       response = Maremma.get(url, content_type: 'application/vnd.api+json', username: options[:username], password: options[:password])
       return response unless response.body["data"].present?
 
@@ -50,12 +50,8 @@ module Mediable
     def delete_media(doi, id, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
-      url = "#{api_url}/dois/#{doi}/media/#{id}"
+      url = "#{ENV['API_URL']}/dois/#{doi}/media/#{id}"
       response = Maremma.delete(url, content_type: 'application/vnd.api+json', username: options[:username], password: options[:password])
-    end
-
-    def api_url
-      Rails.env.production? ? 'https://api.datacite.org' : 'https://api.test.datacite.org' 
     end
   end
 end
