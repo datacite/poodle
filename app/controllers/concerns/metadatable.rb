@@ -11,7 +11,7 @@ module Metadatable
     def find_from_format_by_string(string)
       if Maremma.from_xml(string).to_h.dig("doi_records", "doi_record", "crossref").present?
         "crossref"
-      elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }
+      elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }  
         "datacite"
       elsif Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org")
         "schema_org"
@@ -160,13 +160,7 @@ module Metadatable
     end
 
     def api_url
-      if Rails.env.production?
-        'http://api.local'
-      elsif Rails.env.stage?
-        'http://api.test.local'
-      else
-        'https://api.test.datacite.org'
-      end
+      Rails.env.production? ? 'https://api.datacite.org' : 'https://api.test.datacite.org'
     end
   end
 end
