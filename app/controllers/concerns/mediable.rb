@@ -5,7 +5,7 @@ module Mediable
     def create_media(doi, options={})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
       return OpenStruct.new(body: { "errors" => [{ "title" => "Media type and URL missing" }] }) unless options[:data].present?
-      
+
       media_type, url = options[:data].split("=")
 
       data = {
@@ -28,7 +28,7 @@ module Mediable
       url = "#{api_url}/dois/#{doi}/media"
       response = Maremma.get(url, content_type: 'application/vnd.api+json', username: options[:username], password: options[:password])
       return response unless response.body["data"].present?
-      
+
       response.body["data"] = Array.wrap(response.body["data"]).map do |m|
         "#{m.dig("attributes", "mediaType").to_s}=#{m.dig("attributes", "url").to_s}"
       end.join("\n")
@@ -56,9 +56,9 @@ module Mediable
 
     def api_url
       if Rails.env.production?
-        'https://api.local'
+        'http://api.local'
       elsif Rails.env.stage?
-        'https://api.test.local'
+        'http://api.test.local'
       else
         'https://api.test.datacite.org'
       end
