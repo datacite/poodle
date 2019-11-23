@@ -23,6 +23,7 @@ gem 'rack-utf8_sanitizer', '~> 1.6'
 gem 'rack-cors', '~> 1.0', :require => 'rack/cors'
 gem 'oj_mimic_json', '~> 1.0', '>= 1.0.1'
 gem 'git', '~> 1.5'
+gem 'sprockets', '~> 3.7', '>= 3.7.2'
 gem 'elastic-apm', '~> 3.2'
 
 group :development, :test do
