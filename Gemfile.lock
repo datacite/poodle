@@ -377,7 +377,7 @@ DEPENDENCIES
   multi_json
   nokogiri (~> 1.8.1)
   oj_mimic_json (~> 1.0, >= 1.0.1)
-  rack-cors (~> 1.0, >= 1.0.2)
+  rack-cors (~> 1.0)
   rack-utf8_sanitizer (~> 1.6)
   rails (~> 5.2)
   rspec-rails (~> 3.5, >= 3.5.2)

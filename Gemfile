@@ -20,7 +20,7 @@ gem 'cancancan', '~> 2.0'
 gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.3'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-utf8_sanitizer', '~> 1.6'
-gem 'rack-cors', '~> 1.0', '>= 1.0.2', :require => 'rack/cors'
+gem 'rack-cors', '~> 1.0', :require => 'rack/cors'
 gem 'oj_mimic_json', '~> 1.0', '>= 1.0.1'
 gem 'git', '~> 1.5'
 gem 'elastic-apm', '~> 3.2'
