@@ -14,7 +14,7 @@ gem "maremma", "~> 4.1"
 gem "faraday", "0.17.0"
 gem "base32-url", "~> 0.5"
 gem "dalli", "~> 2.7.6"
-gem 'lograge', '~> 0.11.2'
+gem "lograge", "~> 0.11.2"
 gem "logstash-event", "~> 1.2", ">= 1.2.02"
 gem "sentry-raven", "~> 2.9"
 gem "jwt", "~> 1.5", ">= 1.5.4"
