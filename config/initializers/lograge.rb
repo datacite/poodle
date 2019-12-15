@@ -1,7 +1,7 @@
 Rails.application.configure do
   config.lograge.enabled = true
   config.lograge.formatter = Lograge::Formatters::Logstash.new
-  config.lograge.logger = ActiveSupport::Logger.new(STDOUT)
+  config.lograge.logger = LogStashLogger.new(type: :stdout)
   config.lograge.log_level = ENV["LOG_LEVEL"].to_sym
 
   config.lograge.ignore_actions = ["HeartbeatController#index", "ApplicationController#route_not_found"]
