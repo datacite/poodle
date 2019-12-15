@@ -3,7 +3,7 @@ class MetadataController < ApplicationController
 
   prepend_before_action :authenticate_user_with_basic_auth!
   before_action :set_doi, only: [:destroy]
-  before_action :set_raven_context, only: [:update]
+  before_action :set_raven_context, only: [:create_metadata]
 
   def index
     @doi = validate_doi(params[:doi_id])
@@ -21,8 +21,9 @@ class MetadataController < ApplicationController
     elsif response.status == 404
       render plain: "DOI is unknown to MDS", status: :not_found 
     else
-      Rails.logger.info response.inspect
-      render plain: response.body.dig("errors", 0, "title"), status: response.status
+      error = response.body.dig("errors", 0, "title")
+      logger.error error
+      render plain: error, status: response.status
     end
   end
 
@@ -34,20 +35,19 @@ class MetadataController < ApplicationController
 
     from = safe_params[:data].blank? ? "datacite" : find_from_format_by_string(safe_params[:data])
 
-    unless from.present?
+    if from.blank?
       render plain: "Metadata format not recognized", status: :unsupported_media_type
       return
     end
 
     # find or generate doi
     @doi = extract_doi(params[:doi_id], data: safe_params[:data], from: from, number: safe_params[:number])
-    unless @doi.present?
+    if @doi.blank?
       render plain: "DOI not found", status: :not_found
       return
     end
 
     response = MetadataController.create_metadata(@doi, data: safe_params[:data], username: username, password: password)
-    puts response
 
     if [200, 201].include?(response.status)
       render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created, location: mds_url + "/metadata/" + @doi
@@ -57,8 +57,9 @@ class MetadataController < ApplicationController
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
     else
-      Rails.logger.info response.inspect
-      render plain: response.body.dig("errors", 0, "title"), status: response.status
+      error = response.body.dig("errors", 0, "title")
+      logger.error error
+      render plain: error, status: response.status
     end
   end
 
@@ -73,8 +74,9 @@ class MetadataController < ApplicationController
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
     else
-      Rails.logger.info response.inspect
-      render plain: response.body.dig("errors", 0, "title"), status: response.status
+      error = response.body.dig("errors", 0, "title")
+      logger.error error
+      render plain: error, status: response.status
     end
   end
 
@@ -92,7 +94,7 @@ class MetadataController < ApplicationController
   end
 
   def set_raven_context
-    return nil unless params.fetch(:data, nil).present?
+    return nil if params.fetch(:data, nil).blank?
 
     Raven.extra_context metadata: Base64.decode64(params.fetch(:data))
   end

@@ -1,10 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "dois", type: :request, vcr: true do
-  let(:credentials) { ::Base64.strict_encode64("#{ENV['MDS_USERNAME']}:#{ENV['MDS_PASSWORD']}") }
-  let(:headers) { {'HTTP_AUTHORIZATION' => 'Basic ' + credentials } }
+  let(:credentials) { ::Base64.strict_encode64("#{ENV["MDS_USERNAME"]}:#{ENV["MDS_PASSWORD"]}") }
+  let(:headers) { {"HTTP_AUTHORIZATION" => "Basic " + credentials } }
 
-  describe 'authentication', type: :request do
+  describe "authentication", type: :request do
     let(:doi) { "10.14454/05MB-Q396" }
 
     it "no username and password" do
@@ -15,7 +15,7 @@ describe "dois", type: :request, vcr: true do
     end
 
     it "wrong password" do
-      headers = { 'HTTP_AUTHORIZATION' => 'Basic ' + ::Base64.strict_encode64("#{ENV['MDS_USERNAME']}:123") }
+      headers = { "HTTP_AUTHORIZATION" => "Basic " + ::Base64.strict_encode64("#{ENV["MDS_USERNAME"]}:123") }
 
       get "/doi/#{doi}", nil, headers
 
@@ -24,9 +24,9 @@ describe "dois", type: :request, vcr: true do
     end
   end
 
-  describe '/doi', type: :request do
+  describe "/doi", type: :request do
     it "get all dois" do
-      get '/doi', nil, headers
+      get "/doi", nil, headers
 
       expect(last_response.status).to eq(200)
       dois = last_response.body.split("\n")
@@ -37,14 +37,14 @@ describe "dois", type: :request, vcr: true do
     it "no dois" do
       url = "https://api.test.datacite.org/dois/get-dois"
       stub = stub_request(:get, url).to_return(status: 204, headers: { "Content-Type" => "text/plain" }, body: nil)
-      get '/doi', nil, headers
+      get "/doi", nil, headers
 
       expect(last_response.status).to eq(204)
       expect(last_response.body).to be_blank
     end
 
     it "get all dois HEAD" do
-      head '/doi', nil, headers
+      head "/doi", nil, headers
 
       expect(last_response.status).to eq(200)
       expect(last_response.body).to be_blank
@@ -53,19 +53,19 @@ describe "dois", type: :request, vcr: true do
     it "no dois HEAD" do
       url = "https://api.test.datacite.org/dois/get-dois"
       stub = stub_request(:get, url).to_return(status: 204, headers: { "Content-Type" => "text/plain" }, body: nil)
-      head '/doi', nil, headers
+      head "/doi", nil, headers
 
       expect(last_response.status).to eq(204)
       expect(last_response.body).to be_blank
     end
   end
 
-  describe '/doi', type: :request do
+  describe "/doi", type: :request do
     let(:data) { "doi=10.14454/05MB-Q396\nurl=https://www.datacite.org/roadmap.html" }
-    let(:headers) { { 'HTTP_AUTHORIZATION' => 'Basic ' + credentials, 'CONTENT_TYPE' => "text/plain;charset=UTF-8" } }
+    let(:headers) { { "HTTP_AUTHORIZATION" => "Basic " + credentials, "CONTENT_TYPE" => "text/plain;charset=UTF-8" } }
 
     # it "post dois" do
-    #   post '/doi', data, headers
+    #   post "/doi", data, headers
 
     #   expect(last_response.status).to eq(201)
     #   expect(last_response.body).to eq("OK")
@@ -122,10 +122,10 @@ describe "dois", type: :request, vcr: true do
     # end
   end
 
-  describe '/doi/10.14454/05MB-Q396', type: :request do
+  describe "/doi/10.14454/05MB-Q396", type: :request do
     let(:doi) { "10.14454/05MB-Q396" }
     let(:data) { "doi=10.14454/05MB-Q396\nurl=https://www.datacite.org/roadmap.html" }
-    let(:headers) { { 'HTTP_AUTHORIZATION' => 'Basic ' + credentials, 'CONTENT_TYPE' => "text/plain;charset=UTF-8" } }
+    let(:headers) { { "HTTP_AUTHORIZATION" => "Basic " + credentials, "CONTENT_TYPE" => "text/plain;charset=UTF-8" } }
 
     # it "register url for doi" do
     #   put "/doi/#{doi}", data, headers
@@ -199,10 +199,10 @@ describe "dois", type: :request, vcr: true do
     end
   end
 
-  describe '/doi/10.5438/0012', type: :request do
+  describe "/doi/10.5438/0012", type: :request do
     let(:doi) { "10.5438/0012" }
     let(:data) { "doi=10.5438/0012\nurl=https://www.datacite.org/roadmap.html" }
-    let(:headers) { { 'HTTP_AUTHORIZATION' => 'Basic ' + credentials, 'CONTENT_TYPE' => "text/plain;charset=UTF-8" } }
+    let(:headers) { { "HTTP_AUTHORIZATION" => "Basic " + credentials, "CONTENT_TYPE" => "text/plain;charset=UTF-8" } }
 
     # it "register url for doi not found" do
     #   put "/doi/#{doi}", data, headers
@@ -212,7 +212,7 @@ describe "dois", type: :request, vcr: true do
     # end
 
     it "get url for doi not found" do
-      headers = {'HTTP_AUTHORIZATION' => 'Basic ' + credentials }
+      headers = {"HTTP_AUTHORIZATION" => "Basic " + credentials }
       get "/doi/#{doi}", nil, headers
 
       expect(last_response.status).to eq(404)
@@ -220,7 +220,7 @@ describe "dois", type: :request, vcr: true do
     end
   end
 
-  describe '/doi/10.1371/journal.pbio.2001414', type: :request do
+  describe "/doi/10.1371/journal.pbio.2001414", type: :request do
     let(:doi) { "10.1371/journal.pbio.2001414" }
 
     it "get url for doi not from DataCite" do
@@ -231,13 +231,12 @@ describe "dois", type: :request, vcr: true do
     end
   end
 
-  describe '/doi/10.5072/rgby-wt03 delete', type: :request do
+  describe "/doi/10.5072/rgby-wt03 delete", type: :request do
     let(:doi) { "10.5072/rgby-wt03" }
-    let(:username) { ENV['MDS_USERNAME'] }
-    let(:password) { ENV['MDS_PASSWORD'] }
-    let(:data) { file_fixture('datacite.xml').read }
+    let(:username) { ENV["MDS_USERNAME"] }
+    let(:password) { ENV["MDS_PASSWORD"] }
+    let(:data) { file_fixture("datacite.xml").read }
     let(:options) { { data: data, username: username, password: password } }
-    
 
     it "delete doi" do
       MetadataController.create_metadata(doi, options)

@@ -18,8 +18,9 @@ class DoisController < ApplicationController
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden 
     else
-      Rails.logger.info response.inspect
-      render plain: response.body.dig("errors", 0, "title"), status: response.status
+      error = response.body.dig("errors", 0, "title")
+      logger.error error
+      render plain: error, status: response.status
     end
   end
 
@@ -38,13 +39,13 @@ class DoisController < ApplicationController
     elsif response.status == 404
       render plain: "DOI not found", status: :not_found
     else
-      Rails.logger.info response.inspect
-      render plain: response.body.dig("errors", 0, "title"), status: response.status
+      error = response.body.dig("errors", 0, "title")
+      logger.error error
+      render plain: error, status: response.status
     end
   end
 
   def update
-    # Rails.logger.info safe_params.inspect
     if (safe_params[:id].present? || safe_params[:doi].present?) && safe_params[:url].present?
       doi = safe_params[:id] || safe_params[:doi]
       url = safe_params[:url]
@@ -65,8 +66,9 @@ class DoisController < ApplicationController
     elsif response.status == 404
       render plain: "DOI not found", status: :not_found 
     else
-      Rails.logger.info response.inspect
-      render plain: response.body.dig("errors", 0, "title"), status: response.status
+      error = response.body.dig("errors", 0, "title")
+      logger.error error
+      render plain: error, status: response.status
     end
   end
 
@@ -83,8 +85,9 @@ class DoisController < ApplicationController
     elsif response.status == 404
       render plain: "DOI not found", status: :not_found 
     else
-      Rails.logger.info response.inspect
-      render plain: response.body.dig("errors", 0, "title"), status: response.status
+      error = response.body.dig("errors", 0, "title")
+      logger.error error
+      render plain: error, status: response.status
     end
   end
 
