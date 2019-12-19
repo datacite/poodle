@@ -22,8 +22,8 @@ gem "jwt", "~> 1.5", ">= 1.5.4"
 gem "cancancan", "~> 2.0"
 gem "tzinfo-data", "~> 1.2017", ">= 1.2017.3"
 gem "bootsnap", ">= 1.1.0", require: false
-gem "rack-utf8_sanitizer", "~> 1.6"
 gem "rack-cors", "~> 1.0", require: "rack/cors"
+gem "rack-utf8_sanitizer", "~> 1.6"
 gem "git", "~> 1.5"
 gem "sprockets", "~> 3.7", ">= 3.7.2"
 
@@ -31,9 +31,9 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem "byebug", platform: :mri
-  gem 'rubocop', '~> 0.77.0'
-  gem 'rubocop-performance', '~> 1.5', '>= 1.5.1'
-  gem 'rubocop-rails', '~> 2.4'
+  gem "rubocop", "~> 0.77.0"
+  gem "rubocop-performance", "~> 1.5", ">= 1.5.1"
+  gem "rubocop-rails", "~> 2.4"
 end
 
 group :development do
