@@ -53,7 +53,8 @@ class ApplicationController < ActionController::API
       elsif status == 404
         message = "DOI not found"
       else
-        Raven.capture_exception(exception)
+        # send error to sentry unless it is an identifier error
+        Raven.capture_exception(exception) unless exception.class.to_s == "IdentifierError"
 
         message = exception.message
       end

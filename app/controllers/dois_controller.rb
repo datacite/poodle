@@ -62,9 +62,9 @@ class DoisController < ApplicationController
       response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
-      render plain: "Access is denied", status: :forbidden 
+      render plain: "Access is denied", status: :forbidden
     elsif response.status == 404
-      render plain: "DOI not found", status: :not_found 
+      render plain: "DOI not found", status: :not_found
     else
       error = response.body.dig("errors", 0, "title")
       logger.error error
