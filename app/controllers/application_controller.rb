@@ -40,6 +40,7 @@ class ApplicationController < ActionController::API
                when "CanCan::AccessDenied" then 403
                when "ActionController::RoutingError", "AbstractController::ActionNotFound" then 404
                when "ActiveModel::ForbiddenAttributesError", "ActionController::UnpermittedParameters", "NoMethodError" then 422
+               when "NotImplementedError" then 501
                when "IdentifierError" then 400
                else 400
                end
@@ -52,6 +53,8 @@ class ApplicationController < ActionController::API
         message = "Access is denied"
       elsif status == 404
         message = "DOI not found"
+      elsif status == 501
+        message = "Not Implemented"
       else
         # send error to sentry unless it is an identifier error
         Raven.capture_exception(exception) unless exception.class.to_s == "IdentifierError"
