@@ -11,4 +11,4 @@ RESCUABLE_EXCEPTIONS = [CanCan::AccessDenied,
                         ActionController::ParameterMissing,
                         ActionController::UnpermittedParameters,
                         NoMethodError,
-                        Encoding::UndefinedConversionError]
+                        Encoding::UndefinedConversionError].map(&:freeze)

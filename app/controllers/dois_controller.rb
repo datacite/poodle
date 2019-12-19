@@ -2,8 +2,8 @@ class DoisController < ApplicationController
   include Doiable
 
   prepend_before_action :authenticate_user_with_basic_auth!
-  before_action :set_doi, only: [:show, :destroy]
-  before_action :set_raven_context, only: [:update]
+  before_action :set_doi, only: %i(show destroy)
+  before_action :set_raven_context, only: %i(update)
 
   def index
     response = DoisController.get_dois(username: username, password: password)
@@ -13,10 +13,10 @@ class DoisController < ApplicationController
     elsif response.status == 204
       head :no_content
     elsif response.status == 401
-      response.headers.delete_if { |key| key == 'X-Credential-Username' }
+      response.headers.delete_if { |key| key == "X-Credential-Username" }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
-      render plain: "Access is denied", status: :forbidden 
+      render plain: "Access is denied", status: :forbidden
     else
       error = response.body.dig("errors", 0, "title")
       logger.error error
@@ -32,7 +32,7 @@ class DoisController < ApplicationController
     elsif response.status == 204
       head :no_content
     elsif response.status == 401
-      response.headers.delete_if { |key| key == 'X-Credential-Username' }
+      response.headers.delete_if { |key| key == "X-Credential-Username" }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden
@@ -59,7 +59,7 @@ class DoisController < ApplicationController
     if [200, 201].include?(response.status)
       render plain: "OK", status: :created
     elsif response.status == 401
-      response.headers.delete_if { |key| key == 'X-Credential-Username' }
+      response.headers.delete_if { |key| key == "X-Credential-Username" }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
       render plain: "Access is denied", status: :forbidden
@@ -78,12 +78,12 @@ class DoisController < ApplicationController
     if response.status == 204
       render plain: "OK", status: :ok
     elsif response.status == 401
-      response.headers.delete_if { |key| key == 'X-Credential-Username' }
+      response.headers.delete_if { |key| key == "X-Credential-Username" }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
-      render plain: "Access is denied", status: :forbidden 
+      render plain: "Access is denied", status: :forbidden
     elsif response.status == 404
-      render plain: "DOI not found", status: :not_found 
+      render plain: "DOI not found", status: :not_found
     else
       error = response.body.dig("errors", 0, "title")
       logger.error error
@@ -95,7 +95,7 @@ class DoisController < ApplicationController
 
   def set_doi
     @doi = validate_doi(params[:id])
-    fail AbstractController::ActionNotFound unless @doi.present?
+    fail AbstractController::ActionNotFound if @doi.blank?
   end
 
   private
@@ -105,7 +105,7 @@ class DoisController < ApplicationController
   end
 
   def set_raven_context
-    return nil unless params.fetch(:data, nil).present?
+    return nil if params.fetch(:data, nil).blank?
 
     Raven.extra_context metadata: Base64.decode64(params.fetch(:data))
   end

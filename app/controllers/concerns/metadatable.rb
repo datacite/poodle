@@ -11,7 +11,7 @@ module Metadatable
     def find_from_format_by_string(string)
       if Maremma.from_xml(string).to_h.dig("doi_records", "doi_record", "crossref").present?
         "crossref"
-      elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }
+      elsif Nokogiri::XML(string, nil, "UTF-8", &:noblanks).collect_namespaces.detect { |_, v| v.start_with?("http://datacite.org/schema/kernel") }
         "datacite"
       elsif Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org")
         "schema_org"
@@ -28,7 +28,7 @@ module Metadatable
       elsif BibTeX.parse(string).first
         "bibtex"
       end
-    rescue
+    rescue StandardError
       nil
     end
 
@@ -71,7 +71,7 @@ module Metadatable
       doi
     end
 
-    def generate_random_doi(str, options={})
+    def generate_random_doi(str, options = {})
       prefix = validate_prefix(str)
       return nil if prefix.blank?
 
@@ -79,7 +79,7 @@ module Metadatable
       encode_doi(prefix, shoulder: shoulder, number: options[:number])
     end
 
-    def encode_doi(prefix, options={})
+    def encode_doi(prefix, options = {})
       prefix = validate_prefix(prefix)
       return nil if prefix.blank?
 
@@ -104,7 +104,7 @@ module Metadatable
       Maremma.get(url, accept: "application/vnd.datacite.datacite+xml", username: options[:username], password: options[:password], raw: true)
     end
 
-    def create_metadata(doi, options={})
+    def create_metadata(doi, options = {})
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
       xml = options[:data].present? ? ::Base64.strict_encode64(options[:data]) : nil
@@ -114,21 +114,24 @@ module Metadatable
         "xml" => xml,
         "should_validate" => "true",
         "source" => "mds",
-        "event" => "show" }.compact
+        "event" => "show",
+      }.compact
+
+      relationships = {
+        "client" => {
+          "data" => {
+            "type" => "clients",
+            "id" => options[:username],
+          },
+        },
+      }
 
       data = {
         "data" => {
           "type" => "dois",
           "attributes" => attributes,
-          "relationships"=> {
-            "client"=>  {
-              "data"=> {
-                "type"=> "clients",
-                "id"=> options[:username],
-              }
-            }
-          }
-        }
+          "relationships" => relationships,
+        },
       }
 
       url = "#{ENV['API_URL']}/dois/#{doi}"
@@ -139,21 +142,22 @@ module Metadatable
       return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
 
       attributes = {
-        "event" => "hide" }
+        "event" => "hide",
+      }
 
       data = {
         "data" => {
           "type" => "dois",
           "attributes" => attributes,
-          "relationships"=> {
-            "client"=>  {
-              "data"=> {
-                "type"=> "clients",
-                "id"=> options[:username],
-              }
-            }
-          }
-        }
+          "relationships" => {
+            "client" => {
+              "data" => {
+                "type" => "clients",
+                "id" => options[:username],
+              },
+            },
+          },
+        },
       }
 
       url = "#{ENV['API_URL']}/dois/#{doi}"

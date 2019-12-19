@@ -14,14 +14,14 @@ class ApplicationController < ActionController::API
   def authenticate_user_with_basic_auth!
     @username, @password = ActionController::HttpAuthentication::Basic::user_name_and_password(request)
 
-    request_http_basic_authentication(realm = ENV['REALM'], message = "An Authentication object was not found in the SecurityContext") unless @username.present? && @password.present?
+    request_http_basic_authentication(ENV["REALM"], "An Authentication object was not found in the SecurityContext") if @username.blank? || @password.blank?
   end
 
   def set_consumer_header
     if username
-      response.headers['X-Credential-Username'] = username
+      response.headers["X-Credential-Username"] = username
     else
-      response.headers['X-Anonymous-Consumer'] = true
+      response.headers["X-Anonymous-Consumer"] = true
     end
   end
 
@@ -30,11 +30,11 @@ class ApplicationController < ActionController::API
   end
 
   def mds_url
-    Rails.env.production? ? 'https://mds.datacite.org' : 'https://mds.test.datacite.org'
+    Rails.env.production? ? "https://mds.datacite.org" : "https://mds.test.datacite.org"
   end
 
   unless Rails.env.development?
-    rescue_from *(RESCUABLE_EXCEPTIONS) do |exception|      
+    rescue_from *(RESCUABLE_EXCEPTIONS) do |exception|
       status = case exception.class.to_s
                when "CanCan::AuthorizationNotPerformed", "JWT::DecodeError", "JWT::VerificationError" then 401
                when "CanCan::AccessDenied" then 403
@@ -46,8 +46,8 @@ class ApplicationController < ActionController::API
                end
 
       if status == 401
-        response.headers['WWW-Authenticate'] = Basic realm="#{ENV['REALM']}"
-        response.headers.delete_if { |key| key == 'X-Credential-Username' }
+        response.headers["WWW-Authenticate"] = "Basic realm=\"#{ENV['REALM']}\""
+        response.headers.delete_if { |key| key == "X-Credential-Username" }
         message = "Bad credentials"
       elsif status == 403
         message = "Access is denied"
@@ -78,12 +78,12 @@ class ApplicationController < ActionController::API
     if username.present?
       Raven.user_context(
         id: username.downcase,
-        ip_address: request.ip
+        ip_address: request.ip,
       )
     else
       Raven.user_context(
-        ip_address: request.ip
-      ) 
+        ip_address: request.ip,
+      )
     end
   end
 end
