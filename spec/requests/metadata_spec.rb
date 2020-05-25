@@ -96,7 +96,7 @@ describe "metadata", type: :request, vcr: true, order: :defined do
 
 
       expect(last_response.status).to eq(201)
-      expect(last_response.header["Location"]).to eq(mds_url + "/metadata/10.5072/ab3v-t139")
+      expect(last_response.header["Location"]).to eq(ENV["MDS_URL"] + "/metadata/10.5072/ab3v-t139")
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
     end
 
