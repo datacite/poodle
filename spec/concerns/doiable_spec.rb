@@ -8,7 +8,7 @@ describe Doiable, vcr: true, order: :defined do
   let(:url) { "https://blog.datacite.org/" }
 
   subject { DoisController }
-  
+
   context "put_doi" do
     # it "should register" do
     #   options = { url: url, username: username, password: password }
@@ -38,7 +38,7 @@ describe Doiable, vcr: true, order: :defined do
     end
 
     it "no dois" do
-      url = "https://api.test.datacite.org/dois/get-dois"
+      url = "https://api.stage.datacite.org/dois/get-dois"
       stub = stub_request(:get, url).to_return(status: 204, headers: { "Content-Type" => "text/plain" }, body: nil)
       response = subject.get_dois(options)
       expect(response.status).to eq(204)

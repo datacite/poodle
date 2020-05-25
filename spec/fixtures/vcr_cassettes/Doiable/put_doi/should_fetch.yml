@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.test.datacite.org/dois/10.14454/05MB-Q396/get-url
+    uri: https://api.stage.datacite.org/dois/10.14454/05MB-Q396/get-url
     body:
       encoding: US-ASCII
       string: ''
@@ -45,6 +45,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"url":"https://www.datacite.org/roadmap.html"}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 01 Dec 2018 19:01:21 GMT
 recorded_with: VCR 3.0.3

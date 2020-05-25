@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.test.datacite.org/dois/10.14454/05MB-Q396/media/0000-0000-0000-n07b
+    uri: https://api.stage.datacite.org/dois/10.14454/05MB-Q396/media/0000-0000-0000-n07b
     body:
       encoding: US-ASCII
       string: ''
@@ -43,6 +43,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: ''
-    http_version: 
+    http_version:
   recorded_at: Sat, 01 Dec 2018 19:04:04 GMT
 recorded_with: VCR 3.0.3

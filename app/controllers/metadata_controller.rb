@@ -17,9 +17,9 @@ class MetadataController < ApplicationController
       response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
-      render plain: "Access is denied", status: :forbidden 
+      render plain: "Access is denied", status: :forbidden
     elsif response.status == 404
-      render plain: "DOI is unknown to MDS", status: :not_found 
+      render plain: "DOI is unknown to MDS", status: :not_found
     else
       error = response.body.dig("errors", 0, "title")
       logger.error error
@@ -50,12 +50,12 @@ class MetadataController < ApplicationController
     response = MetadataController.create_metadata(@doi, data: safe_params[:data], username: username, password: password)
 
     if [200, 201].include?(response.status)
-      render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created, location: mds_url + "/metadata/" + @doi
+      render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created, location: ENV["MDS_URL"] + "/metadata/" + @doi
     elsif response.status == 401
       response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
-      render plain: "Access is denied", status: :forbidden 
+      render plain: "Access is denied", status: :forbidden
     else
       error = response.body.dig("errors", 0, "title")
       logger.error error
@@ -72,7 +72,7 @@ class MetadataController < ApplicationController
       response.headers.delete_if { |key| key == 'X-Credential-Username' }
       render plain: "Bad credentials", status: :unauthorized
     elsif response.status == 403
-      render plain: "Access is denied", status: :forbidden 
+      render plain: "Access is denied", status: :forbidden
     else
       error = response.body.dig("errors", 0, "title")
       logger.error error

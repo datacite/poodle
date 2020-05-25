@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.test.datacite.org/dois/10.14454/05mb-q396/media
+    uri: https://api.stage.datacite.org/dois/10.14454/05mb-q396/media
     body:
       encoding: UTF-8
       string: '{"data":{"type":"media","attributes":{"mediaType":"application/pdf","url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf"}}}'
@@ -47,6 +47,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"0000-0000-0000-n07d","type":"media","attributes":{"version":2,"url":"https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf","mediaType":"application/pdf","created":"2018-12-01T14:01:31.000-05:00","updated":"2018-12-01T14:01:31.000-05:00"},"relationships":{"doi":{"data":{"id":"10.14454/05MB-Q396","type":"dois"}}}},"included":[{"id":"10.14454/05mb-q396","type":"dois","attributes":{"doi":"10.14454/05mb-q396","identifier":"https://handle.test.datacite.org/10.14454/05mb-q396","creators":[],"titles":[],"publisher":null,"periodical":null,"publicationYear":null,"subjects":[],"contributors":[],"dates":[],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork"},"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":[],"formats":[],"version":null,"rightsList":null,"descriptions":[],"geoLocations":null,"fundingReferences":null,"url":"https://www.datacite.org/roadmap.html","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"created":"2018-11-19T03:22:09.000-05:00","registered":null,"updated":"2018-11-20T17:15:32.000-05:00"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[{"id":"0000-0000-0000-n07c","type":"media"},{"id":"0000-0000-0000-n07d","type":"media"},{"id":"0000-0000-0000-n07b","type":"media"}]}}}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 01 Dec 2018 19:01:31 GMT
 recorded_with: VCR 3.0.3
