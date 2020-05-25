@@ -35,7 +35,7 @@ describe "dois", type: :request, vcr: true do
     end
 
     it "no dois" do
-      url = "https://api.test.datacite.org/dois/get-dois"
+      url = "https://api.stage.datacite.org/dois/get-dois"
       stub = stub_request(:get, url).to_return(status: 204, headers: { "Content-Type" => "text/plain" }, body: nil)
       get "/doi", nil, headers
 
@@ -51,7 +51,7 @@ describe "dois", type: :request, vcr: true do
     end
 
     it "no dois HEAD" do
-      url = "https://api.test.datacite.org/dois/get-dois"
+      url = "https://api.stage.datacite.org/dois/get-dois"
       stub = stub_request(:get, url).to_return(status: 204, headers: { "Content-Type" => "text/plain" }, body: nil)
       head "/doi", nil, headers
 

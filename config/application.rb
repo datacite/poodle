@@ -28,12 +28,21 @@ end
 # default values for some ENV variables
 ENV['APPLICATION'] ||= "mds"
 ENV['HOSTNAME'] ||= "mds.local"
-ENV['API_URL'] ||= "https://api.test.datacite.org"
-ENV['REALM'] ||= "mds.test.datacite.org"
+ENV['API_URL'] ||= "https://api.stage.datacite.org"
+ENV['REALM'] ||= "mds.stage.datacite.org"
 ENV['MEMCACHE_SERVERS'] ||= "memcached:11211"
 ENV['SITE_TITLE'] ||= "MDS API"
 ENV['LOG_LEVEL'] ||= "info"
 ENV['TRUSTED_IP'] ||= "10.0.90.1"
+
+def mds_url
+  case ENV["API_URL"]
+  when "https://api.datacite.org" then "https://mds.datacite.org"
+  when "https://api.test.datacite.org" then "https://mds.test.datacite.org"
+  when "https://api.stage.datacite.org" then "https://mds.stage.datacite.org"
+  end
+end
+
 
 module Poodle
   class Application < Rails::Application
