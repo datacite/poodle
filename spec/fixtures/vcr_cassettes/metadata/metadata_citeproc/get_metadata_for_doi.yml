@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.test.datacite.org/dois/10.5072/ey8x-9f93
+    uri: https://api.stage.datacite.org/dois/10.5072/ey8x-9f93
     body:
       encoding: US-ASCII
       string: ''
@@ -70,6 +70,6 @@ http_interactions:
             <description descriptionType="Abstract">Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...</description>
           </descriptions>
         </resource>
-    http_version: 
+    http_version:
   recorded_at: Fri, 07 Dec 2018 18:10:09 GMT
 recorded_with: VCR 3.0.3

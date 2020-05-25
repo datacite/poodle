@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: patch
-    uri: https://api.test.datacite.org/dois/10.5072/003r-j076
+    uri: https://api.stage.datacite.org/dois/10.5072/003r-j076
     body:
       encoding: UTF-8
       string: '{"data":{"type":"dois","attributes":{"event":"hide"},"relationships":{"client":{"data":{"type":"clients","id":"DATACITE.DATACITE"}}}}}'
@@ -48,6 +48,6 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.5072/003r-j076","type":"dois","attributes":{"doi":"10.5072/003r-j076","prefix":"10.5072","suffix":"003r-j076","identifier":"https://handle.test.datacite.org/10.5072/003r-j076","creators":null,"titles":null,"publisher":null,"periodical":null,"publicationYear":null,"subjects":null,"contributors":null,"dates":null,"language":null,"types":null,"alternateIdentifiers":null,"relatedIdentifiers":null,"sizes":null,"formats":null,"version":null,"rightsList":null,"descriptions":null,"geoLocations":null,"fundingReferences":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTA3Mi8wMDNSLUowNzY8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzLz4KICA8dGl0bGVzLz4KICA8cHVibGlzaGVyLz4KICA8cHVibGljYXRpb25ZZWFyLz4KICA8dmVyc2lvbi8+CjwvcmVzb3VyY2U+Cg==","url":null,"contentUrl":null,"metadataVersion":1,"schemaVersion":null,"source":"mds","isActive":false,"state":"draft","reason":null,"landingPage":null,"created":"2018-12-01T14:02:08.000-05:00","registered":null,"updated":"2018-12-01T14:02:09.000-05:00"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contactName":"Martin
         Fenner","contactEmail":"support@datacite.org","domains":"datacite.org","url":null,"created":"2011-12-07T08:43:39.000-05:00","updated":"2018-08-25T21:30:27.000-04:00","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"datacite","type":"providers"}},"prefixes":{"data":[{"id":"10.5438","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.14454","type":"prefixes"},{"id":"10.23725","type":"prefixes"},{"id":"10.70002","type":"prefixes"}]}}}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 01 Dec 2018 19:02:09 GMT
 recorded_with: VCR 3.0.3
