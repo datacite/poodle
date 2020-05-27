@@ -35,13 +35,7 @@ ENV['SITE_TITLE'] ||= "MDS API"
 ENV['LOG_LEVEL'] ||= "info"
 ENV['TRUSTED_IP'] ||= "10.0.90.1"
 
-ENV["MDS_URL"] =
-  case ENV["API_URL"]
-  when "https://api.datacite.org" then "https://mds.datacite.org"
-  when "https://api.test.datacite.org" then "https://mds.test.datacite.org"
-  when "https://api.stage.datacite.org" then "https://mds.stage.datacite.org"
-  end
-
+ENV["MDS_URL"] ||= Rails.env.production? ? "https://mds.datacite.org" : "https://mds.test.datacite.org"
 
 module Poodle
   class Application < Rails::Application
