@@ -36,12 +36,12 @@ ENV['LOG_LEVEL'] ||= "info"
 ENV['TRUSTED_IP'] ||= "10.0.90.1"
 
 ENV["MDS_URL"] =
-  case ENV["API_URL"]
-  when "https://api.datacite.org" then "https://mds.datacite.org"
-  when "https://api.test.datacite.org" then "https://mds.test.datacite.org"
-  when "https://api.stage.datacite.org" then "https://mds.stage.datacite.org"
+  case Rails.env
+  when "production" then "https://mds.datacite.org"
+  when "test" then "https://mds.test.datacite.org"
+  when "stage" then "https://mds.stage.datacite.org"
+  when "development" then "https://mds.stage.datacite.org"
   end
-
 
 module Poodle
   class Application < Rails::Application
