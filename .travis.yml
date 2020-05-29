@@ -52,12 +52,12 @@ after_success:
       export GIT_TAG=$(git describe --tags $(git rev-list --tags --max-count=1));
       git clone "https://${TRAVIS_SECURE_TOKEN}@github.com/datacite/mastino.git";
       ./dockerize -template vendor/docker/_poodle.auto.tfvars.tmpl:mastino/stage/services/mds/_poodle.auto.tfvars;
-      ./dockerize -template vendor/docker/_poodle.auto.tfvars.tmpl:mastino/test/services/mds/_poodle.auto.tfvars;
-
+      
       sentry-cli releases new poodle:${GIT_TAG} --finalize --project poodle;
 
       if [ "${TRAVIS_TAG?}" ]; then
         ./dockerize -template vendor/docker/_poodle.auto.tfvars.tmpl:mastino/prod-eu-west/services/mds/_poodle.auto.tfvars;
+        ./dockerize -template vendor/docker/_poodle.auto.tfvars.tmpl:mastino/test/services/mds/_poodle.auto.tfvars;
         sentry-cli releases deploys poodle:${GIT_TAG} new -e production;
       else
         sentry-cli releases deploys poodle:${GIT_TAG} new -e stage;
@@ -72,11 +72,11 @@ after_success:
       
       if [ "${TRAVIS_TAG?}" ]; then
         git add prod-eu-west/services/mds/_poodle.auto.tfvars;
+        git add test/services/mds/_poodle.auto.tfvars;
         git commit -m "Adding poodle git variables for commit tagged ${TRAVIS_TAG?}";
         git push "https://${TRAVIS_SECURE_TOKEN}@github.com/datacite/mastino.git" master;
       else
         git add stage/services/mds/_poodle.auto.tfvars;
-        git add test/services/mds/_poodle.auto.tfvars;
         git commit -m "Adding poodle git variables for latest commit";
         git push "https://${TRAVIS_SECURE_TOKEN}@github.com/datacite/mastino.git" master;
       fi
