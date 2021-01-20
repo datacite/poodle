@@ -1,6 +1,6 @@
 # Poodle
 
-[![Build Status](https://travis-ci.org/datacite/poodle.svg?branch=master)](https://travis-ci.org/datacite/poodle) [![Maintainability](https://api.codeclimate.com/v1/badges/ddb43ea782a1f201edfc/maintainability)](https://codeclimate.com/github/datacite/poodle/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ddb43ea782a1f201edfc/test_coverage)](https://codeclimate.com/github/datacite/poodle/test_coverage)
+![Release](https://github.com/datacite/poodle/workflows/Release/badge.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/ddb43ea782a1f201edfc/maintainability)](https://codeclimate.com/github/datacite/poodle/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ddb43ea782a1f201edfc/test_coverage)](https://codeclimate.com/github/datacite/poodle/test_coverage)
 
 DataCite MDS API, enabling DOI and metadata registration. The application does not store any data internally, but uses the DataCite REST API as backend service.
 
@@ -36,11 +36,12 @@ Follow along via [Github Issues](https://github.com/datacite/poddle/issues).
 
 ### Note on Patches/Pull Requests
 
-* Fork the project
-* Write tests for your new feature or a test that reproduces a bug
-* Implement your feature or make a bug fix
-* Do not mess with Rakefile, version or history
-* Commit, push and make a pull request. Bonus points for topical branches.
+- Fork the project
+- Write tests for your new feature or a test that reproduces a bug
+- Implement your feature or make a bug fix
+- Do not mess with Rakefile, version or history
+- Commit, push and make a pull request. Bonus points for topical branches.
 
 ## License
+
 **Poodle** is released under the [MIT License](https://github.com/datacite/poodle/blob/master/LICENSE).
