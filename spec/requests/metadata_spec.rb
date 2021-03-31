@@ -425,4 +425,50 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
     end
   end
+
+  describe "metadata 4.4", type: :request do
+    let(:doi_id) { "10.80225/fdsrf-232" }
+    let(:data) { file_fixture("datacite-example-full-v4.4.xml").read }
+    let(:headers) { { "CONTENT_TYPE" => "application/xml;charset=UTF-8", "HTTP_AUTHORIZATION" => "Basic " + credentials } }
+
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+    end
+
+    it "get metadata for doi" do
+      get "/metadata/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(200)
+
+      metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
+      expect(metadata.dig("subjects", "subject", "classificationCode")).to eq("000")
+      expect(metadata.dig("relatedItems", "relatedItem")).to eq(
+        {
+          "firstPage" => "249",
+          "lastPage" => "264",
+          "publicationYear" => "2018",
+          "relatedItemIdentifier" =>
+            { "__content__" => "10.1016/j.physletb.2017.11.044",
+            "relatedItemIdentifierType" => "DOI" },
+          "relatedItemType" => "Journal",
+          "relationType" => "IsPublishedIn",
+          "titles" => { "title" => "Physics letters / B" },
+          "volume" => "776"
+        }
+      )
+    end
+
+    it "register doi" do
+      doi_data = "doi=#{doi_id}\nurl=https://www.example.com/example"
+
+      put "/doi/#{doi_id}", doi_data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK")
+    end
+
+  end
 end
