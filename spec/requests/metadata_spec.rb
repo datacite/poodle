@@ -425,4 +425,27 @@ describe "metadata", type: :request, vcr: true, order: :defined do
       expect(last_response.body).to eq("OK (#{doi_id.upcase})")
     end
   end
+
+  describe "metadata 4.4", type: :request do
+    let(:doi_id) { "10.5072/fdsrf-232" }
+    let(:data) { file_fixture("datacite-example-full-v4.4.xml").read }
+    let(:headers) { { "HTTP_AUTHORIZATION" => "Basic " + credentials, "CONTENT_TYPE" => "text/plain;charset=UTF-8" } }
+
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+    end
+
+    it "register doi" do
+      doi_data = "doi=#{doi_id}\nurl=https://www.example.com/example"
+
+      put "/doi/#{doi_id}", doi_data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK")
+    end
+
+  end
 end
