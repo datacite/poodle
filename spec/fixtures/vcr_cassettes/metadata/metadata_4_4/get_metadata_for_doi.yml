@@ -1,0 +1,165 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.stage.datacite.org/dois/10.80225/fdsrf-232
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.4; mailto:info@datacite.org)
+      Accept:
+      - application/vnd.datacite.datacite+xml
+      Authorization:
+      - Basic <MDS_TOKEN>
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Wed, 31 Mar 2021 12:30:12 GMT
+      Content-Type:
+      - application/vnd.datacite.datacite+xml; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Credential-Username:
+      - datacite.test
+      X-Request-Id:
+      - 68c1dea5-b17f-40d3-b9b8-288d959da430
+      Etag:
+      - W/"c3933b45b5df5d9d9ed96d59193420eb"
+      X-Runtime:
+      - '0.038261'
+      X-Rack-Cors:
+      - miss; no-origin
+      X-Powered-By:
+      - Phusion Passenger 6.0.7
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 6.0.7
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 https://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
+          <identifier identifierType="DOI">10.80225/FDSRF-232</identifier>
+          <creators>
+            <creator>
+              <creatorName nameType="Personal">Miller, Elizabeth</creatorName>
+              <givenName>Elizabeth</givenName>
+              <familyName>Miller</familyName>
+              <nameIdentifier schemeURI="https://orcid.org/" nameIdentifierScheme="ORCID">0000-0001-5000-0007</nameIdentifier>
+              <affiliation>DataCite</affiliation>
+            </creator>
+          </creators>
+          <titles>
+            <title xml:lang="en-US">Full DataCite XML Example</title>
+            <title xml:lang="en-US" titleType="Subtitle">Demonstration of DataCite Properties.</title>
+          </titles>
+          <publisher xml:lang="en">DataCite</publisher>
+          <publicationYear>2014</publicationYear>
+          <subjects>
+            <subject xml:lang="en-US" schemeURI="http://dewey.info/" subjectScheme="dewey" classificationCode="000">computer science</subject>
+          </subjects>
+          <contributors>
+            <contributor contributorType="ProjectLeader">
+              <contributorName>Starr, Joan</contributorName>
+              <givenName>Joan</givenName>
+              <familyName>Starr</familyName>
+              <nameIdentifier schemeURI="https://orcid.org/" nameIdentifierScheme="ORCID">0000-0002-7285-027X</nameIdentifier>
+              <affiliation>California Digital Library</affiliation>
+            </contributor>
+          </contributors>
+          <dates>
+            <date dateType="Updated" dateInformation="Updated with 4.4 properties">2021-01-26</date>
+          </dates>
+          <language>en-US</language>
+          <resourceType resourceTypeGeneral="Software">XML</resourceType>
+          <alternateIdentifiers>
+            <alternateIdentifier alternateIdentifierType="URL">https://schema.datacite.org/meta/kernel-4.4/example/datacite-example-full-v4.4.xml</alternateIdentifier>
+          </alternateIdentifiers>
+          <relatedIdentifiers>
+            <relatedIdentifier relatedIdentifierType="URL" relationType="HasMetadata" relatedMetadataScheme="citeproc+json" schemeURI="https://github.com/citation-style-language/schema/raw/master/csl-data.json">https://data.datacite.org/application/citeproc+json/10.5072/example-full</relatedIdentifier>
+            <relatedIdentifier relatedIdentifierType="arXiv" relationType="IsReviewedBy" resourceTypeGeneral="Text">arXiv:0706.0001</relatedIdentifier>
+          </relatedIdentifiers>
+          <sizes>
+            <size>4 kB</size>
+          </sizes>
+          <formats>
+            <format>application/xml</format>
+          </formats>
+          <version>4.2</version>
+          <rightsList>
+            <rights xml:lang="en-US" schemeURI="https://spdx.org/licenses/" rightsIdentifierScheme="SPDX" rightsIdentifier="CC0 1.0" rightsURI="https://creativecommons.org/publicdomain/zero/1.0/"/>
+          </rightsList>
+          <descriptions>
+            <description xml:lang="en-US" descriptionType="Abstract">XML example of all DataCite Metadata Schema v4.4 properties.</description>
+          </descriptions>
+          <geoLocations>
+            <geoLocation>
+              <geoLocationPlace>Atlantic Ocean</geoLocationPlace>
+              <geoLocationPoint>
+                <pointLongitude>-67.302</pointLongitude>
+                <pointLatitude>31.233</pointLatitude>
+              </geoLocationPoint>
+              <geoLocationBox>
+                <westBoundLongitude>-71.032</westBoundLongitude>
+                <eastBoundLongitude>-68.211</eastBoundLongitude>
+                <southBoundLatitude>41.090</southBoundLatitude>
+                <northBoundLatitude>42.893</northBoundLatitude>
+              </geoLocationBox>
+              <geoLocationPolygon>
+                <polygonPoint>
+                  <pointLatitude>41.991</pointLatitude>
+                  <pointLongitude>-71.032</pointLongitude>
+                </polygonPoint>
+                <polygonPoint>
+                  <pointLatitude>42.893</pointLatitude>
+                  <pointLongitude>-69.622</pointLongitude>
+                </polygonPoint>
+                <polygonPoint>
+                  <pointLatitude>41.991</pointLatitude>
+                  <pointLongitude>-68.211</pointLongitude>
+                </polygonPoint>
+                <polygonPoint>
+                  <pointLatitude>41.090</pointLatitude>
+                  <pointLongitude>-69.622</pointLongitude>
+                </polygonPoint>
+                <polygonPoint>
+                  <pointLatitude>41.991</pointLatitude>
+                  <pointLongitude>-71.032</pointLongitude>
+                </polygonPoint>
+              </geoLocationPolygon>
+            </geoLocation>
+          </geoLocations>
+          <fundingReferences>
+            <fundingReference>
+              <funderName>National Science Foundation</funderName>
+              <funderIdentifier funderIdentifierType="Crossref Funder ID">https://doi.org/10.13039/100000001</funderIdentifier>
+              <awardNumber>CBET-106</awardNumber>
+              <awardTitle>Full DataCite XML Example</awardTitle>
+            </fundingReference>
+          </fundingReferences>
+          <relatedItems>
+            <relatedItem relationType="IsPublishedIn" relatedItemType="Journal">
+              <relatedItemIdentifier relatedItemIdentifierType="DOI">10.1016/j.physletb.2017.11.044</relatedItemIdentifier>
+              <titles>
+                <title>Physics letters / B</title>
+              </titles>
+              <publicationYear>2018</publicationYear>
+              <volume>776</volume>
+              <firstPage>249</firstPage>
+              <lastPage>264</lastPage>
+            </relatedItem>
+          </relatedItems>
+        </resource>
+    http_version: 
+  recorded_at: Wed, 31 Mar 2021 12:30:11 GMT
+recorded_with: VCR 3.0.3
