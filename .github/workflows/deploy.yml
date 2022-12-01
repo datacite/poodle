@@ -77,9 +77,9 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ github.repository }}:latest
-          # cache-from: type=local,src=/tmp/.buildx-cache
-          # cache-to: type=local,dest=/tmp/.buildx-cache
-          no-cache: true
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          # no-cache: true
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
@@ -87,9 +87,9 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
-          # cache-from: type=local,src=/tmp/.buildx-cache
-          # cache-to: type=local,dest=/tmp/.buildx-cache
-          no-cache: true
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          # no-cache: true
 
   deploy:
     needs: [test, build]
