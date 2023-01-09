@@ -24,7 +24,7 @@ gem "tzinfo-data", "~> 1.2017", ">= 1.2017.3"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "rack-cors", "~> 1.0", require: "rack/cors"
 gem "rack-utf8_sanitizer", "~> 1.6"
-gem "git", "~> 1.5"
+gem "git", "~> 1.13"
 gem "sprockets", "~> 3.7", ">= 3.7.2"
 
 group :development, :test do
