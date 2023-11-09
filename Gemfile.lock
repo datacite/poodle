@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/datacite/bolognese
-  revision: 4e5584329a66d801adc629da90a01e6fc990d36c
+  revision: 714d71a4a2169d1880ccb296df3ca1331e0e1a83
   branch: schema-4.5
   specs:
-    bolognese (1.11.2)
+    bolognese (1.11.5)
       activesupport (>= 4.2.5)
       benchmark_methods (~> 0.7)
       bibtex-ruby (>= 5.1.0)
@@ -201,15 +201,13 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.0.3)
-    mini_portile2 (2.8.4)
     minitest (5.14.4)
     msgpack (1.4.2)
     multi_json (1.15.0)
     multipart-post (2.3.0)
     namae (1.1.1)
     nio4r (2.5.7)
-    nokogiri (1.13.10)
-      mini_portile2 (~> 2.8.0)
+    nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     oj (3.11.3)
     oj_mimic_json (1.0.1)
@@ -350,7 +348,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   base32-url (~> 0.5)
