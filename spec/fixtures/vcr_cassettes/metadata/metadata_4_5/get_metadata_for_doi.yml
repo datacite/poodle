@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.stage.datacite.org/dois/10.80225/dcmd-v45p0t0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.9.8; mailto:info@datacite.org)
+      Accept:
+      - application/vnd.datacite.datacite+xml
+      Authorization:
+      - Basic <MDS_TOKEN>
+      Accept-Encoding:
+      - gzip,deflate
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Content-Type:
+      - application/vnd.datacite.datacite+xml; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept,Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Credential-Username:
+      - datacite.test
+      X-Request-Id:
+      - 2297716c-912e-4cc9-a399-466de196bf75
+      X-Download-Options:
+      - noopen
+      Etag:
+      - W/"439d4a7c9a16e295c02fb918333b2b82"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.012176'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Thu, 16 Nov 2023 20:22:01 GMT
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.18
+      Server:
+      - nginx/1.18.0 + Phusion Passenger(R) 6.0.18
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, PATCH, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - Accept,Access-Control-Allow-Origin,Access-Control-Expose-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Headers,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Mx-ReqToken,X-Requested-With
+      Access-Control-Expose-Headers:
+      - Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Thu, 16 Nov 2023 20:22:01 GMT
+recorded_with: VCR 3.0.3

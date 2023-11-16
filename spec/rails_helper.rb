@@ -20,9 +20,15 @@ WebMock.disable_net_connect!(
   allow_localhost: true
 )
 
+WebMock.disable_net_connect!(
+  allow: ['codeclimate.com:443', ENV['PRIVATE_IP'], ENV['HOSTNAME'], 'whirlwind.local', 'lupo_web_1'],
+  allow_localhost: true
+)
+
+
 VCR.configure do |c|
   mds_token = Base64.strict_encode64("#{ENV['MDS_USERNAME']}:#{ENV['MDS_PASSWORD']}")
-
+  ## c.allow_http_connections_when_no_cassette = true
   c.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   c.hook_into :webmock
   c.ignore_localhost = true
@@ -37,6 +43,9 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods, :type => :api
   config.include Rack::Test::Methods, :type => :request
   config.include Rack::Test::Methods, :type => :controller
+
+  # VCR.turn_off!(:ignore_cassettes => true)
+  # WebMock.allow_net_connect!
 
   def app
     Rails.application
