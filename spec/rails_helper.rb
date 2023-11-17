@@ -16,19 +16,14 @@ require "rack/test"
 require "maremma"
 
 WebMock.disable_net_connect!(
-  allow: ['codeclimate.com:443', ENV['PRIVATE_IP'], ENV['HOSTNAME']],
+  allow: ['codeclimate.com:443'],
+  # allow: ['codeclimate.com:443', ENV['PRIVATE_IP'], ENV['HOSTNAME']],
+  # allow: ['codeclimate.com:443', ENV['PRIVATE_IP'], ENV['HOSTNAME'], 'whirlwind.local', 'lupo_web_1'],
   allow_localhost: true
 )
-
-WebMock.disable_net_connect!(
-  allow: ['codeclimate.com:443', ENV['PRIVATE_IP'], ENV['HOSTNAME'], 'whirlwind.local', 'lupo_web_1'],
-  allow_localhost: true
-)
-
 
 VCR.configure do |c|
   mds_token = Base64.strict_encode64("#{ENV['MDS_USERNAME']}:#{ENV['MDS_PASSWORD']}")
-  ## c.allow_http_connections_when_no_cassette = true
   c.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   c.hook_into :webmock
   c.ignore_localhost = true
@@ -36,6 +31,9 @@ VCR.configure do |c|
   # c.ignore_request { |request| URI(request.uri).path.start_with("shoulder") }
   c.filter_sensitive_data("<MDS_TOKEN>") { mds_token }
   c.configure_rspec_metadata!
+
+  # c.allow_http_connections_when_no_cassette = true
+  # c.ignore_hosts "codeclimate.com", "api.stage.datacite.org", "whirlwind.local", "lupo_web_1"
 end
 
 RSpec.configure do |config|
