@@ -18,6 +18,8 @@ vendor/bundle/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+.DS_Store
+._.DS_Store
 
 # Ignore uploaded files in development
 /storage/*
