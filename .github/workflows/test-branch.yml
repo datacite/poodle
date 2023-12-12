@@ -1,7 +1,17 @@
-name: Test Branch
+name: Build/Deploy Branch to Staging
 on:
   workflow_dispatch:
 jobs:
   test:
     uses: ./.github/workflows/ci.yml
+    secrets: inherit
+  call_build_and_push:
+    needs: test
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+  deploy:
+    needs: [test, call_build_and_push]
+    uses: ./.github/workflows/_update_terraform.yml
+    with:
+      deployment_environment: staging
     secrets: inherit
