@@ -6,6 +6,15 @@ on:
         required: true
       DOCKERHUB_TOKEN:
         required: true
+    inputs:
+      image_name:
+        description: The name of the image for docker/ghcr registries
+        required: true
+        type: string
+      image_tag:
+        description: Tag for the image for docker/ghcr registries
+        required: true
+        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,27 +41,15 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Get git tag
-        run: |
-          echo "GIT_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_OUTPUT
-        id: set_git_vars
-      - name: Push to Docker Hub
+      - name: Build and Push
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ github.repository }}:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
-          # no-cache: true
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ghcr.io/${{ github.repository }}:latest
+          tags: |
+            ${{ inputs.image_name }}:${{ inputs.image_tag }}
+            ghcr.io/${{ inputs.image_name }}:${{ inputs.image_tag }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
           # no-cache: true
