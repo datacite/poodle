@@ -1,7 +1,13 @@
-name: Test Branch
+name: CI
 on:
-  workflow_dispatch:
-
+  workflow_call:
+    secrets:
+      MDS_USERNAME:
+        required: true
+      MDS_PASSWORD:
+        required: true
+      CC_TEST_REPORTER_ID:
+        required: true
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -27,14 +33,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
       - name: Install
+        env:
+          MYSQL_PORT: ${{ job.services.mysql.ports[3306] }}
         run: |
           gem install bundler
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
-      - name: Lint and Test
+      - name: (Lint and) Test
         env:
           MEMCACHE_SERVERS: "localhost:11211"
         run: |
           # bundle exec rubocop
           bundle exec rspec
           echo $?
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v3.1.1
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
