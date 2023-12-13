@@ -52,16 +52,16 @@ jobs:
           git add stage/services/mds/_poodle.auto.tfvars
           git commit -m "Adding poodle git variables for commit ${{ steps.extract_variables.outputs.GIT_SHA }}"
 
-      #- name: Conditionally update production/test environments
-      #  if: ${{ (inputs.deployment_environment == 'production') }}
-      #  run: |
-      #    export GIT_SHA=${{ steps.extract_variables.outputs.GIT_SHA_SHORT }}
-      #    export GIT_TAG=${{ steps.extract_variables.outputs.GIT_TAG }}
-      #    ./dockerize -template prod-eu-west/services/mds/_poodle.auto.tfvars.tmpl:prod-eu-west/services/mds/_poodle.auto.tfvars
-      #    ./dockerize -template test/services/mds/_poodle.auto.tfvars.tmpl:test/services/mds/_poodle.auto.tfvars
-      #    git add prod-eu-west/services/mds/_poodle.auto.tfvars
-      #    git add test/services/mds/_poodle.auto.tfvars
-      #    git commit -m "Adding poodle git variables for tag ${{ steps.extract_variables.outputs.GIT_TAG }}"
+      - name: Conditionally update production/test environments
+        if: ${{ (inputs.deployment_environment == 'production') }}
+        run: |
+          export GIT_SHA=${{ steps.extract_variables.outputs.GIT_SHA_SHORT }}
+          export GIT_TAG=${{ steps.extract_variables.outputs.GIT_TAG }}
+          ./dockerize -template prod-eu-west/services/mds/_poodle.auto.tfvars.tmpl:prod-eu-west/services/mds/_poodle.auto.tfvars
+          ./dockerize -template test/services/mds/_poodle.auto.tfvars.tmpl:test/services/mds/_poodle.auto.tfvars
+          git add prod-eu-west/services/mds/_poodle.auto.tfvars
+          git add test/services/mds/_poodle.auto.tfvars
+          git commit -m "Adding poodle git variables for tag ${{ steps.extract_variables.outputs.GIT_TAG }}"
 
       - name: Push changes
         uses: ad-m/github-push-action@v0.7.0
