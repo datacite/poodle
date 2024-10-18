@@ -11,7 +11,7 @@ RUN usermod -a -G docker_env app
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
 
-# Use Ruby 2.6.9
+# Use Ruby 3.1.4
 RUN bash -lc 'rvm --default use ruby-3.1.4'
 
 # Update installed APT packages
@@ -44,7 +44,7 @@ RUN mkdir -p /home/app/webapp/vendor/bundle && \
 
 # Install Ruby gems
 WORKDIR /home/app/webapp
-RUN gem install bundler && \
+RUN gem install bundler:2.5.6 && \
     /sbin/setuser app bundle install --path vendor/bundle
 
 # Run additional scripts during container startup (i.e. not at build time)
