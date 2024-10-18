@@ -10,14 +10,14 @@ module Doiable
       end.to_h
 
       fail IdentifierError, "param 'doi' required" unless hsh["doi"].present?
-      fail IdentifierError, "doi parameter does not match doi of resource" if doi.present? && URI.unescape(hsh["doi"].strip).casecmp(doi) != 0
+      fail IdentifierError, "doi parameter does not match doi of resource" if doi.present? && CGI.unescape(hsh["doi"].strip).casecmp(doi) != 0
       
-      doi = URI.unescape(hsh["doi"].strip) unless doi.present?
+      doi = CGI.unescape(hsh["doi"].strip) unless doi.present?
       fail AbstractController::ActionNotFound unless doi.present?
       
       fail IdentifierError, "param 'url' required" unless hsh["url"].present?
 
-      [doi, URI.unescape(hsh["url"].strip)]
+      [doi, CGI.unescape(hsh["url"].strip)]
     end
   end
 
