@@ -9,7 +9,7 @@ gem "oj_mimic_json", "~> 1.0", ">= 1.0.1"
 gem "equivalent-xml", "~> 0.6.0"
 gem "nokogiri", ">= 1.10.4"
 gem "iso8601", "~> 0.9.0"
-gem "bolognese", "~> 2.2", git: "https://github.com/datacite/bolognese.git", branch: "schema-4.6" #change to 2.3 when released
+gem "bolognese", "~> 2.2"
 gem "maremma", ">= 4.9.8"
 gem "faraday", ">= 2.0", "< 3.0.0"
 gem "base32-url", "~> 0.5"
