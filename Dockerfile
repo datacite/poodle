@@ -44,7 +44,7 @@ RUN mkdir -p /home/app/webapp/vendor/bundle && \
 
 # Install Ruby gems
 WORKDIR /home/app/webapp
-RUN gem install bundler:2.5.6 && \
+RUN gem install bundler:2.4.22 && \
     /sbin/setuser app bundle install --path vendor/bundle
 
 # Run additional scripts during container startup (i.e. not at build time)
