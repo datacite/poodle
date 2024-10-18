@@ -21,7 +21,7 @@ jobs:
       MDS_USERNAME: ${{ secrets.MDS_USERNAME }}
       MDS_PASSWORD: ${{ secrets.MDS_PASSWORD }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Ruby 3.1.4
         uses: ruby/setup-ruby@v1
         with:
