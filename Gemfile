@@ -13,7 +13,7 @@ gem "bolognese", "~> 2.2"
 gem "maremma", ">= 4.9.8"
 gem "faraday", ">= 2.0", "< 3.0.0"
 gem "base32-url", "~> 0.5"
-gem "dalli", "~> 2.7.6"
+gem "dalli", "~> 3.2", ">= 3.2.8"
 gem "lograge", "~> 0.11.2"
 gem "logstash-event", "~> 1.2", ">= 1.2.02"
 gem "logstash-logger", "~> 0.26.1"
@@ -26,6 +26,7 @@ gem "rack-cors", "~> 1.0", require: "rack/cors"
 gem "rack-utf8_sanitizer", "~> 1.6"
 gem "git", "~> 1.5"
 gem "sprockets", "~> 3.7", ">= 3.7.2"
+gem 'next_rails'
 
 group :development, :test do
   gem "better_errors"

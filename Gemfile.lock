@@ -145,7 +145,7 @@ GEM
       rexml
     csl-styles (1.0.1.11)
       csl (~> 1.0)
-    dalli (2.7.11)
+    dalli (3.2.8)
     date (3.3.4)
     debug_inspector (1.1.0)
     diff-lcs (1.4.4)
@@ -271,6 +271,8 @@ GEM
       timeout
     net-smtp (0.5.0)
       net-protocol
+    next_rails (1.4.0)
+      rainbow (>= 3)
     nio4r (2.7.3)
     nokogiri (1.16.7-arm64-darwin)
       racc (~> 1.4)
@@ -452,7 +454,7 @@ DEPENDENCIES
   cancancan (~> 2.0)
   capybara
   codeclimate-test-reporter (~> 1.0.0)
-  dalli (~> 2.7.6)
+  dalli (~> 3.2, >= 3.2.8)
   dotenv
   equivalent-xml (~> 0.6.0)
   faraday (>= 2.0, < 3.0.0)
@@ -464,6 +466,7 @@ DEPENDENCIES
   logstash-event (~> 1.2, >= 1.2.02)
   logstash-logger (~> 0.26.1)
   maremma (>= 4.9.8)
+  next_rails
   nokogiri (>= 1.10.4)
   oj (>= 2.8.3)
   oj_mimic_json (~> 1.0, >= 1.0.1)
