@@ -11,20 +11,20 @@ describe Metadatable, vcr: true, order: :defined do
   let(:datav3a) { file_fixture("datacite-v3a.xml").read }
   let(:datav4a) { file_fixture("datacite-v4a.xml").read }
   let(:doiv3) { "10.14454/0000-v3" }
-  let(:doiv3a) { "10.14454/0000-0002" }
-  let(:doiv4a) { "10.14454/0000-0002" }
+  let(:doiv3a) { "10.14454/0000-0003" }
+  let(:doiv4a) { "10.14454/0000-0003" }
   
   context "versions" do
     subject { MetadataController }
 
-    it "should not register metadata" do
+    it "should not register invalid version of metadata" do
       options = { data: datav3, username: username, password: password }
       response = subject.create_metadata(doiv3, options)
       expect(response.status).to eq(422)
       expect(response.body.dig("errors")).to eq([{"status"=>422, "title"=>"DOI 10.14454/0000-v3: Schema http://datacite.org/schema/kernel-3 is no longer supported"}])
     end
 
-    it "should get v3 and update registered metadata as v4" do
+    it "should get v3 metadata and update registered metadata as v4" do
       options = { username: username, password: password }
       expect(subject.get_metadata(doiv3a, options).body.dig("data")).to eq(datav3a.strip)
  
