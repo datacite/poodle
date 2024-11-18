@@ -46,7 +46,7 @@ RUN mkdir -p /home/app/webapp/vendor/bundle && \
 WORKDIR /home/app/webapp
 RUN gem install rubygems-update -v 3.5.6 && \
     gem install bundler:2.5.6 && \
-    su - app -c "bundle install --path vendor/bundle"
+    /sbin/setuser app bundle install --path vendor/bundle
 
 # Run additional scripts during container startup (i.e. not at build time)
 WORKDIR /home/app/webapp
