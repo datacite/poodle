@@ -89,7 +89,7 @@ GEM
     bigdecimal (3.1.8)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
-    bolognese (2.3.0)
+    bolognese (2.3.2)
       activesupport (>= 4.2.5)
       benchmark_methods (~> 0.7)
       bibtex-ruby (>= 5.1.0)
@@ -448,7 +448,7 @@ DEPENDENCIES
   base32-url (~> 0.5)
   better_errors
   binding_of_caller
-  bolognese (~> 2.3)
+  bolognese (~> 2.3.2)
   bootsnap (>= 1.1.0)
   byebug
   cancancan (~> 2.0)
