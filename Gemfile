@@ -27,6 +27,7 @@ gem "rack-utf8_sanitizer", "~> 1.6"
 gem "git", "~> 1.5"
 gem "sprockets", "~> 3.7", ">= 3.7.2"
 gem 'next_rails'
+gem 'base64', '~> 0.2.0'
 
 group :development, :test do
   gem "better_errors"
@@ -38,7 +39,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "listen", "~> 3.0.5"
+  gem "listen", "~> 3.7.1"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   # gem "httplog", "~> 1.0"
