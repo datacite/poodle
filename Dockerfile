@@ -1,4 +1,4 @@
-FROM phusion/passenger-full:2.1.0
+FROM phusion/passenger-full:3.0.7
 LABEL maintainer="mfenner@datacite.org"
 
 # Set correct environment variables.
@@ -11,8 +11,9 @@ RUN usermod -a -G docker_env app
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
 
-# Use Ruby 2.6.9
-RUN bash -lc 'rvm --default use ruby-2.6.9'
+# Use Ruby 3.1.4
+RUN bash -lc 'rvm install ruby-3.2.0' && \
+    bash -lc 'rvm --default use ruby-3.2.0'
 
 # Update installed APT packages
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
@@ -44,8 +45,10 @@ RUN mkdir -p /home/app/webapp/vendor/bundle && \
 
 # Install Ruby gems
 WORKDIR /home/app/webapp
-RUN gem install bundler && \
-    /sbin/setuser app bundle install --path vendor/bundle
+RUN gem install rubygems-update -v 3.5.6 && \
+    gem install bundler:2.5.6 && \
+    su - app -c "bundle config set path 'vendor/bundle'" && \
+    su - app -c 'cd /home/app/webapp && bundle install'
 
 # Run additional scripts during container startup (i.e. not at build time)
 WORKDIR /home/app/webapp
