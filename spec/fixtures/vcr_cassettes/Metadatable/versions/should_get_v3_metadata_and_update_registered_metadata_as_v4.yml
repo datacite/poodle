@@ -1,0 +1,145 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.stage.datacite.org/dois/10.14454/0000-0003
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.9.8; mailto:info@datacite.org)
+      Accept:
+      - application/vnd.datacite.datacite+xml
+      Authorization:
+      - Basic <MDS_TOKEN>
+      Accept-Encoding:
+      - gzip,deflate
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Content-Type:
+      - application/vnd.datacite.datacite+xml; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept,Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - '0'
+      X-Credential-Username:
+      - datacite.test
+      X-Request-Id:
+      - a48469d3-6965-48a6-9eeb-d7d3d9b8e71e
+      Etag:
+      - W/"a9852281f1a0284e03ef09289feb07ec"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.018399'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 28 Oct 2024 15:48:35 GMT
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.23
+      Server:
+      - nginx/1.18.0 + Phusion Passenger(R) 6.0.23
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, PATCH, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - Accept,Access-Control-Allow-Origin,Access-Control-Expose-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Headers,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Mx-ReqToken,X-Requested-With
+      Access-Control-Expose-Headers:
+      - Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAFOyH2cAA8SUXWvbMBSG7/srhK4Ty/kYjKC4jJXSjGYbW8rSS9U+tsVkKUhyPvrrp0hxlKzQdLCxgIPeN8+RX58ci15vG4HWoA1XcooHSYoRyFwVXFZT/LC47b/H19kV1WBUq3NADpdmsjV8imtrVxNCNptNshklSldkmKYDspzff89raFifS2OZzAGHqmNFwSzLuQVfYzxLfoKWIPojxxo+Cea9ypn1ud5QiA5MsJMztAEbQa/2PydbU+DsCiHKC5CWlxw0isvFbgVTfPNlhrNBmgzG43djkrpP310jSiLot8g1MKu02Ysog4r6M2sASfcVNv/q+q4kEzhbaLZWwrIe+qRqSckJf9yj4muQ3glM1B1RsoaLnbe6DSk5MUM2chbuj6Mue2iuLyXcE6/mW/79YHP1zLTtoR9KlBWTFfrQsAJacynrS/7V5OE2F+IfhR8IarkV0M2GF9kCjEWL/ZKS4PiySNJV+yS4qd2APUjuX1G7Q6pEMyG4VNwgZtHHmuesUpRE+FgaXp5HYDobpsPxgTlx/dwqaTV/ak9nN1roZB3a/Y1XtTV3ShSgcfxrIuYbctPqmjUo5nb9+A3pehbtt9z+ThnrjqaZO1m4bfdP8h9C3Lby3zz9mRGGwPBnMMQvS6UbZg/icGQ7QUl3OGe/AAAA//8DAED7AvXOBQAA
+    http_version: 
+  recorded_at: Mon, 28 Oct 2024 15:48:35 GMT
+- request:
+    method: put
+    uri: https://api.stage.datacite.org/dois/10.14454/0000-0003
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"dois","attributes":{"doi":"10.14454/0000-0003","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMTQ0NTQvMDAwMC0wMDAzPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5UcmF2b2x0YSwgSm9objwvY3JlYXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+Sm9objwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5UcmF2b2x0YTwvZmFtaWx5TmFtZT4KICAgIDwvY3JlYXRvcj4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5YLCBNcjwvY3JlYXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+TXI8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+WDwvZmFtaWx5TmFtZT4KICAgIDwvY3JlYXRvcj4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5Nb3phcnQsIFdvbGZnYW5nIEFtYWRldXM8L2NyZWF0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPldvbGZnYW5nIEFtYWRldXM8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+TW96YXJ0PC9mYW1pbHlOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5UZXN0IFRpdGxlPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkNlbnN1cyBEYXRhPC9yZXNvdXJjZVR5cGU+CiAgPHB1Ymxpc2hlcj5Vbml2ZXJzaXR5IG9mIElsbGlub2lzIGF0IENoaWNhZ288L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMjQ8L3B1YmxpY2F0aW9uWWVhcj4KICA8Y29udHJpYnV0b3JzPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iUmlnaHRzSG9sZGVyIj4KICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5EdXJoYW0gVW5pdmVyc2l0eTwvY29udHJpYnV0b3JOYW1lPgogICAgPC9jb250cmlidXRvcj4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9Ikhvc3RpbmdJbnN0aXR1dGlvbiI+CiAgICAgIDxjb250cmlidXRvck5hbWU+RHVyaGFtIFVuaXZlcnNpdHk8L2NvbnRyaWJ1dG9yTmFtZT4KICAgIDwvY29udHJpYnV0b3I+CiAgPC9jb250cmlidXRvcnM+CiAgPGZ1bmRpbmdSZWZlcmVuY2VzPgogICAgPGZ1bmRpbmdSZWZlcmVuY2U+CiAgICAgIDxmdW5kZXJOYW1lPkR1cmhhbSBVbml2ZXJzaXR5PC9mdW5kZXJOYW1lPgogICAgICA8ZnVuZGVySWRlbnRpZmllciBmdW5kZXJJZGVudGlmaWVyVHlwZT0iQ3Jvc3NyZWYgRnVuZGVyIElEIj5odHRwczovL2RvaS5vcmcvMTAuMTMwMzkvNTAxMTAwMDAxMzE0PC9mdW5kZXJJZGVudGlmaWVyPgogICAgPC9mdW5kaW5nUmVmZXJlbmNlPgogIDwvZnVuZGluZ1JlZmVyZW5jZXM+CiAgPHNpemVzLz4KICA8Zm9ybWF0cy8+CiAgPHZlcnNpb24vPgo8L3Jlc291cmNlPg==","should_validate":"true","source":"mds","event":"show"},"relationships":{"client":{"data":{"type":"clients","id":"datacite.test"}}}}}'
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.9.8; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Basic <MDS_TOKEN>
+      Accept-Encoding:
+      - gzip,deflate
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - '0'
+      X-Credential-Username:
+      - datacite.test
+      X-Request-Id:
+      - 59692e83-2278-4579-bd06-b6b7341c78ef
+      Etag:
+      - W/"dac1b5bc1fffd0dff62447d2033c31f6"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.257396'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 28 Oct 2024 15:48:35 GMT
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.23
+      Server:
+      - nginx/1.18.0 + Phusion Passenger(R) 6.0.23
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, PATCH, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - Accept,Access-Control-Allow-Origin,Access-Control-Expose-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Headers,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Mx-ReqToken,X-Requested-With
+      Access-Control-Expose-Headers:
+      - Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Mon, 28 Oct 2024 15:48:35 GMT
+recorded_with: VCR 3.0.3
