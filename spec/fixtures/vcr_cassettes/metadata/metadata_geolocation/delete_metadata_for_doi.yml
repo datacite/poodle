@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: http://api.stage.datacite.org/dois/10.14454/fdsrf-232
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"dois","attributes":{"event":"hide"},"relationships":{"client":{"data":{"type":"clients","id":"datacite.test"}}}}}'
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/5.0.0; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Basic <MDS_TOKEN>
+      Accept-Encoding:
+      - gzip,deflate
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - '0'
+      X-Credential-Username:
+      - datacite.test
+      X-Request-Id:
+      - a00371be-d7d0-46ad-95c5-f8bdd827ae22
+      Etag:
+      - W/"de05cf711f33e6c0cb38ff4ce31841c0"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.056895'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 22 Aug 2025 22:04:03 GMT
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.27
+      Server:
+      - nginx/1.18.0 + Phusion Passenger(R) 6.0.27
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, PATCH, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - Accept,Access-Control-Allow-Origin,Access-Control-Expose-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Headers,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Mx-ReqToken,X-Requested-With
+      Access-Control-Expose-Headers:
+      - Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Fri, 22 Aug 2025 22:04:03 GMT
+recorded_with: VCR 3.0.3

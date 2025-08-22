@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http:///api.stage.datacite.org/dois/10.14454/fdsrf-232
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/5.0.0; mailto:info@datacite.org)
+      Accept:
+      - application/vnd.datacite.datacite+xml
+      Authorization:
+      - Basic <MDS_TOKEN>
+      Accept-Encoding:
+      - gzip,deflate
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Content-Type:
+      - application/vnd.datacite.datacite+xml; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept,Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - '0'
+      X-Credential-Username:
+      - datacite.test
+      X-Request-Id:
+      - fc3ffda7-2584-4e81-86fc-2afbd2ad81d5
+      Etag:
+      - W/"9c1835b1eebbf6fc52f76005a057dad9"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.010460'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 22 Aug 2025 22:04:02 GMT
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.27
+      Server:
+      - nginx/1.18.0 + Phusion Passenger(R) 6.0.27
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, PATCH, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - Accept,Access-Control-Allow-Origin,Access-Control-Expose-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Headers,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Mx-ReqToken,X-Requested-With
+      Access-Control-Expose-Headers:
+      - Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAFLpqGgAA7xWWW/jOAx+n18h+HXH95GkcD3YttNFgV7oAWwfVZtJtONIgaQ07f76pewodlJn0T50BujA5PfxEElRyX+8LmryAlIxwY+d0AscArwUFeOzY+fx4dwdOz+Kb7kEJVayBIJ0ro5eFTt25lovj3x/vV5769gTcuZHQRD6f19d3pdzWFCXcaUpL8FprbYWFdW0ZBoaG9Vw/V8gOdRuglzFjlrlpSipbvL6gCHZcFq1t0NdgO6IjWRg71VVTvGNkJxVwDWbMpCk+3x4W8Kxc3Zz4RRh4IVJkib++dn93bkbxVHud8TGRSmBaiGVETqxlTr5mi6gOAfOQX4nV1RqxnO/j1n+jL0AbzSW1WksZ0oXrH7rucz9nsqyOAoX3fma8sDj3cW2qEKWrGrK5JBdctNGrMHN3enFmVME+M/Fv9gNk3DiRkmQ5v6uxeb0fu/4W6EpTa6ZrsFWqRGKn9hkPiNvOGBErDk5EzNyLkSV+y3eOOns8uXquWZqjtHOsIun2OTc73RbRjs7T0BlEQVhtuH0tIZp59o0m/SFvwALSutj5wFetVOc1GJ2K5RJNPf7vMYLrTUOF9W9StgjDkBkQNcOmxn4mtCyBGXuI+GrxTNIp7i6d5OJG2dx5KbBOM79AQ9tmQ5lkqvV8z9QapvWRizsNcl9q9nDBTsE2Wu0g2+FNiri22abb2L+a896aqYC8AKa5rhh5EZBbi44DNMvlFp9nP24rA47b7/Upv+1Ib7v2zuAvNN0C6LFsGOt6g6mIHGLgmpWR5rEYx83Y2QmZ8/HF0VL05+p+5CeBl8T8kLd4la6mfaP1+yG+/sDAQfUbQM2T0+BL0/uW6EZHVClZEsTdDtBnYr0vtuc/nxWWtIS7+r+Pqlwn0xxnxCmCCWqpgjiLVkQLTZunoHoOdWEcoJ7kHL2b3NYouZiVaOdVlBPyUoZGpClFNUKJxzpFVEgXxjWHkkGeMFnQXm4viSxywltMPACKFdtlDVYx8YjlleRNdNzQpfoYCmZGWV7udoYeDANM4ZRpui4FnzmNgdY4ibC+G2yCHmeh8PdVWYz7XuVzGcg7NNqS9tTdW9Qp7utaQnFNazJk5C/vpPrJ3yQ9uEhO8G4toBZzEa+REivKiji0Iti3Ga72n02nrYF3GzkxUFk+Vu9jesfCtzP6ES89iKsQekTseJVL0oYxWYWB6DODug78A9jl/sDSGeGz4aet6g9rZtgrAF9Z8SF3AezAAtn9skANlSN3qF3u1O/zbqGNxVvNHtte9e4JPKSSZxGWXqweQPtG4+8cRhlWXKogybr4Qw+ldgoHWWjTyU29tLxyPx4/cLMQi9N0yCIDs/7cGbZJExHQfylmSVZlCSfrNnIS6NREE7S35HZ5LOphUH6tWOGPyyicJT9rvln9rJ+JDVsSvTpGxBNsgCL/X+5DSext3d7K2UHad+i3aen+yld/AcAAP//AwDkFnfLiQ4AAA==
+    http_version: 
+  recorded_at: Fri, 22 Aug 2025 22:04:02 GMT
+recorded_with: VCR 3.0.3
