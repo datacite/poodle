@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http:///api.stage.datacite.org/dois/10.14454/fdsrf-232/get-url
+    uri: http://api.stage.datacite.org/dois/10.14454/fdsrf-232/get-url
     body:
       encoding: US-ASCII
       string: ''
