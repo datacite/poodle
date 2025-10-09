@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.stage.datacite.org/dois/10.14454/fdsrf-232
+    uri: https://api.stage.datacite.org/dois/10.82523/fdsrf-232
     body:
       encoding: US-ASCII
       string: ''
@@ -20,6 +20,8 @@ http_interactions:
       code: 200
       message: ''
     headers:
+      Date:
+      - Thu, 09 Oct 2025 20:31:51 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml; charset=utf-8
       Connection:
@@ -39,23 +41,21 @@ http_interactions:
       X-Xss-Protection:
       - '0'
       X-Credential-Username:
-      - datacite.test
+      - skvdmee.skv00001
       X-Request-Id:
-      - fc3ffda7-2584-4e81-86fc-2afbd2ad81d5
+      - fcef7fb3-ef3b-4855-b2f7-7fccc7230722
       Etag:
-      - W/"9c1835b1eebbf6fc52f76005a057dad9"
+      - W/"5d49b7bc699c1a8801a1db24739098e5"
       X-Frame-Options:
       - SAMEORIGIN
       X-Runtime:
-      - '0.010460'
+      - '0.018008'
       X-Content-Type-Options:
       - nosniff
-      Date:
-      - Fri, 22 Aug 2025 22:04:02 GMT
       X-Powered-By:
-      - Phusion Passenger(R) 6.0.27
+      - Phusion Passenger(R) 6.1.0
       Server:
-      - nginx/1.18.0 + Phusion Passenger(R) 6.0.27
+      - nginx/1.18.0 + Phusion Passenger(R) 6.1.0
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Methods:
@@ -67,7 +67,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        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
+        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
     http_version: 
-  recorded_at: Fri, 22 Aug 2025 22:04:02 GMT
+  recorded_at: Thu, 09 Oct 2025 20:31:51 GMT
 recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: http://api.stage.datacite.org/dois/10.14454/fdsrf-232
+    uri: https://api.stage.datacite.org/dois/10.82523/fdsrf-232
     body:
       encoding: US-ASCII
       string: ''
@@ -20,6 +20,8 @@ http_interactions:
       code: 204
       message: ''
     headers:
+      Date:
+      - Thu, 09 Oct 2025 20:31:52 GMT
       Connection:
       - keep-alive
       Status:
@@ -33,21 +35,19 @@ http_interactions:
       X-Xss-Protection:
       - '0'
       X-Credential-Username:
-      - datacite.test
+      - skvdmee.skv00001
       X-Request-Id:
-      - 6b912073-6993-4a71-b708-bae71ce6d9ca
+      - 02ef5038-6aaa-49ac-aed8-7f6cc4d58977
       X-Runtime:
-      - '0.059250'
+      - '0.178801'
       X-Frame-Options:
       - SAMEORIGIN
       X-Content-Type-Options:
       - nosniff
-      Date:
-      - Fri, 22 Aug 2025 22:04:03 GMT
       X-Powered-By:
-      - Phusion Passenger(R) 6.0.27
+      - Phusion Passenger(R) 6.1.0
       Server:
-      - nginx/1.18.0 + Phusion Passenger(R) 6.0.27
+      - nginx/1.18.0 + Phusion Passenger(R) 6.1.0
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Methods:
@@ -60,5 +60,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: ''
     http_version: 
-  recorded_at: Fri, 22 Aug 2025 22:04:03 GMT
+  recorded_at: Thu, 09 Oct 2025 20:31:52 GMT
 recorded_with: VCR 3.0.3

@@ -529,7 +529,8 @@ describe "metadata", type: :request, vcr: true, order: :defined do
   end
 
   describe "metadata geolocation", type: :request do
-    let(:doi_id) { "10.14454/fdsrf-232" }
+    # let(:doi_id) { "10.80225/fdsrf-232" }
+    let(:doi_id) { "10.82523/fdsrf-232" }
     let(:data) { file_fixture("datacite-geolocation.xml").read }
     let(:headers) { { "CONTENT_TYPE" => "application/xml;charset=UTF-8", "HTTP_AUTHORIZATION" => "Basic " + credentials } }
 
