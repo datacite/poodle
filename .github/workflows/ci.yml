@@ -6,8 +6,6 @@ on:
         required: true
       MDS_PASSWORD:
         required: true
-      CC_TEST_REPORTER_ID:
-        required: true
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -46,7 +44,3 @@ jobs:
           # bundle exec rubocop
           bundle exec rspec
           echo $?
-      - name: Publish code coverage
-        uses: paambaati/codeclimate-action@v3.1.1
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}

@@ -527,4 +527,72 @@ describe "metadata", type: :request, vcr: true, order: :defined do
     end
 
   end
+
+  describe "metadata geolocation", type: :request do
+    # let(:doi_id) { "10.80225/fdsrf-232" }
+    let(:doi_id) { "10.82523/fdsrf-232" }
+    let(:data) { file_fixture("datacite-geolocation.xml").read }
+    let(:headers) { { "CONTENT_TYPE" => "application/xml;charset=UTF-8", "HTTP_AUTHORIZATION" => "Basic " + credentials } }
+
+    it "put metadata for doi" do
+      put "/metadata/#{doi_id}", data, headers
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq("OK (#{doi_id.upcase})")
+    end
+
+    it "get doi for doi" do
+      get "/doi/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(204)
+      expect(last_response.body).to be_blank
+    end
+
+    it "get metadata for doi" do
+      get "/metadata/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(200)
+
+      metadata = Maremma.from_xml(last_response.body).fetch("resource", {})
+
+      expect(metadata.dig("titles", "title")).to eq("Eating your own Dog Food")
+      # expect(metadata.dig("geoLocations", 0, "geoLocationPolygon", "inPolygonPoint", "pointLatitude")).to eq(42.2195267)
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPlace")).to eq("New York, NY")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPoint", "pointLatitude")).to eq("31.233")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPoint", "pointLongitude")).to eq("-67.302")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationBox", "westBoundLongitude")).to eq("-123.0")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationBox", "eastBoundLongitude")).to eq("+123.")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationBox", "southBoundLatitude")).to eq("-40")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationBox", "northBoundLatitude")).to eq("60.2312")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "inPolygonPoint", "pointLatitude")).to eq("42.2195267")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "inPolygonPoint", "pointLongitude")).to eq("-88.2960624")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 0, "pointLatitude")).to eq("42.4935265")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 0, "pointLongitude")).to eq("-87.812664")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 1, "pointLatitude")).to eq("42.4975767")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 1, "pointLongitude")).to eq("-88.5872001")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 2, "pointLatitude")).to eq("41.5550023")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 2, "pointLongitude")).to eq("-88.6915703")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 3, "pointLatitude")).to eq("41.4624467")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 3, "pointLongitude")).to eq("-87.5270195")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 4, "pointLatitude")).to eq("41.46244679")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 4, "pointLongitude")).to eq("-87.51054")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 5, "pointLatitude")).to eq("42.2012176")
+      expect(metadata.dig("geoLocations", "geoLocation", "geoLocationPolygon", "polygonPoint", 5, "pointLongitude")).to eq("-87.812664")
+    end
+
+    it "delete metadata for doi" do
+      delete "/metadata/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq("OK")
+    end
+
+    it "delete doi" do
+      delete "/doi/#{doi_id}", nil, headers
+
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq("OK")
+    end
+  end
+
 end
