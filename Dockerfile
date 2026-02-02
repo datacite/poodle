@@ -1,4 +1,4 @@
-FROM phusion/passenger-full:3.0.7
+FROM phusion/passenger-full:3.1.6
 LABEL maintainer="mfenner@datacite.org"
 
 # Set correct environment variables.
@@ -12,8 +12,8 @@ RUN usermod -a -G docker_env app
 CMD ["/sbin/my_init"]
 
 # Use Ruby 3.1.4
-RUN bash -lc 'rvm install ruby-3.2.0' && \
-    bash -lc 'rvm --default use ruby-3.2.0'
+RUN bash -lc 'rvm install ruby-3.2.10' && \
+    bash -lc 'rvm --default use ruby-3.2.10'
 
 # Update installed APT packages
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \

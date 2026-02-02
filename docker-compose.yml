@@ -12,4 +12,4 @@ services:
       - ./config:/home/app/webapp/config
       - ./spec:/home/app/webapp/spec
   memcached:
-    image: memcached:1.4.31
+    image: memcached:1.6.22
