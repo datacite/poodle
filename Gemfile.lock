@@ -453,7 +453,7 @@ GEM
     unicode-display_width (1.6.1)
     unicode-types (1.11.0)
     unicode_utils (1.4.0)
-    uri (0.13.1)
+    uri (0.13.3)
     useragent (0.16.10)
     uuidtools (2.2.0)
     vcr (3.0.3)
