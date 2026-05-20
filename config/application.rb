@@ -40,7 +40,7 @@ ENV["MDS_URL"] ||= Rails.env.production? ? "https://mds.datacite.org" : "https:/
 module Poodle
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    config.load_defaults 8.1
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -53,7 +53,7 @@ module Poodle
     config.api_only = true
 
     # secret_key_base is not used by Rails API, as there are no sessions
-    config.secret_key_base = 'blipblapblup'
+    # config.secret_key_base = 'blipblapblup'
 
     # configure caching
     config.cache_store = :mem_cache_store, ENV["MEMCACHE_SERVERS"], { namespace: ENV["APPLICATION"] }
