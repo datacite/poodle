@@ -3,7 +3,7 @@ class MetadataController < ApplicationController
 
   prepend_before_action :authenticate_user_with_basic_auth!
   before_action :set_doi, only: [:destroy]
-  before_action :set_raven_context, only: [:create_metadata]
+  before_action :set_sentry_context, only: [:create]
 
   def index
     @doi = validate_doi(params[:doi_id])
@@ -93,9 +93,11 @@ class MetadataController < ApplicationController
     params.permit(:id, :doi_id, :number, "testMode").merge(data: request.raw_post)
   end
 
-  def set_raven_context
+  def set_sentry_context
     return nil if params.fetch(:data, nil).blank?
 
-    Raven.extra_context metadata: Base64.decode64(params.fetch(:data))
+    Sentry.with_scope do |scope|
+      scope.set_extras(metadata: Base64.decode64(params.fetch(:data)))
+    end
   end
 end
