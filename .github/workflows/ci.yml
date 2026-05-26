@@ -19,12 +19,12 @@ jobs:
       MDS_USERNAME: ${{ secrets.MDS_USERNAME }}
       MDS_PASSWORD: ${{ secrets.MDS_PASSWORD }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up Ruby 4.0.1
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '4.0.1'
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
