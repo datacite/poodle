@@ -6,7 +6,7 @@ gem "rails", "~> 8.1", ">= 8.1.2.1"
 gem "dotenv", "~> 3.2"
 gem "oj", "~> 3.17"
 gem "nokogiri", "~> 1.19", ">= 1.19.3"
-gem "bolognese", "~> 2.6.0"
+gem "bolognese", "~> 2.7"
 gem "maremma", ">= 5.0.0"
 gem "base32-url", "~> 0.7.0" # TODO: remove soon, it is only used in one place
 gem "dalli", "~> 5.0", ">= 5.0.2"
