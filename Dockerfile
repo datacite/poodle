@@ -1,9 +1,9 @@
-FROM phusion/passenger-full:3.1.6
+FROM phusion/passenger-ruby40:3.1.6
 LABEL maintainer="support@datacite.org"
 
 # Set correct environment variables.
-ENV HOME /home/app
-ENV DOCKERIZE_VERSION v0.6.0
+ENV HOME=/home/app
+ENV DOCKERIZE_VERSION=v0.6.0
 
 # Allow app user to read /etc/container_environment
 RUN usermod -a -G docker_env app
@@ -11,9 +11,9 @@ RUN usermod -a -G docker_env app
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
 
-# Use Ruby 3.1.4
-RUN bash -lc 'rvm install ruby-3.2.10' && \
-    bash -lc 'rvm --default use ruby-3.2.10'
+# Use Ruby 4.0.1
+RUN bash -lc 'rvm install ruby-4.0.1' && \
+    bash -lc 'rvm --default use ruby-4.0.1'
 
 # Update installed APT packages
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
@@ -46,7 +46,7 @@ RUN mkdir -p /home/app/webapp/vendor/bundle && \
 # Install Ruby gems
 WORKDIR /home/app/webapp
 RUN gem install rubygems-update -v 3.5.6 && \
-    gem install bundler:2.5.6 && \
+    gem install bundler:2.5.23 && \
     su - app -c "bundle config set path 'vendor/bundle'" && \
     su - app -c 'cd /home/app/webapp && bundle install'
 

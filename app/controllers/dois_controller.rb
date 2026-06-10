@@ -3,7 +3,7 @@ class DoisController < ApplicationController
 
   prepend_before_action :authenticate_user_with_basic_auth!
   before_action :set_doi, only: %i(show destroy)
-  before_action :set_raven_context, only: %i(update)
+  before_action :set_sentry_context, only: %i(update)
 
   def index
     response = DoisController.get_dois(username: username, password: password)
@@ -104,9 +104,11 @@ class DoisController < ApplicationController
     params.permit(:id, :doi, :url, "testMode").merge(data: request.raw_post)
   end
 
-  def set_raven_context
+  def set_sentry_context
     return nil if params.fetch(:data, nil).blank?
 
-    Raven.extra_context metadata: Base64.decode64(params.fetch(:data))
+    Sentry.with_scope do |scope|
+      scope.set_extras(metadata: Base64.decode64(params.fetch(:data)))
+    end
   end
 end

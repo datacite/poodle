@@ -1,5 +1,6 @@
-Raven.configure do |config|
+Sentry.init do |config|
   config.dsn = ENV["SENTRY_DSN"]
   config.release = "poodle:" + Poodle::Application::VERSION
-  config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
+  config.environment = Rails.env
+  config.send_default_pii = true
 end

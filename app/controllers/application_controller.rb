@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
 
   attr_accessor :username, :password
 
-  before_action :set_raven_context
+  before_action :set_sentry_context
   after_action :set_consumer_header
 
   # check that username and password exist
@@ -53,7 +53,7 @@ class ApplicationController < ActionController::API
         message = "Not Implemented"
       else
         # send error to sentry unless it is an identifier error
-        Raven.capture_exception(exception) unless exception.class.to_s == "IdentifierError"
+        Sentry.capture_exception(exception) unless exception.class.to_s == "IdentifierError"
 
         message = exception.message
       end
@@ -70,14 +70,14 @@ class ApplicationController < ActionController::API
     payload[:data] = Base64.strict_encode64(request.raw_post) if request.raw_post.present?
   end
 
-  def set_raven_context
+  def set_sentry_context
     if username.present?
-      Raven.user_context(
+      Sentry.set_user(
         id: username.downcase,
         ip_address: request.ip,
       )
     else
-      Raven.user_context(
+      Sentry.set_user(
         ip_address: request.ip,
       )
     end
