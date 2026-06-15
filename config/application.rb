@@ -53,7 +53,7 @@ module Poodle
     config.api_only = true
 
     # secret_key_base is not used by Rails API, as there are no sessions
-    # config.secret_key_base = 'blipblapblup'
+    config.secret_key_base = 'blipblapblup'
 
     # configure caching
     config.cache_store = :mem_cache_store, ENV["MEMCACHE_SERVERS"], { namespace: ENV["APPLICATION"] }
