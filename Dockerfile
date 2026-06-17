@@ -51,6 +51,9 @@ RUN gem install rubygems-update -v 3.5.6 && \
 RUN rm -f /etc/service/sshd/down && \
     /etc/my_init.d/00_regen_ssh_host_keys.sh
 
+# Run additional scripts during container startup (i.e. not at build time)
+RUN mkdir -p /etc/my_init.d
+
 # install custom ssh key during startup
 COPY vendor/docker/10_ssh.sh /etc/my_init.d/10_ssh.sh
 
