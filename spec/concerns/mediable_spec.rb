@@ -10,6 +10,19 @@ describe Mediable, vcr: true, order: :defined do
 
   subject { MediaController }
 
+  context "bearer auth" do
+    it "forwards bearer token to API" do
+      url = "#{ENV['API_URL']}/dois/#{doi}/media"
+      stub = stub_request(:get, url)
+        .with(headers: { "Authorization" => "Bearer test-api-key" })
+        .to_return(status: 200, body: { data: [] }.to_json, headers: { "Content-Type" => "application/json" })
+
+      response = subject.list_media(doi, bearer: "test-api-key")
+      expect(response.status).to eq(200)
+      expect(stub).to have_been_requested
+    end
+  end
+
   context "create_media" do
     it "should register" do
       options = { data: data, username: username, password: password }

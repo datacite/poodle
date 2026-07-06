@@ -1,7 +1,7 @@
 class MetadataController < ApplicationController
   include Metadatable
 
-  prepend_before_action :authenticate_user_with_basic_auth!
+  prepend_before_action :authenticate_request!
   before_action :set_doi, only: [:destroy]
   before_action :set_raven_context, only: [:create_metadata]
 
@@ -9,7 +9,7 @@ class MetadataController < ApplicationController
     @doi = validate_doi(params[:doi_id])
     fail AbstractController::ActionNotFound unless @doi.present?
 
-    response = MetadataController.get_metadata(@doi, username: username, password: password)
+    response = MetadataController.get_metadata(@doi, **forward_auth_options)
 
     if response.status == 200
       render xml: response.body["data"], status: :ok
@@ -47,7 +47,7 @@ class MetadataController < ApplicationController
       return
     end
 
-    response = MetadataController.create_metadata(@doi, data: safe_params[:data], username: username, password: password)
+    response = MetadataController.create_metadata(@doi, data: safe_params[:data], **forward_auth_options)
 
     if [200, 201].include?(response.status)
       render plain: "OK (" + response.body.dig("data", "id").upcase + ")", status: :created, location: ENV["MDS_URL"] + "/metadata/" + @doi
@@ -64,7 +64,7 @@ class MetadataController < ApplicationController
   end
 
   def destroy
-    response = MetadataController.delete_metadata(@doi, username: username, password: password)
+    response = MetadataController.delete_metadata(@doi, **forward_auth_options)
 
     if response.status == 200
       render plain: "OK", status: :ok

@@ -1,12 +1,12 @@
 class MediaController < ApplicationController
   include Mediable
 
-  prepend_before_action :authenticate_user_with_basic_auth!
+  prepend_before_action :authenticate_request!
   before_action :set_doi
   before_action :set_media, only: [:show, :destroy]
 
   def index
-    response = MediaController.list_media(@doi, username: username, password: password)
+    response = MediaController.list_media(@doi, **forward_auth_options)
 
     if response.status == 200 && response.body["data"].present?
       render plain: response.body["data"], status: :ok
@@ -27,7 +27,7 @@ class MediaController < ApplicationController
   end
 
   def show
-    response = MediaController.get_media(@doi, @id, username: username, password: password)
+    response = MediaController.get_media(@doi, @id, **forward_auth_options)
 
     if response.status == 200
       render plain: response.body["data"], status: :ok
@@ -46,7 +46,7 @@ class MediaController < ApplicationController
   end
 
   def create
-    response = MediaController.create_media(@doi, data: safe_params[:data], username: username, password: password)
+    response = MediaController.create_media(@doi, data: safe_params[:data], **forward_auth_options)
 
     if [200, 201].include?(response.status)
       render plain: "OK", status: :ok
@@ -65,7 +65,7 @@ class MediaController < ApplicationController
   end
 
   def destroy
-    response = MediaController.delete_media(@doi, @id, username: username, password: password)
+    response = MediaController.delete_media(@doi, @id, **forward_auth_options)
 
     if response.status == 204
       render plain: "OK", status: :ok

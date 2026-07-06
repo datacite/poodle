@@ -14,6 +14,21 @@ describe Metadatable, vcr: true, order: :defined do
   let(:doiv3a) { "10.14454/0000-0003" }
   let(:doiv4a) { "10.14454/0000-0003" }
   
+  context "bearer auth" do
+    subject { MetadataController }
+
+    it "forwards bearer token to API" do
+      url = "#{ENV['API_URL']}/dois/#{doi}"
+      stub = stub_request(:get, url)
+        .with(headers: { "Authorization" => "Bearer test-api-key" })
+        .to_return(status: 404, body: { errors: [{ title: "Not found" }] }.to_json, headers: { "Content-Type" => "application/json" })
+
+      response = subject.get_metadata(doi, bearer: "test-api-key")
+      expect(response.status).to eq(404)
+      expect(stub).to have_been_requested
+    end
+  end
+
   context "versions" do
     subject { MetadataController }
 

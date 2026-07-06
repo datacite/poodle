@@ -1,57 +1,59 @@
 module Mediable
   extend ActiveSupport::Concern
+  include ApiAuthenticatable
 
   module ClassMethods
     def create_media(doi, options={})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Media type and URL missing" }] }) unless options[:data].present?
+      with_maremma_auth(options) do |auth|
+        return OpenStruct.new(body: { "errors" => [{ "title" => "Media type and URL missing" }] }) unless options[:data].present?
       
-      media_type, url = options[:data].split("=")
+        media_type, url = options[:data].split("=")
 
-      data = {
-        "data" => {
-          "type" => "media",
-          "attributes"=> {
+        data = {
+          "data" => {
+            "type" => "media",
+            "attributes"=> {
         	  "mediaType" => media_type,
-            "url" => url
+              "url" => url
+            }
           }
         }
-      }
 
-      url = "#{ENV['API_URL']}/dois/#{doi}/media"
-      Maremma.post(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password])
+        url = "#{ENV['API_URL']}/dois/#{doi}/media"
+        Maremma.post(url, content_type: 'application/vnd.api+json', data: data.to_json, **auth)
+      end
     end
 
     def list_media(doi, options={})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
-
-      url = "#{ENV['API_URL']}/dois/#{doi}/media"
-      response = Maremma.get(url, content_type: 'application/vnd.api+json', username: options[:username], password: options[:password])
-      return response unless response.body["data"].present?
+      with_maremma_auth(options) do |auth|
+        url = "#{ENV['API_URL']}/dois/#{doi}/media"
+        response = Maremma.get(url, content_type: 'application/vnd.api+json', **auth)
+        return response unless response.body["data"].present?
       
-      response.body["data"] = Array.wrap(response.body["data"]).map do |m|
-        "#{m.dig("attributes", "mediaType").to_s}=#{m.dig("attributes", "url").to_s}"
-      end.join("\n")
-      response
+        response.body["data"] = Array.wrap(response.body["data"]).map do |m|
+          "#{m.dig("attributes", "mediaType").to_s}=#{m.dig("attributes", "url").to_s}"
+        end.join("\n")
+        response
+      end
     end
 
     def get_media(doi, id, options={})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
+      with_maremma_auth(options) do |auth|
+        url = "#{ENV['API_URL']}/dois/#{doi}/media/#{id}"
+        response = Maremma.get(url, content_type: 'application/vnd.api+json', **auth)
+        return response unless response.body["data"].present?
 
-      url = "#{ENV['API_URL']}/dois/#{doi}/media/#{id}"
-      response = Maremma.get(url, content_type: 'application/vnd.api+json', username: options[:username], password: options[:password])
-      return response unless response.body["data"].present?
-
-      m = response.body["data"]
-      response.body["data"] = "#{m.dig("attributes", "mediaType").to_s}=#{m.dig("attributes", "url").to_s}"
-      response
+        m = response.body["data"]
+        response.body["data"] = "#{m.dig("attributes", "mediaType").to_s}=#{m.dig("attributes", "url").to_s}"
+        response
+      end
     end
 
     def delete_media(doi, id, options={})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
-
-      url = "#{ENV['API_URL']}/dois/#{doi}/media/#{id}"
-      response = Maremma.delete(url, content_type: 'application/vnd.api+json', username: options[:username], password: options[:password])
+      with_maremma_auth(options) do |auth|
+        url = "#{ENV['API_URL']}/dois/#{doi}/media/#{id}"
+        Maremma.delete(url, content_type: 'application/vnd.api+json', **auth)
+      end
     end
   end
 end

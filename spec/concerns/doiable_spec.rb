@@ -9,6 +9,19 @@ describe Doiable, vcr: true, order: :defined do
 
   subject { DoisController }
 
+  context "bearer auth" do
+    it "forwards bearer token to API" do
+      url = "#{ENV['API_URL']}/dois/#{doi}/get-url"
+      stub = stub_request(:get, url)
+        .with(headers: { "Authorization" => "Bearer test-api-key" })
+        .to_return(status: 404, body: { errors: [{ title: "Not found" }] }.to_json, headers: { "Content-Type" => "application/json" })
+
+      response = subject.get_doi(doi, bearer: "test-api-key")
+      expect(response.status).to eq(404)
+      expect(stub).to have_been_requested
+    end
+  end
+
   context "put_doi" do
     # it "should register" do
     #   options = { url: url, username: username, password: password }
@@ -26,7 +39,7 @@ describe Doiable, vcr: true, order: :defined do
 
     it "no password" do
       options = { username: username, password: nil }
-      expect(subject.put_doi(doi, options).body.dig("errors")).to eq([{"title"=>"Username or password missing"}])
+      expect(subject.put_doi(doi, options).body.dig("errors")).to eq([{"title"=>"Authentication credentials missing"}])
     end
   end
 
@@ -47,7 +60,7 @@ describe Doiable, vcr: true, order: :defined do
 
     it "no password" do
       options = { username: username, password: nil }
-      expect(subject.get_dois(options).body.dig("errors")).to eq([{"title"=>"Username or password missing"}])
+      expect(subject.get_dois(options).body.dig("errors")).to eq([{"title"=>"Authentication credentials missing"}])
     end
   end
 
@@ -76,7 +89,7 @@ describe Doiable, vcr: true, order: :defined do
 
     it "no password" do
       options = { username: username, password: nil }
-      expect(subject.delete_doi(doi, options).body.dig("errors")).to eq([{"title"=>"Username or password missing"}])
+      expect(subject.delete_doi(doi, options).body.dig("errors")).to eq([{"title"=>"Authentication credentials missing"}])
     end
   end
 

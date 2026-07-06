@@ -1,20 +1,25 @@
 class ApplicationController < ActionController::API
   include ActionController::HttpAuthentication::Basic::ControllerMethods
+  include ApiAuthenticatable
 
   include Bolognese::DoiUtils
   include Bolognese::Utils
 
-  attr_accessor :username, :password
+  attr_accessor :username, :password, :bearer
 
   before_action :set_raven_context
   after_action :set_consumer_header
 
-  # check that username and password exist
-  # store them in instance variables used for calling MDS API
-  def authenticate_user_with_basic_auth!
-    @username, @password = ActionController::HttpAuthentication::Basic::user_name_and_password(request)
+  # check that Basic or Bearer credentials exist
+  # store them in instance variables used for calling DataCite API
+  def authenticate_request!
+    @bearer = bearer_token_from_request
+    return if @bearer.present?
 
-    request_http_basic_authentication(ENV["REALM"], "An Authentication object was not found in the SecurityContext") if @username.blank? || @password.blank?
+    @username, @password = basic_credentials_from_request
+    return if @username.present? && @password.present?
+
+    request_http_basic_authentication(ENV["REALM"], "An Authentication object was not found in the SecurityContext")
   end
 
   def set_consumer_header
@@ -42,7 +47,7 @@ class ApplicationController < ActionController::API
                end
 
       if status == 401
-        response.headers["WWW-Authenticate"] = "Basic realm=\"#{ENV['REALM']}\""
+        response.headers["WWW-Authenticate"] = "Basic realm=\"#{ENV['REALM']}\", Bearer realm=\"#{ENV['REALM']}\""
         response.headers.delete_if { |key| key == "X-Credential-Username" }
         message = "Bad credentials"
       elsif status == 403
@@ -81,5 +86,24 @@ class ApplicationController < ActionController::API
         ip_address: request.ip,
       )
     end
+  end
+
+  private
+
+  def bearer_token_from_request
+    auth_header = request.authorization.to_s
+    return nil unless auth_header.match?(/\ABearer\s+/i)
+
+    auth_header.sub(/\ABearer\s+/i, "").strip.presence
+  end
+
+  def basic_credentials_from_request
+    auth_header = request.authorization.to_s
+    return ActionController::HttpAuthentication::Basic::user_name_and_password(request) unless auth_header.match?(/\ABasic\s+/i)
+    return ActionController::HttpAuthentication::Basic::user_name_and_password(request) if auth_header.start_with?("Basic ")
+
+    raw_credentials = auth_header.sub(/\ABasic\s+/i, "").strip
+    decoded = Base64.decode64(raw_credentials)
+    decoded.split(":", 2)
   end
 end

@@ -1,5 +1,6 @@
 module Metadatable
   extend ActiveSupport::Concern
+  include ApiAuthenticatable
 
   require "bolognese"
   require "securerandom"
@@ -98,70 +99,58 @@ module Metadatable
     include Bolognese::DoiUtils
 
     def get_metadata(doi, options = {})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
-
-      url = "#{ENV['API_URL']}/dois/#{doi}"
-      Maremma.get(url, accept: "application/vnd.datacite.datacite+xml", username: options[:username], password: options[:password], raw: true)
+      with_maremma_auth(options) do |auth|
+        url = "#{ENV['API_URL']}/dois/#{doi}"
+        Maremma.get(url, accept: "application/vnd.datacite.datacite+xml", raw: true, **auth)
+      end
     end
 
     def create_metadata(doi, options = {})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
+      with_maremma_auth(options) do |auth|
+        xml = options[:data].present? ? ::Base64.strict_encode64(options[:data]) : nil
 
-      xml = options[:data].present? ? ::Base64.strict_encode64(options[:data]) : nil
+        attributes = {
+          "doi" => doi,
+          "xml" => xml,
+          "should_validate" => "true",
+          "source" => "mds",
+          "event" => "show",
+        }.compact
 
-      attributes = {
-        "doi" => doi,
-        "xml" => xml,
-        "should_validate" => "true",
-        "source" => "mds",
-        "event" => "show",
-      }.compact
-
-      relationships = {
-        "client" => {
+        data = {
           "data" => {
-            "type" => "clients",
-            "id" => options[:username],
+            "type" => "dois",
+            "attributes" => attributes,
           },
-        },
-      }
+        }
 
-      data = {
-        "data" => {
-          "type" => "dois",
-          "attributes" => attributes,
-          "relationships" => relationships,
-        },
-      }
+        relationships = client_relationship(auth)
+        data["data"]["relationships"] = relationships if relationships
 
-      url = "#{ENV['API_URL']}/dois/#{doi}"
-      Maremma.put(url, content_type: "application/vnd.api+json", data: data.to_json, username: options[:username], password: options[:password])
+        url = "#{ENV['API_URL']}/dois/#{doi}"
+        Maremma.put(url, content_type: "application/vnd.api+json", data: data.to_json, **auth)
+      end
     end
 
     def delete_metadata(doi, options = {})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
+      with_maremma_auth(options) do |auth|
+        attributes = {
+          "event" => "hide",
+        }
 
-      attributes = {
-        "event" => "hide",
-      }
-
-      data = {
-        "data" => {
-          "type" => "dois",
-          "attributes" => attributes,
-          "relationships" => {
-            "client" => {
-              "data" => {
-                "type" => "clients",
-                "id" => options[:username],
-              },
-            },
+        data = {
+          "data" => {
+            "type" => "dois",
+            "attributes" => attributes,
           },
-        },
-      }
+        }
 
-      url = "#{ENV['API_URL']}/dois/#{doi}"
-      Maremma.patch(url, content_type: "application/vnd.api+json", data: data.to_json, username: options[:username], password: options[:password])
+        relationships = client_relationship(auth)
+        data["data"]["relationships"] = relationships if relationships
+
+        url = "#{ENV['API_URL']}/dois/#{doi}"
+        Maremma.patch(url, content_type: "application/vnd.api+json", data: data.to_json, **auth)
+      end
     end
   end
 end

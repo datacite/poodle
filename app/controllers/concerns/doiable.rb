@@ -1,5 +1,6 @@
 module Doiable
   extend ActiveSupport::Concern
+  include ApiAuthenticatable
 
   included do
     def extract_url(doi: nil, data: nil)
@@ -22,56 +23,51 @@ module Doiable
   end
 
   module ClassMethods
-
     require "uri"
 
     def put_doi(doi, options={})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Not a valid HTTP(S) or FTP URL" }] }) unless /\A(http|https|ftp):\/\/[\S]+/.match(options[:url])
+      with_maremma_auth(options) do |auth|
+        return OpenStruct.new(body: { "errors" => [{ "title" => "Not a valid HTTP(S) or FTP URL" }] }) unless /\A(http|https|ftp):\/\/[\S]+/.match(options[:url])
       
-      data = {
-        "data" => {
-          "type" => "dois",
-          "attributes"=> {
-            "url" => options[:url],
-            "should_validate" => "true",
-            "source" => "mds",
-            "event" => "publish"
-          },
-          "relationships"=> {
-            "client"=>  {
-              "data"=> {
-                "type"=> "clients",
-                "id"=> options[:username]
-              }
+        data = {
+          "data" => {
+            "type" => "dois",
+            "attributes"=> {
+              "url" => options[:url],
+              "should_validate" => "true",
+              "source" => "mds",
+              "event" => "publish"
             }
           }
         }
-      }
 
-      url = "#{ENV['API_URL']}/dois/#{doi}"
-      Maremma.put(url, content_type: 'application/vnd.api+json', data: data.to_json, username: options[:username], password: options[:password])
+        relationships = client_relationship(auth)
+        data["data"]["relationships"] = relationships if relationships
+
+        url = "#{ENV['API_URL']}/dois/#{doi}"
+        Maremma.put(url, content_type: 'application/vnd.api+json', data: data.to_json, **auth)
+      end
     end
 
     def get_doi(doi, options={})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
-
-      url = "#{ENV['API_URL']}/dois/#{doi}/get-url"
-      Maremma.get(url, username: options[:username], password: options[:password])
+      with_maremma_auth(options) do |auth|
+        url = "#{ENV['API_URL']}/dois/#{doi}/get-url"
+        Maremma.get(url, **auth)
+      end
     end
 
     def delete_doi(doi, options={})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
-
-      url = "#{ENV['API_URL']}/dois/#{doi}"
-      Maremma.delete(url, username: options[:username], password: options[:password])
+      with_maremma_auth(options) do |auth|
+        url = "#{ENV['API_URL']}/dois/#{doi}"
+        Maremma.delete(url, **auth)
+      end
     end
 
     def get_dois(options={})
-      return OpenStruct.new(body: { "errors" => [{ "title" => "Username or password missing" }] }) unless options[:username].present? && options[:password].present?
-
-      url = "#{ENV['API_URL']}/dois/get-dois"
-      Maremma.get(url, username: options[:username], password: options[:password])
+      with_maremma_auth(options) do |auth|
+        url = "#{ENV['API_URL']}/dois/get-dois"
+        Maremma.get(url, **auth)
+      end
     end
   end
 end

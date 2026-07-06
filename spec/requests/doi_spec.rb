@@ -3,6 +3,7 @@ require "rails_helper"
 describe "dois", type: :request, vcr: true do
   let(:credentials) { ::Base64.strict_encode64("#{ENV["MDS_USERNAME"]}:#{ENV["MDS_PASSWORD"]}") }
   let(:headers) { {"HTTP_AUTHORIZATION" => "Basic " + credentials } }
+  let(:bearer_headers) { { "HTTP_AUTHORIZATION" => "Bearer test-api-key" } }
 
   describe "authentication", type: :request do
     let(:doi) { "10.14454/05MB-Q396" }
@@ -21,6 +22,13 @@ describe "dois", type: :request, vcr: true do
 
       #expect(last_response.status).to eq(401)
       expect(last_response.body).to eq("Bad credentials")
+    end
+
+    it "accepts bearer token auth" do
+      get "/doi/xxx", nil, bearer_headers
+
+      expect(last_response.status).to eq(404)
+      expect(last_response.body).to eq("DOI not found")
     end
   end
 

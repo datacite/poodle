@@ -2,6 +2,16 @@ require "rails_helper"
 
 describe "metadata", type: :request, vcr: true, order: :defined do
   let(:credentials) { ::Base64.strict_encode64("#{ENV["MDS_USERNAME"]}:#{ENV["MDS_PASSWORD"]}") }
+  let(:bearer_headers) { { "ACCEPT" => "application/xml;charset=UTF-8", "HTTP_AUTHORIZATION" => "Bearer test-api-key" } }
+
+  describe "authentication", type: :request do
+    it "accepts bearer token auth" do
+      get "/metadata/xxx", nil, bearer_headers
+
+      expect(last_response.status).to eq(404)
+      expect(last_response.body).to eq("DOI not found")
+    end
+  end
 
   describe "/metadata/10.0144/DUMMY.V0I1.45", type: :request do
     let(:doi_id) { "10.0144/DUMMY.V0I1.45" }

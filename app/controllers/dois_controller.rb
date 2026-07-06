@@ -1,12 +1,12 @@
 class DoisController < ApplicationController
   include Doiable
 
-  prepend_before_action :authenticate_user_with_basic_auth!
+  prepend_before_action :authenticate_request!
   before_action :set_doi, only: %i(show destroy)
   before_action :set_raven_context, only: %i(update)
 
   def index
-    response = DoisController.get_dois(username: username, password: password)
+    response = DoisController.get_dois(**forward_auth_options)
 
     if response.status == 200
       render plain: response.body.dig("data", "dois").join("\n"), status: :ok
@@ -25,7 +25,7 @@ class DoisController < ApplicationController
   end
 
   def show
-    response = DoisController.get_doi(@doi, username: username, password: password)
+    response = DoisController.get_doi(@doi, **forward_auth_options)
 
     if response.status == 200
       render plain: response.body.dig("data", "url"), status: :ok
@@ -55,7 +55,7 @@ class DoisController < ApplicationController
       return head :bad_request
     end
 
-    response = DoisController.put_doi(doi, url: url, username: username, password: password)
+    response = DoisController.put_doi(doi, url: url, **forward_auth_options)
     if [200, 201].include?(response.status)
       render plain: "OK", status: :created
     elsif response.status == 401
@@ -73,7 +73,7 @@ class DoisController < ApplicationController
   end
 
   def destroy
-    response = DoisController.delete_doi(@doi, username: username, password: password)
+    response = DoisController.delete_doi(@doi, **forward_auth_options)
 
     if response.status == 204
       render plain: "OK", status: :ok
