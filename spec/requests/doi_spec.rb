@@ -4,6 +4,8 @@ describe "dois", type: :request, vcr: true do
   let(:credentials) { ::Base64.strict_encode64("#{ENV["MDS_USERNAME"]}:#{ENV["MDS_PASSWORD"]}") }
   let(:headers) { {"HTTP_AUTHORIZATION" => "Basic " + credentials } }
   let(:bearer_headers) { { "HTTP_AUTHORIZATION" => "Bearer test-api-key" } }
+  let(:api_key) { "DC.frSFkVLbXUY5hygoWay5R51cWvEMODw3" }
+  let(:api_key_basic_headers) { { "HTTP_AUTHORIZATION" => "Basic " + ::Base64.strict_encode64("#{api_key}:") } }
 
   describe "authentication", type: :request do
     let(:doi) { "10.14454/05MB-Q396" }
@@ -26,6 +28,13 @@ describe "dois", type: :request, vcr: true do
 
     it "accepts bearer token auth" do
       get "/doi/xxx", nil, bearer_headers
+
+      expect(last_response.status).to eq(404)
+      expect(last_response.body).to eq("DOI not found")
+    end
+
+    it "accepts api key as basic username" do
+      get "/doi/xxx", nil, api_key_basic_headers
 
       expect(last_response.status).to eq(404)
       expect(last_response.body).to eq("DOI not found")

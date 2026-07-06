@@ -3,10 +3,19 @@ require "rails_helper"
 describe "media", type: :request, vcr: true, order: :defined do
   let(:credentials) { ::Base64.strict_encode64("#{ENV["MDS_USERNAME"]}:#{ENV["MDS_PASSWORD"]}") }
   let(:bearer_headers) { { "CONTENT_TYPE" => "text/plain;charset=UTF-8", "HTTP_AUTHORIZATION" => "Bearer test-api-key" } }
+  let(:api_key) { "DC.frSFkVLbXUY5hygoWay5R51cWvEMODw3" }
+  let(:api_key_basic_headers) { { "CONTENT_TYPE" => "text/plain;charset=UTF-8", "HTTP_AUTHORIZATION" => "Basic " + ::Base64.strict_encode64("#{api_key}:") } }
 
   describe "authentication", type: :request do
     it "accepts bearer token auth" do
       get "/media/xxx", nil, bearer_headers
+
+      expect(last_response.status).to eq(404)
+      expect(last_response.body).to eq("DOI not found")
+    end
+
+    it "accepts api key as basic username" do
+      get "/media/xxx", nil, api_key_basic_headers
 
       expect(last_response.status).to eq(404)
       expect(last_response.body).to eq("DOI not found")

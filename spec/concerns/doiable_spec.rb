@@ -9,6 +9,22 @@ describe Doiable, vcr: true, order: :defined do
 
   subject { DoisController }
 
+  context "api key auth" do
+    let(:api_key) { "DC.frSFkVLbXUY5hygoWay5R51cWvEMODw3" }
+
+    it "forwards api key as basic username to API" do
+      basic = ::Base64.strict_encode64("#{api_key}:")
+      url = "#{ENV['API_URL']}/dois/#{doi}/get-url"
+      stub = stub_request(:get, url)
+        .with(headers: { "Authorization" => "Basic #{basic}" })
+        .to_return(status: 404, body: { errors: [{ title: "Not found" }] }.to_json, headers: { "Content-Type" => "application/json" })
+
+      response = subject.get_doi(doi, username: api_key, password: nil)
+      expect(response.status).to eq(404)
+      expect(stub).to have_been_requested
+    end
+  end
+
   context "bearer auth" do
     it "forwards bearer token to API" do
       url = "#{ENV['API_URL']}/dois/#{doi}/get-url"

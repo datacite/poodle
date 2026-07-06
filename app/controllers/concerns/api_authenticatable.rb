@@ -2,9 +2,18 @@ module ApiAuthenticatable
   extend ActiveSupport::Concern
 
   class_methods do
+    def api_key_username?(username)
+      username.present? && username.length > 20 && username.match?(/\ADC\./i)
+    end
+
     def maremma_auth(options = {})
       return { bearer: options[:bearer] } if options[:bearer].present?
-      return { username: options[:username], password: options[:password] } if options[:username].present? && options[:password].present?
+
+      username = options[:username]
+      password = options[:password]
+      if username.present? && (password.present? || api_key_username?(username))
+        return { username: username, password: password.to_s }
+      end
 
       nil
     end
@@ -22,6 +31,7 @@ module ApiAuthenticatable
 
     def client_relationship(auth)
       return nil unless auth.key?(:username)
+      return nil if api_key_username?(auth[:username])
 
       {
         "client" => {

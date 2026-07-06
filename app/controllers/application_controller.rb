@@ -17,7 +17,7 @@ class ApplicationController < ActionController::API
     return if @bearer.present?
 
     @username, @password = basic_credentials_from_request
-    return if @username.present? && @password.present?
+    return if @username.present? && (@password.present? || self.class.api_key_username?(@username))
 
     request_http_basic_authentication(ENV["REALM"], "An Authentication object was not found in the SecurityContext")
   end
