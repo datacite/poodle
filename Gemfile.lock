@@ -149,7 +149,7 @@ GEM
     connection_pool (2.4.1)
     crack (0.4.5)
       rexml
-    crass (1.0.6)
+    crass (1.0.7)
     csl (1.6.0)
       namae (~> 1.0)
       rexml
@@ -242,7 +242,7 @@ GEM
     logstash-event (1.2.02)
     logstash-logger (0.26.1)
       logstash-event (~> 1.2)
-    loofah (2.22.0)
+    loofah (2.25.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -310,7 +310,7 @@ GEM
     psych (5.1.2)
       stringio
     public_suffix (2.0.5)
-    racc (1.7.3)
+    racc (1.8.1)
     rack (2.2.8)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
