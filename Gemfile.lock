@@ -292,7 +292,9 @@ GEM
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     observer (0.1.2)
-    oj (3.11.8)
+    oj (3.17.3)
+      bigdecimal (>= 3.0)
+      ostruct (>= 0.2)
     oj_mimic_json (1.0.1)
     open-uri (0.5.0)
       stringio
