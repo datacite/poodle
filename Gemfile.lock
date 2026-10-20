@@ -149,7 +149,7 @@ GEM
     connection_pool (2.4.1)
     crack (0.4.5)
       rexml
-    crass (1.0.6)
+    crass (1.0.7)
     csl (1.6.0)
       namae (~> 1.0)
       rexml
