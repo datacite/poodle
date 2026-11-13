@@ -268,7 +268,7 @@ GEM
     matrix (0.4.3)
     mini_mime (1.0.3)
     minitest (5.14.4)
-    msgpack (1.4.5)
+    msgpack (1.8.7)
     multi_json (1.19.1)
     multipart-post (2.4.1)
     namae (1.2.0)
